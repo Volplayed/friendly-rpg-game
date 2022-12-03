@@ -168,7 +168,14 @@ public class PlayerStats : MonoBehaviour
 
         bonus_moves -= bonus;
 
-    } 
+    }
+
+    //give exp
+
+    public void give_exp(int value) {
+        exp += value;
+        checkExp();
+    }
     
     //set player turn
     public void setHasTurn(bool what) {
@@ -205,6 +212,40 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+
+    //fight functions
+    public void damage(int value) {
+        int reduced_damage = value * (100 - armor * 10);
+        if (reduced_damage <= 0) {
+            reduced_damage = 1;
+        }
+        health -= reduced_damage;
+    }
+
+    public void heal() {
+        int max_health = strength * 2 + bonus_health;
+        int heal = max_health * intelligence / 100;
+        if (max_health - health >= heal) {
+            health += heal;
+        }
+        else {
+            health = max_health;
+        }
+    }
+
+    //vs enemy
+    public void attack(Enemy enemy) {
+        int value = damage;
+        if (Random.Range(0f, 1) <= crit_chance) {
+            value *= 1.7;
+        }
+        enemy.damage(value);
+    }
+    
+    
+    //vs player
+    
+    
 
     
 
