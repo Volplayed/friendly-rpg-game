@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "Enemy", order = 0)]
 public class Enemy : ScriptableObject {
@@ -8,7 +9,7 @@ public class Enemy : ScriptableObject {
 
     public int level;
     //stats
-    public int max_health
+    public int max_health;
     private int health;
     public int damage;
     public double armor;
@@ -19,32 +20,39 @@ public class Enemy : ScriptableObject {
     public void attack(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
         int value = damage;
-        if (Random.Range(0f, 1) <= crit_chance) {
-            value *= 1.7;
+        if (UnityEngine.Random.Range(0f, 1) <= crit_chance) {
+            value = Convert.ToInt32(value * 1.7);
         }
-        stats.damage(value);
+        stats.damageSelf(value);
     }
 
-    public void heal() {
-        int value = max_health*0.1;
+    public int heal() {
+        int value = System.Convert.ToInt32(max_health*0.1);
         health += value;
-    }
 
-    public void damage(int value) {
-        int reduced_damage = value * (100 - armor * 10);
+        return value;
+    }
+    //damage recieved
+    public int damageSelf(int value) {
+        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * 10));
         if (reduced_damage <= 0) {
             reduced_damage = 1;
         }
         health -= reduced_damage;
+
+        return reduced_damage;
     }
-    public void check_death() {
+
+    //enemy death
+    public void check_death(GameObject player) {
         if (health <= 0) {
-            die();
+            die(player);
         }
     }
 
     private void die(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
-        stats.give_exp(level*2 + Random.Range(0, 3));
+        //give exp to player based on level and some additional random value
+        stats.give_exp(level*2 + UnityEngine.Random.Range(0, 3));
     }
 }

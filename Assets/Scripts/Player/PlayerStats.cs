@@ -53,6 +53,7 @@ public class PlayerStats : MonoBehaviour
         needed_exp = level * exp_multiplayer;
     }
 
+    //get functions
     public int get_health() {
         return health;
     }
@@ -171,7 +172,6 @@ public class PlayerStats : MonoBehaviour
     }
 
     //give exp
-
     public void give_exp(int value) {
         exp += value;
         checkExp();
@@ -214,15 +214,19 @@ public class PlayerStats : MonoBehaviour
 
 
     //fight functions
-    public void damage(int value) {
-        int reduced_damage = value * (100 - armor * 10);
+    public int damageSelf(int value) {
+        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * 10));
         if (reduced_damage <= 0) {
             reduced_damage = 1;
         }
         health -= reduced_damage;
+
+        return reduced_damage;
     }
 
-    public void heal() {
+    public int heal() {
+        //health before healing
+        int health_before = health;
         int max_health = strength * 2 + bonus_health;
         int heal = max_health * intelligence / 100;
         if (max_health - health >= heal) {
@@ -231,23 +235,45 @@ public class PlayerStats : MonoBehaviour
         else {
             health = max_health;
         }
+        //difference of new health after heal and health before heal
+        return health - health_before;
     }
 
     //vs enemy
     public void attack(Enemy enemy) {
         int value = damage;
         if (Random.Range(0f, 1) <= crit_chance) {
-            value *= 1.7;
+            value = System.Convert.ToInt32(value * 1.7);
         }
-        enemy.damage(value);
+        enemy.damageSelf(value);
     }
     
+    public bool escape() {
+        //chance depends only on player intelligence or agility
+        double escape_chance;
+        int k; //or intelligence or agility
+        if (intelligence > agility) {
+            k = intelligence;
+        }
+        else {
+            k = agility;
+        }
+        escape_chance = k*4;
+        //if to high chance
+        if (escape_chance > 0.85) {
+            escape_chance = 0.85;
+        } 
+        //result
+        bool result;
+        if (Random.Range(0f, 1) <= escape_chance) {
+            result = true;
+        }
+        else {
+            result = false;
+        }
+        return result;
+    }
     
     //vs player
-    
-    
-
-    
-
 
 }
