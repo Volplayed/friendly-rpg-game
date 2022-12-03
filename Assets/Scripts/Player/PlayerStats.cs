@@ -258,7 +258,7 @@ public class PlayerStats : MonoBehaviour
         else {
             k = agility;
         }
-        escape_chance = k*4;
+        escape_chance = k*0.04;
         //if to high chance
         if (escape_chance > 0.85) {
             escape_chance = 0.85;
@@ -275,5 +275,41 @@ public class PlayerStats : MonoBehaviour
     }
     
     //vs player
+    public void attack(GameObject player) {
+        PlayerStats stats = player.GetComponent<PlayerStats>();
+        int value = damage;
+        if (Random.Range(0f, 1) <= crit_chance) {
+            value = System.Convert.ToInt32(value * 1.7);
+        }
+        stats.damageSelf(value);
+    }
+    
+    public bool escape(GameObject player) {
+        //chance depends on player intelligence or agility and other player agility
+        PlayerStats stats = player.GetComponent<PlayerStats>();
 
+        double escape_chance;
+        int k; //or intelligence or agility
+        int other_agility = stats.get_agility(); //other player agility
+        if (intelligence > agility) {
+            k = intelligence;
+        }
+        else {
+            k = agility;
+        }
+        escape_chance = k*0.04 - other_agility*0.01;
+        //if to high chance
+        if (escape_chance > 0.85) {
+            escape_chance = 0.85;
+        } 
+        //result
+        bool result;
+        if (Random.Range(0f, 1) <= escape_chance) {
+            result = true;
+        }
+        else {
+            result = false;
+        }
+        return result;
+    }
 }
