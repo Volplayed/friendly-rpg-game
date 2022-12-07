@@ -43,9 +43,9 @@ public class PlayerFight : MonoBehaviour
             Enemy enemy = playerStats.get_enemy();
 
             //set enemy values
-            enemySlider.maxValue = enemy.max_health;
-            enemySlider.value = enemy.health;
-            enemyHealthText.SetText(enemy.health + "/" + enemy.max_health);
+            enemySlider.maxValue = enemy.get_max_health();
+            enemySlider.value = enemy.get_health();
+            enemyHealthText.SetText(enemy.get_health() + "/" + enemy.get_max_health());
         }
         //if fighting with player
         else if (playerStats.get_enemy_player() != null) {

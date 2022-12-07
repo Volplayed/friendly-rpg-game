@@ -56,4 +56,21 @@ public class Enemy : ScriptableObject {
         stats.give_exp(level*2 + UnityEngine.Random.Range(0, 3));
     }
 
+    //get functions
+    public int get_health() {
+        return health;
+    }
+    public int get_damage() {
+        return damage;
+    }
+    public double get_armor() {
+        return armor;
+    }
+    public double get_crit_chance() {
+        return crit_chance;
+    }
+    public int get_max_health() {
+        return max_health;
+    }
+
 }
