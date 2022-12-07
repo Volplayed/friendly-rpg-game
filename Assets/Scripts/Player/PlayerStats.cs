@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    private string player_name = "Player";
+
     //how to multiply exp needed each level
     public int exp_multiplayer = 10;
 
@@ -54,6 +56,9 @@ public class PlayerStats : MonoBehaviour
     }
 
     //get functions
+    public string get_player_name() {
+        return player_name;
+    }
     public int get_health() {
         return health;
     }
