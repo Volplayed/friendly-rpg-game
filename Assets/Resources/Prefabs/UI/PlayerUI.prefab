@@ -473,7 +473,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.3709106, y: -0.45679855}
   m_SizeDelta: {x: -19.9903, y: -13.2515}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You
+  m_text: Enemy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -895,7 +895,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.3709106, y: -0.45679855}
   m_SizeDelta: {x: -19.9903, y: -13.2515}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1312,6 +1312,7 @@ GameObject:
   - component: {fileID: 6583250975860026105}
   - component: {fileID: 6583250975860026109}
   - component: {fileID: 8509279806863457872}
+  - component: {fileID: 3837721191692829953}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -1439,6 +1440,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnChangePanel: {fileID: 8530417542222251656}
+--- !u!114 &3837721191692829953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583250975860026104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a2a9287ec6e0c438376fecd188189b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealthBar: {fileID: 0}
+  playerHealthText: {fileID: 0}
+  enemyHealthBar: {fileID: 0}
+  enemyHealthText: {fileID: 0}
 --- !u!1 &6583250975975555891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,11 +3114,11 @@ GameObject:
   - component: {fileID: 6028626392387907499}
   m_Layer: 5
   m_Name: FightPanel
-  m_TagString: Untagged
+  m_TagString: fight_panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7415712466150614755
 RectTransform:
   m_ObjectHideFlags: 0

@@ -19,9 +19,14 @@ public class PlayerTurns : MonoBehaviour
     private int current_turn = 1;
     private int current_player_turn = 0;
 
+    private GameObject fightPanel;
+
     // Start is called before the first frame update
     void Start()
     {
+        //get fight panel
+        fightPanel = GameObject.FindGameObjectsWithTag("fight_panel")[0];
+
         //get all players
         players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -53,6 +58,8 @@ public class PlayerTurns : MonoBehaviour
     }
 
     private void openTurnChangePanel() {
+        //close fight panel
+        fightPanel.SetActive(false);
 
         //get and change turn change panel title depending on a players turn
         playerTurnTitleText = turnChangePanel.GetComponentsInChildren<TMP_Text>()[0];
@@ -65,8 +72,12 @@ public class PlayerTurns : MonoBehaviour
     public void closeTurnChangePanel() {
 
         turnChangePanel.SetActive(false);
-        playerStats[current_player_turn].setHasTurn(true);
+       
+        if (playerStats[current_player_turn].get_in_fight()) {
+            fightPanel.SetActive(true);
+        }
 
+         playerStats[current_player_turn].setHasTurn(true);
     }
 
 
@@ -101,6 +112,7 @@ public class PlayerTurns : MonoBehaviour
 
     }
 
+    //go to next turn
     public void next_turn() {
         playerStats[current_player_turn].setHasTurn(false);
 
@@ -121,9 +133,4 @@ public class PlayerTurns : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

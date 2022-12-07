@@ -38,6 +38,11 @@ public class PlayerStats : MonoBehaviour
     private bool has_turn = false;
     private List<HexClickHandler> hexHandlers = new List<HexClickHandler>();
 
+    //fight related values
+    private bool in_fight = false;
+    private Enemy enemy = null;
+    private GameObject enemyPlayer = null;
+
     void Start()
     {
         
@@ -91,6 +96,21 @@ public class PlayerStats : MonoBehaviour
     }
     public int get_moves() {
         return moves;
+    }
+    public bool get_in_fight() {
+        return in_fight;
+    }
+    //calculates max health with formula
+    public int get_max_health() {
+        return strength * 2 + bonus_health;
+    }
+
+    public Enemy get_enemy() {
+        return enemy;
+    }
+
+    public GameObject get_enemy_player() {
+        return enemyPlayer;
     }
 
 
@@ -193,14 +213,14 @@ public class PlayerStats : MonoBehaviour
         has_turn = what;
     }
 
-    void calculateStats() {
+    private void calculateStats() {
         //callculate attributes
         strength = default_strength + bonus_strength;
         agility = default_agility + bonus_agility;
         intelligence = default_intelligence + bonus_intelligence;
 
         //calculate other
-        health = strength * 2 + bonus_health;
+        health = get_max_health();
         armor = agility * 0.2 + bonus_armor;
         crit_chance = intelligence * 0.01 + bonus_crit_chance;
         moves = intelligence / 5 + bonus_moves;
@@ -209,7 +229,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     //levelUp
-    void checkExp() {
+    private void checkExp() {
         if (exp >= needed_exp) {
             level++;
             calculateExp();
@@ -232,7 +252,7 @@ public class PlayerStats : MonoBehaviour
     public int heal() {
         //health before healing
         int health_before = health;
-        int max_health = strength * 2 + bonus_health;
+        int max_health =get_max_health();
         int heal = max_health * intelligence / 100;
         if (max_health - health >= heal) {
             health += heal;
@@ -244,7 +264,20 @@ public class PlayerStats : MonoBehaviour
         return health - health_before;
     }
 
+    public void finish_fight() {
+        enemy = null;
+        enemyPlayer = null;
+        in_fight = false;
+    }
+
+    /////////////////////////////////////////////////////
     //vs enemy
+
+    public void start_fight(Enemy enemy_) {
+        in_fight = true;
+        enemy = enemy_;
+    }
+
     public void attack(Enemy enemy) {
         int value = damage;
         if (Random.Range(0f, 1) <= crit_chance) {
@@ -278,8 +311,14 @@ public class PlayerStats : MonoBehaviour
         }
         return result;
     }
-    
+    ///////////////////////////////////////////////////////////////////
     //vs player
+
+    public void start_fight(GameObject other_player) {
+        in_fight = true;
+        enemyPlayer = other_player;
+    }
+
     public void attack(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
         int value = damage;

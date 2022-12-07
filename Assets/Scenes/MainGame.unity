@@ -616,6 +616,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.00048828125
       objectReference: {fileID: 0}
+    - target: {fileID: 476306438962060870, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476306438962060870, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125548655303361472, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791521901764850979, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6583250975860026104, guid: adda875c9e20c6b4f88070119403f577, type: 3}
       propertyPath: m_Name
       value: PlayerUI
@@ -702,6 +718,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6583250975860026108, guid: adda875c9e20c6b4f88070119403f577, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203129515210513227, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7203129515210513227, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}

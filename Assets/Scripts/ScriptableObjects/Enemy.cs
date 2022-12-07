@@ -55,4 +55,5 @@ public class Enemy : ScriptableObject {
         //give exp to player based on level and some additional random value
         stats.give_exp(level*2 + UnityEngine.Random.Range(0, 3));
     }
+
 }
