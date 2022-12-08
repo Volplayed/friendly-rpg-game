@@ -72,5 +72,12 @@ public class Enemy : ScriptableObject {
     public int get_max_health() {
         return max_health;
     }
+    public int get_level() {
+        return level;
+    }
+    public string get_enemy_name() {
+        return enemyName;
+    }
+
 
 }

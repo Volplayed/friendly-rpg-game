@@ -6,6 +6,7 @@ TagManager:
   tags:
   - move_hex
   - walls
+  - fight_panel
   layers:
   - Default
   - TransparentFX
