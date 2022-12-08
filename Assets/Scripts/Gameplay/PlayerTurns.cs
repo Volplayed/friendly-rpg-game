@@ -8,24 +8,23 @@ public class PlayerTurns : MonoBehaviour
 {
 
     public GameObject turnChangePanel;
+    public GameObject fightPanel;
 
+    //player related
     private GameObject[] players;
     private List<PlayerStats> playerStats = new List<PlayerStats>();
     private GameObject[] cameras;
     private int players_count;
 
     private TMP_Text playerTurnTitleText;
-
+    
+    //turns
     private int current_turn = 1;
     private int current_player_turn = 0;
-
-    private GameObject fightPanel;
 
     // Start is called before the first frame update
     void Start()
     {
-        //get fight panel
-        fightPanel = GameObject.FindGameObjectsWithTag("fight_panel")[0];
 
         //get all players
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -73,11 +72,21 @@ public class PlayerTurns : MonoBehaviour
 
         turnChangePanel.SetActive(false);
        
+       //if player is in fight
         if (playerStats[current_player_turn].get_in_fight()) {
             fightPanel.SetActive(true);
-        }
 
-         playerStats[current_player_turn].setHasTurn(true);
+            //get player fight component
+            GameObject playerUI = fightPanel.transform.parent.gameObject;
+            PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
+
+            playerFight.setValues();
+        }
+        else {
+            fightPanel.SetActive(false);
+            playerStats[current_player_turn].setHasTurn(true);
+        }
+        
     }
 
 

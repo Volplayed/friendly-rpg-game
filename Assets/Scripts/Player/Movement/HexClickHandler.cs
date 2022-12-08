@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HexClickHandler : MonoBehaviour
 {
-
+    private const double fightChance = 0.1;
 
     private GameObject player;
     private SpriteRenderer spriteRenderer;
+
+    //fight objects
+    private GameObject enemyListObject;
+    private EnemyList enemyList;
+
+    private PlayerStats playerStats;
+
+    //is moving avaliable?
     private bool avaliable = true;
     private bool in_inventory = false;
     private bool has_turn = false;
@@ -19,16 +28,21 @@ public class HexClickHandler : MonoBehaviour
         //find player
         player = gameObject.transform.parent.gameObject;
 
-        
+        //find enemyListObject
+        enemyListObject = GameObject.FindGameObjectsWithTag("enemy_list")[0];
 
+        //get EnemyList component
+        enemyList = enemyListObject.GetComponent<EnemyList>();
+
+        //get playerStats
+        playerStats = player.GetComponent<PlayerStats>();
+        
     }
 
-    void move_player(Vector3 vector)
+    public void move_player(Vector3 vector)
     {
         player.transform.position = vector;
     }
-
-  
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -43,6 +57,7 @@ public class HexClickHandler : MonoBehaviour
             
         }
     }
+
     void OnTriggerExit2D(Collider2D col)
     {
         //find hex renderer
@@ -79,8 +94,6 @@ public class HexClickHandler : MonoBehaviour
         }
         //else hide
         else {
-          
-
             collider.enabled = false;
             spriteRenderer.enabled = false;
         }
@@ -97,11 +110,12 @@ public class HexClickHandler : MonoBehaviour
 
         move_player(grid.CellToWorld(destination));
 
+
+        random_fight_check(fightChance);
+
     }
 
-
-
-    //clicl handler
+    //click handler
     void OnMouseDown()
     {
         Debug.Log(!in_inventory);
@@ -111,6 +125,33 @@ public class HexClickHandler : MonoBehaviour
             go_to_hex();
         }
             
+    }
+    //start fight with some chance
+    private void random_fight_check(double chance) {
+        if (chance >= Random.Range(0f, 1)) {
+            start_fight();
+        }
+    }
+
+    //random fight with enemy start
+    public void start_fight() {
+        playerStats.start_fight(enemyList.get_random_enemy());
+           
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns component
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //get playerFigth component
+        PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
+
+        //get fight panel
+        GameObject fightPanel = playerTurns.fightPanel;
+
+        //open fight panel and set values
+        fightPanel.SetActive(true);
+        playerFight.setValues();
     }
 }
 
