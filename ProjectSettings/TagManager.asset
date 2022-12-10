@@ -7,6 +7,8 @@ TagManager:
   - move_hex
   - walls
   - fight_panel
+  - player_ui
+  - enemy_list
   layers:
   - Default
   - TransparentFX
