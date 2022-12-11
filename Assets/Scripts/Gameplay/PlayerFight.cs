@@ -49,6 +49,9 @@ public class PlayerFight : MonoBehaviour
             //get enemy
             Enemy enemy = playerStats.get_enemy();
 
+            //set enemy health to max
+            enemy.set_starting_health();
+
             //set enemy values
             enemySlider.maxValue = enemy.get_max_health();
             enemySlider.value = enemy.get_health();

@@ -20,6 +20,8 @@ public class Enemy : ScriptableObject {
     public void attack(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
         int value = damage;
+
+        //crit
         if (UnityEngine.Random.Range(0f, 1) <= crit_chance) {
             value = Convert.ToInt32(value * 1.7);
         }
@@ -78,6 +80,12 @@ public class Enemy : ScriptableObject {
     public string get_enemy_name() {
         return enemyName;
     }
+
+    //set functions
+    public void set_starting_health() {
+        health = max_health;
+    }
+
 
 
 }
