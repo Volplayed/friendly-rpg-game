@@ -75,4 +75,32 @@ public class PlayerFight : MonoBehaviour
 
     }
 
+    //buttons functions
+    public void player_attack() {
+        //get player
+        GameObject player = playerTurns.getCurrentPlayer();
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+
+        //attack enemy
+        if (playerStats.get_enemy() != null) {
+            //get enemy
+            Enemy enemy = playerStats.get_enemy();
+
+            playerStats.attack(enemy);
+
+            setValues();
+        }
+        //attack player
+        else if (playerStats.get_enemy_player() != null) {
+            //get enemy player
+            GameObject other_player = playerStats.get_enemy_player();
+            PlayerStats other_playerStats = other_player.GetComponent<PlayerStats>();
+
+            playerStats.attack(other_player);
+
+            setValues();
+        }
+        
+    }
+
 }

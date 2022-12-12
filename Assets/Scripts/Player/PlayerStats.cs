@@ -280,6 +280,7 @@ public class PlayerStats : MonoBehaviour
 
     public void attack(Enemy enemy) {
         int value = damage;
+        //crit
         if (Random.Range(0f, 1) <= crit_chance) {
             value = System.Convert.ToInt32(value * 1.7);
         }
