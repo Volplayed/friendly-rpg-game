@@ -28,8 +28,8 @@ public class PlayerFight : MonoBehaviour
 
     }
 
-    //set values of healths bars and texts, names depending on players current turn
-    public void setValues() {
+    //set values healths bars and texts, names depending on players current turn at the start of a fight
+    public void setValuesStart() {
         //get current player
         GameObject player = playerTurns.getCurrentPlayer();
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
@@ -74,6 +74,49 @@ public class PlayerFight : MonoBehaviour
         }
 
     }
+    //set values of healths bars and texts, names depending on players current turn
+    public void setValues() {
+        //get current player
+        GameObject player = playerTurns.getCurrentPlayer();
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+        //get sliders
+        Slider slider = playerHealthBar.GetComponent<Slider>();
+        Slider enemySlider = enemyHealthBar.GetComponent<Slider>();
+
+        //set values of current player
+        slider.maxValue = playerStats.get_max_health();
+        slider.value = playerStats.get_health();
+
+        playerHealthText.SetText(playerStats.get_health() + "/" + playerStats.get_max_health());
+        playerNameText.SetText(playerStats.get_player_name());
+
+        //if fighting with enemy not player
+        if (playerStats.get_enemy() != null) {
+            //get enemy
+            Enemy enemy = playerStats.get_enemy();;
+
+            //set enemy values
+            enemySlider.maxValue = enemy.get_max_health();
+            enemySlider.value = enemy.get_health();
+
+            enemyHealthText.SetText(enemy.get_health() + "/" + enemy.get_max_health());
+            enemyNameText.SetText(enemy.get_enemy_name());
+        }
+        //if fighting with player
+        else if (playerStats.get_enemy_player() != null) {
+            //get enemy player
+            GameObject other_player = playerStats.get_enemy_player();
+            PlayerStats other_playerStats = other_player.GetComponent<PlayerStats>();
+
+            //set enemy player values
+            enemySlider.maxValue = other_playerStats.get_max_health();
+            enemySlider.value = other_playerStats.get_health();
+
+            enemyHealthText.SetText(other_playerStats.get_health() + "/" + other_playerStats.get_max_health());
+            enemyNameText.SetText(other_playerStats.get_player_name());
+        }
+
+    }
 
     //buttons functions
     public void player_attack() {
@@ -87,6 +130,9 @@ public class PlayerFight : MonoBehaviour
             Enemy enemy = playerStats.get_enemy();
 
             playerStats.attack(enemy);
+
+            Debug.Log(enemy.get_health());
+
 
             setValues();
         }

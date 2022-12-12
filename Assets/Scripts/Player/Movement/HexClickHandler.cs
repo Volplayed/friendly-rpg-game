@@ -151,7 +151,7 @@ public class HexClickHandler : MonoBehaviour
 
         //open fight panel and set values
         fightPanel.SetActive(true);
-        playerFight.setValues();
+        playerFight.setValuesStart();
     }
 }
 
