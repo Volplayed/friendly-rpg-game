@@ -132,9 +132,12 @@ public class PlayerFight : MonoBehaviour
             playerStats.attack(enemy);
 
             Debug.Log(enemy.get_health());
-
-
+            
+            //set changed values
             setValues();
+
+            //check if enemy died
+            enemy.check_death(player);
         }
         //attack player
         else if (playerStats.get_enemy_player() != null) {
@@ -144,6 +147,7 @@ public class PlayerFight : MonoBehaviour
 
             playerStats.attack(other_player);
 
+            //set changed values
             setValues();
         }
         

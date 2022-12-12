@@ -54,6 +54,9 @@ public class Enemy : ScriptableObject {
 
     private void die(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
+        //finish fight
+        stats.finish_fight();
+
         //give exp to player based on level and some additional random value
         stats.give_exp(level*2 + UnityEngine.Random.Range(0, 3));
     }
@@ -103,7 +106,5 @@ public class Enemy : ScriptableObject {
     public void set_name(string value) {
         enemyName = value;
     }
-
-
 
 }
