@@ -85,6 +85,24 @@ public class Enemy : ScriptableObject {
     public void set_starting_health() {
         health = max_health;
     }
+    public void set_max_health(int value) {
+        max_health = value;
+    }
+    public void set_damage(int value) {
+        damage = value;
+    }
+    public void set_armor(double value) {
+        armor = value;
+    }
+    public void set_crit_chance(double value) {
+        crit_chance = value;
+    }
+    public void set_level(int value) {
+        level = value;
+    }
+    public void set_name(string value) {
+        enemyName = value;
+    }
 
 
 
