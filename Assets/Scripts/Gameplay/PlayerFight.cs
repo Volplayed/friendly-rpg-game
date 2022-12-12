@@ -153,4 +153,16 @@ public class PlayerFight : MonoBehaviour
         
     }
 
+    public void player_heal() {
+        //get player
+        GameObject player = playerTurns.getCurrentPlayer();
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+
+        //heal player
+        playerStats.heal();
+
+        //set changed values
+        setValues();
+    }
+
 }
