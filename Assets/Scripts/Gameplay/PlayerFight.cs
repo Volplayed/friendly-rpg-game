@@ -165,4 +165,15 @@ public class PlayerFight : MonoBehaviour
         setValues();
     }
 
+    public void player_escpae() {
+        //get player
+        GameObject player = playerTurns.getCurrentPlayer();
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+
+        //check if escape is successful
+        if (playerStats.escape()) {
+            playerStats.finish_fight();
+        }
+    }
+
 }
