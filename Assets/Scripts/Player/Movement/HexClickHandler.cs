@@ -9,8 +9,10 @@ public class HexClickHandler : MonoBehaviour
 {
     private const double fightChance = 0.1;
 
+    //other objects
     private GameObject player;
     private SpriteRenderer spriteRenderer;
+    private PlayerTurns playerTurns;
 
     //fight objects
     private GameObject enemyListObject;
@@ -36,12 +38,21 @@ public class HexClickHandler : MonoBehaviour
 
         //get playerStats
         playerStats = player.GetComponent<PlayerStats>();
+
+        //get playerUI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get playerTurns
+        playerTurns = playerUI.GetComponent<PlayerTurns>();
         
     }
 
     public void move_player(Vector3 vector)
     {
         player.transform.position = vector;
+
+        //decrease player current moves by 1
+        playerTurns.change_current_moves(-1);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -78,6 +89,8 @@ public class HexClickHandler : MonoBehaviour
 
         in_inventory = what;
 
+        //hide hex
+        spriteRenderer.enabled = !what;
     }
 
     public void setHasTurn(bool what) {

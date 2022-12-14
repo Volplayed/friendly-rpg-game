@@ -22,6 +22,9 @@ public class PlayerTurns : MonoBehaviour
     private int current_turn = 1;
     private int current_player_turn = 0;
 
+    //moves 
+    private int current_player_moves;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +52,22 @@ public class PlayerTurns : MonoBehaviour
 
         //set starting camera
         set_cameras();
+    }
+
+    //set current player's starting moves
+    private void set_starting_moves() {
+        current_player_moves = playerStats[current_player_turn].get_moves();
+    }
+
+    //change cuurent player moves value
+    public void change_current_moves(int value) {
+        current_player_moves += value;
+
+        //if current player moves reach zero disable movement for player
+        if (current_player_moves <= 0) {
+            enableMovement(false);
+        }
+    
     }
 
     //return a player whose turn is now
@@ -83,10 +102,17 @@ public class PlayerTurns : MonoBehaviour
             playerFight.setValues();
         }
         else {
+            //close fight panel
             fightPanel.SetActive(false);
+            //set player turn
             playerStats[current_player_turn].setHasTurn(true);
-        }
-        
+            //enable movement
+            enableMovement(true);
+
+            //set player's max amout of moves
+            set_starting_moves();
+
+        }   
     }
 
 
@@ -125,6 +151,7 @@ public class PlayerTurns : MonoBehaviour
     public void next_turn() {
         playerStats[current_player_turn].setHasTurn(false);
 
+        //set turn to next
         current_player_turn++;
         if (current_player_turn >= players_count) {
             current_player_turn = 0;
