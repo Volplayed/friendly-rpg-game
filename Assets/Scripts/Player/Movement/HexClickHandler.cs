@@ -129,30 +129,10 @@ public class HexClickHandler : MonoBehaviour
     //start fight with some chance
     private void random_fight_check(double chance) {
         if (chance >= Random.Range(0f, 1)) {
-            start_fight();
+            playerStats.start_fight(enemyList.get_random_enemy());
         }
     }
 
-    //random fight with enemy start
-    public void start_fight() {
-        playerStats.start_fight(enemyList.get_random_enemy());
-           
-        //get player UI
-        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
-
-        //get player turns component
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
-
-        //get playerFigth component
-        PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
-
-        //get fight panel
-        GameObject fightPanel = playerTurns.fightPanel;
-
-        //open fight panel and set values
-        fightPanel.SetActive(true);
-        playerFight.setValuesStart();
-    }
 }
 
 

@@ -265,17 +265,53 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void finish_fight() {
+        //set fight values
         enemy = null;
         enemyPlayer = null;
         in_fight = false;
+
+         //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns component
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //get fight panel
+        GameObject fightPanel = playerTurns.fightPanel;
+
+        //close fight panel
+        fightPanel.SetActive(false);
+
+        //enable player movement
+        playerTurns.enableMovement(true);
     }
 
     /////////////////////////////////////////////////////
     //vs enemy
 
     public void start_fight(Enemy enemy_) {
+        //set fight values
         in_fight = true;
         enemy = enemy_;
+
+         //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns component
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //get playerFigth component
+        PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
+
+        //get fight panel
+        GameObject fightPanel = playerTurns.fightPanel;
+
+        //open fight panel and set values
+        fightPanel.SetActive(true);
+        playerFight.setValuesStart();
+
+        //disable player movement
+        playerTurns.enableMovement(false);
     }
 
     public void attack(Enemy enemy) {
@@ -316,8 +352,28 @@ public class PlayerStats : MonoBehaviour
     //vs player
 
     public void start_fight(GameObject other_player) {
+        //set fight values
         in_fight = true;
         enemyPlayer = other_player;
+
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns component
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //get playerFigth component
+        PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
+
+        //get fight panel
+        GameObject fightPanel = playerTurns.fightPanel;
+
+        //open fight panel and set values
+        fightPanel.SetActive(true);
+        playerFight.setValuesStart();
+
+        //disable player movement
+        playerTurns.enableMovement(false);
     }
 
     public void attack(GameObject player) {

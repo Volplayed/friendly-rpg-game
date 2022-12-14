@@ -90,8 +90,8 @@ public class PlayerTurns : MonoBehaviour
     }
 
 
-    //enable or disable movement for player
-    private void enableMovement(bool what) {
+    //enable or disable movement for current player
+    public void enableMovement(bool what) {
         Transform[] hexes = players[current_player_turn].GetComponentsInChildren<Transform>();
         hexes = hexes.Where(child => child.tag == "move_hex").ToArray();
 

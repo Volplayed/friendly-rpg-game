@@ -46,10 +46,12 @@ public class Enemy : ScriptableObject {
     }
 
     //enemy death
-    public void check_death(GameObject player) {
+    public bool check_death(GameObject player) {
         if (health <= 0) {
             die(player);
+            return true;
         }
+        return false;
     }
 
     private void die(GameObject player) {
