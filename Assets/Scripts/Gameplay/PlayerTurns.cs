@@ -70,6 +70,11 @@ public class PlayerTurns : MonoBehaviour
     
     }
 
+    //get amout of moves left
+    public int moves_left() {
+        return current_player_moves;
+    }
+
     //return a player whose turn is now
     public GameObject getCurrentPlayer() {
         return players[current_player_turn];

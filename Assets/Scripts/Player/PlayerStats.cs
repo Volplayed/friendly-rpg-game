@@ -282,8 +282,11 @@ public class PlayerStats : MonoBehaviour
         //close fight panel
         fightPanel.SetActive(false);
 
-        //enable player movement
-        playerTurns.enableMovement(true);
+        //enable player movement if there are moves still left
+        if (playerTurns.moves_left() >= 1) {
+            playerTurns.enableMovement(true);
+        }
+        
     }
 
     /////////////////////////////////////////////////////

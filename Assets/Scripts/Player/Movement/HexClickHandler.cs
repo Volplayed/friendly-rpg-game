@@ -62,8 +62,9 @@ public class HexClickHandler : MonoBehaviour
         //if wall disable and hide
         if (col.gameObject.tag == "walls")
         {
-
+            //hide hex
             spriteRenderer.enabled = false;
+            //disable hex
             avaliable = false;
             
         }
@@ -76,10 +77,15 @@ public class HexClickHandler : MonoBehaviour
         //if walls enable and show
      
         if (col.gameObject.tag == "walls")
-        {
+        {   
+            //if there are still moves left
+            if (playerTurns.moves_left() >= 1) {
+            //show hex
             spriteRenderer.enabled = true;
-            avaliable = true;
+            }
             
+            //enable hex
+            avaliable = true;
         }
     }
 
@@ -91,6 +97,12 @@ public class HexClickHandler : MonoBehaviour
 
         //hide hex
         spriteRenderer.enabled = !what;
+    }
+
+    //set avaliable 
+    public void set_avaliable(bool what) {
+        //enable hex
+        avaliable = what;
     }
 
     public void setHasTurn(bool what) {
@@ -132,7 +144,7 @@ public class HexClickHandler : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log(!in_inventory);
-        Debug.Log(has_turn);
+        Debug.Log(avaliable);
         if (avaliable && !in_inventory && has_turn)
         {
             go_to_hex();
