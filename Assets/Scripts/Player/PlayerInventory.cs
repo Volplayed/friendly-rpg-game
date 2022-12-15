@@ -44,9 +44,9 @@ public class PlayerInventory : MonoBehaviour
             panel.SetActive(false);
             opened = false;
 
+            player.transform.position = player.transform.position;
             //enable movement
             playerTurns.enableMovement(!opened);
-            player.transform.position = player.transform.position;
         }
 
     }

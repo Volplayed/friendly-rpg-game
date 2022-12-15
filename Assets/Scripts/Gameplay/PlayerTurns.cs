@@ -136,15 +136,22 @@ public class PlayerTurns : MonoBehaviour
                 if (current_player_moves >= 1) {
                     //set in inventory to false
                     script.setInInventory(false);
+
+                    //show hex if it is avaliable
+                    script.show();
                 }
             }
             //if what is false
             else {
                 //set in inventory to false
                 script.setInInventory(true);
+
+                //hide hex
+                script.hide();
             }
         }
     }
+
 
     //initialize cameras (find them sorted for each player)
     private void initCameras() {

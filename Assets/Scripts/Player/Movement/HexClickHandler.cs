@@ -89,14 +89,41 @@ public class HexClickHandler : MonoBehaviour
         }
     }
 
+    //hide hex 
+    public void hide() {
+        //find hex renderer
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        spriteRenderer.enabled = false;
+    }
+    //show hex if is avaliable
+    public void show() {
+        Debug.Log("-----" + avaliable);
+        //if is avaliable
+        if (avaliable) {
+            //find hex renderer
+            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+            spriteRenderer.enabled = true;
+        }
+    }
+
     //is inventory open
 
     public void setInInventory(bool what) {
 
         in_inventory = what;
 
-        //hide hex
-        spriteRenderer.enabled = !what;
+        //if what is false - show
+        if (!what) {
+            //show hex if it is avaliable
+            show();
+        }
+        //if what is true - hide
+        else {
+            //hide hex
+            hide();
+        }
     }
 
     //set avaliable 
@@ -113,14 +140,14 @@ public class HexClickHandler : MonoBehaviour
         //show if not a wall and own turn
         if (what){
             collider.enabled = true;
-            if (avaliable) {
-                spriteRenderer.enabled = true;
-            } 
+            //show hex if avaliable
+            show();
         }
         //else hide
         else {
             collider.enabled = false;
-            spriteRenderer.enabled = false;
+            //hide hex
+            hide();
         }
     }
 

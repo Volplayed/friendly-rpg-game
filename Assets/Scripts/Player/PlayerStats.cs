@@ -224,6 +224,11 @@ public class PlayerStats : MonoBehaviour
         armor = agility * 0.2 + bonus_armor;
         crit_chance = intelligence * 0.01 + bonus_crit_chance;
         moves = intelligence / 5 + bonus_moves;
+        //min moves value is 1, set 1 if less than 1
+        if (moves < 1) {
+            moves = 1;
+        }
+
         damage = level * 2 + bonus_damage;
 
     }
