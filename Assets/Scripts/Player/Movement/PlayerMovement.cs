@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     public List<HexClickHandler> getHexesClickHandlers() {
         List<HexClickHandler> hexHandlers = new List<HexClickHandler>();
-
+        //insert to the list
         hexHandlers.Insert(0 ,hex_top.GetComponent<HexClickHandler>());
         hexHandlers.Insert(1 ,hex_bot.GetComponent<HexClickHandler>());
         hexHandlers.Insert(2 ,hex_top_left.GetComponent<HexClickHandler>());
@@ -55,9 +55,4 @@ public class PlayerMovement : MonoBehaviour
         GetCells(hex_top, hex_bot, hex_top_left, hex_bot_left, hex_top_right, hex_bot_right);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

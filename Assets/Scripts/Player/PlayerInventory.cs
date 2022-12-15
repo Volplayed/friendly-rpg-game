@@ -14,37 +14,45 @@ public class PlayerInventory : MonoBehaviour
 
     public GameObject panel;
     private GameObject player;
-    private PlayerTurns turns;
+    private PlayerTurns playerTurns;
 
+     void Start()
+    {
+        playerTurns = gameObject.GetComponent<PlayerTurns>();
+    }
 
+    //start on inventory button click
     public void openInventory() {
-        player = turns.getCurrentPlayer();
+        //get player
+        player = playerTurns.getCurrentPlayer();
+
+        //if inventory not opened
         if (!opened) {
+            //open inventory window
             panel.SetActive(true);
             opened = true;
-            enableMovement(!opened);
+
+            //disable movement
+            playerTurns.enableMovement(!opened);
+
+            //set inventory stats
             set_stats();
         }
+        //if inventory is opened
         else {
+            //close inventory window
             panel.SetActive(false);
             opened = false;
-            enableMovement(!opened);
+
+            //enable movement
+            playerTurns.enableMovement(!opened);
             player.transform.position = player.transform.position;
         }
 
     }
 
-    private void enableMovement(bool what) {
-        hexes = player.GetComponentsInChildren<Transform>();
-        hexes = hexes.Where(child => child.tag == "move_hex").ToArray();
-
-        foreach (Transform hex in hexes) {
-            HexClickHandler script = hex.gameObject.GetComponent<HexClickHandler>();
-            script.setInInventory(!what);
-        }
-    }
-
     private void set_stats() {
+        //set player stats
         PlayerStats stats = player.GetComponent<PlayerStats>();
         health_text.SetText("Health: " + stats.get_health());
         damage_text.SetText("Damage: " + stats.get_damage());
@@ -56,19 +64,10 @@ public class PlayerInventory : MonoBehaviour
         level_text.SetText("Level: " + stats.get_level());
     }
 
+
+    //get value
     public bool getIsOpened() {
         return opened;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        turns = gameObject.GetComponent<PlayerTurns>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

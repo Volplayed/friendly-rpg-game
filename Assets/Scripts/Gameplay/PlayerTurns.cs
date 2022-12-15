@@ -67,7 +67,7 @@ public class PlayerTurns : MonoBehaviour
         if (current_player_moves <= 0) {
             enableMovement(false);
         }
-    
+        
     }
 
     //get amout of moves left
@@ -123,12 +123,26 @@ public class PlayerTurns : MonoBehaviour
 
     //enable or disable movement for current player
     public void enableMovement(bool what) {
+        //get hexes array
         Transform[] hexes = players[current_player_turn].GetComponentsInChildren<Transform>();
         hexes = hexes.Where(child => child.tag == "move_hex").ToArray();
 
+        //set in inventory for each hex
         foreach (Transform hex in hexes) {
             HexClickHandler script = hex.gameObject.GetComponent<HexClickHandler>();
-            script.setInInventory(!what);
+            //if what is true
+            if (what) {
+                //if there are some moves left
+                if (current_player_moves >= 1) {
+                    //set in inventory to false
+                    script.setInInventory(false);
+                }
+            }
+            //if what is false
+            else {
+                //set in inventory to false
+                script.setInInventory(true);
+            }
         }
     }
 

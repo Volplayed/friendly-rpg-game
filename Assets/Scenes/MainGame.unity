@@ -301,7 +301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: default_agility
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: default_strength
@@ -309,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: default_intelligence
-      value: 3
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7713679241551894070, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: m_StaticEditorFlags
