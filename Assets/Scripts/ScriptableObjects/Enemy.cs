@@ -16,6 +16,9 @@ public class Enemy : ScriptableObject {
 
     public double crit_chance;
     
+    //temp stats
+    private bool healed = false; //had the enemy healed last turn
+
     //actions
     public void attack(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
@@ -85,6 +88,9 @@ public class Enemy : ScriptableObject {
     public string get_enemy_name() {
         return enemyName;
     }
+    public bool get_healed() {
+        return healed;
+    }
 
     //set functions
     public void set_starting_health() {
@@ -107,6 +113,9 @@ public class Enemy : ScriptableObject {
     }
     public void set_name(string value) {
         enemyName = value;
+    }
+    public void set_healed(bool value) {
+        healed = value;
     }
 
 }

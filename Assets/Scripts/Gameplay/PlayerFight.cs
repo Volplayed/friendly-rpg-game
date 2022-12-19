@@ -138,6 +138,9 @@ public class PlayerFight : MonoBehaviour
 
             //check if enemy died
             enemy.check_death(player);
+
+            //if it is an enemy ai act
+            act();
         }
         //attack player
         else if (playerStats.get_enemy_player() != null) {
@@ -163,6 +166,9 @@ public class PlayerFight : MonoBehaviour
 
         //set changed values
         setValues();
+
+        //if it is an enemy ai act
+        act();
     }
 
     public void player_escpae() {
@@ -173,6 +179,47 @@ public class PlayerFight : MonoBehaviour
         //check if escape is successful
         if (playerStats.escape()) {
             playerStats.finish_fight();
+        }
+        //else if it is an enemy ai act
+        else {
+            act();
+        }
+    }
+
+    //enemy ai functions
+    public void act() {
+        //get player
+        GameObject player = playerTurns.getCurrentPlayer();
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+
+        //if enemy is ai not other player
+        if (playerStats.get_enemy() != null) {
+            //get enemy
+            Enemy enemy = playerStats.get_enemy();
+
+            //attack if enought hp or already healed
+            if (enemy.get_health() >= enemy.get_max_health() * 0.5 || enemy.get_healed()) {
+                //attack player
+                enemy.attack(player);
+
+                //set changed values
+                setValues();
+
+                //set healed to false
+                enemy.set_healed(false);
+            }
+            else if (enemy.get_health() < enemy.get_max_health() * 0.5 && !enemy.get_healed()) {
+                //heal self
+                enemy.heal();
+                
+                Debug.Log("healed");
+
+                //set changed values
+                setValues();
+
+                //set healed to true
+                enemy.set_healed(true);
+            }
         }
     }
 
