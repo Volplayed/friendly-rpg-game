@@ -111,12 +111,12 @@ public class PlayerTurns : MonoBehaviour
             fightPanel.SetActive(false);
             //set player turn
             playerStats[current_player_turn].setHasTurn(true);
-            //enable movement
-            enableMovement(true);
 
             //set player's max amout of moves
             set_starting_moves();
 
+            //enable movement
+            enableMovement(true);
         }   
     }
 
@@ -175,6 +175,7 @@ public class PlayerTurns : MonoBehaviour
 
     //go to next turn
     public void next_turn() {
+        //set current player turn to false
         playerStats[current_player_turn].setHasTurn(false);
 
         //set turn to next
