@@ -257,8 +257,17 @@ public class PlayerStats : MonoBehaviour
     public int heal() {
         //health before healing
         int health_before = health;
+        //max health
         int max_health = get_max_health();
-        int heal = max_health * intelligence / 100;
+
+        //heal amount
+        int heal = System.Convert.ToInt32(intelligence / 3);
+
+        //set min healt to 1
+        if (heal < 1) {
+            heal = 1;
+        }
+        Debug.Log("healed " + heal);
         if (max_health - health >= heal) {
             health += heal;
         }
