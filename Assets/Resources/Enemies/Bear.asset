@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Bear
   level: 2
-  max_health: 10
-  damage: 5
+  max_health: 12
+  damage: 4
   armor: 0
-  crit_chance: 0.1
+  heal_value: 3
+  crit_chance: 0.15

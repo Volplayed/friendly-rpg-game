@@ -13,11 +13,12 @@ public class Enemy : ScriptableObject {
     private int health;
     public int damage;
     public double armor;
+    public int heal_value;
 
     public double crit_chance;
     
     //temp stats
-    private bool healed = false; //had the enemy healed last turn
+    private bool healed = false; //had the enemy healed last turn?
 
     //actions
     public void attack(GameObject player) {
@@ -32,9 +33,9 @@ public class Enemy : ScriptableObject {
     }
 
     public int heal() {
-        int value = System.Convert.ToInt32(max_health*0.1);
+        int value = heal_value;
         health += value;
-
+        
         return value;
     }
     //damage recieved
@@ -91,6 +92,9 @@ public class Enemy : ScriptableObject {
     public bool get_healed() {
         return healed;
     }
+    public int get_heal() {
+        return heal_value;
+    }
 
     //set functions
     public void set_starting_health() {
@@ -117,5 +121,7 @@ public class Enemy : ScriptableObject {
     public void set_healed(bool value) {
         healed = value;
     }
-
+    public void set_heal(int value) {
+        heal_value = value;
+    }
 }
