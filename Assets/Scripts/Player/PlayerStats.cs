@@ -290,7 +290,10 @@ public class PlayerStats : MonoBehaviour
         enemyPlayer = null;
         in_fight = false;
 
-         //get player UI
+        //fully heal player
+        health = get_max_health();
+
+        //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
         //get player turns component
@@ -448,23 +451,25 @@ public class PlayerStats : MonoBehaviour
     //die and lose 1 level and one of each stat
     private void die() {
         level -= 1;
-        strength -= 1;
-        agility -= 1;
-        intelligence -= 1;
+        default_strength -= 1;
+        default_agility -= 1;
+        default_intelligence -= 1;
 
         //minimal values
         if (level < 1) {
             level = 1;
         }
-        if (strength < 1) {
-            strength = 1;
+        if (default_strength < 1) {
+            default_strength = 1;
         }
-        if (agility < 1) {
-            agility = 1;
+        if (default_agility < 1) {
+            default_agility = 1;
         }
-        if (intelligence < 1) {
-            intelligence = 1;
+        if (default_intelligence < 1) {
+            default_intelligence = 1;
         }
+        //calculate new stats
+        calculateStats();
 
         //finish fight
         finish_fight();
