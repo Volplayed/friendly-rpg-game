@@ -245,11 +245,17 @@ public class PlayerStats : MonoBehaviour
 
     //fight functions
     public int damageSelf(int value) {
+        //overall damage
         int reduced_damage = System.Convert.ToInt32(value * (100 - armor * 10)/100);
+
+        //minimal damage
         if (reduced_damage <= 0) {
             reduced_damage = 1;
         }
         health -= reduced_damage;
+        
+        //check if player is dead
+        check_death();
 
         return reduced_damage;
     }
@@ -429,5 +435,33 @@ public class PlayerStats : MonoBehaviour
             result = false;
         }
         return result;
+    }
+
+    //player lost fight
+    public void check_death() {
+        //if health less then zero
+        if (health <= 0) {
+            die();
+        }
+    }
+
+    //die and lose 1 level and one of each stat
+    private void die() {
+        level -= 1;
+        strength -= 1;
+        agility -= 1;
+        intelligence -= 1;
+
+        //finish fight
+        finish_fight();
+
+        //if fighting vs player give other player exp
+        if (enemyPlayer != null) {
+            //get enemy player stats
+            PlayerStats enemyPlayerStats = enemyPlayer.GetComponent<PlayerStats>();
+
+            //give exp to other player
+            enemyPlayerStats.give_exp(level*3);
+        }
     }
 }

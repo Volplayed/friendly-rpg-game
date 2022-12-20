@@ -29,6 +29,7 @@ public class Enemy : ScriptableObject {
         if (UnityEngine.Random.Range(0f, 1) <= crit_chance) {
             value = Convert.ToInt32(value * 1.7);
         }
+        //player damages
         stats.damageSelf(value);
     }
 
