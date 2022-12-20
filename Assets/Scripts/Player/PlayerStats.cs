@@ -452,6 +452,20 @@ public class PlayerStats : MonoBehaviour
         agility -= 1;
         intelligence -= 1;
 
+        //minimal values
+        if (level < 1) {
+            level = 1;
+        }
+        if (strength < 1) {
+            strength = 1;
+        }
+        if (agility < 1) {
+            agility = 1;
+        }
+        if (intelligence < 1) {
+            intelligence = 1;
+        }
+
         //finish fight
         finish_fight();
 
