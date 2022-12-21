@@ -25,6 +25,10 @@ public class HexClickHandler : MonoBehaviour
     private bool in_inventory = false;
     private bool has_turn = false;
 
+    //for starting fight
+    private bool other_player = false;
+    private GameObject other_player_object;
+
     void Start()
     {
         //find player
@@ -68,6 +72,23 @@ public class HexClickHandler : MonoBehaviour
             avaliable = false;
             
         }
+        //if other player
+        else if (col.gameObject.tag == "player_collider")
+        {
+            Debug.Log("other player");
+            //get other player object from collider
+            GameObject other = col.gameObject.transform.parent.gameObject;
+
+            //if other player is not in fight
+            if (!other.GetComponent<PlayerStats>().get_in_fight())
+            {
+                //set other player to true
+                other_player = true;
+
+                //get collided object parent
+                other_player_object = other;
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -86,6 +107,15 @@ public class HexClickHandler : MonoBehaviour
             
             //enable hex
             avaliable = true;
+        }
+        //if other player
+        else if (col.gameObject.tag == "Player")
+        {
+            //set other player to false
+            other_player = false;
+
+            //set other player object to null
+            other_player_object = null;
         }
     }
 
@@ -170,11 +200,17 @@ public class HexClickHandler : MonoBehaviour
     //click handler
     void OnMouseDown()
     {
-        Debug.Log(!in_inventory);
-        Debug.Log(avaliable);
-        if (avaliable && !in_inventory && has_turn)
+        Debug.Log(other_player);
+        //if is avaliable and inventory is not open move player
+        if (avaliable && !in_inventory && has_turn && !other_player)
         {
             go_to_hex();
+        }
+        //if other player is in hex and inventory is not open start fight
+        else if (other_player && !in_inventory && has_turn)
+        {
+            //start fight with other player
+            playerStats.start_fight(other_player_object);
         }
             
     }

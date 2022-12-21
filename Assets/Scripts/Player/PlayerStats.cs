@@ -269,7 +269,7 @@ public class PlayerStats : MonoBehaviour
         //heal amount
         int heal = System.Convert.ToInt32(intelligence / 3);
 
-        //set min healt to 1
+        //set min health to 1
         if (heal < 1) {
             heal = 1;
         }
@@ -376,11 +376,22 @@ public class PlayerStats : MonoBehaviour
     }
     ///////////////////////////////////////////////////////////////////
     //vs player
+    public void set_figth_vs_player(GameObject other_player) {
+        //set fight values
+        enemyPlayer = other_player;
+        in_fight = true;
+    }
 
     public void start_fight(GameObject other_player) {
         //set fight values
         in_fight = true;
         enemyPlayer = other_player;
+
+        //get other player stats
+        PlayerStats other_player_stats = other_player.GetComponent<PlayerStats>();
+
+        //set fight values for other player
+        other_player_stats.set_figth_vs_player(gameObject);
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
