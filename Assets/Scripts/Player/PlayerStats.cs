@@ -482,13 +482,20 @@ public class PlayerStats : MonoBehaviour
         //calculate new stats
         calculateStats();
 
-        //finish fight
-        finish_fight();
-
+        //finish fight if vs enemy
+        if (enemy != null) {
+            finish_fight();
+        }   
         //if fighting vs player give other player exp
-        if (enemyPlayer != null) {
+        else if (enemyPlayer != null) {
+
             //get enemy player stats
             PlayerStats enemyPlayerStats = enemyPlayer.GetComponent<PlayerStats>();
+            
+            finish_fight();
+
+            //enemy player finish fight
+            enemyPlayerStats.finish_fight();
 
             //give exp to other player
             enemyPlayerStats.give_exp(level*3);

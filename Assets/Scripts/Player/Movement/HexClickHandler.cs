@@ -109,7 +109,7 @@ public class HexClickHandler : MonoBehaviour
             avaliable = true;
         }
         //if other player
-        else if (col.gameObject.tag == "Player")
+        else if (col.gameObject.tag == "player_collider")
         {
             //set other player to false
             other_player = false;
@@ -201,6 +201,8 @@ public class HexClickHandler : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log(other_player);
+        Debug.Log(!in_inventory);
+        Debug.Log(avaliable);
         //if is avaliable and inventory is not open move player
         if (avaliable && !in_inventory && has_turn && !other_player)
         {

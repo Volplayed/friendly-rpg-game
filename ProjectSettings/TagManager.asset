@@ -9,6 +9,7 @@ TagManager:
   - fight_panel
   - player_ui
   - enemy_list
+  - player_collider
   layers:
   - Default
   - TransparentFX

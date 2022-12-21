@@ -131,8 +131,6 @@ public class PlayerFight : MonoBehaviour
 
             playerStats.attack(enemy);
 
-            Debug.Log(enemy.get_health());
-            
             //set changed values
             setValues();
 
