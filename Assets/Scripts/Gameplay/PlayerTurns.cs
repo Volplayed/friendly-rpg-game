@@ -93,24 +93,31 @@ public class PlayerTurns : MonoBehaviour
     }
 
     public void closeTurnChangePanel() {
-
+        //close turn change panel
         turnChangePanel.SetActive(false);
        
+        //set player turn
+        playerStats[current_player_turn].setHasTurn(true);
+
        //if player is in fight
         if (playerStats[current_player_turn].get_in_fight()) {
             fightPanel.SetActive(true);
+
+            //disable movement for player
+            enableMovement(false);
 
             //get player fight component
             GameObject playerUI = fightPanel.transform.parent.gameObject;
             PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
 
             playerFight.setValues();
+
+            //set player's max amout of moves
+            set_starting_moves();
         }
         else {
             //close fight panel
             fightPanel.SetActive(false);
-            //set player turn
-            playerStats[current_player_turn].setHasTurn(true);
 
             //set player's max amout of moves
             set_starting_moves();
@@ -143,7 +150,7 @@ public class PlayerTurns : MonoBehaviour
             }
             //if what is false
             else {
-                //set in inventory to false
+                //set in inventory to true
                 script.setInInventory(true);
 
                 //hide hex

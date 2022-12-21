@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HexClickHandler : MonoBehaviour
 {
-    private const double fightChance = 0.1;
+    private const double fightChance = 0.25;
 
     //other objects
     private GameObject player;
