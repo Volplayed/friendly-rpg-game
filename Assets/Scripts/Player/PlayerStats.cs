@@ -43,6 +43,9 @@ public class PlayerStats : MonoBehaviour
     private Enemy enemy = null;
     private GameObject enemyPlayer = null;
 
+    //fight marker
+    public GameObject fight_marker;
+
     void Start()
     {       
         //starting values
@@ -312,9 +315,22 @@ public class PlayerStats : MonoBehaviour
 
         //enable player movement if there are moves still left
         playerTurns.enableMovement(true);
+
+        //hide fight marker
+        show_fight_marker(false);
     }
 
     /////////////////////////////////////////////////////
+    //show/hide fight marker
+    public void show_fight_marker(bool value) {
+        //get fight marker sprite renderer
+        SpriteRenderer fight_marker_sprite = fight_marker.GetComponent<SpriteRenderer>();
+
+        //hide or show fight marker
+        fight_marker_sprite.enabled = value;
+
+    }
+
     //vs enemy
 
     public void start_fight(Enemy enemy_) {
@@ -340,6 +356,9 @@ public class PlayerStats : MonoBehaviour
 
         //disable player movement
         playerTurns.enableMovement(false);
+
+        //show fight marker
+        show_fight_marker(true);
     }
 
     public void attack(Enemy enemy) {
@@ -395,6 +414,9 @@ public class PlayerStats : MonoBehaviour
         //set fight values for other player
         other_player_stats.set_figth_vs_player(gameObject);
 
+        //show other player fight marker
+        other_player_stats.show_fight_marker(true);
+
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
@@ -413,6 +435,9 @@ public class PlayerStats : MonoBehaviour
 
         //disable player movement
         playerTurns.enableMovement(false);
+
+        //show fight marker
+        show_fight_marker(true);
     }
 
     public void attack(GameObject player) {
