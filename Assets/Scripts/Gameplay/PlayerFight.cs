@@ -20,12 +20,17 @@ public class PlayerFight : MonoBehaviour
 
     public TMP_Text enemyNameText;
 
+    //button objects
+    public GameObject attackButton;
+    public GameObject healButton;
+    public GameObject retreatButton;
 
+    //player turns
     private PlayerTurns playerTurns;
 
     void Start() {
+        //get playerTurns
         playerTurns = GetComponent<PlayerTurns>();
-
     }
 
     //set values healths bars and texts, names depending on players current turn at the start of a fight
@@ -118,6 +123,13 @@ public class PlayerFight : MonoBehaviour
 
     }
 
+    //make buttons interactable or not
+    public void set_button_interactable(bool interactable) {
+        attackButton.GetComponent<Button>().interactable = interactable;
+        healButton.GetComponent<Button>().interactable = interactable;
+        retreatButton.GetComponent<Button>().interactable = interactable;
+    }
+
     //buttons functions
     public void player_attack() {
         //get player
@@ -136,6 +148,9 @@ public class PlayerFight : MonoBehaviour
 
             //check if enemy died
             enemy.check_death(player);
+            
+            //make buttons not interactable
+            set_button_interactable(false);
 
             //if it is an enemy ai act
             act();
@@ -147,6 +162,9 @@ public class PlayerFight : MonoBehaviour
             PlayerStats other_playerStats = other_player.GetComponent<PlayerStats>();
 
             playerStats.attack(other_player);
+
+            //make buttons not interactable
+            set_button_interactable(false);
 
             //set changed values
             setValues();
@@ -165,6 +183,9 @@ public class PlayerFight : MonoBehaviour
         //set changed values
         setValues();
 
+        //make buttons not interactable
+        set_button_interactable(false);
+
         //if it is an enemy ai act
         act();
     }
@@ -173,6 +194,9 @@ public class PlayerFight : MonoBehaviour
         //get player
         GameObject player = playerTurns.getCurrentPlayer();
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
+        
+        //make buttons not interactable
+        set_button_interactable(false);
 
         //check if escape is successful
         if (playerStats.escape()) {
@@ -209,8 +233,6 @@ public class PlayerFight : MonoBehaviour
             else if (enemy.get_health() < enemy.get_max_health() * 0.5 && !enemy.get_healed()) {
                 //heal self
                 enemy.heal();
-                
-                Debug.Log("healed");
 
                 //set changed values
                 setValues();

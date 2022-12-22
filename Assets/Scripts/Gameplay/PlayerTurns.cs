@@ -95,9 +95,16 @@ public class PlayerTurns : MonoBehaviour
     public void closeTurnChangePanel() {
         //close turn change panel
         turnChangePanel.SetActive(false);
-       
+        
+        //get player fight component
+        GameObject playerUI = fightPanel.transform.parent.gameObject;
+        PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
+
         //set player turn
         playerStats[current_player_turn].setHasTurn(true);
+
+        //make in-fight buttons interactable
+        playerFight.set_button_interactable(true);
 
        //if player is in fight
         if (playerStats[current_player_turn].get_in_fight()) {
@@ -106,10 +113,7 @@ public class PlayerTurns : MonoBehaviour
             //disable movement for player
             enableMovement(false);
 
-            //get player fight component
-            GameObject playerUI = fightPanel.transform.parent.gameObject;
-            PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
-
+            //set fight values
             playerFight.setValues();
 
             //set player's max amout of moves

@@ -2266,6 +2266,9 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 5417237408649816130}
   enemyHealthText: {fileID: 2904493055797507640}
   enemyNameText: {fileID: 309460072442417780}
+  attackButton: {fileID: 8104449500448875435}
+  healButton: {fileID: 1104750419411842833}
+  retreatButton: {fileID: 260315887337283461}
 --- !u!1 &6583250975975555891
 GameObject:
   m_ObjectHideFlags: 0

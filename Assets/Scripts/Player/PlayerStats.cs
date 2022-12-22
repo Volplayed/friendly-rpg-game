@@ -44,8 +44,7 @@ public class PlayerStats : MonoBehaviour
     private GameObject enemyPlayer = null;
 
     void Start()
-    {
-        
+    {       
         //starting values
         strength = default_strength;
         agility = default_agility;
@@ -296,6 +295,9 @@ public class PlayerStats : MonoBehaviour
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
+        //get playerFight
+        PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
+
         //get player turns component
         PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
@@ -305,8 +307,10 @@ public class PlayerStats : MonoBehaviour
         //close fight panel
         fightPanel.SetActive(false);
 
-        //enable player movement if there are moves still left
+        //set in-fight buttons iteractable
+        playerFight.set_button_interactable(true);
 
+        //enable player movement if there are moves still left
         playerTurns.enableMovement(true);
     }
 
