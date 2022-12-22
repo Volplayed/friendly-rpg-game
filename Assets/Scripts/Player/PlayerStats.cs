@@ -390,11 +390,25 @@ public class PlayerStats : MonoBehaviour
         } 
         //result
         bool result;
+        //success
         if (Random.Range(0f, 1) <= escape_chance) {
             result = true;
+
+            //finish fight
+            finish_fight();
         }
+        //fail
         else {
             result = false;
+
+            //get player UI
+            GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+            
+            //get playerFight component
+            PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
+
+            //enemy ai act 
+            playerFight.act();
         }
         return result;
     }
@@ -455,9 +469,9 @@ public class PlayerStats : MonoBehaviour
         stats.damageSelf(value);
     }
     
-    public bool escape(GameObject player) {
+    public bool escape(GameObject other_player) {
         //chance depends on player intelligence or agility and other player agility
-        PlayerStats stats = player.GetComponent<PlayerStats>();
+        PlayerStats stats = other_player.GetComponent<PlayerStats>();
 
         double escape_chance;
         int k; //or intelligence or agility
@@ -475,11 +489,23 @@ public class PlayerStats : MonoBehaviour
         } 
         //result
         bool result;
+
+        //success
         if (Random.Range(0f, 1) <= escape_chance) {
             result = true;
+
+            //get enemy player stats
+            PlayerStats other_player_stats = other_player.GetComponent<PlayerStats>();
+
+            //finish fight for enemy player
+            other_player_stats.finish_fight();
+
+            //finish fight for player
+            finish_fight();    
         }
+        //fail
         else {
-            result = false;
+            result = false;       
         }
         return result;
     }

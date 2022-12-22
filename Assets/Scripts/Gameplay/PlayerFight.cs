@@ -190,7 +190,7 @@ public class PlayerFight : MonoBehaviour
         act();
     }
 
-    public void player_escpae() {
+    public void player_escape() {
         //get player
         GameObject player = playerTurns.getCurrentPlayer();
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
@@ -198,14 +198,16 @@ public class PlayerFight : MonoBehaviour
         //make buttons not interactable
         set_button_interactable(false);
 
-        //check if escape is successful
-        if (playerStats.escape()) {
-            playerStats.finish_fight();
+        //try to escape
+        //if vs enemy player
+        if (playerStats.get_enemy_player() != null) {
+            playerStats.escape(playerStats.get_enemy_player());
         }
-        //else if it is an enemy ai act
-        else {
-            act();
+        //if vs enemy ai
+        else if (playerStats.get_enemy() != null) {
+            playerStats.escape();
         }
+        
     }
 
     //enemy ai functions

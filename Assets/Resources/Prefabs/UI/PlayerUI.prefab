@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3837721191692829953}
         m_TargetAssemblyTypeName: PlayerFight, Assembly-CSharp
-        m_MethodName: player_escpae
+        m_MethodName: player_escape
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
