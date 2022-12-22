@@ -354,6 +354,9 @@ public class PlayerStats : MonoBehaviour
         fightPanel.SetActive(true);
         playerFight.setValuesStart();
 
+        //make fight buttons interactable
+        playerFight.set_button_interactable(true);
+
         //disable player movement
         playerTurns.enableMovement(false);
 
@@ -432,6 +435,9 @@ public class PlayerStats : MonoBehaviour
         //open fight panel and set values
         fightPanel.SetActive(true);
         playerFight.setValuesStart();
+
+        //make fight buttons interactable
+        playerFight.set_button_interactable(true);
 
         //disable player movement
         playerTurns.enableMovement(false);
