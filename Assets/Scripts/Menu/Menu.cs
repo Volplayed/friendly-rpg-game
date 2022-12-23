@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
@@ -9,12 +11,6 @@ public class Menu : MonoBehaviour
 
     //menu panel
     public GameObject menuPanel;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     //open player amount
     public void openPlayerAmount() {
@@ -26,6 +22,20 @@ public class Menu : MonoBehaviour
     public void closePlayerAmount() {
         playerAmountPanel.SetActive(false);
         menuPanel.SetActive(true);
+    }
+
+    //set player amount
+    public void setPlayerAmount(int amount) {
+        //set player amount
+       StaticValuesController.playerAmount = amount;
+        
+        //start game
+        openGame();
+    }
+
+    //open main game scene
+    private void openGame() {
+        SceneManager.LoadScene("MainGame");
     }
     
 }

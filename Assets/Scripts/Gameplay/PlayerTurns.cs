@@ -33,9 +33,16 @@ public class PlayerTurns : MonoBehaviour
         //get all players
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        players_count = players.Length;
+        //count all players
+        int all_players_count = players.Length;
 
-        
+        //get players count from static values controller
+        players_count = StaticValuesController.playerAmount;
+
+        //destroy extra players
+        for (int i = players_count; i < all_players_count; i++) {
+            Destroy(players[i]);
+        }
 
         //get all players stats and set turn to false
         for (int i = 0; i < players_count; i++) {
