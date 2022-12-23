@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Goblin
   m_EditorClassIdentifier: 
   enemyName: Goblin
-  level: 1
+  level: 5
   max_health: 6
   damage: 2
   armor: 0.2

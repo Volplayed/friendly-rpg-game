@@ -134,13 +134,13 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
-      propertyPath: default_agility
-      value: 4
+    - target: {fileID: 1681136309984743483, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
-      propertyPath: default_strength
-      value: 3
+    - target: {fileID: 2550388692822826094, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7713679241551894070, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -299,18 +299,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
-      propertyPath: default_agility
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
-      propertyPath: default_strength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
-      propertyPath: default_intelligence
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 7713679241551894070, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -408,11 +396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: exp_multiplayer
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: default_strength
-      value: 78
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7713679241551894070, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -505,19 +493,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: default_agility
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: exp_multiplayer
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: default_strength
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3848615879539270064, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: default_intelligence
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7713679241551894070, guid: 5e71ece143defc2498b29e08b3bc5746, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -624,6 +612,14 @@ PrefabInstance:
     - target: {fileID: 476306438962060870, guid: adda875c9e20c6b4f88070119403f577, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229717310801036067, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.572998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229717310801036067, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.145874
       objectReference: {fileID: 0}
     - target: {fileID: 3125548655303361472, guid: adda875c9e20c6b4f88070119403f577, type: 3}
       propertyPath: m_AnchorMax.y

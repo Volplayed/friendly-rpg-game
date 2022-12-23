@@ -11,6 +11,8 @@ TagManager:
   - enemy_list
   - player_collider
   - fight_marker
+  - levelup_panel
+  - level_text
   layers:
   - Default
   - TransparentFX

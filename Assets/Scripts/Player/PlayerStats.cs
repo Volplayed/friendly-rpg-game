@@ -305,6 +305,25 @@ public class PlayerStats : MonoBehaviour
     //activate/disactivate levelUp panel
     public void activateLevelUpPanel(bool value) {
         levelUpPanel.SetActive(value);
+
+        //get inventory button
+        Button inventoryButton = GameObject.FindGameObjectsWithTag("inventory_button")[0].GetComponent<Button>();
+
+        //get finish turn button
+        Button finishTurnButton = GameObject.FindGameObjectsWithTag("finish_turn_button")[0].GetComponent<Button>();
+
+        //set buttons interactable to opposite value
+        inventoryButton.interactable = !value;
+        finishTurnButton.interactable = !value;
+
+        //get player ui
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //set enable movement to opposite value
+        playerTurns.enableMovement(!value);
     }
 
 
