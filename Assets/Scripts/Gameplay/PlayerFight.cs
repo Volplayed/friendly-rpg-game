@@ -24,6 +24,8 @@ public class PlayerFight : MonoBehaviour
     public GameObject attackButton;
     public GameObject healButton;
     public GameObject retreatButton;
+    public GameObject endTurnButton;
+    public GameObject skipTurnButton;
 
     //player turns
     private PlayerTurns playerTurns;
@@ -125,9 +127,14 @@ public class PlayerFight : MonoBehaviour
 
     //make buttons interactable or not
     public void set_button_interactable(bool interactable) {
+        //make buttons interactable or not
         attackButton.GetComponent<Button>().interactable = interactable;
         healButton.GetComponent<Button>().interactable = interactable;
         retreatButton.GetComponent<Button>().interactable = interactable;
+
+        //show (hide) end turn button if skip turn button hidden (shown)
+        skipTurnButton.SetActive(interactable);
+        endTurnButton.SetActive(!interactable);
     }
 
     //buttons functions
@@ -208,6 +215,15 @@ public class PlayerFight : MonoBehaviour
             playerStats.escape();
         }
         
+    }
+
+    //skip turn
+    public void player_skip_turn() {
+        //make buttons not interactable
+        set_button_interactable(false);
+
+        //if it is an enemy ai act
+        act();
     }
 
     //enemy ai functions

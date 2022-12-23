@@ -10,6 +10,7 @@ TagManager:
   - player_ui
   - enemy_list
   - player_collider
+  - fight_marker
   layers:
   - Default
   - TransparentFX
