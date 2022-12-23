@@ -6,9 +6,10 @@ using UnityEngine.UI;
 using System.Linq;
 public class PlayerTurns : MonoBehaviour
 {
-
+    //panels
     public GameObject turnChangePanel;
     public GameObject fightPanel;
+    public GameObject levelUpPanel;
 
     //player related
     private GameObject[] players;
@@ -78,6 +79,11 @@ public class PlayerTurns : MonoBehaviour
     //return a player whose turn is now
     public GameObject getCurrentPlayer() {
         return players[current_player_turn];
+    }
+
+    //return level up panel
+    public GameObject getLevelUpPanel() {
+        return levelUpPanel;
     }
 
     private void openTurnChangePanel() {
@@ -205,6 +211,26 @@ public class PlayerTurns : MonoBehaviour
         
         //after clicking on button in panel, player will gain his turn
         
+    }
+
+    //level up buttons actions
+    public void gain_attributes(string attribute) {
+        //if strength player gain strength
+        if (attribute == "strength") {
+            playerStats[current_player_turn].gain_strength();
+        }
+        //if agility player gain agility
+        else if (attribute == "agility") {
+            playerStats[current_player_turn].gain_agility();
+        }
+        //if intelligence player gain intelligence
+        else if (attribute == "intelligence") {
+            playerStats[current_player_turn].gain_intelligence();
+        }
+
+        //close level up panel
+        playerStats[current_player_turn].activateLevelUpPanel(false);
+
     }
 
 }

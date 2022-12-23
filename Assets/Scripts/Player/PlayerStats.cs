@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -46,6 +48,11 @@ public class PlayerStats : MonoBehaviour
     //fight marker
     public GameObject fight_marker;
 
+    //level up panel
+    private GameObject levelUpPanel;
+    //levelup panel text
+    private TMP_Text levelUpText;
+
     void Start()
     {       
         //starting values
@@ -56,6 +63,24 @@ public class PlayerStats : MonoBehaviour
         calculateStats();
         calculateExp();
 
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns component
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //get level up panel
+        levelUpPanel = playerTurns.getLevelUpPanel();
+
+        //get level up text list
+        TMP_Text[] levelUpTexts = levelUpPanel.GetComponentsInChildren<TMP_Text>();
+
+        //search for level up text
+        foreach (TMP_Text text in levelUpTexts) {
+            if (text.gameObject.tag == "level_text") {
+                levelUpText = text;
+            }
+        }
     }
 
     void calculateExp() {
@@ -198,6 +223,26 @@ public class PlayerStats : MonoBehaviour
 
     }
 
+    //add to attributes with level up
+    public void gain_strength() {
+        default_strength += 1;
+
+        //calculate new stats
+        calculateStats();
+    }
+    public void gain_agility() {
+        default_agility += 1;
+
+        //calculate new stats
+        calculateStats();
+    }
+    public void gain_intelligence() {
+        default_intelligence += 1;
+
+        //calculate new stats
+        calculateStats();
+    }
+
     //give exp
     public void give_exp(int value) {
         exp += value;
@@ -238,11 +283,30 @@ public class PlayerStats : MonoBehaviour
     //levelUp
     private void checkExp() {
         if (exp >= needed_exp) {
-            level++;
-            calculateExp();
-            exp = 0;
+            levelUp();
         }
     }
+
+    //change player level + 1, reset exp and open levelUp menu
+    public void levelUp() {
+        //+level and reset exp
+        level++;
+        calculateExp();
+        exp = 0;
+
+        //activate levelUp menu
+        activateLevelUpPanel(true);
+
+        //set level up text
+        levelUpText.SetText("You achived level " + level);
+
+    }
+
+    //activate/disactivate levelUp panel
+    public void activateLevelUpPanel(bool value) {
+        levelUpPanel.SetActive(value);
+    }
+
 
 
     //fight functions
