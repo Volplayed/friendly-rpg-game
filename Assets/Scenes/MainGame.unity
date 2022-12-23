@@ -721,6 +721,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6583250976757868238, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_TagString
+      value: inventory_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996793920621982919, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_TagString
+      value: finish_turn_button
+      objectReference: {fileID: 0}
     - target: {fileID: 7203129515210513227, guid: adda875c9e20c6b4f88070119403f577, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -13,6 +13,8 @@ TagManager:
   - fight_marker
   - levelup_panel
   - level_text
+  - inventory_button
+  - finish_turn_button
   layers:
   - Default
   - TransparentFX
