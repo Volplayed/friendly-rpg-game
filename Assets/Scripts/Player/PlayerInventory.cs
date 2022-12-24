@@ -23,6 +23,9 @@ public class PlayerInventory : MonoBehaviour
     public TMP_Text new_item_name_text, new_item_description_text, new_item_stats_text;
     public Image new_item_image, new_item_background_image;
 
+    //current new item
+    private Item current_new_item;
+
      void Start()
     {
         playerTurns = gameObject.GetComponent<PlayerTurns>();
@@ -74,6 +77,11 @@ public class PlayerInventory : MonoBehaviour
         intelligence_text.SetText("Intelligence: " + stats.get_intelligence());
         exp_text.SetText("Experience: " + stats.get_exp() + "/" + stats.get_needed_exp());
         level_text.SetText("Level: " + stats.get_level());
+    }
+
+    //get current new item
+    public Item get_current_new_item() {
+        return current_new_item;
     }
 
     //find item image component
@@ -232,7 +240,7 @@ public class PlayerInventory : MonoBehaviour
         return text;
     }
 
-    //open new item recieve windo
+    //open new item recieve window
     public void open_new_item_panel(Item new_item) {
         //set new item name text
         new_item_name_text.SetText(new_item.itemName);
@@ -245,7 +253,15 @@ public class PlayerInventory : MonoBehaviour
         //set new item stats text
         new_item_stats_text.SetText(create_item_stats_text(new_item));
 
+        //set current new item
+        current_new_item = new_item;
+
         activateNewItemPanel(true);
+    }
+
+    //close new item recieve window
+    public void close_new_item_panel() {
+        activateNewItemPanel(false);
     }
 
     //activate/disactivate new item panel
@@ -270,6 +286,27 @@ public class PlayerInventory : MonoBehaviour
 
         //set enable movement to opposite value
         playerTurns.enableMovement(!value);
+    }
+
+    //equip item from new item panel
+    public void equip_new_item() {
+        //get player ui
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //get current player object
+        GameObject player = playerTurns.getCurrentPlayer();
+
+        //get current new item
+        Item item = get_current_new_item();
+
+        //equip item
+        item.equipItem(player);
+
+        //close new item panel
+        close_new_item_panel();
     }
 
 }
