@@ -36,6 +36,11 @@ public class PlayerStats : MonoBehaviour
     private double bonus_crit_chance = 0;
     private int bonus_moves = 0;
 
+    //items
+    private List<Item> items = new List<Item>();
+    //starting item
+    public Item starting_item;
+
     //for turn management
     private bool has_turn = false;
     private List<HexClickHandler> hexHandlers = new List<HexClickHandler>();
@@ -62,6 +67,9 @@ public class PlayerStats : MonoBehaviour
         level = 1;
         calculateStats();
         calculateExp();
+
+        //add starting item
+        starting_item.equipItem(gameObject);
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
@@ -126,6 +134,9 @@ public class PlayerStats : MonoBehaviour
     }
     public bool get_in_fight() {
         return in_fight;
+    }
+    public List<Item> get_items() {
+        return items;
     }
     //calculates max health with formula
     public int get_max_health() {
@@ -643,4 +654,22 @@ public class PlayerStats : MonoBehaviour
             enemyPlayerStats.give_exp(level*3);
         }
     }
-}
+
+    //items management
+    //add item to inventory
+    public void add_item(Item item) {
+        //add item to list
+        items.Add(item);
+
+        //calculate new stats
+        calculateStats();
+    }
+    //remove item from inventory
+    public void remove_item(Item item) {
+        //remove item from list
+        items.Remove(item);
+
+        //calculate new stats
+        calculateStats();
+    }
+}   

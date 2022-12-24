@@ -37,6 +37,9 @@ public class PlayerInventory : MonoBehaviour
 
             //set inventory stats
             set_stats();
+
+            //set inventory items
+            set_items();
         }
         //if inventory is opened
         else {
@@ -52,8 +55,10 @@ public class PlayerInventory : MonoBehaviour
     }
 
     private void set_stats() {
-        //set player stats
+        //get player stats
         PlayerStats stats = player.GetComponent<PlayerStats>();
+
+        //set stats
         health_text.SetText("Health: " + stats.get_health());
         damage_text.SetText("Damage: " + stats.get_damage());
         armor_text.SetText("Armor: " + stats.get_armor());
@@ -62,6 +67,48 @@ public class PlayerInventory : MonoBehaviour
         intelligence_text.SetText("Intelligence: " + stats.get_intelligence());
         exp_text.SetText("Experience: " + stats.get_exp() + "/" + stats.get_needed_exp());
         level_text.SetText("Level: " + stats.get_level());
+    }
+
+    //set player items
+    private void set_items() {
+        //get player stats
+        PlayerStats stats = player.GetComponent<PlayerStats>();
+        //get player items
+        List<Item> items = stats.get_items();
+       
+        //get slots
+        GameObject head_slot = GameObject.FindGameObjectsWithTag("head_slot")[0];
+        GameObject body_slot = GameObject.FindGameObjectsWithTag("body_slot")[0];
+        GameObject leg_slot = GameObject.FindGameObjectsWithTag("leg_slot")[0];
+        GameObject feet_slot = GameObject.FindGameObjectsWithTag("feet_slot")[0];
+        GameObject hands_slot = GameObject.FindGameObjectsWithTag("hands_slot")[0];
+        GameObject weapon_slot = GameObject.FindGameObjectsWithTag("weapon_slot")[0];
+        GameObject ring_slot = GameObject.FindGameObjectsWithTag("ring_slot")[0];
+
+        //set items to slots
+        foreach (Item item in items) {
+            if (item.itemType == "head") {
+                head_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+            }
+            else if (item.itemType == "body") {
+                body_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+            }
+            else if (item.itemType == "leg") {
+                leg_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+            }
+            else if (item.itemType == "feet") {
+                feet_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+            }
+            else if (item.itemType == "hands") {
+                hands_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+            }
+            else if (item.itemType == "weapon") {
+                weapon_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+            }
+            else if (item.itemType == "ring") {
+                ring_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+            }
+        }
     }
 
 

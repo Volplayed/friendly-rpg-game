@@ -358,6 +358,7 @@ MonoBehaviour:
   default_strength: 5
   default_agility: 5
   default_intelligence: 5
+  starting_item: {fileID: 11400000, guid: 59c9ee2fa0017a34d9164d81cdb8b361, type: 2}
   fight_marker: {fileID: 2550388692822826094}
 --- !u!1001 &7713679240583336391
 PrefabInstance:

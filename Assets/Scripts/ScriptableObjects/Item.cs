@@ -42,10 +42,13 @@ public class Item : ScriptableObject {
         playerStats.add_bonus_armor(armor);
         playerStats.add_bonus_crit_chance(crit_chance);
         playerStats.add_bonus_moves(moves);
+
+        //add item to player inventory
+        playerStats.add_item(this);
     }
 
-    //dequip item
-    public void dequipItem(GameObject player) {
+    //unequip item
+    public void unequipItem(GameObject player) {
         //get player stats
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
         //remove item stats from player bonus stats
@@ -57,6 +60,9 @@ public class Item : ScriptableObject {
         playerStats.remove_bonus_armor(armor);
         playerStats.remove_bonus_crit_chance(crit_chance);
         playerStats.remove_bonus_moves(moves);
+
+        //remove item from player inventory
+        playerStats.remove_item(this);
 
         //destroy item
         Destroy(this);
