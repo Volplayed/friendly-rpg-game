@@ -26,6 +26,7 @@ public class EnemyList : MonoBehaviour
         enemy.set_crit_chance(ex.get_crit_chance());
         enemy.set_level(ex.get_level());
         enemy.set_heal(ex.get_heal());
+        enemy.set_drop_items(ex.get_drop_items());
 
         return enemy;
 

@@ -690,4 +690,16 @@ public class PlayerStats : MonoBehaviour
         //calculate new stats
         calculateStats();
     }
+
+    //open new item panel
+    public void open_new_item_panel(Item item) {
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get playerInventory component
+        PlayerInventory playerInventory = playerUI.GetComponent<PlayerInventory>();
+
+        //open new item panel
+        playerInventory.open_new_item_panel(item);
+    }
 }   

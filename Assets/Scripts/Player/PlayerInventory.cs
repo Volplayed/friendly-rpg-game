@@ -19,6 +19,10 @@ public class PlayerInventory : MonoBehaviour
     //new item recieve panel
     public GameObject new_item_panel;
 
+    //new item recieve panel texts and images
+    public TMP_Text new_item_name_text, new_item_description_text, new_item_stats_text;
+    public Image new_item_image, new_item_background_image;
+
      void Start()
     {
         playerTurns = gameObject.GetComponent<PlayerTurns>();
@@ -230,15 +234,6 @@ public class PlayerInventory : MonoBehaviour
 
     //open new item recieve windo
     public void open_new_item_panel(Item new_item) {
-        //get new item name text
-        TMP_Text new_item_name_text = GameObject.FindGameObjectsWithTag("new_item_name")[0].GetComponent<TMP_Text>();
-        //get new item image
-        Image new_item_image = GameObject.FindGameObjectsWithTag("new_item_image")[0].GetComponent<Image>();
-        //get new item description text
-        TMP_Text new_item_description_text = GameObject.FindGameObjectsWithTag("new_item_description")[0].GetComponent<TMP_Text>();
-        //get new item stats text
-        TMP_Text new_item_stats_text = GameObject.FindGameObjectsWithTag("new_item_stats")[0].GetComponent<TMP_Text>();
-
         //set new item name text
         new_item_name_text.SetText(new_item.itemName);
         //set new item image

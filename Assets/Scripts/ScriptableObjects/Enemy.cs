@@ -17,6 +17,9 @@ public class Enemy : ScriptableObject {
 
     public double crit_chance;
     
+    //drop items list
+    public Item[] drop_items;
+
     //temp stats
     private bool healed = false; //had the enemy healed last turn?
 
@@ -64,6 +67,9 @@ public class Enemy : ScriptableObject {
         //finish fight
         stats.finish_fight();
 
+        //drop item and open new item window
+        stats.open_new_item_panel(drop_item());
+
         //give exp to player based on level and some additional random value
         stats.give_exp(level*2 + UnityEngine.Random.Range(0, 3));
     }
@@ -96,6 +102,9 @@ public class Enemy : ScriptableObject {
     public int get_heal() {
         return heal_value;
     }
+    public Item[] get_drop_items() {
+        return drop_items;
+    }
 
     //set functions
     public void set_starting_health() {
@@ -124,5 +133,18 @@ public class Enemy : ScriptableObject {
     }
     public void set_heal(int value) {
         heal_value = value;
+    }
+    public void set_drop_items(Item[] value) {
+        drop_items = value;
+    }
+
+    //drop random item
+    public Item drop_item() {
+        //get length of list
+        int n = drop_items.Length;
+        //get random item
+        Item item = drop_items[UnityEngine.Random.Range(0, n)];
+
+        return item;
     }
 }
