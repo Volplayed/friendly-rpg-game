@@ -15,6 +15,14 @@ TagManager:
   - level_text
   - inventory_button
   - finish_turn_button
+  - items_panel
+  - head_slot
+  - body_slot
+  - leg_slot
+  - hands_slot
+  - ring_slot
+  - feet_slot
+  - weapon_slot
   layers:
   - Default
   - TransparentFX
