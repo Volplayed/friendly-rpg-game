@@ -69,6 +69,71 @@ public class PlayerInventory : MonoBehaviour
         level_text.SetText("Level: " + stats.get_level());
     }
 
+    //find item image component
+    private Image get_item_image(GameObject slot) {
+        //get all image components
+        Image[] images = slot.GetComponentsInChildren<Image>();
+
+        //check if image is item image
+        foreach (Image image in images) {
+            if (image.gameObject.tag == "item_image") {
+                return image;
+            }
+        }
+        return null;
+    }
+
+    //find item background image component
+    private Image get_item_background_image(GameObject slot) {
+        //get all image components
+        Image[] images = slot.GetComponentsInChildren<Image>();
+
+        //check if image is item background image
+        foreach (Image image in images) {
+            if (image.gameObject.tag == "item_background_image") {
+                return image;
+            }
+        }
+        return null;
+    }
+
+    //set item background image color based on item rarity
+    private void set_item_background_image_color(GameObject slot, int rarity) {
+        //get item background image
+        Image image = get_item_background_image(slot);
+
+        //common
+        if (rarity == 0) {
+            //grey
+            image.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+        }
+        //uncommon
+        else if (rarity == 1) {
+            //green
+            image.color = new Color(0.5f, 0.9f, 0.3f, 1f);
+        }
+        //rare
+        else if (rarity == 2) {
+            //blue
+            image.color = new Color(0.5f, 0.5f, 0.9f, 1f);
+        }
+        //epic
+        else if (rarity == 3) {
+            //purple
+            image.color = new Color(0.6f, 0f, 0.9f, 1f);
+        }
+        //legendary
+        else if (rarity == 4) {
+            //yellow
+            image.color = new Color(1f, 1f, 0.1f, 1f);
+        }
+        //mythical
+        else if (rarity == 5) {
+            //orange
+            image.color = new Color(1f, 0.6f, 0f, 1f);
+        }
+    }
+
     //set player items
     private void set_items() {
         //get player stats
@@ -85,30 +150,40 @@ public class PlayerInventory : MonoBehaviour
         GameObject weapon_slot = GameObject.FindGameObjectsWithTag("weapon_slot")[0];
         GameObject ring_slot = GameObject.FindGameObjectsWithTag("ring_slot")[0];
 
-        //set items to slots
+        //set item to each slot
         foreach (Item item in items) {
             if (item.itemType == "head") {
-                head_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+                get_item_image(head_slot).sprite = item.itemIcon;
+                set_item_background_image_color(head_slot, item.itemRarity);
             }
             else if (item.itemType == "body") {
-                body_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+                get_item_image(body_slot).sprite = item.itemIcon;
+                set_item_background_image_color(body_slot, item.itemRarity);
             }
             else if (item.itemType == "leg") {
-                leg_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+                get_item_image(leg_slot).sprite = item.itemIcon;
+                set_item_background_image_color(leg_slot, item.itemRarity);
             }
             else if (item.itemType == "feet") {
-                feet_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+                get_item_image(feet_slot).sprite = item.itemIcon;
+                set_item_background_image_color(feet_slot, item.itemRarity);
             }
             else if (item.itemType == "hands") {
-                hands_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+                get_item_image(hands_slot).sprite = item.itemIcon;
+                set_item_background_image_color(hands_slot, item.itemRarity);
             }
             else if (item.itemType == "weapon") {
-                weapon_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+                get_item_image(weapon_slot).sprite = item.itemIcon;
+                set_item_background_image_color(weapon_slot, item.itemRarity);
             }
             else if (item.itemType == "ring") {
-                ring_slot.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
+                get_item_image(ring_slot).sprite = item.itemIcon;
+                set_item_background_image_color(ring_slot, item.itemRarity);
             }
         }
+
+        
+        
     }
 
 
