@@ -16,6 +16,9 @@ public class PlayerInventory : MonoBehaviour
     private GameObject player;
     private PlayerTurns playerTurns;
 
+    //new item recieve panel
+    public GameObject new_item_panel;
+
      void Start()
     {
         playerTurns = gameObject.GetComponent<PlayerTurns>();
@@ -190,6 +193,88 @@ public class PlayerInventory : MonoBehaviour
     //get value
     public bool getIsOpened() {
         return opened;
+    }
+
+    //create string with item stats
+    private string create_item_stats_text(Item item) {
+        string text = "";
+
+        //check each stat if it is not 0 and add it to text
+        if (item.damage != 0) {
+            text += "Damage: " + item.damage + "\n";
+        }
+        if (item.armor != 0) {
+            text += "Armor: " + item.armor + "\n";
+        }
+        if (item.health != 0) {
+            text += "Health: " + item.health + "\n";
+        }
+        if (item.strength != 0) {
+            text += "Strength: " + item.strength + "\n";
+        }
+        if (item.agility != 0) {
+            text += "Agility: " + item.agility + "\n";
+        }
+        if (item.intelligence != 0) {
+            text += "Intelligence: " + item.intelligence + "\n";
+        }
+        if (item.crit_chance != 0) {
+            text += "Crit chance: " + item.crit_chance + "\n";
+        }
+        if (item.moves != 0) {
+            text += "Moves: " + item.moves + "\n";
+        }
+
+        return text;
+    }
+
+    //open new item recieve windo
+    public void open_new_item_panel(Item new_item) {
+        //get new item name text
+        TMP_Text new_item_name_text = GameObject.FindGameObjectsWithTag("new_item_name")[0].GetComponent<TMP_Text>();
+        //get new item image
+        Image new_item_image = GameObject.FindGameObjectsWithTag("new_item_image")[0].GetComponent<Image>();
+        //get new item description text
+        TMP_Text new_item_description_text = GameObject.FindGameObjectsWithTag("new_item_description")[0].GetComponent<TMP_Text>();
+        //get new item stats text
+        TMP_Text new_item_stats_text = GameObject.FindGameObjectsWithTag("new_item_stats")[0].GetComponent<TMP_Text>();
+
+        //set new item name text
+        new_item_name_text.SetText(new_item.itemName);
+        //set new item image
+        new_item_image.sprite = new_item.itemIcon;
+        //set new item background image color
+        set_item_background_image_color(new_item_image.gameObject.transform.parent.gameObject, new_item.itemRarity);
+        //set new item description text
+        new_item_description_text.SetText(new_item.itemDescription);
+        //set new item stats text
+        new_item_stats_text.SetText(create_item_stats_text(new_item));
+
+        activateNewItemPanel(true);
+    }
+
+    //activate/disactivate new item panel
+    public void activateNewItemPanel(bool value) {
+        new_item_panel.SetActive(value);
+
+        //get inventory button
+        Button inventoryButton = GameObject.FindGameObjectsWithTag("inventory_button")[0].GetComponent<Button>();
+
+        //get finish turn button
+        Button finishTurnButton = GameObject.FindGameObjectsWithTag("finish_turn_button")[0].GetComponent<Button>();
+
+        //set buttons interactable to opposite value
+        inventoryButton.interactable = !value;
+        finishTurnButton.interactable = !value;
+
+        //get player ui
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //set enable movement to opposite value
+        playerTurns.enableMovement(!value);
     }
 
 }
