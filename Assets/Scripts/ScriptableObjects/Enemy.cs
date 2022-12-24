@@ -15,8 +15,13 @@ public class Enemy : ScriptableObject {
     public double armor;
     public int heal_value;
 
+    [Range(0, 1)]
     public double crit_chance;
     
+    //chance to drop item
+    [Range(0, 1)]
+    public double drop_chance;
+
     //drop items list
     public Item[] drop_items;
 
@@ -67,9 +72,11 @@ public class Enemy : ScriptableObject {
         //finish fight
         stats.finish_fight();
 
-        //drop item and open new item window
-        stats.open_new_item_panel(drop_item());
-
+        //drop item if drop chance is met
+        if (UnityEngine.Random.Range(0f, 1) <= drop_chance) {
+            //drop item and open new item window
+            stats.open_new_item_panel(drop_item());
+        }
         //give exp to player based on level and some additional random value
         stats.give_exp(level*2 + UnityEngine.Random.Range(0, 3));
     }
@@ -102,6 +109,9 @@ public class Enemy : ScriptableObject {
     public int get_heal() {
         return heal_value;
     }
+    public double get_drop_chance() {
+        return drop_chance;
+    }
     public Item[] get_drop_items() {
         return drop_items;
     }
@@ -133,6 +143,9 @@ public class Enemy : ScriptableObject {
     }
     public void set_heal(int value) {
         heal_value = value;
+    }
+    public void set_drop_chance(double value) {
+        drop_chance = value;
     }
     public void set_drop_items(Item[] value) {
         drop_items = value;
