@@ -658,8 +658,26 @@ public class PlayerStats : MonoBehaviour
     //items management
     //add item to inventory
     public void add_item(Item item) {
+        //create item instance
+        Item item_ = ScriptableObject.CreateInstance<Item>();
+
+        //set values of instance based on example values
+        item_.itemName = item.itemName;
+        item_.itemDescription = item.itemDescription;
+        item_.itemIcon = item.itemIcon;
+        item_.itemType = item.itemType;
+        item_.itemRarity = item.itemRarity;
+        item_.strength = item.strength;
+        item_.agility = item.agility;
+        item_.intelligence = item.intelligence;
+        item_.health = item.health;
+        item_.damage = item.damage;
+        item_.crit_chance = item.crit_chance;
+        item_.armor = item.armor;
+        item_.moves = item.moves;
+
         //add item to list
-        items.Add(item);
+        items.Add(item_);
 
         //calculate new stats
         calculateStats();
