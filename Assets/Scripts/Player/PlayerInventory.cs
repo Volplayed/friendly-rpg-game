@@ -23,6 +23,10 @@ public class PlayerInventory : MonoBehaviour
     public TMP_Text new_item_name_text, new_item_description_text, new_item_stats_text;
     public Image new_item_image, new_item_background_image;
 
+    //new item recieve panel old item panel texts and images
+    public TMP_Text old_item_name_text, old_item_description_text, old_item_stats_text;
+    public Image old_item_image, old_item_background_image;
+
     //current new item
     private Item current_new_item;
 
@@ -286,6 +290,37 @@ public class PlayerInventory : MonoBehaviour
 
         //set enable movement to opposite value
         playerTurns.enableMovement(!value);
+
+        //activate/deactivate old item panel if value is true
+        if (value) {
+            //get type of new item and current player and find appropriate old item
+            activateOldItemPanel(get_old_item_of_type(get_current_new_item().itemType, playerTurns.getCurrentPlayer()));
+        }
+    }
+
+    //activate/disactivate and set old item panel depending on if there is old item equipped
+    public void activateOldItemPanel(Item old_item) {
+        //get old item panel by getting parent of old item text
+        GameObject old_item_panel = old_item_name_text.gameObject.transform.parent.gameObject;
+        //if there is old item activate and set old item panel
+        if (old_item != null) {
+            //activate old item panel
+            old_item_panel.SetActive(true);
+            //set old item name text
+            old_item_name_text.SetText(old_item.itemName);
+            //set old item image
+            old_item_image.sprite = old_item.itemIcon;
+            //set old item background image color
+            set_item_background_image_color(old_item_image.gameObject.transform.parent.gameObject, old_item.itemRarity);
+            //set old item description text
+            old_item_description_text.SetText(old_item.itemDescription);
+            //set old item stats text
+            old_item_stats_text.SetText(create_item_stats_text(old_item));
+        }
+        //if there is no old item deactivate old item panel
+        else {
+            old_item_panel.SetActive(false);
+        }
     }
 
     //get old item
