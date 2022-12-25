@@ -23,6 +23,23 @@ TagManager:
   - ring_slot
   - feet_slot
   - weapon_slot
+  - recieve_item_panel
+  - new_item_name
+  - new_item_description
+  - item_image
+  - item_background_image
+  - new_item_stats
+  - new_item_icon
+  - old_item_icon
+  - old_item_name
+  - old_item_description
+  - old_item_stats
+  - item_data_panel
+  - item_name
+  - item_description
+  - item_stats
+  - item_rarity
+  - current_turn
   layers:
   - Default
   - TransparentFX

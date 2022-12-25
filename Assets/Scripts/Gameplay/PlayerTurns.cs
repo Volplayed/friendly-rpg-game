@@ -22,6 +22,8 @@ public class PlayerTurns : MonoBehaviour
     //turns
     private int current_turn = 1;
     private int current_player_turn = 0;
+    //current turn text
+    private TMP_Text currentTurnText;
 
     //moves 
     private int current_player_moves;
@@ -29,6 +31,8 @@ public class PlayerTurns : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //get curent turn text
+        currentTurnText = GameObject.FindGameObjectsWithTag("current_turn")[0].GetComponent<TMP_Text>();
 
         //get all players
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -204,9 +208,13 @@ public class PlayerTurns : MonoBehaviour
 
         //set turn to next
         current_player_turn++;
+        //if current player turn is bigger than players count, set it to 0 and increase current turn
         if (current_player_turn >= players_count) {
             current_player_turn = 0;
             current_turn++;
+
+            //update current turn text
+            currentTurnText.SetText("Turn: " + current_turn);
         }
         set_cameras();
         //close inventory if was opened
