@@ -288,6 +288,22 @@ public class PlayerInventory : MonoBehaviour
         playerTurns.enableMovement(!value);
     }
 
+    //get old item
+    public Item get_old_item_of_type(string new_item_type, GameObject player) {
+        //get player stats
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+
+        //check if there is already item of this type equipped
+        foreach (Item item in playerStats.get_items()) {
+            if (item.itemType == new_item_type) {
+                return item;
+            }
+        }
+
+        return null;
+
+    }
+
     //equip item from new item panel
     public void equip_new_item() {
         //get player ui
@@ -302,8 +318,14 @@ public class PlayerInventory : MonoBehaviour
         //get current new item
         Item item = get_current_new_item();
 
+        //unequip old item if it exists
+        if (get_old_item_of_type(item.itemType, player) != null) {
+            get_old_item_of_type(item.itemType, player).unequipItem(player);
+        }
+
         //equip item
         item.equipItem(player);
+
 
         //close new item panel
         close_new_item_panel();
