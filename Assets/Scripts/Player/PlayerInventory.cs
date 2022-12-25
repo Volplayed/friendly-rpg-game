@@ -16,6 +16,12 @@ public class PlayerInventory : MonoBehaviour
     private GameObject player;
     private PlayerTurns playerTurns;
 
+    //item data panel
+    public GameObject item_data_panel;
+
+    //item data panel texts
+    public TMP_Text item_name_text, item_description_text, item_stats_text, item_rarity_text;
+
     //new item recieve panel
     public GameObject new_item_panel;
 
@@ -61,9 +67,13 @@ public class PlayerInventory : MonoBehaviour
             panel.SetActive(false);
             opened = false;
 
+            //deactivate item data panel
+            deactivateItemDataPanel();
+
             player.transform.position = player.transform.position;
             //enable movement
             playerTurns.enableMovement(!opened);
+
         }
 
     }
@@ -151,6 +161,38 @@ public class PlayerInventory : MonoBehaviour
             //orange
             image.color = new Color(1f, 0.6f, 0f, 1f);
         }
+    }
+
+    //item rarity to string
+    private string item_rarity_to_string(Item item) {
+        //get item rarity
+        int rarity = item.itemRarity;
+
+        //common
+        if (rarity == 0) {
+            return "Common";
+        }
+        //uncommon
+        else if (rarity == 1) {
+            return "Uncommon";
+        }
+        //rare
+        else if (rarity == 2) {
+            return "Rare";
+        }
+        //epic
+        else if (rarity == 3) {
+            return "Epic";
+        }
+        //legendary
+        else if (rarity == 4) {
+            return "Legendary";
+        }
+        //mythical
+        else if (rarity == 5) {
+            return "Mythical";
+        }
+        return "";
     }
 
     //set player items
@@ -339,6 +381,22 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
+    //get item by type
+    public Item get_item_of_type(string item_type, GameObject player) {
+        //get player stats
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+
+        //check if there is already item of this type equipped
+        foreach (Item item in playerStats.get_items()) {
+            if (item.itemType == item_type) {
+                return item;
+            }
+        }
+
+        return null;
+
+    }
+
     //equip item from new item panel
     public void equip_new_item() {
         //get player ui
@@ -364,6 +422,43 @@ public class PlayerInventory : MonoBehaviour
 
         //close new item panel
         close_new_item_panel();
+    }
+
+    //activate item data panel
+    private void activateItemDataPanel(Item item) {
+        //set item name text
+        item_name_text.SetText(item.itemName);
+        //set item description text
+        item_description_text.SetText(item.itemDescription);
+        //set item stats text
+        item_stats_text.SetText(create_item_stats_text(item));
+        //set item rarity text
+        item_rarity_text.SetText(item_rarity_to_string(item));
+
+        //activate item data panel
+        item_data_panel.SetActive(true);
+    }
+
+    //deactivate item data panel
+    private void deactivateItemDataPanel() {
+        item_data_panel.SetActive(false);
+    }
+
+    //open item data panel on click on item in inventory and set item data panel
+    public void open_item_data(string type) {
+        //get player ui
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+        //get player turns
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //search for item in inventory with type
+        if (get_item_of_type(type, playerTurns.getCurrentPlayer()) != null) {
+            //get item
+            Item item = get_item_of_type(type, playerTurns.getCurrentPlayer());
+
+            //activate item data panel
+            activateItemDataPanel(item);
+        }
     }
 
 }
