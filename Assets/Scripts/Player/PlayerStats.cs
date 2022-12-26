@@ -50,6 +50,9 @@ public class PlayerStats : MonoBehaviour
     private Enemy enemy = null;
     private GameObject enemyPlayer = null;
 
+    //can player be attacked
+    private bool can_be_attacked = true;
+
     //fight marker
     public GameObject fight_marker;
 
@@ -134,6 +137,9 @@ public class PlayerStats : MonoBehaviour
     }
     public bool get_in_fight() {
         return in_fight;
+    }
+    public bool get_can_be_attacked() {
+        return can_be_attacked;
     }
     public List<Item> get_items() {
         return items;
@@ -304,6 +310,8 @@ public class PlayerStats : MonoBehaviour
         level++;
         calculateExp();
         exp = 0;
+        //set can_be_attacked to true
+        can_be_attacked = true;
 
         //activate levelUp menu
         activateLevelUpPanel(true);
@@ -659,6 +667,9 @@ public class PlayerStats : MonoBehaviour
 
             //give exp to other player
             enemyPlayerStats.give_exp(level*3);
+
+            //set dead player can be attacked to false
+            can_be_attacked = false;
         }
     }
 

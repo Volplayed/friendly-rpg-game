@@ -28,6 +28,7 @@ public class HexClickHandler : MonoBehaviour
     //for starting fight
     private bool other_player = false;
     private GameObject other_player_object;
+    private PlayerStats other_player_stats;
 
     void Start()
     {
@@ -87,6 +88,9 @@ public class HexClickHandler : MonoBehaviour
 
                 //get collided object parent
                 other_player_object = other;
+
+                //get other player stats
+                other_player_stats = other.GetComponent<PlayerStats>();
             }
         }
     }
@@ -116,6 +120,9 @@ public class HexClickHandler : MonoBehaviour
 
             //set other player object to null
             other_player_object = null;
+
+            //set other player stats to null
+            other_player_stats = null;
         }
     }
 
@@ -203,13 +210,14 @@ public class HexClickHandler : MonoBehaviour
         Debug.Log(other_player);
         Debug.Log(!in_inventory);
         Debug.Log(avaliable);
+        
         //if is avaliable and inventory is not open move player
         if (avaliable && !in_inventory && has_turn && !other_player)
         {
             go_to_hex();
         }
-        //if other player is in hex and inventory is not open start fight
-        else if (other_player && !in_inventory && has_turn)
+        //if other player is in hex and enemy is not in fight or can be attacked and inventory is not open start fight
+        else if (other_player && other_player_stats.get_can_be_attacked() && !in_inventory && has_turn)
         {
             //decrease player current moves by 1
             playerTurns.change_current_moves(-1);
