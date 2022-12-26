@@ -165,7 +165,7 @@ public class PlayerFight : MonoBehaviour
             //get enemy
             Enemy enemy = playerStats.get_enemy();
             //attack enemy and get damage dealt and create popup text with value of damage dealt
-            //posotion of popup text is position of enemy health bar
+            //position of popup text is position of enemy health bar
             createDamagePopUpText(enemyHealthBar.transform.position, playerStats.attack(enemy));
 
             //set changed values
@@ -187,7 +187,7 @@ public class PlayerFight : MonoBehaviour
             PlayerStats other_playerStats = other_player.GetComponent<PlayerStats>();
 
             //attack enemy and get damage dealt and create popup text with value of damage dealt
-            //posotion of popup text is position of enemy health bar
+            //position of popup text is position of enemy health bar
             createDamagePopUpText(enemyHealthBar.transform.position, playerStats.attack(other_player));
 
             //make buttons not interactable
@@ -258,9 +258,10 @@ public class PlayerFight : MonoBehaviour
             Enemy enemy = playerStats.get_enemy();
 
             //attack if enought hp or already healed
-            if (enemy.get_health() >= enemy.get_max_health() * 0.5 || enemy.get_healed()) {
-                //attack player
-                enemy.attack(player);
+            if (enemy.get_health() >= enemy.get_max_health() * 0.5 || enemy.get_healed()) {               
+                //attack player and get damage dealt and create popup text with value of damage dealt
+                //position of popup text is position of player health bar
+                createDamagePopUpText(playerHealthBar.transform.position, enemy.attack(player));
 
                 //set changed values
                 setValues();

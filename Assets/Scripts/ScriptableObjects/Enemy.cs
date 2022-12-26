@@ -29,7 +29,7 @@ public class Enemy : ScriptableObject {
     private bool healed = false; //had the enemy healed last turn?
 
     //actions
-    public void attack(GameObject player) {
+    public int attack(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
         int value = damage;
 
@@ -38,7 +38,7 @@ public class Enemy : ScriptableObject {
             value = Convert.ToInt32(value * 1.7);
         }
         //player damages
-        stats.damageSelf(value);
+        return stats.damageSelf(value);
     }
 
     public int heal() {
