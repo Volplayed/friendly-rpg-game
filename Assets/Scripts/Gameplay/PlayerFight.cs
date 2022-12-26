@@ -353,8 +353,8 @@ public class PlayerFight : MonoBehaviour
         //exp string
         string expString = "EXP +" + value.ToString();
 
-        //setup popUp
-        popUp.Setup(expString, expGainColor);
+        //setup popUp to disappear after 2 seconds
+        popUp.Setup(expString, expGainColor, 2f);
 
         return popUp;
     }
