@@ -53,6 +53,9 @@ public class PlayerStats : MonoBehaviour
     //can player be attacked
     private bool can_be_attacked = true;
 
+    //can be attacked marker
+    public GameObject can_be_attacked_marker;
+
     //fight marker
     public GameObject fight_marker;
 
@@ -313,6 +316,9 @@ public class PlayerStats : MonoBehaviour
         //set can_be_attacked to true
         can_be_attacked = true;
 
+        //hide can be attacked maeker
+        show_can_be_attacked_marker(false);
+
         //activate levelUp menu
         activateLevelUpPanel(true);
 
@@ -437,6 +443,16 @@ public class PlayerStats : MonoBehaviour
 
         //hide or show fight marker
         fight_marker_sprite.enabled = value;
+
+    }
+
+    //show/hide can be attacked marker
+    public void show_can_be_attacked_marker(bool value) {
+        //get can be attacked marker sprite renderer
+        SpriteRenderer can_be_attacked_marker_sprite = can_be_attacked_marker.GetComponent<SpriteRenderer>();
+
+        //hide or show can be attacked marker
+        can_be_attacked_marker_sprite.enabled = value;
 
     }
 
@@ -670,6 +686,9 @@ public class PlayerStats : MonoBehaviour
 
             //set dead player can be attacked to false
             can_be_attacked = false;
+
+            //show can be attacked marker
+            show_can_be_attacked_marker(true);
         }
     }
 

@@ -40,6 +40,7 @@ TagManager:
   - item_stats
   - item_rarity
   - current_turn
+  - can_be_attacked_marker
   layers:
   - Default
   - TransparentFX
