@@ -266,6 +266,16 @@ public class PlayerStats : MonoBehaviour
     //give exp
     public void give_exp(int value) {
         exp += value;
+
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player fight component
+        PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
+
+        //create exp popup text in the middle of the screen
+        playerFight.createExpGainPopUpText(playerUI.transform.position, value);
+
         checkExp();
     }
     

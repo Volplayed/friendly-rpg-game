@@ -37,6 +37,7 @@ public class PlayerFight : MonoBehaviour
     private Color damageColor = new Color(1f, 0f, 0f, 1f); //red
     private Color healColor = new Color(0f, 1f, 0f, 1f); //green
     private Color critDamageColor = new Color(1f, 0f, 0.5f, 1f); //pink
+    private Color expGainColor = new Color(1f, 1f, 1f, 1f); //white
 
     void Start() {
         //get playerTurns
@@ -315,7 +316,7 @@ public class PlayerFight : MonoBehaviour
             //setup popup with normal damage color
             popUp.Setup(value, damageColor);
         }
-        
+
         return popUp;
     }
 
@@ -333,6 +334,27 @@ public class PlayerFight : MonoBehaviour
 
         //setup popUp
         popUp.Setup(value, healColor);
+
+        return popUp;
+    }
+
+    //exp gain popUp text create function
+    public PopUpText createExpGainPopUpText(Vector3 position, int value)
+    {
+        //get playerUi
+        GameObject playerUi = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //instantiate popUpText prefab in playerUi
+        Transform PopUpTransform = Instantiate(popUpTextPrefab.transform, position, Quaternion.identity, playerUi.transform);
+
+        //get script component
+        PopUpText popUp = PopUpTransform.GetComponent<PopUpText>();
+
+        //exp string
+        string expString = "EXP +" + value.ToString();
+
+        //setup popUp
+        popUp.Setup(expString, expGainColor);
 
         return popUp;
     }

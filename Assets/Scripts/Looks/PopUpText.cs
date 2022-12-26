@@ -12,10 +12,21 @@ public class PopUpText : MonoBehaviour
     private float disappearTimer = 1f;
 
     //set text mesh values
+    //value - int
     public void Setup(int value, Color color)
     {
         //set text
         textmesh.SetText(value.ToString());
+
+        //set color
+        textmesh.color = color;
+    }
+
+    //value - string
+    public void Setup(string value, Color color)
+    {
+        //set text
+        textmesh.SetText(value);
 
         //set color
         textmesh.color = color;
