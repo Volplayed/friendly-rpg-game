@@ -53,7 +53,7 @@ public class PlayerInventory : MonoBehaviour
             opened = true;
 
             //disable movement
-            playerTurns.enableMovement(!opened);
+            playerTurns.enableMovement(false);
 
             //set inventory stats
             set_stats();
@@ -71,8 +71,9 @@ public class PlayerInventory : MonoBehaviour
             deactivateItemDataPanel();
 
             player.transform.position = player.transform.position;
-            //enable movement
-            playerTurns.enableMovement(!opened);
+
+            //enable movement after delay
+            playerTurns.enableMovementAfterDelay();
 
         }
 
@@ -330,8 +331,14 @@ public class PlayerInventory : MonoBehaviour
         //get player turns
         PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
-        //set enable movement to opposite value
-        playerTurns.enableMovement(!value);
+        //set enable movement to false if value is true
+        if (value) {
+            playerTurns.enableMovement(false);
+        }
+        //set enable movement to true after delay if value is false
+        else {
+            playerTurns.enableMovementAfterDelay();
+        }
 
         //activate/deactivate old item panel if value is true
         if (value) {

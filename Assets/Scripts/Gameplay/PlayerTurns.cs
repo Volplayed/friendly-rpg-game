@@ -143,8 +143,8 @@ public class PlayerTurns : MonoBehaviour
             //set player's max amout of moves
             set_starting_moves();
 
-            //enable movement
-            enableMovement(true);
+            //enable movement after delay
+            enableMovementAfterDelay();
         }   
     }
 
@@ -178,6 +178,16 @@ public class PlayerTurns : MonoBehaviour
                 script.hide();
             }
         }
+    }
+
+    //enable movement after n seconds delay
+    public void enableMovementAfterDelay(float delay = 0.3f) {
+        StartCoroutine(enableMovementAfterDelayCoroutine(delay));
+    }
+    //enable movement after n seconds delay coroutine
+    private IEnumerator enableMovementAfterDelayCoroutine(float delay) {
+        yield return new WaitForSeconds(delay);
+        enableMovement(true);
     }
 
 

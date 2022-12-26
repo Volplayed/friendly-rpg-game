@@ -333,8 +333,15 @@ public class PlayerStats : MonoBehaviour
         //get player turns
         PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
-        //set enable movement to opposite value
-        playerTurns.enableMovement(!value);
+        //set enable movement to false if value is true
+        if (value) {
+            playerTurns.enableMovement(false);
+        } 
+        //set enable movement to true after delay if value is false
+        else {
+            playerTurns.enableMovementAfterDelay();
+        }
+
     }
 
 
@@ -407,8 +414,8 @@ public class PlayerStats : MonoBehaviour
         //set in-fight buttons iteractable
         playerFight.set_button_interactable(true);
 
-        //enable player movement if there are moves still left
-        playerTurns.enableMovement(true);
+        //enable player movement after delay if there are moves still left
+        playerTurns.enableMovementAfterDelay();
 
         //hide fight marker
         show_fight_marker(false);
