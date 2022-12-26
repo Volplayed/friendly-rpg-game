@@ -27,6 +27,9 @@ public class PlayerFight : MonoBehaviour
     public GameObject endTurnButton;
     public GameObject skipTurnButton;
 
+    //popUp text prefab
+    public GameObject popUpTextPrefab;
+
     //player turns
     private PlayerTurns playerTurns;
 
@@ -161,8 +164,9 @@ public class PlayerFight : MonoBehaviour
         if (playerStats.get_enemy() != null) {
             //get enemy
             Enemy enemy = playerStats.get_enemy();
-
-            playerStats.attack(enemy);
+            //attack enemy and get damage dealt and create popup text with value of damage dealt
+            //posotion of popup text is position of enemy health bar
+            createDamagePopUpText(enemyHealthBar.transform.position, playerStats.attack(enemy));
 
             //set changed values
             setValues();
@@ -182,7 +186,9 @@ public class PlayerFight : MonoBehaviour
             GameObject other_player = playerStats.get_enemy_player();
             PlayerStats other_playerStats = other_player.GetComponent<PlayerStats>();
 
-            playerStats.attack(other_player);
+            //attack enemy and get damage dealt and create popup text with value of damage dealt
+            //posotion of popup text is position of enemy health bar
+            createDamagePopUpText(enemyHealthBar.transform.position, playerStats.attack(other_player));
 
             //make buttons not interactable
             set_button_interactable(false);
@@ -273,6 +279,25 @@ public class PlayerFight : MonoBehaviour
                 enemy.set_healed(true);
             }
         }
+    }
+
+    //popup functions
+    //damage popUp text create function
+    public PopUpText createDamagePopUpText(Vector3 position, int value)
+    {
+        //get playerUi
+        GameObject playerUi = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //instantiate popUpText prefab in playerUi
+        Transform PopUpTransform = Instantiate(popUpTextPrefab.transform, position, Quaternion.identity, playerUi.transform);
+
+        //get script component
+        PopUpText popUp = PopUpTransform.GetComponent<PopUpText>();
+
+        //setup popUp
+        popUp.Setup(value);
+
+        return popUp;
     }
 
 }

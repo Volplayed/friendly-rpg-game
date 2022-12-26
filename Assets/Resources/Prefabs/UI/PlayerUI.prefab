@@ -321,6 +321,7 @@ MonoBehaviour:
   retreatButton: {fileID: 260315887337283461}
   endTurnButton: {fileID: 4343566341150041003}
   skipTurnButton: {fileID: 7153623402239422781}
+  popUpTextPrefab: {fileID: 3984631387462619700, guid: 24c037e678685b24baeecf0ad40e4184, type: 3}
 --- !u!1 &6583250976106402834
 GameObject:
   m_ObjectHideFlags: 0

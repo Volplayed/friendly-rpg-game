@@ -489,13 +489,13 @@ public class PlayerStats : MonoBehaviour
         show_fight_marker(true);
     }
 
-    public void attack(Enemy enemy) {
+    public int attack(Enemy enemy) {
         int value = damage;
         //crit
         if (Random.Range(0f, 1) <= crit_chance) {
             value = System.Convert.ToInt32(value * 1.7);
         }
-        enemy.damageSelf(value);
+        return enemy.damageSelf(value);
     }
     
     public bool escape() {
@@ -585,13 +585,13 @@ public class PlayerStats : MonoBehaviour
         show_fight_marker(true);
     }
 
-    public void attack(GameObject player) {
+    public int attack(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
         int value = damage;
         if (Random.Range(0f, 1) <= crit_chance) {
             value = System.Convert.ToInt32(value * 1.7);
         }
-        stats.damageSelf(value);
+        return stats.damageSelf(value);
     }
     
     public bool escape(GameObject other_player) {
