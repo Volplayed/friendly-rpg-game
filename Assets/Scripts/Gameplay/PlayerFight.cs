@@ -33,6 +33,10 @@ public class PlayerFight : MonoBehaviour
     //player turns
     private PlayerTurns playerTurns;
 
+    //default colors
+    private Color damageColor = new Color(1f, 0f, 0f, 1f); //red
+    private Color healColor = new Color(0f, 1f, 0f, 1f); //green
+
     void Start() {
         //get playerTurns
         playerTurns = GetComponent<PlayerTurns>();
@@ -204,8 +208,9 @@ public class PlayerFight : MonoBehaviour
         GameObject player = playerTurns.getCurrentPlayer();
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
 
-        //heal player
-        playerStats.heal();
+        //heal player and get heal amount and create popup text with value of heal amount
+        //position of popup text is position of player health bar
+        createHealPopUpText(playerHealthBar.transform.position, playerStats.heal());
 
         //set changed values
         setValues();
@@ -273,6 +278,10 @@ public class PlayerFight : MonoBehaviour
                 //heal self
                 enemy.heal();
 
+                //create heal popup text with value of heal amount
+                //position of popup text is position of enemy health bar
+                createHealPopUpText(enemyHealthBar.transform.position, enemy.heal());
+
                 //set changed values
                 setValues();
 
@@ -296,7 +305,25 @@ public class PlayerFight : MonoBehaviour
         PopUpText popUp = PopUpTransform.GetComponent<PopUpText>();
 
         //setup popUp
-        popUp.Setup(value);
+        popUp.Setup(value, damageColor);
+
+        return popUp;
+    }
+
+    //heal popUp text create function
+    public PopUpText createHealPopUpText(Vector3 position, int value)
+    {
+        //get playerUi
+        GameObject playerUi = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //instantiate popUpText prefab in playerUi
+        Transform PopUpTransform = Instantiate(popUpTextPrefab.transform, position, Quaternion.identity, playerUi.transform);
+
+        //get script component
+        PopUpText popUp = PopUpTransform.GetComponent<PopUpText>();
+
+        //setup popUp
+        popUp.Setup(value, healColor);
 
         return popUp;
     }
