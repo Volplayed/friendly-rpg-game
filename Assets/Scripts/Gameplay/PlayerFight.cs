@@ -36,6 +36,7 @@ public class PlayerFight : MonoBehaviour
     //default colors
     private Color damageColor = new Color(1f, 0f, 0f, 1f); //red
     private Color healColor = new Color(0f, 1f, 0f, 1f); //green
+    private Color critDamageColor = new Color(1f, 0f, 0.5f, 1f); //pink
 
     void Start() {
         //get playerTurns
@@ -292,7 +293,7 @@ public class PlayerFight : MonoBehaviour
     }
 
     //popup functions
-    //damage popUp text create function
+    //damage popUp text create function for 
     public PopUpText createDamagePopUpText(Vector3 position, int value)
     {
         //get playerUi
@@ -305,8 +306,16 @@ public class PlayerFight : MonoBehaviour
         PopUpText popUp = PopUpTransform.GetComponent<PopUpText>();
 
         //setup popUp
-        popUp.Setup(value, damageColor);
-
+        //if last attack did critical damage
+        if (StaticValuesController.lastAttackCrit) {
+            //setup popup with crit damage color
+            popUp.Setup(value, critDamageColor);
+        }
+        else {
+            //setup popup with normal damage color
+            popUp.Setup(value, damageColor);
+        }
+        
         return popUp;
     }
 

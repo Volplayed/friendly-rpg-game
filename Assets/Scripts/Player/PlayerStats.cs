@@ -490,10 +490,18 @@ public class PlayerStats : MonoBehaviour
     }
 
     public int attack(Enemy enemy) {
+        //damage
         int value = damage;
+
+        //set did last attack crit to false
+        StaticValuesController.lastAttackCrit = false;
+
         //crit
         if (Random.Range(0f, 1) <= crit_chance) {
             value = System.Convert.ToInt32(value * 1.7);
+
+            //set did last attack crit to true
+            StaticValuesController.lastAttackCrit = true;
         }
         return enemy.damageSelf(value);
     }
@@ -586,10 +594,18 @@ public class PlayerStats : MonoBehaviour
     }
 
     public int attack(GameObject player) {
+        //get other player stats
         PlayerStats stats = player.GetComponent<PlayerStats>();
+
+        //set did last attack crit to false
+        StaticValuesController.lastAttackCrit = false;
+
         int value = damage;
         if (Random.Range(0f, 1) <= crit_chance) {
             value = System.Convert.ToInt32(value * 1.7);
+
+            //set did last attack crit to true
+            StaticValuesController.lastAttackCrit = true;
         }
         return stats.damageSelf(value);
     }

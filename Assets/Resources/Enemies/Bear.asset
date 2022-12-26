@@ -19,3 +19,5 @@ MonoBehaviour:
   armor: 0
   heal_value: 3
   crit_chance: 0.15
+  drop_chance: 0
+  drop_items: []

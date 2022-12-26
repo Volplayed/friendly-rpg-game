@@ -30,12 +30,20 @@ public class Enemy : ScriptableObject {
 
     //actions
     public int attack(GameObject player) {
+        //get player stats
         PlayerStats stats = player.GetComponent<PlayerStats>();
+
+        //set did last attack crit to false
+        StaticValuesController.lastAttackCrit = false;
+
         int value = damage;
 
         //crit
         if (UnityEngine.Random.Range(0f, 1) <= crit_chance) {
             value = Convert.ToInt32(value * 1.7);
+
+            //set did last attack crit to true
+            StaticValuesController.lastAttackCrit = true;
         }
         //player damages
         return stats.damageSelf(value);
