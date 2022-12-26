@@ -211,6 +211,8 @@ public class HexClickHandler : MonoBehaviour
         //if other player is in hex and inventory is not open start fight
         else if (other_player && !in_inventory && has_turn)
         {
+            //decrease player current moves by 1
+            playerTurns.change_current_moves(-1);
             //start fight with other player
             playerStats.start_fight(other_player_object);
         }
