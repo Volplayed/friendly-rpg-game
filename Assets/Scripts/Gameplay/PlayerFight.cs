@@ -137,6 +137,20 @@ public class PlayerFight : MonoBehaviour
         endTurnButton.SetActive(!interactable);
     }
 
+    //make buttons interactable after delay
+    public void set_button_interactable_after_delay(float delay = 0.3f) {
+        //start coroutine
+        StartCoroutine(set_button_interactable_after_delay_coroutine(delay));
+    }
+    //make buttons interactable after delay coroutine
+    private IEnumerator set_button_interactable_after_delay_coroutine(float delay) {
+        //wait for delay
+        yield return new WaitForSeconds(delay);
+
+        //make buttons interactable
+        set_button_interactable(true);
+    }
+
     //buttons functions
     public void player_attack() {
         //get player

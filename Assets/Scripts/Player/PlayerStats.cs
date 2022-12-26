@@ -411,7 +411,7 @@ public class PlayerStats : MonoBehaviour
         //close fight panel
         fightPanel.SetActive(false);
 
-        //set in-fight buttons iteractable
+        //set in-fight buttons iteractable to make them work when the other player turn starts
         playerFight.set_button_interactable(true);
 
         //enable player movement after delay if there are moves still left
@@ -455,8 +455,8 @@ public class PlayerStats : MonoBehaviour
         fightPanel.SetActive(true);
         playerFight.setValuesStart();
 
-        //make fight buttons interactable
-        playerFight.set_button_interactable(true);
+        //make fight buttons interactable after delay
+        playerFight.set_button_interactable_after_delay();
 
         //disable player movement
         playerTurns.enableMovement(false);
@@ -551,8 +551,8 @@ public class PlayerStats : MonoBehaviour
         fightPanel.SetActive(true);
         playerFight.setValuesStart();
 
-        //make fight buttons interactable
-        playerFight.set_button_interactable(true);
+        //make fight buttons interactable after delay
+        playerFight.set_button_interactable_after_delay();
 
         //disable player movement
         playerTurns.enableMovement(false);
