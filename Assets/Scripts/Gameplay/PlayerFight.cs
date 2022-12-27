@@ -38,6 +38,8 @@ public class PlayerFight : MonoBehaviour
     private Color healColor = new Color(0f, 1f, 0f, 1f); //green
     private Color critDamageColor = new Color(1f, 0f, 0.5f, 1f); //pink
     private Color expGainColor = new Color(1f, 1f, 1f, 1f); //white
+    private Color escapeSuccessColor = new Color(0f, 1f, 0.5f, 1f); //light green
+    private Color escapeFailColor = new Color(1f, 0.5f, 0f, 1f); //orange
 
     void Start() {
         //get playerTurns
@@ -235,11 +237,30 @@ public class PlayerFight : MonoBehaviour
         //try to escape
         //if vs enemy player
         if (playerStats.get_enemy_player() != null) {
-            playerStats.escape(playerStats.get_enemy_player());
+            //get escape chance vs player
+            double escape_chance = playerStats.get_escape_chance_vs_player(playerStats.get_enemy_player());
+
+            //escape from enemy player and create popup text with value of escape
+            //position of popup text is position of escape button
+            createEscapePopUpText(
+                retreatButton.transform.position,
+                playerStats.escape(playerStats.get_enemy_player()),
+                escape_chance //escape chance vs player
+                );
+            
         }
         //if vs enemy ai
         else if (playerStats.get_enemy() != null) {
-            playerStats.escape();
+            //get escape chance vs enemy
+            double escape_chance = playerStats.get_escape_chance_vs_enemy();
+
+            //escape from enemy ai and create popup text with value of escape
+            //position of popup text is position of escape button
+            createEscapePopUpText(
+                retreatButton.transform.position,
+                playerStats.escape(),
+                escape_chance //escape chance vs enemy
+                );
         }
         
     }
@@ -355,6 +376,38 @@ public class PlayerFight : MonoBehaviour
 
         //setup popUp to disappear after 2 seconds
         popUp.Setup(expString, expGainColor, 2f);
+
+        return popUp;
+    }
+
+    //escape success popUp text create function
+    public PopUpText createEscapePopUpText(Vector3 position, bool escaped, double escape_chance)
+    {
+        //get playerUi
+        GameObject playerUi = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //instantiate popUpText prefab in playerUi
+        Transform PopUpTransform = Instantiate(popUpTextPrefab.transform, position, Quaternion.identity, playerUi.transform);
+
+        //get script component
+        PopUpText popUp = PopUpTransform.GetComponent<PopUpText>();
+
+        //if escaped successfully setup success popup
+        if (escaped) {
+            //escape string
+            string escapeString = "ESCAPED";
+
+            //setup popUp to disappear
+            popUp.Setup(escapeString, escapeSuccessColor);
+        }
+        //if failed to escape setup fail popup
+        else {
+            //escape string
+            string escapeString = "FAILED " + (escape_chance * 100).ToString() + "%"; //escape chance in %
+
+            //setup popUp to disappear
+            popUp.Setup(escapeString, escapeFailColor);
+        }
 
         return popUp;
     }

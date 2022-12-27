@@ -516,7 +516,8 @@ public class PlayerStats : MonoBehaviour
         return enemy.damageSelf(value);
     }
     
-    public bool escape() {
+    //get escape chance vs enemy
+    public double get_escape_chance_vs_enemy() {
         //chance depends only on player intelligence or agility
         double escape_chance;
         int k; //or intelligence or agility
@@ -531,6 +532,13 @@ public class PlayerStats : MonoBehaviour
         if (escape_chance > 0.85) {
             escape_chance = 0.85;
         } 
+        return escape_chance;
+    }
+
+    public bool escape() {
+        //chance depends only on player intelligence or agility
+        double escape_chance = get_escape_chance_vs_enemy();
+
         //result
         bool result;
         //success
@@ -620,7 +628,8 @@ public class PlayerStats : MonoBehaviour
         return stats.damageSelf(value);
     }
     
-    public bool escape(GameObject other_player) {
+    //get escape chance vs player
+    public double get_escape_chance_vs_player(GameObject other_player) {
         //chance depends on player intelligence or agility and other player agility
         PlayerStats stats = other_player.GetComponent<PlayerStats>();
 
@@ -638,6 +647,13 @@ public class PlayerStats : MonoBehaviour
         if (escape_chance > 0.85) {
             escape_chance = 0.85;
         } 
+        return escape_chance;
+    }
+
+    public bool escape(GameObject other_player) {
+        //chance depends on player intelligence or agility and other player agility
+        double escape_chance = get_escape_chance_vs_player(other_player);
+        
         //result
         bool result;
 
