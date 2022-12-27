@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 7713679242086664304}
   - component: {fileID: 7713679242086664310}
   - component: {fileID: 3848615879539270064}
+  - component: {fileID: 6292424820934475613}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -398,12 +399,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1830853936, guid: 05c9bc68252cdfb4886ffdc17b64a105, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -446,6 +447,26 @@ MonoBehaviour:
   starting_item: {fileID: 11400000, guid: 59c9ee2fa0017a34d9164d81cdb8b361, type: 2}
   can_be_attacked_marker: {fileID: 7675081000059585112}
   fight_marker: {fileID: 2550388692822826094}
+--- !u!95 &6292424820934475613
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713679242086664305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4221835d038a4bb4ebbb36f0f9c596c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7713679240583336391
 PrefabInstance:
   m_ObjectHideFlags: 0
