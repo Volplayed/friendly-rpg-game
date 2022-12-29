@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
+
 public class PlayerTurns : MonoBehaviour
 {
     //panels
@@ -248,6 +250,9 @@ public class PlayerTurns : MonoBehaviour
 
     //go to next turn
     public void next_turn() {
+        //check if every player lost or won
+        check_finished();
+
         //set current player turn to false
         playerStats[current_player_turn].setHasTurn(false);
 
@@ -306,6 +311,21 @@ public class PlayerTurns : MonoBehaviour
             playerStats[current_player_turn].start_fight(finalBosses[current_player_turn]);
  
         }
+    }
+
+    //check if every player lost or won
+    public void check_finished() {
+        //check every player
+        for (int i = 0; i < players_count; i++) {
+            //if player didn't lose or win yet
+            if (!playerStats[i].get_did_lose() && !playerStats[i].get_did_win()) {
+                //return
+                return;
+            }
+        }
+        //if every player lost or won open main menu scene and show stats
+        SceneManager.LoadScene("MainMenu");
+        
     }
 
 }

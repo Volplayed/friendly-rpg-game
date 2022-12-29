@@ -819,6 +819,9 @@ public class PlayerStats : MonoBehaviour
         //get player turns component
         PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
+        //add player name to list of players that won
+        StaticValuesController.winners.Add(player_name);
+
         //go to next turn
         playerTurns.next_turn();
     }

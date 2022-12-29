@@ -12,6 +12,20 @@ public class Menu : MonoBehaviour
     //menu panel
     public GameObject menuPanel;
 
+    //after game stats canvas
+    public GameObject afterGameStatsCanvas;
+
+    void Start() {
+        //if game started
+        if (StaticValuesController.gameStarted) {
+            //set after game stats canvas active
+            afterGameStatsCanvas.SetActive(true);
+
+            //set menu canvas inactive
+            gameObject.SetActive(false);
+        }
+    }
+
     //open player amount
     public void openPlayerAmount() {
         playerAmountPanel.SetActive(true);
@@ -27,8 +41,11 @@ public class Menu : MonoBehaviour
     //set player amount
     public void setPlayerAmount(int amount) {
         //set player amount
-       StaticValuesController.playerAmount = amount;
-        
+        StaticValuesController.playerAmount = amount;
+
+        //set game started to true
+        StaticValuesController.gameStarted = true;
+            
         //start game
         openGame();
     }

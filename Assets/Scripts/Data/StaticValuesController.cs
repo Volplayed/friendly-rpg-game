@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StaticValuesController : MonoBehaviour
 {
+    //did game start?
+    public static bool gameStarted = false;
+
     //player amount
     public static int playerAmount;
 
@@ -15,4 +18,7 @@ public class StaticValuesController : MonoBehaviour
     
     //did last attack crit?
     public static bool lastAttackCrit = false;
+
+    //players who won the game 
+    public static List<string> winners = new List<string>();
 }
