@@ -233,7 +233,6 @@ public class PlayerFight : MonoBehaviour
         
         //make buttons not interactable
         set_button_interactable(false);
-
         //try to escape
         //if vs enemy player
         if (playerStats.get_enemy_player() != null) {
@@ -249,8 +248,8 @@ public class PlayerFight : MonoBehaviour
                 );
             
         }
-        //if vs enemy ai
-        else if (playerStats.get_enemy() != null) {
+        //if vs enemy ai and is not boss
+        else if (playerStats.get_enemy() != null && !playerStats.get_enemy().get_is_boss()) {
             //get escape chance vs enemy
             double escape_chance = playerStats.get_escape_chance_vs_enemy();
 
@@ -261,6 +260,15 @@ public class PlayerFight : MonoBehaviour
                 playerStats.escape(),
                 escape_chance //escape chance vs enemy
                 );
+        }
+        //if vs enemy ai and is boss
+        else if (playerStats.get_enemy() != null && playerStats.get_enemy().get_is_boss()) {
+            //create unavaliable to escape popup text
+            //position of popup text is position of escape button
+            createEscapeUnavailablePopUpText(retreatButton.transform.position);
+
+            //make buttons interactable without delay
+            set_button_interactable(true);
         }
         
     }
@@ -408,6 +416,27 @@ public class PlayerFight : MonoBehaviour
             //setup popUp to disappear
             popUp.Setup(escapeString, escapeFailColor);
         }
+
+        return popUp;
+    }
+
+    //escape unavailable popUp text create function
+    public PopUpText createEscapeUnavailablePopUpText(Vector3 position)
+    {
+        //get playerUi
+        GameObject playerUi = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //instantiate popUpText prefab in playerUi
+        Transform PopUpTransform = Instantiate(popUpTextPrefab.transform, position, Quaternion.identity, playerUi.transform);
+
+        //get script component
+        PopUpText popUp = PopUpTransform.GetComponent<PopUpText>();
+
+        //escape string
+        string escapeString = "CANNOT ESCAPE THIS BATTLE";
+
+        //setup popUp to disappear
+        popUp.Setup(escapeString, escapeFailColor);
 
         return popUp;
     }

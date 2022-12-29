@@ -126,6 +126,9 @@ public class Enemy : ScriptableObject {
     public Item[] get_drop_items() {
         return drop_items;
     }
+    public bool get_is_boss() {
+        return is_boss;
+    }
 
     //set functions
     public void set_starting_health() {
@@ -160,6 +163,9 @@ public class Enemy : ScriptableObject {
     }
     public void set_drop_items(Item[] value) {
         drop_items = value;
+    }
+    public void set_is_boss(bool value) {
+        is_boss = value;
     }
 
     //drop random item

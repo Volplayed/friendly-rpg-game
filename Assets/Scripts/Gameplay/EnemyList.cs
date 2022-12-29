@@ -31,6 +31,7 @@ public class EnemyList : MonoBehaviour
         enemy.set_heal(ex.get_heal());
         enemy.set_drop_chance(ex.get_drop_chance());
         enemy.set_drop_items(ex.get_drop_items());
+        enemy.set_is_boss(ex.get_is_boss());
 
         return enemy;
 
@@ -62,8 +63,7 @@ public class EnemyList : MonoBehaviour
             boss.set_heal(ex.get_heal());
             boss.set_drop_chance(ex.get_drop_chance());
             boss.set_drop_items(ex.get_drop_items());
-
-            Debug.Log("Boss hp " + boss.get_health());
+            boss.set_is_boss(ex.get_is_boss());
 
             //add boss to list
             bossList[i] = boss;
