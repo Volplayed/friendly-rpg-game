@@ -25,6 +25,9 @@ public class Enemy : ScriptableObject {
     //drop items list
     public Item[] drop_items;
 
+    //is a boss?
+    public bool is_boss = false;
+
     //temp stats
     private bool healed = false; //had the enemy healed last turn?
 

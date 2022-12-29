@@ -257,7 +257,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
         m_TargetAssemblyTypeName: PlayerTurns, Assembly-CSharp
         m_MethodName: gain_attributes
         m_Mode: 5
@@ -661,7 +661,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
         m_TargetAssemblyTypeName: PlayerTurns, Assembly-CSharp
         m_MethodName: gain_attributes
         m_Mode: 5
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
         m_TargetAssemblyTypeName: PlayerTurns, Assembly-CSharp
         m_MethodName: gain_attributes
         m_Mode: 5

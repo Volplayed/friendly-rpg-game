@@ -7,6 +7,9 @@ public class EnemyList : MonoBehaviour
     //lists of enemies
     public Enemy[] enemies;
 
+    //list of bosses
+    public Enemy[] bosses;
+
     //get enemies
     public Enemy get_random_enemy() {
         //get length of list
@@ -31,6 +34,42 @@ public class EnemyList : MonoBehaviour
 
         return enemy;
 
+    }
+
+    //get bosses
+    public Enemy[] get_random_boss_list(int player_amount) {
+        //list of copies of bosses
+        Enemy[] bossList = new Enemy[player_amount];
+
+        //get length of list
+        int n = bosses.Length;
+        
+        //create example
+        Enemy ex = bosses[Random.Range(0, n)];
+
+        //create boss instance for each player
+        for (int i = 0; i < player_amount; i++) {
+            //create boss instance
+            Enemy boss = ScriptableObject.CreateInstance<Enemy>();
+
+            //set values of instance based on example values
+            boss.set_name(ex.get_enemy_name());
+            boss.set_max_health(ex.get_max_health());
+            boss.set_damage(ex.get_damage());
+            boss.set_armor(ex.get_armor());
+            boss.set_crit_chance(ex.get_crit_chance());
+            boss.set_level(ex.get_level());
+            boss.set_heal(ex.get_heal());
+            boss.set_drop_chance(ex.get_drop_chance());
+            boss.set_drop_items(ex.get_drop_items());
+
+            Debug.Log("Boss hp " + boss.get_health());
+
+            //add boss to list
+            bossList[i] = boss;
+        }
+
+        return bossList;
     }
  
 }

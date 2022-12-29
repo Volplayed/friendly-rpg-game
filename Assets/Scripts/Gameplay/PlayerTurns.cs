@@ -19,6 +19,9 @@ public class PlayerTurns : MonoBehaviour
 
     private TMP_Text playerTurnTitleText;
     
+    //final boss list
+    private Enemy[] finalBosses;
+
     //turns
     private int current_turn = 1;
     private int current_player_turn = 0;
@@ -64,6 +67,13 @@ public class PlayerTurns : MonoBehaviour
 
         //set starting camera
         set_cameras();
+
+        //get enemy list
+        EnemyList enemyList = GameObject.FindGameObjectsWithTag("enemy_list")[0].GetComponent<EnemyList>();
+
+        //get final boss list
+        finalBosses = enemyList.get_random_boss_list(players_count);
+
     }
 
     //set current player's starting moves
@@ -232,6 +242,10 @@ public class PlayerTurns : MonoBehaviour
         if (inventory.getIsOpened()) {
             inventory.openInventory();
         }
+        
+        //check if it is final boss turn
+        is_final_boss_turn();
+
         openTurnChangePanel();
         
         //after clicking on button in panel, player will gain his turn
@@ -256,6 +270,17 @@ public class PlayerTurns : MonoBehaviour
         //close level up panel
         playerStats[current_player_turn].activateLevelUpPanel(false);
 
+    }
+
+    //check if next turn is final boss turn
+    public void is_final_boss_turn() {
+        //if next turn is final boss turn
+        if (current_turn == StaticValuesController.finalBossTurn) {
+            //start final boss fight for current player
+            
+            playerStats[current_player_turn].start_fight(finalBosses[current_player_turn]);
+ 
+        }
     }
 
 }
