@@ -162,7 +162,8 @@ public class PlayerTurns : MonoBehaviour
             //set player's max amout of moves
             set_starting_moves();
         }
-        else {
+        //if player is not in fight and didn't lose or win yet
+        else if (!playerStats[current_player_turn].get_did_win() && !playerStats[current_player_turn].get_did_lose()) {
             //close fight panel
             fightPanel.SetActive(false);
 
@@ -171,7 +172,15 @@ public class PlayerTurns : MonoBehaviour
 
             //enable movement after delay
             enableMovementAfterDelay();
-        }   
+        }
+        //if player lost or won
+        else if (playerStats[current_player_turn].get_did_lose() || playerStats[current_player_turn].get_did_win()) {
+            //close fight panel
+            fightPanel.SetActive(false);
+
+            next_turn();
+        }
+   
     }
 
 
