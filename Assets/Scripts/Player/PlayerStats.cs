@@ -64,6 +64,10 @@ public class PlayerStats : MonoBehaviour
     //levelup panel text
     private TMP_Text levelUpText;
 
+    //final player data
+    private bool did_win = false;
+    private bool did_lose = false;
+
     void Start()
     {       
         //starting values
@@ -147,6 +151,13 @@ public class PlayerStats : MonoBehaviour
     public List<Item> get_items() {
         return items;
     }
+    public bool get_did_win() {
+        return did_win;
+    }
+    public bool get_did_lose() {
+        return did_lose;
+    }
+
     //calculates max health with formula
     public int get_max_health() {
         return strength * 2 + bonus_health;
@@ -708,10 +719,18 @@ public class PlayerStats : MonoBehaviour
         //calculate new stats
         calculateStats();
 
-        //finish fight if vs enemy
-        if (enemy != null) {
+        //finish fight if vs enemy that is not boss
+        if (enemy != null && !enemy.get_is_boss()) {
             finish_fight();
-        }   
+        } 
+        //if fighting vs enemy that is boss
+        else if (enemy != null && enemy.get_is_boss()) {
+            //set did player win to false and did lose to true and finish turn
+            lose();
+
+            //finish fight
+            finish_fight();
+        }
         //if fighting vs player give other player exp
         else if (enemyPlayer != null) {
 
@@ -781,4 +800,42 @@ public class PlayerStats : MonoBehaviour
         //open new item panel
         playerInventory.open_new_item_panel(item);
     }
+
+    //after boss fight
+    //set did win and did lose
+    public void set_did_win(bool value) {
+        did_win = value;
+        did_lose = !value;
+    }
+
+    //player win
+    public void win() {
+        //set did win to true
+        set_did_win(true);
+
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns component
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //go to next turn
+        playerTurns.next_turn();
+    }
+
+    //player lose
+    public void lose() {
+        //set did lose to true
+        set_did_win(false);
+
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns component
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //go to next turn
+        playerTurns.next_turn();
+    }
+    
 }   

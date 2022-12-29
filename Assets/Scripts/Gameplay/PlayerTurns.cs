@@ -113,8 +113,24 @@ public class PlayerTurns : MonoBehaviour
 
         //get and change turn change panel title depending on a players turn
         playerTurnTitleText = turnChangePanel.GetComponentsInChildren<TMP_Text>()[0];
-        playerTurnTitleText.SetText("Player " + (current_player_turn + 1) + " turn");
 
+        //if player didn't lose or win yet
+        if (!playerStats[current_player_turn].get_did_win() && !playerStats[current_player_turn].get_did_lose()) {
+            //set player turn title
+            playerTurnTitleText.text = "Player " + (current_player_turn + 1) + "'s turn";
+        }
+        //if player lost
+        else if (playerStats[current_player_turn].get_did_lose()) {
+            //set player turn title
+            playerTurnTitleText.text = "Player " + (current_player_turn + 1) + " lost";
+        }
+        //if player won
+        else if (playerStats[current_player_turn].get_did_win()) {
+            //set player turn title
+            playerTurnTitleText.text = "Player " + (current_player_turn + 1) + " won!";
+        }
+        
+        //activate turn change panel
         turnChangePanel.SetActive(true);
 
     }

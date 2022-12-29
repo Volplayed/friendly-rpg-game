@@ -83,13 +83,21 @@ public class Enemy : ScriptableObject {
         //finish fight
         stats.finish_fight();
 
-        //drop item if drop chance is met
-        if (UnityEngine.Random.Range(0f, 1) <= drop_chance) {
-            //drop item and open new item window
-            stats.open_new_item_panel(drop_item());
+        //if enemy is not a boss
+        if (!is_boss) {
+            //drop item if drop chance is met
+            if (UnityEngine.Random.Range(0f, 1) <= drop_chance) {
+                //drop item and open new item window
+                stats.open_new_item_panel(drop_item());
+            }
+            //give exp to player based on level and some additional random value
+            stats.give_exp(level*2 + UnityEngine.Random.Range(0, 3));
         }
-        //give exp to player based on level and some additional random value
-        stats.give_exp(level*2 + UnityEngine.Random.Range(0, 3));
+        //if enemy is a boss
+        else if (is_boss) {
+            //make player win
+            stats.win();
+        }
     }
 
     //get functions
