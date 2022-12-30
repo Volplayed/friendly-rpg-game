@@ -179,14 +179,16 @@ public class PlayerFight : MonoBehaviour
             //set changed values
             setValues();
 
-            //check if enemy died
-            enemy.check_death(player);
+            
             
             //make buttons not interactable
             set_button_interactable(false);
 
-            //if it is an enemy ai act
-            act();
+            //check if enemy did not died
+            if (!enemy.check_death(player)) {
+                //if it is an enemy ai act
+                act();
+            }
         }
         //attack player
         else if (playerStats.get_enemy_player() != null) {
