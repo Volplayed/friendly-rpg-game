@@ -63,12 +63,17 @@ public class PlayerInventory : MonoBehaviour
         }
         //if inventory is opened
         else {
+            //clear all item slots
+            clear_item_slots();
+
             //close inventory window
             panel.SetActive(false);
             opened = false;
 
             //deactivate item data panel
             deactivateItemDataPanel();
+
+            
 
             player.transform.position = player.transform.position;
 
@@ -162,6 +167,11 @@ public class PlayerInventory : MonoBehaviour
             //orange
             image.color = new Color(1f, 0.55f, 0f, 1f);
         }
+        //none
+        else {
+            //white
+            image.color = new Color(1f, 1f, 1f, 1f);
+        }
     }
 
     //item rarity to string
@@ -194,6 +204,46 @@ public class PlayerInventory : MonoBehaviour
             return "Mythical";
         }
         return "";
+    }
+
+    //clear item slots
+    private void clear_item_slots() {
+        //get slots
+        GameObject head_slot = GameObject.FindGameObjectsWithTag("head_slot")[0];
+        GameObject body_slot = GameObject.FindGameObjectsWithTag("body_slot")[0];
+        GameObject leg_slot = GameObject.FindGameObjectsWithTag("leg_slot")[0];
+        GameObject feet_slot = GameObject.FindGameObjectsWithTag("feet_slot")[0];
+        GameObject hands_slot = GameObject.FindGameObjectsWithTag("hands_slot")[0];
+        GameObject weapon_slot = GameObject.FindGameObjectsWithTag("weapon_slot")[0];
+        GameObject ring_slot = GameObject.FindGameObjectsWithTag("ring_slot")[0];
+
+        //get item images
+        Image head_image = get_item_image(head_slot);
+        Image body_image = get_item_image(body_slot);
+        Image leg_image = get_item_image(leg_slot);
+        Image feet_image = get_item_image(feet_slot);
+        Image hands_image = get_item_image(hands_slot);
+        Image weapon_image = get_item_image(weapon_slot);
+        Image ring_image = get_item_image(ring_slot);
+
+        //clear item images
+        head_image.sprite = null;
+        body_image.sprite = null;
+        leg_image.sprite = null;
+        feet_image.sprite = null;
+        hands_image.sprite = null;
+        weapon_image.sprite = null;
+        ring_image.sprite = null;
+
+        //clear item background images
+        set_item_background_image_color(head_slot, -1);
+        set_item_background_image_color(body_slot, -1);
+        set_item_background_image_color(leg_slot, -1);
+        set_item_background_image_color(feet_slot, -1);
+        set_item_background_image_color(hands_slot, -1);
+        set_item_background_image_color(weapon_slot, -1);
+        set_item_background_image_color(ring_slot, -1);
+
     }
 
     //set player items
