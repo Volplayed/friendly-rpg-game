@@ -308,9 +308,6 @@ public class PlayerFight : MonoBehaviour
                 enemy.set_healed(false);
             }
             else if (enemy.get_health() < enemy.get_max_health() * 0.5 && !enemy.get_healed()) {
-                //heal self
-                enemy.heal();
-
                 //create heal popup text with value of heal amount
                 //position of popup text is position of enemy health bar
                 createHealPopUpText(enemyHealthBar.transform.position, enemy.heal());
