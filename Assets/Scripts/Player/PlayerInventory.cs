@@ -134,23 +134,23 @@ public class PlayerInventory : MonoBehaviour
 
         //common
         if (rarity == 0) {
-            //grey
-            image.color = new Color(0.5f, 0.5f, 0.5f, 1f);
+            //light grey
+            image.color = new Color(0.85f, 0.85f, 0.85f, 1f);
         }
         //uncommon
         else if (rarity == 1) {
             //green
-            image.color = new Color(0.5f, 0.9f, 0.3f, 1f);
+            image.color = new Color(0.2f, 0.8f, 0.2f, 1f);
         }
         //rare
         else if (rarity == 2) {
             //blue
-            image.color = new Color(0.5f, 0.5f, 0.9f, 1f);
+            image.color = new Color(0f, 0.75f, 1f, 1f);
         }
         //epic
         else if (rarity == 3) {
             //purple
-            image.color = new Color(0.6f, 0f, 0.9f, 1f);
+            image.color = new Color(0.58f, 0f, 0.82f, 1f);
         }
         //legendary
         else if (rarity == 4) {
@@ -160,7 +160,7 @@ public class PlayerInventory : MonoBehaviour
         //mythical
         else if (rarity == 5) {
             //orange
-            image.color = new Color(1f, 0.6f, 0f, 1f);
+            image.color = new Color(1f, 0.55f, 0f, 1f);
         }
     }
 
