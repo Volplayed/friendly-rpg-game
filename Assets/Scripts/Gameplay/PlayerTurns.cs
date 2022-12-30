@@ -12,6 +12,7 @@ public class PlayerTurns : MonoBehaviour
     public GameObject turnChangePanel;
     public GameObject fightPanel;
     public GameObject levelUpPanel;
+    public GameObject recieveNewItemPanel;
 
     //player related
     private GameObject[] players;
@@ -224,7 +225,10 @@ public class PlayerTurns : MonoBehaviour
     //enable movement after n seconds delay coroutine
     private IEnumerator enableMovementAfterDelayCoroutine(float delay) {
         yield return new WaitForSeconds(delay);
-        enableMovement(true);
+        //check if no other windows are active (like level up panel or recieve new item panel) 
+        if (!levelUpPanel.activeSelf && !recieveNewItemPanel.activeSelf) {
+            enableMovement(true);
+        }
     }
 
 

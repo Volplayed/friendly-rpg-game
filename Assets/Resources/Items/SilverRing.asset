@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Silver Ring
   itemDescription: Ordinary silver ring
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 1214603488, guid: 06be56bf6a8b3de4b95f2465d2884490, type: 3}
   itemType: ring
   itemRarity: 0
   strength: 0

@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Bear
   level: 2
-  max_health: 12
+  max_health: 10
   damage: 4
   armor: 0
   heal_value: 3
   crit_chance: 0.15
-  drop_chance: 0
-  drop_items: []
+  drop_chance: 0.699999988079071
+  drop_items:
+  - {fileID: 11400000, guid: ca58defffc487ff4fb4f71fcee64d206, type: 2}
+  is_boss: 0

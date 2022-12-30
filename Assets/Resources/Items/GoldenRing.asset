@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33f22097dab385948a9f59b0adcc1b6e, type: 3}
   m_Name: GoldenRing
   m_EditorClassIdentifier: 
-  itemName: Silver Ring
-  itemDescription: Ordinary silver ring
-  itemIcon: {fileID: 0}
+  itemName: Golden Ring
+  itemDescription: Golden ring, usually wore by rich people
+  itemIcon: {fileID: 1873169377, guid: 06be56bf6a8b3de4b95f2465d2884490, type: 3}
   itemType: ring
-  itemRarity: 0
+  itemRarity: 1
   strength: 0
-  agility: 1
-  intelligence: 0
-  health: 0
+  agility: 0
+  intelligence: 2
+  health: 1
   damage: 0
   armor: 0
   crit_chance: 0

@@ -163,6 +163,7 @@ MonoBehaviour:
   turnChangePanel: {fileID: 8530417542222251656}
   fightPanel: {fileID: 7871351537430605001}
   levelUpPanel: {fileID: 7238725036043514402}
+  recieveNewItemPanel: {fileID: 6328114905165689657}
 --- !u!114 &3837721191692829953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +596,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6583250975860026108}
     m_Modifications:
+    - target: {fileID: 3838385619967206311, guid: 2a068fe551da6bd49ad7fd7a21133d87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8509279806863457872}
     - target: {fileID: 5140130132268432588, guid: 2a068fe551da6bd49ad7fd7a21133d87, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -679,10 +684,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5361895359520236023, guid: 2a068fe551da6bd49ad7fd7a21133d87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8509279806863457872}
     - target: {fileID: 7064930059809836602, guid: 2a068fe551da6bd49ad7fd7a21133d87, type: 3}
       propertyPath: m_Name
       value: LevelUpPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 9091744281609729543, guid: 2a068fe551da6bd49ad7fd7a21133d87, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8509279806863457872}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a068fe551da6bd49ad7fd7a21133d87, type: 3}
 --- !u!224 &4696088359817986260 stripped
