@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Leather Helmet
   itemDescription: A default leather helmet.
-  itemIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  itemIcon: {fileID: 21300000, guid: e2f14f4f26dc1e2439835912373a9a74, type: 3}
   itemType: head
   itemRarity: 0
   strength: 0
