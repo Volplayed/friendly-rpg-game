@@ -110,7 +110,30 @@ public class PlayerTurns : MonoBehaviour
         return levelUpPanel;
     }
 
+    //make button in turn change panel interactable
+    public void turnChangePanelButtonSetInteractable(bool value) {
+        //set button interactable
+        turnChangePanel.GetComponentsInChildren<Button>()[0].interactable = value;
+    }
+
+    //turn change panel set button interactable couroutine
+    public IEnumerator turnChangePanelButtonSetInteractableCouroutine(float delay) { 
+        //wait for a delay
+        yield return new WaitForSeconds(delay);
+
+        //set button interactable
+        turnChangePanelButtonSetInteractable(true);
+    }
+
+    //turn change panel set button interactable after delay
+    public void turnChangePanelButtonSetInteractableAfterDelay(float delay = 0.3f) {
+        StartCoroutine(turnChangePanelButtonSetInteractableCouroutine(delay));
+    }
+
     private void openTurnChangePanel() {
+        //disable turn change button
+        turnChangePanelButtonSetInteractable(false);
+
         //close fight panel
         fightPanel.SetActive(false);
 
@@ -135,6 +158,9 @@ public class PlayerTurns : MonoBehaviour
         
         //activate turn change panel
         turnChangePanel.SetActive(true);
+
+        //enable turn change panel button after delay
+        turnChangePanelButtonSetInteractableAfterDelay(0.5f);
 
     }
 
