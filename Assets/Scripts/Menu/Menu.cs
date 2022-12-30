@@ -9,6 +9,9 @@ public class Menu : MonoBehaviour
     //player amount panel
     public GameObject playerAmountPanel;
 
+    //game length panel
+    public GameObject gameLengthPanel;
+
     //menu panel
     public GameObject menuPanel;
 
@@ -38,6 +41,24 @@ public class Menu : MonoBehaviour
         menuPanel.SetActive(true);
     }
 
+    //open game length panel
+    public void openGameLength() {
+        //set game length panel active
+        gameLengthPanel.SetActive(true);
+
+        //set player amount panel inactive
+        playerAmountPanel.SetActive(false);
+    }
+
+    //close game length panel
+    public void closeGameLength() {
+        //set game length panel inactive
+        gameLengthPanel.SetActive(false);
+
+        //set player amount panel active
+        playerAmountPanel.SetActive(true);
+    }
+
     //set player amount
     public void setPlayerAmount(int amount) {
         //set player amount
@@ -47,6 +68,18 @@ public class Menu : MonoBehaviour
         StaticValuesController.gameStarted = true;
             
         //start game
+        openGameLength();
+    }
+
+    //set game length
+    public void setGameLength(int length) {
+        //set game length
+        StaticValuesController.finalBossTurn = length;
+
+        //set game started to true
+        StaticValuesController.gameStarted = true;
+
+        //start game
         openGame();
     }
 
@@ -54,5 +87,6 @@ public class Menu : MonoBehaviour
     private void openGame() {
         SceneManager.LoadScene("MainGame");
     }
+
     
 }
