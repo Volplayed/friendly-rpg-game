@@ -14,6 +14,9 @@ public class PlayerTurns : MonoBehaviour
     public GameObject levelUpPanel;
     public GameObject recieveNewItemPanel;
 
+    //enemy related
+    public EnemyList enemyList;
+
     //player related
     private GameObject[] players;
     private List<PlayerStats> playerStats = new List<PlayerStats>();
@@ -292,6 +295,9 @@ public class PlayerTurns : MonoBehaviour
         if (current_player_turn >= players_count) {
             current_player_turn = 0;
             current_turn++;
+
+            //update current game stage if needed
+            enemyList.next_stage(current_turn);
 
             //update current turn text
             currentTurnText.SetText("Turn: " + current_turn);

@@ -7746,6 +7746,10 @@ PrefabInstance:
       value: -0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: enemyList
+      value: 
+      objectReference: {fileID: 9172261644508726627}
+    - target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
       propertyPath: turnChangePanel
       value: 
       objectReference: {fileID: 2017009440}
@@ -77525,3 +77529,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dc338f02d13324429ed63178cc44286, type: 3}
+--- !u!114 &9172261644508726627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2090606859631062894, guid: 4dc338f02d13324429ed63178cc44286, type: 3}
+  m_PrefabInstance: {fileID: 9172261644508726626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba8093f3d727014da8dacdb140afee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
