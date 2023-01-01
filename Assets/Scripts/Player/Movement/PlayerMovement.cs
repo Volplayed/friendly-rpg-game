@@ -52,7 +52,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetCells(hex_top, hex_bot, hex_top_left, hex_bot_left, hex_top_right, hex_bot_right);
+        //NOT NEEDED NOW BECAUSE PREFAB WITH CORRECTLY PLACED HEXES IS SAVED
+        //GetCells(hex_top, hex_bot, hex_top_left, hex_bot_left, hex_top_right, hex_bot_right);
     }
 
 }
