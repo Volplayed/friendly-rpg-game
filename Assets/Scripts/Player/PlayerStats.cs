@@ -51,7 +51,7 @@ public class PlayerStats : MonoBehaviour
     private GameObject enemyPlayer = null;
 
     //can player be attacked
-    private bool can_be_attacked = true;
+    private bool can_be_attacked = false;
 
     //can be attacked marker
     public GameObject can_be_attacked_marker;

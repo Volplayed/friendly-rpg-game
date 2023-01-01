@@ -7705,6 +7705,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: finish_turn_button
       objectReference: {fileID: 0}
+    - target: {fileID: 7123769750271044570, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7203129515210513227, guid: adda875c9e20c6b4f88070119403f577, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
