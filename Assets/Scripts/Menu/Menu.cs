@@ -18,6 +18,9 @@ public class Menu : MonoBehaviour
     //after game stats canvas
     public GameObject afterGameStatsCanvas;
 
+    //button click sound
+    public AudioSource buttonClickSound;
+
     void Start() {
         //if game started
         if (StaticValuesController.gameStarted) {
@@ -31,6 +34,9 @@ public class Menu : MonoBehaviour
 
     //open player amount
     public void openPlayerAmount() {
+        //play button click sound
+        playButtonClickSound();
+
         playerAmountPanel.SetActive(true);
         menuPanel.SetActive(false);
     }
@@ -61,6 +67,9 @@ public class Menu : MonoBehaviour
 
     //set player amount
     public void setPlayerAmount(int amount) {
+        //play button click sound
+        playButtonClickSound();
+
         //set player amount
         StaticValuesController.playerAmount = amount;
 
@@ -73,6 +82,9 @@ public class Menu : MonoBehaviour
 
     //set game length
     public void setGameLength(int length) {
+        //play button click sound
+        playButtonClickSound();
+
         //set game length
         StaticValuesController.finalBossTurn = length;
 
@@ -90,6 +102,9 @@ public class Menu : MonoBehaviour
 
     //close every panel and open menu panel
     public void backToMenu() {
+        //play button click sound
+        playButtonClickSound();
+
         //set player amount panel inactive
         playerAmountPanel.SetActive(false);
 
@@ -98,6 +113,11 @@ public class Menu : MonoBehaviour
 
         //set menu panel active
         menuPanel.SetActive(true);
+    }
+
+    //play button click sound
+    public void playButtonClickSound() {
+        buttonClickSound.Play();
     }
 
     
