@@ -88,5 +88,17 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("MainGame");
     }
 
+    //close every panel and open menu panel
+    public void backToMenu() {
+        //set player amount panel inactive
+        playerAmountPanel.SetActive(false);
+
+        //set game length panel inactive
+        gameLengthPanel.SetActive(false);
+
+        //set menu panel active
+        menuPanel.SetActive(true);
+    }
+
     
 }
