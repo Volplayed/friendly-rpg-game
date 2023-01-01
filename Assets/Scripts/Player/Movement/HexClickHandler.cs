@@ -105,8 +105,8 @@ public class HexClickHandler : MonoBehaviour
         {   
             //if there are still moves left
             if (playerTurns.moves_left() >= 1) {
-            //show hex
-            spriteRenderer.enabled = true;
+                //show hex
+                spriteRenderer.enabled = true;
             }
             
             //enable hex
@@ -135,7 +135,6 @@ public class HexClickHandler : MonoBehaviour
     }
     //show hex if is avaliable
     public void show() {
-        Debug.Log("-----" + avaliable);
         //if is avaliable
         if (avaliable) {
             //find hex renderer

@@ -230,7 +230,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1830853936, guid: 05c9bc68252cdfb4886ffdc17b64a105, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -440,6 +440,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7713679242086664311}
     m_Modifications:
+    - target: {fileID: 401975691943756777, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 401975691943756778, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
       propertyPath: m_Name
       value: Hex_top_right
@@ -515,6 +519,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7713679242086664311}
     m_Modifications:
+    - target: {fileID: 401975691943756777, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 401975691943756778, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
       propertyPath: m_Name
       value: Hex_bot_left
@@ -590,6 +598,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7713679242086664311}
     m_Modifications:
+    - target: {fileID: 401975691943756777, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 401975691943756778, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
       propertyPath: m_Name
       value: Hex_bot_right
@@ -665,6 +677,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7713679242086664311}
     m_Modifications:
+    - target: {fileID: 401975691943756777, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 401975691943756778, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
       propertyPath: m_Name
       value: Hex_top_left
@@ -740,6 +756,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7713679242086664311}
     m_Modifications:
+    - target: {fileID: 401975691943756777, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 401975691943756778, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
       propertyPath: m_Name
       value: Hex_bot
@@ -815,6 +835,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7713679242086664311}
     m_Modifications:
+    - target: {fileID: 401975691943756777, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 401975691943756778, guid: e8221cd3d534ea34da7b148450b9ed12, type: 3}
       propertyPath: m_Name
       value: Hex_top
