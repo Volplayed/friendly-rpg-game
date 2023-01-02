@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28a3801aaa1b5a54b8b97c1103839487, type: 3}
-  m_Name: Bear
+  m_Name: Orc Archer
   m_EditorClassIdentifier: 
-  enemyName: Bear
-  level: 2
-  max_health: 10
-  damage: 4
-  armor: 0
-  heal_value: 3
-  crit_chance: 0.15
-  drop_chance: 0.699999988079071
-  drop_items:
-  - {fileID: 11400000, guid: ca58defffc487ff4fb4f71fcee64d206, type: 2}
+  enemyName: Orc Archer
+  level: 4
+  max_health: 18
+  damage: 8
+  armor: 1.8
+  heal_value: 7
+  crit_chance: 0.699999988079071
+  drop_chance: 0.8999999761581421
+  drop_items: []
   is_boss: 0

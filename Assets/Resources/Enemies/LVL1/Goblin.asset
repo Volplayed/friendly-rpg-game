@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a3801aaa1b5a54b8b97c1103839487, type: 3}
+  m_Name: Goblin
+  m_EditorClassIdentifier: 
+  enemyName: Goblin
+  level: 1
+  max_health: 7
+  damage: 3
+  armor: 0.2
+  heal_value: 1
+  crit_chance: 0.1
+  drop_chance: 0.800000011920929
+  drop_items:
+  - {fileID: 11400000, guid: 83a40556fea9b4f459698c5c70bfa110, type: 2}
+  - {fileID: 11400000, guid: 946408f2901cd734fb5400fc7225162d, type: 2}
+  is_boss: 0

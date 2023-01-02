@@ -46,3 +46,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 11400000, guid: 46e2e71960f4e364f87e0d97466011fd, type: 2}
+  - {fileID: 11400000, guid: 0d130d2342bfd4f4ba098bc557a38ce2, type: 2}
+  - {fileID: 11400000, guid: 8093ee50e8cd40c46b88f180c54ec84e, type: 2}
+  - {fileID: 11400000, guid: 9f284e8eee6b97e48ba05a65fc5c6b72, type: 2}
+  - {fileID: 11400000, guid: 75906702cd0b0ef449563318e4807fe1, type: 2}
+  - {fileID: 11400000, guid: be14c9aa7eb2fe244b51a7ac72b12112, type: 2}
+  - {fileID: 11400000, guid: 6ac290df7a2ba204581faa468fa625c0, type: 2}
+  - {fileID: 11400000, guid: 1ee0647bfb557cb49b6950217b81b422, type: 2}
+  - {fileID: 11400000, guid: b92e8f50bcc84104bbdb54dd2667cd8f, type: 2}
+  - {fileID: 11400000, guid: e281cefda82e5214381a2fc5fa2e8dab, type: 2}
+  - {fileID: 11400000, guid: 44f35ac3f5a0da947b19bed0812d1524, type: 2}
+  - {fileID: 11400000, guid: 10b22526cf181664e981df2b52188bb4, type: 2}
+  - {fileID: 11400000, guid: ee46411105e417f48b6cd8919933d26c, type: 2}
+  - {fileID: 11400000, guid: 7ca95411c0293994dbb50c0638579b92, type: 2}
+  - {fileID: 11400000, guid: 3ea274bf4dcbbdb4695f4e3eaaef4995, type: 2}
+  - {fileID: 11400000, guid: 539a6b9a291bc9840bc91dbeb0edd2be, type: 2}
+  - {fileID: 11400000, guid: 2185160af1ad02c42bf42dfd41a429a1, type: 2}
+  - {fileID: 11400000, guid: d926b3264700f4a4383043b31b17025c, type: 2}
+  bosses: []
+  turns_until_next_enemy_list_iteration: 15
