@@ -23,6 +23,12 @@ public class PlayerTurns : MonoBehaviour
     private GameObject[] cameras;
     private int players_count;
 
+    //players
+    public GameObject player1;
+    public GameObject player2;
+    public GameObject player3;
+    public GameObject player4;
+
     private TMP_Text playerTurnTitleText;
     
     //final boss list
@@ -43,8 +49,8 @@ public class PlayerTurns : MonoBehaviour
         //get curent turn text
         currentTurnText = GameObject.FindGameObjectsWithTag("current_turn")[0].GetComponent<TMP_Text>();
 
-        //get all players
-        players = GameObject.FindGameObjectsWithTag("Player");
+        //add all players to the list
+        players = new GameObject[] { player1, player2, player3, player4 };
 
         //count all players
         int all_players_count = players.Length;
@@ -68,7 +74,13 @@ public class PlayerTurns : MonoBehaviour
         openTurnChangePanel();
 
         //get all cameras
-        cameras = GameObject.FindGameObjectsWithTag("MainCamera");
+        cameras = new GameObject[players_count];
+
+        //add all cameras to the list
+        for (int i = 0; i < players_count; i++) {
+            cameras[i] = players[i].GetComponentsInChildren<Camera>()[0].gameObject;
+        }
+
         initCameras();
 
         //set starting camera

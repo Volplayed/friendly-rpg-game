@@ -1173,6 +1173,11 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!1 &155194131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4648996486673305199, guid: efab2cd1864f0a5408f637a28d563567, type: 3}
+  m_PrefabInstance: {fileID: 250071223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &173496918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3250,6 +3255,11 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &956345012 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4648996486673305199, guid: bd2976105ab10464ba022080ceae31b8, type: 3}
+  m_PrefabInstance: {fileID: 1283109297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1004612225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3284,6 +3294,11 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &1035723408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4648996486673305199, guid: 6ebcaa7a9b70a164b8a5e8997aef7a67, type: 3}
+  m_PrefabInstance: {fileID: 1812756225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1078319122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3948,6 +3963,11 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!1 &1153549853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4648996486673305199, guid: 1a4ec2479c10641429f7de5c2d054f57, type: 3}
+  m_PrefabInstance: {fileID: 1470716099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!213 &1183376224
 Sprite:
   m_ObjectHideFlags: 0
@@ -7745,6 +7765,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.00024414062
       objectReference: {fileID: 0}
+    - target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 155194131}
+    - target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 1153549853}
+    - target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: player3
+      value: 
+      objectReference: {fileID: 1035723408}
+    - target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
+      propertyPath: player4
+      value: 
+      objectReference: {fileID: 956345012}
     - target: {fileID: 8509279806863457872, guid: adda875c9e20c6b4f88070119403f577, type: 3}
       propertyPath: enemyList
       value: 
