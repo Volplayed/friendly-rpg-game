@@ -15,7 +15,7 @@ public class PlayerInventory : MonoBehaviour
     public GameObject panel;
     private GameObject player;
     private PlayerTurns playerTurns;
-
+    private GameObject levelUpPanel;
     //item data panel
     public GameObject item_data_panel;
 
@@ -39,6 +39,9 @@ public class PlayerInventory : MonoBehaviour
      void Start()
     {
         playerTurns = gameObject.GetComponent<PlayerTurns>();
+
+        //get level up panel
+        levelUpPanel = playerTurns.getLevelUpPanel();
     }
 
     //start on inventory button click
@@ -372,8 +375,15 @@ public class PlayerInventory : MonoBehaviour
         Button finishTurnButton = GameObject.FindGameObjectsWithTag("finish_turn_button")[0].GetComponent<Button>();
 
         //set buttons interactable to opposite value
-        inventoryButton.interactable = !value;
-        finishTurnButton.interactable = !value;
+        //check if level up window is active
+        if (levelUpPanel.activeSelf) {
+            inventoryButton.interactable = false;
+            finishTurnButton.interactable = false;
+        }
+        else {
+            inventoryButton.interactable = !value;
+            finishTurnButton.interactable = !value;
+        }
 
         //get player ui
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
