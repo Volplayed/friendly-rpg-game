@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33f22097dab385948a9f59b0adcc1b6e, type: 3}
-  m_Name: Hunting Bow
+  m_Name: Ancient Axe
   m_EditorClassIdentifier: 
-  itemName: Hunting Bow
-  itemDescription: Bow used for hunting in the wild
-  itemIcon: {fileID: 21300000, guid: e58d6cc7ec27eb047b92b0b37b638270, type: 3}
+  itemName: Ancient Axe
+  itemDescription: Battle axe from times, when wolly elephants were walking around
+  itemIcon: {fileID: 21300000, guid: e1515f0e79ef41e4bb7c1c8f7e1f1dd7, type: 3}
   itemType: weapon
-  itemRarity: 0
-  strength: 0
-  agility: 2
-  intelligence: 0
+  itemRarity: 2
+  strength: 1
+  agility: 0
+  intelligence: 1
   health: 0
-  damage: 3
+  damage: 8
   armor: 0
-  crit_chance: 0.02
+  crit_chance: 0.12
   moves: 0
