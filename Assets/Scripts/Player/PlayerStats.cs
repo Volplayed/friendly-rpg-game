@@ -310,8 +310,8 @@ public class PlayerStats : MonoBehaviour
         //calculate other
         health = get_max_health();
         armor = agility * 0.2 + bonus_armor;
-        crit_chance = intelligence * 0.01 + bonus_crit_chance;
-        moves = intelligence / 5 + bonus_moves;
+        crit_chance = intelligence * 0.02 + bonus_crit_chance;
+        moves = intelligence / 4 + bonus_moves;
         //min moves value is 1, set 1 if less than 1
         if (moves < 1) {
             moves = 1;
@@ -405,7 +405,7 @@ public class PlayerStats : MonoBehaviour
         int max_health = get_max_health();
 
         //heal amount
-        int heal = System.Convert.ToInt32(intelligence / 3);
+        int heal = System.Convert.ToInt32(intelligence / 6) * 5 + level;
 
         //set min health to 1
         if (heal < 1) {
@@ -519,7 +519,7 @@ public class PlayerStats : MonoBehaviour
 
         //crit
         if (Random.Range(0f, 1) <= crit_chance) {
-            value = System.Convert.ToInt32(value * 1.7);
+            value = System.Convert.ToInt32(value * 1.6);
 
             //set did last attack crit to true
             StaticValuesController.lastAttackCrit = true;
@@ -538,11 +538,15 @@ public class PlayerStats : MonoBehaviour
         else {
             k = agility;
         }
-        escape_chance = k*0.04;
+        escape_chance = k*0.1 - enemy.get_level() * 0.04; //0.04 is enemy level coefficient (0.04 is for level 1 enemy)
         //if to high chance
         if (escape_chance > 0.85) {
             escape_chance = 0.85;
-        } 
+        }
+        //if to low chance
+        else if (escape_chance < 0.01) {
+            escape_chance = 0.01;
+        }
         return escape_chance;
     }
 
@@ -653,11 +657,15 @@ public class PlayerStats : MonoBehaviour
         else {
             k = agility;
         }
-        escape_chance = k*0.04 - other_agility*0.01;
+        escape_chance = k*0.1 - other_agility*0.04;
         //if to high chance
         if (escape_chance > 0.85) {
             escape_chance = 0.85;
-        } 
+        }
+        //if to low chance
+        else if (escape_chance < 0.01) {
+            escape_chance = 0.01;
+        }
         return escape_chance;
     }
 
