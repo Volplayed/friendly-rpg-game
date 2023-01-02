@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player 1 turn
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45a9ce64dc489dd4b84c02fd64196568, type: 2}
+  m_sharedMaterial: {fileID: 3304396232568103752, guid: 45a9ce64dc489dd4b84c02fd64196568, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -337,8 +337,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap to begin your turn...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45a9ce64dc489dd4b84c02fd64196568, type: 2}
+  m_sharedMaterial: {fileID: 3304396232568103752, guid: 45a9ce64dc489dd4b84c02fd64196568, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

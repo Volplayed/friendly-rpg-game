@@ -164,6 +164,7 @@ MonoBehaviour:
   fightPanel: {fileID: 7871351537430605001}
   levelUpPanel: {fileID: 7238725036043514402}
   recieveNewItemPanel: {fileID: 6328114905165689657}
+  enemyList: {fileID: 0}
 --- !u!114 &3837721191692829953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,15 +523,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Turn: 1'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c045413f179438e43813027cd972c76e, type: 2}
+  m_sharedMaterial: {fileID: 4187626058952463114, guid: c045413f179438e43813027cd972c76e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
