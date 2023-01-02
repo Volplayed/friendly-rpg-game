@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Leather Pants
   itemDescription: Average-sized pants made of leather
-  itemIcon: {fileID: 0}
-  itemType: legs
+  itemIcon: {fileID: 21300000, guid: 9706b68e8dcd73047a61e68481c33d9c, type: 3}
+  itemType: leg
   itemRarity: 0
   strength: 0
   agility: -1
