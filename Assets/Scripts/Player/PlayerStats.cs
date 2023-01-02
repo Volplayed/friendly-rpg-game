@@ -730,6 +730,12 @@ public class PlayerStats : MonoBehaviour
         //finish fight if vs enemy that is not boss
         if (enemy != null && !enemy.get_is_boss()) {
             finish_fight();
+
+            //set dead player can be attacked to false
+            can_be_attacked = false;
+
+            //show can be attacked marker
+            show_can_be_attacked_marker(true);
         } 
         //if fighting vs enemy that is boss
         else if (enemy != null && enemy.get_is_boss()) {

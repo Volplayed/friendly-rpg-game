@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a3801aaa1b5a54b8b97c1103839487, type: 3}
   m_Name: Goblin King
   m_EditorClassIdentifier: 
-  enemyName: 
-  level: 0
-  max_health: 0
-  damage: 0
-  armor: 0
-  heal_value: 0
-  crit_chance: 0
-  drop_chance: 0
+  enemyName: Goblin King
+  level: 5
+  max_health: 28
+  damage: 10
+  armor: 0.8
+  heal_value: 4
+  crit_chance: 0.3499999940395355
+  drop_chance: 0.8500000238418579
   drop_items: []
   is_boss: 0

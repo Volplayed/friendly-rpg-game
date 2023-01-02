@@ -63,5 +63,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 539a6b9a291bc9840bc91dbeb0edd2be, type: 2}
   - {fileID: 11400000, guid: 2185160af1ad02c42bf42dfd41a429a1, type: 2}
   - {fileID: 11400000, guid: d926b3264700f4a4383043b31b17025c, type: 2}
-  bosses: []
+  bosses:
+  - {fileID: 11400000, guid: cd128da9909c24e4387b3576a36df438, type: 2}
   turns_until_next_enemy_list_iteration: 15

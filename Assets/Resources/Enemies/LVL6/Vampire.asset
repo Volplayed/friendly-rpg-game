@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a3801aaa1b5a54b8b97c1103839487, type: 3}
   m_Name: Vampire
   m_EditorClassIdentifier: 
-  enemyName: 
-  level: 0
-  max_health: 0
-  damage: 0
-  armor: 0
-  heal_value: 0
-  crit_chance: 0
-  drop_chance: 0
+  enemyName: Vampire
+  level: 6
+  max_health: 28
+  damage: 14
+  armor: 1
+  heal_value: 10
+  crit_chance: 0.5
+  drop_chance: 0.8999999761581421
   drop_items: []
   is_boss: 0
