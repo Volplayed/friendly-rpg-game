@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Leather Gloves
   itemDescription: Very useful when holding a weapon
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: a98ad9d553acd134ea4db26bd8d4c4d6, type: 3}
   itemType: hands
   itemRarity: 0
   strength: 0

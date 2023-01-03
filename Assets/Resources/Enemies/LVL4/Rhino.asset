@@ -20,5 +20,7 @@ MonoBehaviour:
   heal_value: 6
   crit_chance: 0.25
   drop_chance: 0.6499999761581421
-  drop_items: []
+  drop_items:
+  - {fileID: 11400000, guid: c4caa405954507f498615bb03947cc79, type: 2}
+  - {fileID: 11400000, guid: da3f7caa41b957f46b0bc4fe8dd84597, type: 2}
   is_boss: 0
