@@ -285,7 +285,17 @@ public class PlayerFight : MonoBehaviour
     }
 
     //enemy ai functions
-    public void act() {
+    //act
+    public void act(float delay=0.1f) {
+        //start coroutine
+        StartCoroutine(actCouroutine(delay));
+    }
+
+    //act coroutine
+    public IEnumerator actCouroutine(float delay) {
+        //wait for delay
+        yield return new WaitForSeconds(delay);
+
         //get player
         GameObject player = playerTurns.getCurrentPlayer();
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
