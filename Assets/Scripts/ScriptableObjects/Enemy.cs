@@ -43,7 +43,7 @@ public class Enemy : ScriptableObject {
 
         //crit
         if (UnityEngine.Random.Range(0f, 1) <= crit_chance) {
-            value = Convert.ToInt32(value * 1.7);
+            value = Convert.ToInt32(value * 1.6);
 
             //set did last attack crit to true
             StaticValuesController.lastAttackCrit = true;
@@ -60,7 +60,7 @@ public class Enemy : ScriptableObject {
     }
     //damage recieved
     public int damageSelf(int value) {
-        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * 10)/100);
+        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * 12)/100);
         if (reduced_damage <= 0) {
             reduced_damage = 1;
         }

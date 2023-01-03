@@ -384,7 +384,7 @@ public class PlayerStats : MonoBehaviour
     //fight functions
     public int damageSelf(int value) {
         //overall damage
-        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * 10)/100);
+        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * 12)/100);
 
         //minimal damage
         if (reduced_damage <= 0) {
@@ -405,7 +405,7 @@ public class PlayerStats : MonoBehaviour
         int max_health = get_max_health();
 
         //heal amount
-        int heal = System.Convert.ToInt32(intelligence / 6) * 5 + level;
+        int heal = System.Convert.ToInt32(intelligence / 4) * 5 + level;
 
         //set min health to 1
         if (heal < 1) {

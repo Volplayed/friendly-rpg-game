@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f22097dab385948a9f59b0adcc1b6e, type: 3}
+  m_Name: Cursed Gauntlets
+  m_EditorClassIdentifier: 
+  itemName: Cursed Gauntlets
+  itemDescription: Strange gauntlets ones cursed by a powerful witcher
+  itemIcon: {fileID: 21300000, guid: e0777d5affe522f4b8336cff7c60fe29, type: 3}
+  itemType: hands
+  itemRarity: 3
+  strength: -3
+  agility: -1
+  intelligence: -2
+  health: 0
+  damage: 2
+  armor: 0.2
+  crit_chance: 0.25
+  moves: 0

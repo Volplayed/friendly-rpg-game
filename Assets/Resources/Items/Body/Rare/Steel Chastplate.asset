@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f22097dab385948a9f59b0adcc1b6e, type: 3}
+  m_Name: Steel Chastplate
+  m_EditorClassIdentifier: 
+  itemName: Steel Chestplate
+  itemDescription: Heavy, but strong armor, usually used by human knights
+  itemIcon: {fileID: 21300000, guid: c94c04f7c60f83c478600fd5278f6e46, type: 3}
+  itemType: body
+  itemRarity: 2
+  strength: 2
+  agility: 0
+  intelligence: 0
+  health: 2
+  damage: 0
+  armor: 1
+  crit_chance: 0
+  moves: -1
