@@ -23,4 +23,5 @@ MonoBehaviour:
   drop_items:
   - {fileID: 11400000, guid: b003141ee3c33634c88af47463929add, type: 2}
   - {fileID: 11400000, guid: c4caa405954507f498615bb03947cc79, type: 2}
+  - {fileID: 11400000, guid: 7f90af15f7d3fef48b7ea5956df87f54, type: 2}
   is_boss: 0
