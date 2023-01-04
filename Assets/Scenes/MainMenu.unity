@@ -3536,10 +3536,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 1437692699010878643, guid: d9233abca059c0a4aa1ae18060115ca9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5423799125840600646, guid: d9233abca059c0a4aa1ae18060115ca9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3575,18 +3571,6 @@ PrefabInstance:
     - target: {fileID: 5423799125840600646, guid: d9233abca059c0a4aa1ae18060115ca9, type: 3}
       propertyPath: m_SizeDelta.y
       value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 5423799125840600646, guid: d9233abca059c0a4aa1ae18060115ca9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5423799125840600646, guid: d9233abca059c0a4aa1ae18060115ca9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5423799125840600646, guid: d9233abca059c0a4aa1ae18060115ca9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5423799125840600646, guid: d9233abca059c0a4aa1ae18060115ca9, type: 3}
       propertyPath: m_LocalPosition.x
