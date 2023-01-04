@@ -18,6 +18,9 @@ public class Menu : MonoBehaviour
     //after game stats canvas
     public GameObject afterGameStatsCanvas;
 
+    //scene loader
+    public GameObject sceneLoader;
+
     //button click sound
     public AudioSource buttonClickSound;
 
@@ -97,7 +100,11 @@ public class Menu : MonoBehaviour
 
     //open main game scene
     private void openGame() {
-        SceneManager.LoadScene("MainGame");
+        //get load scene script
+        LoadingGame loadSceneScript = sceneLoader.GetComponent<LoadingGame>();
+
+        //load game scene
+        loadSceneScript.LoadScene(1);
     }
 
     //close every panel and open menu panel
