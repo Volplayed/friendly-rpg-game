@@ -311,7 +311,7 @@ public class PlayerStats : MonoBehaviour
         health = get_max_health();
         armor = agility * Coefficient.armorPerAgility + bonus_armor;
         crit_chance = intelligence * Coefficient.critChancePerIntelligence + bonus_crit_chance;
-        moves = System.Convert.ToInt32(intelligence * Coefficient.movesPerIntelligence) + bonus_moves;
+        moves = intelligence / Coefficient.movesPerIntelligence + bonus_moves;
         //min moves value is 1, set 1 if less than 1
         if (moves < 1) {
             moves = 1;

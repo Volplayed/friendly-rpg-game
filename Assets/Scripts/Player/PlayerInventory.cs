@@ -94,7 +94,7 @@ public class PlayerInventory : MonoBehaviour
         //set stats
         health_text.SetText("Health: " + stats.get_health());
         damage_text.SetText("Damage: " + stats.get_damage());
-        armor_text.SetText("Armor: " + stats.get_armor());
+        armor_text.SetText("Armor: " + stats.get_armor() * Coefficient.armor);
         strength_text.SetText("Strength: " + stats.get_strength());
         agility_text.SetText("Agility: " + stats.get_agility());
         intelligence_text.SetText("Intelligence: " + stats.get_intelligence());
@@ -316,7 +316,7 @@ public class PlayerInventory : MonoBehaviour
             text += "Damage: " + item.damage + "\n";
         }
         if (item.armor != 0) {
-            text += "Armor: " + item.armor + "\n";
+            text += "Armor: " + item.armor * Coefficient.armor + "\n";
         }
         if (item.health != 0) {
             text += "Health: " + item.health + "\n";
@@ -331,7 +331,7 @@ public class PlayerInventory : MonoBehaviour
             text += "Intelligence: " + item.intelligence + "\n";
         }
         if (item.crit_chance != 0) {
-            text += "Crit chance: " + item.crit_chance + "\n";
+            text += "Crit chance: " + item.crit_chance * 100 + "\n";
         }
         if (item.moves != 0) {
             text += "Moves: " + item.moves + "\n";

@@ -18,10 +18,7 @@ public class Coefficient : MonoBehaviour
     public static double critChancePerIntelligence = 0.01;
 
     //moves per intelligence
-    public static float movesPerIntelligence = 0.25f;
-
-    //escape chance per agility and intelligence
-    public static double escapeChance = 0.01;
+    public static int movesPerIntelligence = 4;
 
     //damage per level
     public static int damagePerLevel = 2;
