@@ -10,7 +10,8 @@ public class PlayerInventory : MonoBehaviour
     private bool opened = false;
     private Transform[] hexes;
 
-    public TMP_Text health_text, damage_text, armor_text, strength_text, agility_text, intelligence_text, level_text, exp_text;
+    public TMP_Text health_text, damage_text, armor_text, strength_text, agility_text, intelligence_text,
+    level_text, exp_text, moves_text, heal_text, crit_chance_text;
 
     public GameObject panel;
     private GameObject player;
@@ -99,6 +100,9 @@ public class PlayerInventory : MonoBehaviour
         agility_text.SetText("Agility: " + stats.get_agility());
         intelligence_text.SetText("Intelligence: " + stats.get_intelligence());
         exp_text.SetText("Experience: " + stats.get_exp() + "/" + stats.get_needed_exp());
+        crit_chance_text.SetText("Crit chance: " + stats.get_crit() * 100 + "%");
+        moves_text.SetText("Moves: " + stats.get_moves());
+        heal_text.SetText("Heal: " + stats.get_heal());
         level_text.SetText("Level: " + stats.get_level());
     }
 

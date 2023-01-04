@@ -139,6 +139,9 @@ public class PlayerStats : MonoBehaviour
     public double get_crit() {
         return crit_chance;
     }
+    public int get_heal() {
+        return System.Convert.ToInt32(intelligence / 4) * 5 + level;
+    }
     public int get_moves() {
         return moves;
     }

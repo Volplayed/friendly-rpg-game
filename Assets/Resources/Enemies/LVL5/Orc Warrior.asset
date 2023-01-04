@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Orc Warrior
   level: 5
-  max_health: 24
-  damage: 10
+  max_health: 30
+  damage: 12
   armor: 1.8
   heal_value: 5
-  crit_chance: 0.4000000059604645
+  crit_chance: 0.20000000298023224
   drop_chance: 0.8500000238418579
   drop_items:
   - {fileID: 11400000, guid: 7f90af15f7d3fef48b7ea5956df87f54, type: 2}
   - {fileID: 11400000, guid: 41b0273d9535a9a44bc0d3bcf66bd7d2, type: 2}
   - {fileID: 11400000, guid: d8492a50a477c554da979fcda7504cec, type: 2}
+  - {fileID: 11400000, guid: da3f7caa41b957f46b0bc4fe8dd84597, type: 2}
   is_boss: 0

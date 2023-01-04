@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Skeleton Archer
   level: 3
-  max_health: 13
+  max_health: 15
   damage: 6
   armor: 0.4
   heal_value: 4
@@ -24,4 +24,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6799140bd1bfaf343bbd0a1c6c52ccce, type: 2}
   - {fileID: 11400000, guid: 8c6c65cb5c813bc4ab87a1f70ae7f074, type: 2}
   - {fileID: 11400000, guid: 98d10582f4d8c034cb4968595275184b, type: 2}
+  - {fileID: 11400000, guid: b003141ee3c33634c88af47463929add, type: 2}
   is_boss: 0

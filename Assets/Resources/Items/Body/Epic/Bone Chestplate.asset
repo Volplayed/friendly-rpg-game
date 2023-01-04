@@ -23,6 +23,6 @@ MonoBehaviour:
   intelligence: 0
   health: 2
   damage: 0
-  armor: 1
+  armor: 1.2
   crit_chance: 0
   moves: 0
