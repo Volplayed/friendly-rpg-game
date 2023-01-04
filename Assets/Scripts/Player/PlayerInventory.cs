@@ -77,10 +77,6 @@ public class PlayerInventory : MonoBehaviour
             //deactivate item data panel
             deactivateItemDataPanel();
 
-            
-
-            player.transform.position = player.transform.position;
-
             //enable movement after delay
             playerTurns.enableMovementAfterDelay();
 
@@ -335,7 +331,7 @@ public class PlayerInventory : MonoBehaviour
             text += "Intelligence: " + item.intelligence + "\n";
         }
         if (item.crit_chance != 0) {
-            text += "Crit chance: " + item.crit_chance * 100 + "\n";
+            text += "Crit chance: " + item.crit_chance * 100 + "%\n";
         }
         if (item.moves != 0) {
             text += "Moves: " + item.moves + "\n";

@@ -58,6 +58,9 @@ public class HexClickHandler : MonoBehaviour
 
         //decrease player current moves by 1
         playerTurns.change_current_moves(-1);
+
+        //reset all hex colliders
+        playerStats.resetHexColliders();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -232,6 +235,25 @@ public class HexClickHandler : MonoBehaviour
         }
     }
 
+    //reset hex collider coroutine
+    private IEnumerator resetColliderCotoutine() {
+        //get hex collider
+        Collider2D collider = gameObject.GetComponent<Collider2D>();
+
+        //disable collider
+        collider.enabled = false;
+
+        //wait for 0.01 seconds
+        yield return new WaitForSeconds(0.01f);
+
+        //enable collider
+        collider.enabled = true;
+    }
+
+    //reset hex collider
+    public void resetCollider() {
+        StartCoroutine(resetColliderCotoutine());
+    }
 }
 
 

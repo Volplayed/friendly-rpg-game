@@ -101,6 +101,13 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    //reset all colliders of hexes
+    public void resetHexColliders() {
+        foreach (HexClickHandler hex in hexHandlers) {
+            hex.resetCollider();
+        }
+    }
+
     void calculateExp() {
         needed_exp = level * exp_multiplayer;
     }
