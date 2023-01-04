@@ -112,6 +112,11 @@ public class PlayerStats : MonoBehaviour
         needed_exp = level * exp_multiplayer;
     }
 
+    //set health
+    public void set_health(int health_) {
+        health = health_;
+    }
+
     //get functions
     public string get_player_name() {
         return player_name;
