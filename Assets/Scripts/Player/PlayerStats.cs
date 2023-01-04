@@ -160,7 +160,7 @@ public class PlayerStats : MonoBehaviour
 
     //calculates max health with formula
     public int get_max_health() {
-        return strength * 2 + bonus_health;
+        return strength * Coefficient.healthPerStrength + bonus_health;
     }
 
     public Enemy get_enemy() {
@@ -309,15 +309,15 @@ public class PlayerStats : MonoBehaviour
 
         //calculate other
         health = get_max_health();
-        armor = agility * 0.2 + bonus_armor;
-        crit_chance = intelligence * 0.02 + bonus_crit_chance;
-        moves = intelligence / 4 + bonus_moves;
+        armor = agility * Coefficient.armorPerAgility + bonus_armor;
+        crit_chance = intelligence * Coefficient.critChancePerIntelligence + bonus_crit_chance;
+        moves = System.Convert.ToInt32(intelligence * Coefficient.movesPerIntelligence) + bonus_moves;
         //min moves value is 1, set 1 if less than 1
         if (moves < 1) {
             moves = 1;
         }
 
-        damage = level * 2 + bonus_damage;
+        damage = level * Coefficient.damagePerLevel + bonus_damage;
 
     }
 
@@ -384,7 +384,7 @@ public class PlayerStats : MonoBehaviour
     //fight functions
     public int damageSelf(int value) {
         //overall damage
-        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * 12)/100);
+        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * Coefficient.armor)/100);
 
         //minimal damage
         if (reduced_damage <= 0) {
@@ -538,7 +538,7 @@ public class PlayerStats : MonoBehaviour
         else {
             k = agility;
         }
-        escape_chance = k*0.1 - enemy.get_level() * 0.04; //0.04 is enemy level coefficient (0.04 is for level 1 enemy)
+        escape_chance = k*Coefficient.enemyStatsEscapeChance - enemy.get_level() * Coefficient.enemyLevelEscapeChance;
         //if to high chance
         if (escape_chance > 0.85) {
             escape_chance = 0.85;
@@ -657,7 +657,7 @@ public class PlayerStats : MonoBehaviour
         else {
             k = agility;
         }
-        escape_chance = k*0.1 - other_agility*0.04;
+        escape_chance = k*Coefficient.playerStatsEscapeChance - other_agility* Coefficient.playerEnemyStatsEscapeChance;
         //if to high chance
         if (escape_chance > 0.85) {
             escape_chance = 0.85;
