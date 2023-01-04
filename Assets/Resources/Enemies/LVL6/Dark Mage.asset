@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Dark Mage
   level: 6
-  max_health: 20
+  max_health: 35
   damage: 12
   armor: 0.4
   heal_value: 12
@@ -24,4 +24,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8610ccdab5675974493b92cf784625c1, type: 2}
   - {fileID: 11400000, guid: 8184532da946b86449e166dbb25812dc, type: 2}
   - {fileID: 11400000, guid: be9bf11ddc8135648892bfae5b5f3f47, type: 2}
+  - {fileID: 11400000, guid: 2af56c36e67c93540898f38e7c653ba9, type: 2}
   is_boss: 0

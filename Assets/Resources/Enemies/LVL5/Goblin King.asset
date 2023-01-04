@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Goblin King
   level: 5
-  max_health: 28
-  damage: 10
+  max_health: 29
+  damage: 12
   armor: 0.8
-  heal_value: 4
+  heal_value: 7
   crit_chance: 0.3499999940395355
   drop_chance: 0.8500000238418579
   drop_items:
   - {fileID: 11400000, guid: be9bf11ddc8135648892bfae5b5f3f47, type: 2}
   - {fileID: 11400000, guid: 8610ccdab5675974493b92cf784625c1, type: 2}
   - {fileID: 11400000, guid: e1db6bce3c515e8488fcb711dac51f40, type: 2}
+  - {fileID: 11400000, guid: 7f90af15f7d3fef48b7ea5956df87f54, type: 2}
   is_boss: 0

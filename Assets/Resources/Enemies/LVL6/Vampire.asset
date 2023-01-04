@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Vampire
   level: 6
-  max_health: 28
-  damage: 14
-  armor: 1
-  heal_value: 10
+  max_health: 36
+  damage: 13
+  armor: 0.6
+  heal_value: 14
   crit_chance: 0.5
   drop_chance: 0.8999999761581421
   drop_items:
   - {fileID: 11400000, guid: 5e558acaefa3edf4f9c3c797d718239f, type: 2}
   - {fileID: 11400000, guid: 8184532da946b86449e166dbb25812dc, type: 2}
   - {fileID: 11400000, guid: ca9c5c58b8c3ee94b9e0c2cc2b4a53ce, type: 2}
+  - {fileID: 11400000, guid: be9bf11ddc8135648892bfae5b5f3f47, type: 2}
   is_boss: 0

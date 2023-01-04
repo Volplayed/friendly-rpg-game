@@ -10,7 +10,8 @@ public class PlayerInventory : MonoBehaviour
     private bool opened = false;
     private Transform[] hexes;
 
-    public TMP_Text health_text, damage_text, armor_text, strength_text, agility_text, intelligence_text, level_text, exp_text;
+    public TMP_Text health_text, damage_text, armor_text, strength_text, agility_text, intelligence_text,
+    level_text, exp_text, moves_text, heal_text, crit_chance_text;
 
     public GameObject panel;
     private GameObject player;
@@ -76,10 +77,6 @@ public class PlayerInventory : MonoBehaviour
             //deactivate item data panel
             deactivateItemDataPanel();
 
-            
-
-            player.transform.position = player.transform.position;
-
             //enable movement after delay
             playerTurns.enableMovementAfterDelay();
 
@@ -94,11 +91,14 @@ public class PlayerInventory : MonoBehaviour
         //set stats
         health_text.SetText("Health: " + stats.get_health());
         damage_text.SetText("Damage: " + stats.get_damage());
-        armor_text.SetText("Armor: " + stats.get_armor());
+        armor_text.SetText("Armor: " + stats.get_armor() * Coefficient.armor);
         strength_text.SetText("Strength: " + stats.get_strength());
         agility_text.SetText("Agility: " + stats.get_agility());
         intelligence_text.SetText("Intelligence: " + stats.get_intelligence());
         exp_text.SetText("Experience: " + stats.get_exp() + "/" + stats.get_needed_exp());
+        crit_chance_text.SetText("Crit chance: " + stats.get_crit() * 100 + "%");
+        moves_text.SetText("Moves: " + stats.get_moves());
+        heal_text.SetText("Heal: " + stats.get_heal());
         level_text.SetText("Level: " + stats.get_level());
     }
 
@@ -316,7 +316,7 @@ public class PlayerInventory : MonoBehaviour
             text += "Damage: " + item.damage + "\n";
         }
         if (item.armor != 0) {
-            text += "Armor: " + item.armor + "\n";
+            text += "Armor: " + item.armor * Coefficient.armor + "\n";
         }
         if (item.health != 0) {
             text += "Health: " + item.health + "\n";
@@ -331,7 +331,7 @@ public class PlayerInventory : MonoBehaviour
             text += "Intelligence: " + item.intelligence + "\n";
         }
         if (item.crit_chance != 0) {
-            text += "Crit chance: " + item.crit_chance + "\n";
+            text += "Crit chance: " + item.crit_chance * 100 + "%\n";
         }
         if (item.moves != 0) {
             text += "Moves: " + item.moves + "\n";

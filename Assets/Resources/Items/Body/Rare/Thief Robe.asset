@@ -18,7 +18,7 @@ MonoBehaviour:
   itemType: body
   itemRarity: 2
   strength: 0
-  agility: 3
+  agility: 4
   intelligence: 0
   health: 2
   damage: 2

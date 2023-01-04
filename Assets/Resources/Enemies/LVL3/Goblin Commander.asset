@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Goblin Commander
   level: 3
-  max_health: 14
-  damage: 6
+  max_health: 18
+  damage: 7
   armor: 1.2
-  heal_value: 4
+  heal_value: 6
   crit_chance: 0.25
   drop_chance: 0.8500000238418579
   drop_items:
