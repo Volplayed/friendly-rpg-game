@@ -9,13 +9,13 @@ public class Coefficient : MonoBehaviour
     public static int armor = 12;
 
     //health per strength
-    public static int healthPerStrength = 2;
+    public static int healthPerStrength = 3;
 
     //armor per agility
     public static double armorPerAgility = 0.2;
 
     //crit chance per intelligence
-    public static double critChancePerIntelligence = 0.01;
+    public static double critChancePerIntelligence = 0.02;
 
     //moves per intelligence
     public static int movesPerIntelligence = 4;

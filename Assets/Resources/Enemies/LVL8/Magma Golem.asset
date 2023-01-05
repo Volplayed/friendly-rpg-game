@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Magma Golem
   level: 8
-  max_health: 62
+  max_health: 57
   damage: 18
   armor: 0.6
   heal_value: 18

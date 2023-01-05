@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Devil
   level: 10
-  max_health: 72
-  damage: 25
+  max_health: 68
+  damage: 24
   armor: 1.2
-  heal_value: 28
+  heal_value: 26
   crit_chance: 0.30000001192092896
   drop_chance: 0.8999999761581421
   drop_items: []

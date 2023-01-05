@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Armored Giant
   level: 9
-  max_health: 54
+  max_health: 50
   damage: 19
   armor: 5
   heal_value: 21

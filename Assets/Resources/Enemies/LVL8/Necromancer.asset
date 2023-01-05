@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Necromancer
   level: 8
-  max_health: 56
+  max_health: 52
   damage: 18
   armor: 1.4
   heal_value: 24

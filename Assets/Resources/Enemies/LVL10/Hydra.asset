@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Hydra
   level: 10
-  max_health: 73
+  max_health: 71
   damage: 25
   armor: 2
   heal_value: 30

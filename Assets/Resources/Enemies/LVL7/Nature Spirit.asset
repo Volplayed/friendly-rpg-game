@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Nature Spirit
   level: 7
-  max_health: 45
+  max_health: 42
   damage: 17
   armor: 1
-  heal_value: 24
+  heal_value: 18
   crit_chance: 0.25
   drop_chance: 0.8999999761581421
   drop_items:

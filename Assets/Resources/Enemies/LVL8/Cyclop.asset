@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Cyclop
   level: 8
-  max_health: 60
+  max_health: 56
   damage: 19
   armor: 1
   heal_value: 20

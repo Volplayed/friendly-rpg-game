@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Giant
   level: 7
-  max_health: 54
+  max_health: 50
   damage: 16
   armor: 0.2
   heal_value: 12

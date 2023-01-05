@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Witcher
   level: 9
-  max_health: 62
+  max_health: 60
   damage: 20
   armor: 2
-  heal_value: 30
+  heal_value: 28
   crit_chance: 0.25
   drop_chance: 0.8999999761581421
   drop_items: []
