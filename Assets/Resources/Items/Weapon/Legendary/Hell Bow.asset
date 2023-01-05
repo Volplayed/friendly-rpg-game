@@ -17,7 +17,7 @@ MonoBehaviour:
     energy user is granted with defensive aura
   itemIcon: {fileID: 21300000, guid: 7f88b196ee992f345b4c4da2096ed2d6, type: 3}
   itemType: weapon
-  itemRarity: 0
+  itemRarity: 4
   strength: 1
   agility: 4
   intelligence: 0
