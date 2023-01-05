@@ -112,6 +112,11 @@ public class PlayerStats : MonoBehaviour
         needed_exp = level * exp_multiplayer;
     }
 
+    //set health
+    public void set_health(int health_) {
+        health = health_;
+    }
+
     //get functions
     public string get_player_name() {
         return player_name;
@@ -147,7 +152,7 @@ public class PlayerStats : MonoBehaviour
         return crit_chance;
     }
     public int get_heal() {
-        return System.Convert.ToInt32(intelligence / 4) * 5 + level;
+        return System.Convert.ToInt32(intelligence / Coefficient.intelligencePerHeal) * Coefficient.healApplication + level;
     }
     public int get_moves() {
         return moves;
@@ -321,7 +326,7 @@ public class PlayerStats : MonoBehaviour
         health = get_max_health();
         armor = agility * Coefficient.armorPerAgility + bonus_armor;
         crit_chance = intelligence * Coefficient.critChancePerIntelligence + bonus_crit_chance;
-        moves = intelligence / Coefficient.movesPerIntelligence + bonus_moves;
+        moves = agility / Coefficient.agilityPerMove + bonus_moves;
         //min moves value is 1, set 1 if less than 1
         if (moves < 1) {
             moves = 1;
@@ -415,7 +420,7 @@ public class PlayerStats : MonoBehaviour
         int max_health = get_max_health();
 
         //heal amount
-        int heal = System.Convert.ToInt32(intelligence / 4) * 5 + level;
+        int heal = get_heal();
 
         //set min health to 1
         if (heal < 1) {

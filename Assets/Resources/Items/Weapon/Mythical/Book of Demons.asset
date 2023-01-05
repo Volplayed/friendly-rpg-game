@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33f22097dab385948a9f59b0adcc1b6e, type: 3}
-  m_Name: Orc Battle Axe
+  m_Name: Book of Demons
   m_EditorClassIdentifier: 
-  itemName: Orc Battle Axe
-  itemDescription: Giant battle axe. Favourite weapon of orcs
-  itemIcon: {fileID: 21300000, guid: 83deb251c5f45304e9f97e1da9820210, type: 3}
+  itemName: Book of Demons
+  itemDescription: Demonic book that has lots of strong spells in it. User of the
+    book gives control of a half of his body to demonic creatures
+  itemIcon: {fileID: 21300000, guid: c431ecc7750024e4b983eac67ae9d7f6, type: 3}
   itemType: weapon
-  itemRarity: 3
-  strength: 4
-  agility: -1
-  intelligence: -2
+  itemRarity: 5
+  strength: -2
+  agility: -2
+  intelligence: 8
   health: 0
-  damage: 15
-  armor: 0.2
-  crit_chance: 0.05
+  damage: 34
+  armor: 0
+  crit_chance: -0.28
   moves: 0

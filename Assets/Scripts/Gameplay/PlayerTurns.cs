@@ -295,6 +295,9 @@ public class PlayerTurns : MonoBehaviour
 
     //go to next turn
     public void next_turn() {
+        //destroy all popup texts
+        destroy_all_popups();
+
         //check if every player lost or won
         check_finished();
 
@@ -374,6 +377,17 @@ public class PlayerTurns : MonoBehaviour
         //if every player lost or won open main menu scene and show stats
         SceneManager.LoadScene("MainMenu");
         
+    }
+
+    //destroy all popup texts
+    public void destroy_all_popups() {
+        //get all popup texts
+        GameObject[] popups = GameObject.FindGameObjectsWithTag("pop_up_text");
+
+        //destroy all popup texts
+        foreach (GameObject popup in popups) {
+            Destroy(popup);
+        }
     }
 
 }

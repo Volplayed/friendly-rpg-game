@@ -55,6 +55,9 @@ public class PlayerFight : MonoBehaviour
         Slider slider = playerHealthBar.GetComponent<Slider>();
         Slider enemySlider = enemyHealthBar.GetComponent<Slider>();
 
+        //set player health to max
+        playerStats.set_health(playerStats.get_max_health());
+
         //set values of current player
         slider.maxValue = playerStats.get_max_health();
         slider.value = playerStats.get_health();
