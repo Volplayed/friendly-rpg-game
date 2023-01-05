@@ -6,7 +6,7 @@ public class Coefficient : MonoBehaviour
 {
     
     //armor coefficient
-    public static int armor = 12;
+    public static int armor = 10;
 
     //health per strength
     public static int healthPerStrength = 3;
@@ -15,10 +15,10 @@ public class Coefficient : MonoBehaviour
     public static double armorPerAgility = 0.2;
 
     //crit chance per intelligence
-    public static double critChancePerIntelligence = 0.02;
+    public static double critChancePerIntelligence = 0.01;
 
-    //moves per intelligence
-    public static int movesPerIntelligence = 4;
+    //moves per agility
+    public static int agilityPerMove = 6;
 
     //damage per level
     public static int damagePerLevel = 2;
@@ -30,5 +30,9 @@ public class Coefficient : MonoBehaviour
     //vs player escape chance
     public static double playerEnemyStatsEscapeChance = 0.05;
     public static double playerStatsEscapeChance = 0.1;
+
+    //heal
+    public static int intelligencePerHeal = 4;
+    public static int healApplication = 5;
 
 }
