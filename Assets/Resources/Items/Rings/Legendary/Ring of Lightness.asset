@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f22097dab385948a9f59b0adcc1b6e, type: 3}
+  m_Name: Ring of Lightness
+  m_EditorClassIdentifier: 
+  itemName: Ring of Lightness
+  itemDescription: One of the legendary ring trio. Assasins spend decades searching
+    for it
+  itemIcon: {fileID: 1115221378, guid: 57c72d49f46b99d43ac7e3a785412f6c, type: 3}
+  itemType: ring
+  itemRarity: 4
+  strength: -1
+  agility: 6
+  intelligence: -1
+  health: 0
+  damage: 0
+  armor: 0
+  crit_chance: 0
+  moves: 0
