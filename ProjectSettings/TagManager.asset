@@ -42,6 +42,7 @@ TagManager:
   - current_turn
   - can_be_attacked_marker
   - scene_loader
+  - pop_up_text
   layers:
   - Default
   - TransparentFX
