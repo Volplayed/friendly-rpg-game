@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
@@ -14,17 +15,22 @@ public class Tutorial : MonoBehaviour
 
     //all needed objects
     public GameObject player;
+    public Button endTurnButton;
+    public Button inventoryButton;
 
+    //all tutorial panels
     public GameObject[] tutorialPanels;
     
     //turotial panel index
     private int tutorialPanelIndex = 0;
 
-    //needed colors
+    //colors
     private Color highlightHexColor = new Color(0, 1, 0, 1);
 
     //bools
     private bool firstTurn = true;
+    private bool firstInventory = true;
+    private bool firstCloseInventory = true;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +54,15 @@ public class Tutorial : MonoBehaviour
             hexClickHandler.set_avaliable(false);
         }
     }
+
+    //enable hex click handlers
+    public void enableHexClickHandlers(bool value) {
+        //set avaliable to true for all hexClickHandlers
+        foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
+            hexClickHandler.set_avaliable(value);
+        }
+    }
+
 
     //close tutorial panel
     public void closeTutorialPanel() {
@@ -82,6 +97,40 @@ public class Tutorial : MonoBehaviour
         if (firstTurn) {
             //set first turn to false
             firstTurn = false;
+
+            //open tutorial panel
+            openTutorialPanel();
+        }
+    }
+
+    //close tutorial panel and disable all buttons except inventory button
+    public void closeTutorialPanelDisableButtonsNotInventory() {
+        //disable end turn button
+        endTurnButton.interactable = false;
+
+        //enable inventory button
+        inventoryButton.interactable = true;
+
+        //close tutorial panel
+        closeTutorialPanel();
+    }
+
+    //open invetory and open tutorial panel
+    public void openInventoryAndTutorialPanel() {
+        //open inventory
+        playerInventory.openInventory();
+        //if first time opening inventory
+        if (firstInventory) {
+            //set first inventory to false
+            firstInventory = false;
+
+            //open tutorial panel
+            openTutorialPanel();
+        }
+        //if first time closing inventory
+        else if (firstCloseInventory) {
+            //set first close inventory to false
+            firstCloseInventory = false;
 
             //open tutorial panel
             openTutorialPanel();
