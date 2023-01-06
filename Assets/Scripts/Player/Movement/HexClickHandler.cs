@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HexClickHandler : MonoBehaviour
 {
-    private double fightChance = 0.25;
+    private double fightChance = Coefficient.defaultFightChance;
 
     //other objects
     private GameObject player;
@@ -258,6 +258,11 @@ public class HexClickHandler : MonoBehaviour
     //reset hex collider
     public void resetCollider() {
         StartCoroutine(resetColliderCotoutine());
+    }
+
+    //set fight chance
+    public void setFightChance(double chance) {
+        fightChance = chance;
     }
 }
 

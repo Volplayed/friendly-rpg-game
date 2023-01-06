@@ -18,6 +18,7 @@ public class Tutorial : MonoBehaviour
     public Button endTurnButton;
     public Button inventoryButton;
 
+    public GameObject firstMoveHex;
     //all tutorial panels
     public GameObject[] tutorialPanels;
     
@@ -25,12 +26,15 @@ public class Tutorial : MonoBehaviour
     private int tutorialPanelIndex = 0;
 
     //colors
-    private Color highlightHexColor = new Color(0, 1, 0, 1);
+    private Color highlightHexColor = new Color(0, 1, 0, 0.4f);
+    private Color defaultHexColor = new Color(0.6126094f, 0.60534f, 0.9811321f, 0.3529412f);
 
     //bools
     private bool firstTurn = true;
     private bool firstInventory = true;
     private bool firstCloseInventory = true;
+    private bool firstMove = true;
+    private bool firstEndTurn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +67,51 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    //enable hex click handlers except
+    public void enableHexClickHandlersExcept(bool value, HexClickHandler hexClickHandler) {
+        //set avaliable to true for all hexClickHandlers
+        foreach (HexClickHandler hexClickHandler_ in hexClickHandlers) {
+            if (hexClickHandler_ != hexClickHandler) {
+                hexClickHandler_.set_avaliable(value);
+            }
+        }
+    }
+
+    //show hexes
+    public void showHexes() {
+        //show each hex
+        foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
+            //get sprite renderer
+            SpriteRenderer spriteRenderer = hexClickHandler.GetComponent<SpriteRenderer>();
+
+            //enable sprite renderer
+            spriteRenderer.enabled = true;
+        }
+    }
+
+    //hide hexes
+    public void hideHexes() {
+        //hide each hex
+        foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
+            //get sprite renderer
+            SpriteRenderer spriteRenderer = hexClickHandler.GetComponent<SpriteRenderer>();
+
+            //disable sprite renderer
+            spriteRenderer.enabled = false;
+        }
+    }
+
+    //enable hex colliders
+    public void enableHexColliders(bool value) {
+        //enable each hex collider
+        foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
+            //get collider
+            Collider2D collider = hexClickHandler.gameObject.GetComponent<Collider2D>();
+
+            //enable collider
+            collider.enabled = value;
+        }
+    }
 
     //close tutorial panel
     public void closeTutorialPanel() {
@@ -97,6 +146,14 @@ public class Tutorial : MonoBehaviour
         if (firstTurn) {
             //set first turn to false
             firstTurn = false;
+
+            //open tutorial panel
+            openTutorialPanel();
+        }
+        //if first end turn
+        else if (firstEndTurn) {
+            //set first end turn to false
+            firstEndTurn = false;
 
             //open tutorial panel
             openTutorialPanel();
@@ -137,4 +194,86 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    //jump to next tutorial panel and enable all hexes
+    public void jumpToNextTutorialPanelEnableOneHex(GameObject hex) {
+        //jump to next tutorial panel
+        jumpToNextTutorialPanel();
+
+        //show all hexes
+        showHexes();
+    }
+
+    //close tutorial panel and recolor hex
+    public void closeTutorialPanelRecolorHex(GameObject hex) {
+        //jump to next tutorial panel
+        closeTutorialPanel();
+
+        //enable all hexes
+        enableHexClickHandlers(true);
+
+        //get hex sprite renderer
+        SpriteRenderer hexSpriteRenderer = hex.GetComponent<SpriteRenderer>();
+
+        //set hex color to highlight color
+        hexSpriteRenderer.color = highlightHexColor;
+
+        //get hex click handler
+        HexClickHandler hexClickHandler = hex.GetComponent<HexClickHandler>();
+
+        //disable all hexes except one
+        enableHexClickHandlersExcept(false, hexClickHandler);
+
+        //set hex fight chacne to 0
+        hexClickHandler.setFightChance(0);
+    }
+
+    void Update()
+    {
+        //if first move
+        if (firstMove) {
+            //if player moved to appropriate position
+            if (playerMovement.transform.position == new Vector3(-1.5f,1.73195314f,0)) {
+                //set first move to false
+                firstMove = false;
+
+                //open next tutorial panel
+                openTutorialPanel();
+
+                //enable end turn button
+                endTurnButton.interactable = true;
+            }
+        }
+    }
+
+    //end turn and open tutorial panel if first end turn
+    public void endTurnAndSkipOtherPlayerTurn() {
+        //enable all hexes
+        enableHexClickHandlers(true);
+
+        //disable hex colliders
+        enableHexColliders(false);
+
+        //end turn
+        playerTurns.next_turn();
+
+        //end turn for second player
+        playerTurns.next_turn();
+
+        //get sprite renderer
+        SpriteRenderer spriteRenderer = firstMoveHex.GetComponent<SpriteRenderer>();
+
+        //set color to default color
+        spriteRenderer.color = defaultHexColor;    
+    }
+
+    //close tutorial panel and enable all hexes and set fight chance to 100
+    public void closeTutorialPanelSetFightChanceTo100() {
+        //close tutorial panel
+        closeTutorialPanel();
+
+        //set fight chance to 100
+        foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
+            hexClickHandler.setFightChance(100);
+        }
+    }
 }
