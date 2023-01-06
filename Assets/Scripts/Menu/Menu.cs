@@ -25,6 +25,9 @@ public class Menu : MonoBehaviour
     public AudioSource buttonClickSound;
 
     void Start() {
+        //on game launch set first time playing
+        setFirstTimePlaying();
+
         //if game started
         if (StaticValuesController.gameStarted) {
             //set after game stats canvas active
@@ -39,9 +42,14 @@ public class Menu : MonoBehaviour
     public void openPlayerAmount() {
         //play button click sound
         playButtonClickSound();
-
-        playerAmountPanel.SetActive(true);
-        menuPanel.SetActive(false);
+        //if first time playing open tutorial
+        if (StaticValuesController.firstTimePlaying) {
+            openTutorial();
+        } else {
+            //set player amount panel active
+            playerAmountPanel.SetActive(true);
+            menuPanel.SetActive(false);
+        }
     }
 
     //close player amount
@@ -107,6 +115,18 @@ public class Menu : MonoBehaviour
         loadSceneScript.LoadScene(1);
     }
 
+    //open tutorial scene
+    public void openTutorial() {
+        //get load scene script
+        LoadingGame loadSceneScript = sceneLoader.GetComponent<LoadingGame>();
+
+        //change first time playing to false
+        changeFirstTimePlaying();
+
+        //load tutorial scene
+        loadSceneScript.LoadScene(2);
+    }
+
     //close every panel and open menu panel
     public void backToMenu() {
         //play button click sound
@@ -125,6 +145,22 @@ public class Menu : MonoBehaviour
     //play button click sound
     public void playButtonClickSound() {
         buttonClickSound.Play();
+    }
+
+    //set first time playing value
+    public void setFirstTimePlaying() {
+        //get value from player prefs
+        bool value = PlayerPrefs.GetInt("firstTimePlaying", 1) != 0;
+
+        StaticValuesController.firstTimePlaying = value;
+    }
+
+    //change first time playing value
+    public void changeFirstTimePlaying() {
+        //set value to player prefs
+        PlayerPrefs.SetInt("firstTimePlaying", 0);
+
+        StaticValuesController.firstTimePlaying = false;
     }
 
     
