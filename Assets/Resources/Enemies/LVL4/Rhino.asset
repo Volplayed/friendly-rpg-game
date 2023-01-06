@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Rhino
   level: 4
-  max_health: 26
+  max_health: 23
   damage: 8
   armor: 0.8
   heal_value: 7

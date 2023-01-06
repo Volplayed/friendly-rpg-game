@@ -91,7 +91,7 @@ public class Enemy : ScriptableObject {
                 stats.open_new_item_panel(drop_item());
             }
             //give exp to player based on level and some additional random value
-            stats.give_exp(level*3 + UnityEngine.Random.Range(0, 5));
+            stats.give_exp(level * Coefficient.expPerEnemyLevel + UnityEngine.Random.Range(0, 3));
         }
         //if enemy is a boss
         else if (is_boss) {

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Humanoid Lizard
   level: 4
-  max_health: 22
-  damage: 8
-  armor: 1.2
-  heal_value: 10
-  crit_chance: 0.44999998807907104
+  max_health: 21
+  damage: 9
+  armor: 1
+  heal_value: 8
+  crit_chance: 0.15000000596046448
   drop_chance: 0.8999999761581421
   drop_items:
   - {fileID: 11400000, guid: b003141ee3c33634c88af47463929add, type: 2}

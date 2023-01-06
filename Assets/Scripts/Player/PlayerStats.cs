@@ -334,6 +334,9 @@ public class PlayerStats : MonoBehaviour
 
         damage = level * Coefficient.damagePerLevel + bonus_damage;
 
+        //calculate exp
+        calculateExp();
+
     }
 
     //levelUp
@@ -719,12 +722,36 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    //die and lose 1 level and one of each stat
+    //die and lose 1 level and one max stat
     private void die() {
         level -= 1;
-        default_strength -= 1;
-        default_agility -= 1;
-        default_intelligence -= 1;
+        
+        //decrease max stat
+        //strength
+        if (default_strength > default_agility && default_strength > default_intelligence) {
+            default_strength -= 1;
+        }
+        //agility
+        else if (default_agility > default_strength && default_agility > default_intelligence) {
+            default_agility -= 1;
+        }
+        //intelligence
+        else if (default_intelligence > default_strength && default_intelligence > default_agility) {
+            default_intelligence -= 1;
+        }
+        //if all are equal decrease random stat
+        else {
+            int random_stat = Random.Range(0, 3);
+            if (random_stat == 0) {
+                default_strength -= 1;
+            }
+            else if (random_stat == 1) {
+                default_agility -= 1;
+            }
+            else {
+                default_intelligence -= 1;
+            }
+        }
 
         //minimal values
         if (level < 1) {
@@ -772,7 +799,7 @@ public class PlayerStats : MonoBehaviour
             enemyPlayerStats.finish_fight();
 
             //give exp to other player
-            enemyPlayerStats.give_exp(level*3);
+            enemyPlayerStats.give_exp((level + 1) * Coefficient.expPerPlayerLevel);
 
             //set dead player can be attacked to false
             can_be_attacked = false;
