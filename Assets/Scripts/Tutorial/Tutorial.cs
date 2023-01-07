@@ -17,6 +17,12 @@ public class Tutorial : MonoBehaviour
     public GameObject player;
     public Button endTurnButton;
     public Button inventoryButton;
+    
+    //fight buttons
+    public Button attackButton;
+    public Button healButton;
+    public Button retreatButton;
+    public Button skipTurnButton;
 
     public GameObject firstMoveHex;
     //all tutorial panels
@@ -35,6 +41,7 @@ public class Tutorial : MonoBehaviour
     private bool firstCloseInventory = true;
     private bool firstMove = true;
     private bool firstEndTurn = true;
+    private bool firstFight = true;
 
     // Start is called before the first frame update
     void Start()
@@ -157,6 +164,18 @@ public class Tutorial : MonoBehaviour
 
             //open tutorial panel
             openTutorialPanel();
+
+            //disable all hexes
+            enableHexClickHandlers(false);
+
+            //show all hexes
+            showHexes();
+
+            //get sprite renderer
+            SpriteRenderer spriteRenderer = firstMoveHex.GetComponent<SpriteRenderer>();
+
+            //set color to default color
+            spriteRenderer.color = defaultHexColor;
         }
     }
 
@@ -243,27 +262,23 @@ public class Tutorial : MonoBehaviour
                 endTurnButton.interactable = true;
             }
         }
+        //if first fight and in fight
+        else if (firstFight && playerStats.get_in_fight()) {
+            //set first fight to false
+            firstFight = false;
+
+            //open next tutorial panel
+            openTutorialPanel();
+        }
     }
 
     //end turn and open tutorial panel if first end turn
     public void endTurnAndSkipOtherPlayerTurn() {
-        //enable all hexes
-        enableHexClickHandlers(true);
-
-        //disable hex colliders
-        enableHexColliders(false);
-
         //end turn
         playerTurns.next_turn();
 
         //end turn for second player
-        playerTurns.next_turn();
-
-        //get sprite renderer
-        SpriteRenderer spriteRenderer = firstMoveHex.GetComponent<SpriteRenderer>();
-
-        //set color to default color
-        spriteRenderer.color = defaultHexColor;    
+        playerTurns.next_turn(); 
     }
 
     //close tutorial panel and enable all hexes and set fight chance to 100
@@ -275,5 +290,22 @@ public class Tutorial : MonoBehaviour
         foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
             hexClickHandler.setFightChance(100);
         }
+
+        //enable all hexes
+        enableHexClickHandlers(true);
+    }
+
+    //close tutorial panel disable all fught buttons except attack button
+    public void closeTutorialPanelDisableAllFightButtonsExceptAttack() {
+        //close tutorial panel
+        closeTutorialPanel();
+
+        //disable all fight buttons
+        healButton.interactable = false;
+        retreatButton.interactable = false;
+        skipTurnButton.interactable = false;
+
+        //enable attack button
+        attackButton.interactable = true;
     }
 }
