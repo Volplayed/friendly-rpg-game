@@ -42,6 +42,9 @@ public class Tutorial : MonoBehaviour
     private bool firstMove = true;
     private bool firstEndTurn = true;
     private bool firstFight = true;
+    private bool firstAttack = true;
+    private bool firstFightEndTurn = true;
+    private bool firstFightFinish = true;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +67,9 @@ public class Tutorial : MonoBehaviour
         foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
             hexClickHandler.set_avaliable(false);
         }
+
+        //give player 9 exp
+        playerStats.set_exp(9);
     }
 
     //enable hex click handlers
@@ -177,6 +183,14 @@ public class Tutorial : MonoBehaviour
             //set color to default color
             spriteRenderer.color = defaultHexColor;
         }
+        //if first fight end turn
+        else if (firstFightEndTurn) {
+            //set first fight end turn to false
+            firstFightEndTurn = false;
+
+            //open tutorial panel
+            openTutorialPanel();
+        }
     }
 
     //close tutorial panel and disable all buttons except inventory button
@@ -270,6 +284,14 @@ public class Tutorial : MonoBehaviour
             //open next tutorial panel
             openTutorialPanel();
         }
+        //if first fight finish and exp changed
+        else if (firstFightFinish && playerStats.get_exp() != 9) {
+            //set first fight finish to false
+            firstFightFinish = false;
+
+            //open next tutorial panel
+            openTutorialPanel();
+        }
     }
 
     //end turn and open tutorial panel if first end turn
@@ -307,5 +329,20 @@ public class Tutorial : MonoBehaviour
 
         //enable attack button
         attackButton.interactable = true;
+    }
+
+    //attack enemy and show tutorial panel if first attack
+    public void attackEnemyAndShowTutorialPanel() {
+        //attack enemy
+        playerFight.player_attack();
+
+        //if first attack
+        if (firstAttack) {
+            //set first attack to false
+            firstAttack = false;
+
+            //open tutorial panel
+            openTutorialPanel();
+        }
     }
 }

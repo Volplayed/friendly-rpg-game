@@ -117,6 +117,11 @@ public class PlayerStats : MonoBehaviour
         health = health_;
     }
 
+    //set exp
+    public void set_exp(int exp_) {
+        exp = exp_;
+    }
+
     //get functions
     public string get_player_name() {
         return player_name;
