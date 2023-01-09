@@ -345,4 +345,22 @@ public class Tutorial : MonoBehaviour
             openTutorialPanel();
         }
     }
+
+    //equip new item and open tutorial panel
+    public void equipNewItemAndOpenTutorialPanel() {
+        //equip new item
+        playerInventory.equip_new_item();
+
+        //open tutorial panel
+        openTutorialPanel();
+    }
+
+    //open tutorial panel and gain stat
+    public void openTutorialPanelAndGainStat(string attribute) {
+        //open tutorial panel
+        openTutorialPanel();
+
+        //gain attribute
+        playerTurns.gain_attributes(attribute);
+    }
 }
