@@ -150,7 +150,7 @@ public class Menu : MonoBehaviour
     //set first time playing value
     public void setFirstTimePlaying() {
         //get value from player prefs
-        bool value = PlayerPrefs.GetInt("firstTimePlaying", 1) != 0;
+        bool value = PlayerPrefs.GetInt("firstTimePlaying", 0) != 1;
 
         StaticValuesController.firstTimePlaying = value;
     }
@@ -158,7 +158,7 @@ public class Menu : MonoBehaviour
     //change first time playing value
     public void changeFirstTimePlaying() {
         //set value to player prefs
-        PlayerPrefs.SetInt("firstTimePlaying", 0);
+        PlayerPrefs.SetInt("firstTimePlaying", 1);
 
         StaticValuesController.firstTimePlaying = false;
     }

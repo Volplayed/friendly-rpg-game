@@ -376,4 +376,10 @@ public class Tutorial : MonoBehaviour
         //load main menu
         SceneManager.LoadScene("MainMenu");
     }
+
+    //skip tutorial
+    public void skipTutorial() {
+        //load main menu
+        SceneManager.LoadScene("MainMenu");
+    }
 }
