@@ -726,6 +726,9 @@ public class PlayerStats : MonoBehaviour
     private void die() {
         level -= 1;
         
+        //set exp to 0
+        exp = 0;
+
         //decrease max stat
         //strength
         if (default_strength > default_agility && default_strength > default_intelligence) {
