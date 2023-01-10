@@ -8,7 +8,7 @@ public class StaticValuesController : MonoBehaviour
     public static bool gameStarted = false;
 
     //player amount
-    public static int playerAmount;
+    public static int playerAmount = 2;
 
     //turns before final boss
     public static int finalBossTurn = 10;
@@ -21,4 +21,7 @@ public class StaticValuesController : MonoBehaviour
 
     //players who won the game 
     public static List<string> winners = new List<string>();
+
+    //first time playing?
+    public static bool firstTimePlaying = false;
 }
