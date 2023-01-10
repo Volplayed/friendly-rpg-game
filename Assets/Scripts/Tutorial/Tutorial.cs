@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -362,5 +363,17 @@ public class Tutorial : MonoBehaviour
 
         //gain attribute
         playerTurns.gain_attributes(attribute);
+
+        //disable all hexes
+        enableHexClickHandlers(false);
+    }
+
+    //close tutorial panel and load main menu
+    public void closeTutorialPanelAndLoadMainMenu() {
+        //close tutorial panel
+        closeTutorialPanel();
+
+        //load main menu
+        SceneManager.LoadScene("MainMenu");
     }
 }
