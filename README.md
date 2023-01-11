@@ -2,6 +2,10 @@
 Turn-based RPG game for up to 4 players on one device.
 This project was greatly inspired by the [Pixel Dungeon](https://github.com/watabou/pixel-dungeon) game.
 ## Screenshots
+<img src="./ReadmeImg/gameplay1.png" width=500> <img src="./ReadmeImg/gameplay2.png" width=500>
+<img src="./ReadmeImg/gameplay3.png" width=500> <img src="./ReadmeImg/gameplay4.png" width=500>
+<img src="./ReadmeImg/gameplay5.png" width=500> <img src="./ReadmeImg/gameplay6.png" width=500>
+<img src="./ReadmeImg/gameplay7.png" width=500>
 
 ## Installation
 The game will be available in Google Play Market.
