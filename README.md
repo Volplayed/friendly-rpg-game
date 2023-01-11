@@ -27,7 +27,7 @@ If you want to make your own versions of the game there are some points that mig
     - `Health`
     - `Damage`
     - `Armor` (then multiplied by a coefficient)
-        > You can see coefficients in `Coefficient.cs` script.
+        > You can see coefficients in [Coefficient.cs](./Assets/Scripts/Data/Coefficient.cs) script.
     - `Crit Chance`
     - `Drop Chance` (chance to drop an item)
     - `List of items`
@@ -57,7 +57,7 @@ After that everything should perfectly work.
 After that item is ready to be added to enemy drop list.
 
 ### Rebalancing
-- Go to `Coefficient.cs` script.
+- Go to [Coefficient.cs](./Assets/Scripts/Data/Coefficient.cs) script.
 - Change the value you need
     ```
     //armor coefficient
