@@ -76,7 +76,7 @@ public class AfterGameStats : MonoBehaviour
         StaticValuesController.gameStarted = false;
 
         //reset player amount
-        StaticValuesController.playerAmount = 0;
+        StaticValuesController.playerAmount = 2;
 
         //reset final boss turn
         StaticValuesController.finalBossTurn = 10;
