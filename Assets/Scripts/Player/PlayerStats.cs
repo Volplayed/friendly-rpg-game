@@ -336,6 +336,10 @@ public class PlayerStats : MonoBehaviour
         if (moves < 1) {
             moves = 1;
         }
+        //if moves is 1 and there are bonus moves, set moves to 1 plus bonus moves
+        if (moves == 1 && bonus_moves > 0) {
+            moves = 1 + bonus_moves;
+        }
 
         damage = level * Coefficient.damagePerLevel + bonus_damage;
 
