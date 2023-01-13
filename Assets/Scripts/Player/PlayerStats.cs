@@ -336,6 +336,10 @@ public class PlayerStats : MonoBehaviour
         if (moves < 1) {
             moves = 1;
         }
+        //if moves is 1 and there are bonus moves, set moves to 1 plus bonus moves
+        if (moves == 1 && bonus_moves > 0) {
+            moves = 1 + bonus_moves;
+        }
 
         damage = level * Coefficient.damagePerLevel + bonus_damage;
 
@@ -561,10 +565,11 @@ public class PlayerStats : MonoBehaviour
         else {
             k = agility;
         }
-        escape_chance = k*Coefficient.enemyStatsEscapeChance - enemy.get_level() * Coefficient.enemyLevelEscapeChance;
+        //k agility or intelligence * coefficient - enemy level and player level divercity * coefficient
+        escape_chance = k*Coefficient.enemyStatsEscapeChance - (level - enemy.get_level()) * Coefficient.enemyLevelEscapeChance;
         //if to high chance
-        if (escape_chance > 0.85) {
-            escape_chance = 0.85;
+        if (escape_chance > 0.9) {
+            escape_chance = 0.9;
         }
         //if to low chance
         else if (escape_chance < 0.01) {
@@ -582,6 +587,9 @@ public class PlayerStats : MonoBehaviour
         //success
         if (Random.Range(0f, 1) <= escape_chance) {
             result = true;
+            
+            //give player exp for escaping depending on enemy level plus random value
+            give_exp(enemy.get_level() * Coefficient.escapeExpPerEnemyLevel + Random.Range(0, 3));
 
             //finish fight
             finish_fight();
@@ -709,8 +717,11 @@ public class PlayerStats : MonoBehaviour
             //finish fight for enemy player
             other_player_stats.finish_fight();
 
+            //give player exp for escaping depending on other player level plus random value
+            give_exp(other_player_stats.get_level() + Random.Range(0, 3));  
+
             //finish fight for player
-            finish_fight();    
+            finish_fight();  
         }
         //fail
         else {

@@ -39,6 +39,9 @@ public class Coefficient : MonoBehaviour
     public static int expPerPlayerLevel = 7;
     public static int expPerEnemyLevel = 3;
 
+    //exp per enemy level for escape
+    public static int escapeExpPerEnemyLevel = 2;
+
     //default chance of fight while moving
     public static double defaultFightChance = 0.25;
 }
