@@ -1,6 +1,21 @@
 # Friendly RPG
 Turn-based RPG game for up to 4 players on one device.
 This project was greatly inspired by the [Pixel Dungeon](https://github.com/watabou/pixel-dungeon) game.
+
+## Description
+The game is a turn-based RPG with a lot of different enemies, items, and bosses.
+You can play with up to 4 players on one device.
+The game has a lot of different mechanics, such as:
+- **Movement** - you can move your character on the map.
+- **Leveling** - you can level up your character by killing enemies.
+- **Stats** - you can increase your stats by leveling up.
+- **Items** - you can find items by killing enemies.
+- **Equipment** - you can equip items to increase your stats.
+- **Healing** - you can heal yourself.
+- **Escape** - you can escape from the fight.
+- **Bosses** - you can fight with bosses.
+- **Win/Lose** - you can win or lose the game.
+
 ## Screenshots
 <img src="./ReadmeImg/gameplay1.png" width=500> <img src="./ReadmeImg/gameplay2.png" width=500>
 <img src="./ReadmeImg/gameplay3.png" width=500> <img src="./ReadmeImg/gameplay4.png" width=500>
@@ -16,6 +31,7 @@ to discuss what you would like to change.
 
 If you want to make your own versions of the game there are some points that might help.
 
+> If you want to add new enemies or items you need to know how to use Unity Editor.
 
 ### Creating new enemies
 - Create instance of an `ScriptableObject` `Enemy`.
@@ -35,12 +51,12 @@ If you want to make your own versions of the game there are some points that mig
 - Add enemy object to `Enemies` list in `EnemyList` prefab.
     > If enemy is a boss add it to `Bosses` list in `EnemyList` prefab.
 
-After that everything should perfectly work.
+> For example, if you want to add a new level 5 enemy to the game, you need to create a new `ScriptableObject` `Enemy`, set it's `name`, `level` to 5, `health`, `damage`, `armor`, `crit chance`, `drop chance`, and add it to the `Enemies` list in the `EnemyList` prefab.
 
 ### Creating new items
 - Create instance of an `ScriptableObject` `Item`.
     > You can create it in any folder you want, but
-    > it is recommended to save each item it's type folder and sort in rarity folders.
+    > it is recommended to save each item in it's type folder and sort in rarity folders.
 - Set all variables
     - `Name`
     - `Description`
@@ -54,7 +70,10 @@ After that everything should perfectly work.
        - 4 - *Legendary*
        - 5 - *Mythical*
     - Bonus variables.
-After that item is ready to be added to enemy drop list.
+        > For example, if item is a weapon, you should set `Damage` and `Crit Chance` variables.
+
+> For example, if you want to add a new rare helmet to the game, you need to create a new `ScriptableObject` `Item`, set it's `name`, `description`, set `type` value to head, `rarity` to 2 (rare), add `icon`, and set all bonuses this item gives player.
+> Then you need to add this item to the `List of items` in the enemy you want to drop this item.
 
 ### Rebalancing
 - Go to [Coefficient.cs](./Assets/Scripts/Data/Coefficient.cs) script.
@@ -111,6 +130,9 @@ After that item is ready to be added to enemy drop list.
     //default chance of fight while moving
     public static double defaultFightChance;
     ```
+
+> For example, if you want to increase the amount of health per strength, you need to change the value of `healthPerStrength` variable.
+
 #### Formulas
 - Damage reduction
     ```
