@@ -22,9 +22,6 @@ The game has a lot of different mechanics, such as:
 <img src="./ReadmeImg/gameplay5.png" width=500> <img src="./ReadmeImg/gameplay6.png" width=500>
 <img src="./ReadmeImg/gameplay7.png" width=500>
 
-## Installation
-The game will be available in Google Play Market.
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
@@ -39,7 +36,8 @@ If you want to make your own versions of the game there are some points that mig
     > it is recommended to save each enemy in the apropriate level folder.
 - Set all enemy variables
     - `Name`
-    - `Level` (max level is 10)
+        > Try to make it not too long.
+    - `Level` (recomended max level is 10)
     - `Health`
     - `Damage`
     - `Armor` (then multiplied by a coefficient)
@@ -47,7 +45,10 @@ If you want to make your own versions of the game there are some points that mig
     - `Crit Chance`
     - `Drop Chance` (chance to drop an item)
     - `List of items`
+        > You can add items to this list to make this enemy drop them.
+        > Please note that each enemy except bosses must have at least one item in this list.
 - If enemy is a boss check `is boss` value.
+    > Bosses appear only in the end of the game.
 - Add enemy object to `Enemies` list in `EnemyList` prefab.
     > If enemy is a boss add it to `Bosses` list in `EnemyList` prefab.
 
@@ -60,7 +61,10 @@ If you want to make your own versions of the game there are some points that mig
 - Set all variables
     - `Name`
     - `Description`
+        > Long description may not fit in the item description window.
     - Create and add item `Icon`
+        > Icon should be 24x24 pixels.
+        > You can use [this](https://www.piskelapp.com/p/create/sprite) website to create icons.
     - `Type` (Body, Head, Leg, Feet, Hands, Ring, Weapon)
     - `Rarity`
        - 0 - *Common*
