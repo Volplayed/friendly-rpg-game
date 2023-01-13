@@ -104,6 +104,10 @@ After that item is ready to be added to enemy drop list.
     public static int expPerEnemyLevel;
     ```
     ```
+    //exp per enemy level for escape
+    public static int escapeExp
+    ```
+    ```
     //default chance of fight while moving
     public static double defaultFightChance;
     ```
@@ -140,7 +144,7 @@ After that item is ready to be added to enemy drop list.
 - Escape chance vs enemy
     ```
     //k - player agility or intelligence
-    k*Coefficient.enemyStatsEscapeChance - enemy.get_level() * Coefficient.enemyLevelEscapeChance
+    k*Coefficient.enemyStatsEscapeChance - (level - enemy.get_level()) * Coefficient.enemyLevelEscapeChance;
     ```
 - Escape chance vs player
     ```
