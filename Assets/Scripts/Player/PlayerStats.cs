@@ -586,6 +586,9 @@ public class PlayerStats : MonoBehaviour
         //success
         if (Random.Range(0f, 1) <= escape_chance) {
             result = true;
+            
+            //give player exp for escaping depending on enemy level plus random value
+            give_exp(enemy.get_level() + Random.Range(0, 3));
 
             //finish fight
             finish_fight();
@@ -713,8 +716,11 @@ public class PlayerStats : MonoBehaviour
             //finish fight for enemy player
             other_player_stats.finish_fight();
 
+            //give player exp for escaping depending on other player level plus random value
+            give_exp(other_player_stats.get_level() + Random.Range(0, 3));  
+
             //finish fight for player
-            finish_fight();    
+            finish_fight();  
         }
         //fail
         else {
