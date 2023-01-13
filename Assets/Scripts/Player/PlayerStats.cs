@@ -589,7 +589,7 @@ public class PlayerStats : MonoBehaviour
             result = true;
             
             //give player exp for escaping depending on enemy level plus random value
-            give_exp(enemy.get_level() + Random.Range(0, 3));
+            give_exp(enemy.get_level() * Coefficient.escapeExpPerEnemyLevel + Random.Range(0, 3));
 
             //finish fight
             finish_fight();
