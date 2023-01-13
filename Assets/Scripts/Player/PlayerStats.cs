@@ -565,10 +565,11 @@ public class PlayerStats : MonoBehaviour
         else {
             k = agility;
         }
-        escape_chance = k*Coefficient.enemyStatsEscapeChance - enemy.get_level() * Coefficient.enemyLevelEscapeChance;
+        //k agility or intelligence * coefficient - enemy level and player level divercity * coefficient
+        escape_chance = k*Coefficient.enemyStatsEscapeChance - (level - enemy.get_level()) * Coefficient.enemyLevelEscapeChance;
         //if to high chance
-        if (escape_chance > 0.85) {
-            escape_chance = 0.85;
+        if (escape_chance > 0.9) {
+            escape_chance = 0.9;
         }
         //if to low chance
         else if (escape_chance < 0.01) {
