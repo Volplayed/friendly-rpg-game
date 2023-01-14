@@ -1,6 +1,5 @@
 # Friendly RPG
 Turn-based RPG game for up to 4 players on one device.
-This project was greatly inspired by the [Pixel Dungeon](https://github.com/watabou/pixel-dungeon) game.
 
 ## Description
 The game is a turn-based RPG with a lot of different enemies, items, and bosses.
@@ -15,6 +14,8 @@ The game has a lot of different mechanics, such as:
 - **Escape** - you can escape from the fight.
 - **Bosses** - you can fight with bosses.
 - **Win/Lose** - you can win or lose the game.
+
+This project was greatly inspired by the [Pixel Dungeon](https://github.com/watabou/pixel-dungeon) game.
 
 ## Screenshots
 <img src="./ReadmeImg/gameplay1.png" width=500> <img src="./ReadmeImg/gameplay2.png" width=500>
@@ -187,7 +188,10 @@ If you want to make your own versions of the game there are some points that mig
     k*Coefficient.playerStatsEscapeChance - other_agility* Coefficient.playerEnemyStatsEscapeChance
     ```
 
+## Project status
+This project is currently in development. Any help is appreciated.
+
 ## License
 `Friendly RPG` is free and open-source game licensed under the [MIT](https://choosealicense.com/licenses/mit/).
-All images and visuals were created by Volodymyr Fedyniak and distributed under Creative Commons license ([CC BY-SA 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)).
+All images and visuals were created by [Volodymyr Fedyniak](https://www.linkedin.com/in/volodymyr-fedyniak/) and distributed under Creative Commons license ([CC BY-SA 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)).
 
