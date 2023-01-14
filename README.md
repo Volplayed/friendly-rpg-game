@@ -1,4 +1,9 @@
 # Friendly RPG
+![GitHub last commit](https://img.shields.io/github/last-commit/Volplayed/friendly-rpg-game?style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Volplayed/friendly-rpg-game?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/Volplayed/friendly-rpg-game?style=flat-square)
+![GitHub](https://img.shields.io/github/license/Volplayed/friendly-rpg-game?style=flat-square)
+
 Turn-based RPG game for up to 4 players on one device.
 
 ## Description
