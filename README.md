@@ -22,6 +22,15 @@ The game has a lot of different mechanics, such as:
 <img src="./ReadmeImg/gameplay5.png" width=500> <img src="./ReadmeImg/gameplay6.png" width=500>
 <img src="./ReadmeImg/gameplay7.png" width=500>
 
+## Updates
+
+Current version: **v1.1.0**
+
+- **v1.1.0** - Sound options, player recieve exp for escaping.
+- **v1.0.0** - First release.
+
+The game is using [Semantic Versioning](https://semver.org/).
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
