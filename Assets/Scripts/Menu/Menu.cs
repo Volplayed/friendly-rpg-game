@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    //canvases
+    public GameObject optionsCanvas;
+    public GameObject menuCanvas;
+    
     //player amount panel
     public GameObject playerAmountPanel;
 
@@ -161,6 +165,19 @@ public class Menu : MonoBehaviour
         PlayerPrefs.SetInt("firstTimePlaying", 1);
 
         StaticValuesController.firstTimePlaying = false;
+    }
+
+    //open options
+    public void openOptions()
+    {
+        optionsCanvas.SetActive(true);
+        menuCanvas.SetActive(false);
+    }
+    //close options
+    public void closeOptions()
+    {
+        optionsCanvas.SetActive(false);
+        menuCanvas.SetActive(true);
     }
 
     
