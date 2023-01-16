@@ -16,6 +16,9 @@ public class Options : MonoBehaviour
     public GameObject menuMusicButton;
     public GameObject backgroundMusicButton;
 
+    //menu script
+    public Menu menuScript;
+
     private void Start() {
         //check if sounds is on or off
         //menu music
@@ -56,6 +59,9 @@ public class Options : MonoBehaviour
             //change player prefs value
             PlayerPrefs.SetInt("menuMusic", 0);
         }
+
+        //play button click sound
+        menuScript.playButtonClickSound();
     }
 
     public void changeBackgroundMusic() {
@@ -71,5 +77,8 @@ public class Options : MonoBehaviour
             //change player prefs value
             PlayerPrefs.SetInt("backgroundMusic", 0);
         }
+
+        //play button click sound
+        menuScript.playButtonClickSound();
     }
 }

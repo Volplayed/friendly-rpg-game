@@ -926,7 +926,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 224321467}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: openTutorial
+        m_MethodName: openTutorialOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4499,6 +4499,7 @@ MonoBehaviour:
   menuMusic: {fileID: 126674310}
   menuMusicButton: {fileID: 1401193315}
   backgroundMusicButton: {fileID: 8464576}
+  menuScript: {fileID: 224321467}
 --- !u!4 &2046807140
 Transform:
   m_ObjectHideFlags: 0

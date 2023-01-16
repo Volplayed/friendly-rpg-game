@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
     //canvases
     public GameObject optionsCanvas;
     public GameObject menuCanvas;
-    
+
     //player amount panel
     public GameObject playerAmountPanel;
 
@@ -131,6 +131,15 @@ public class Menu : MonoBehaviour
         loadSceneScript.LoadScene(2);
     }
 
+    //open tutorial on click
+    public void openTutorialOnClick() {
+        //play button click sound
+        playButtonClickSound();
+
+        //open tutorial
+        openTutorial();
+    }
+
     //close every panel and open menu panel
     public void backToMenu() {
         //play button click sound
@@ -172,12 +181,18 @@ public class Menu : MonoBehaviour
     {
         optionsCanvas.SetActive(true);
         menuCanvas.SetActive(false);
+
+        //play button click sound
+        playButtonClickSound();
     }
     //close options
     public void closeOptions()
     {
         optionsCanvas.SetActive(false);
         menuCanvas.SetActive(true);
+
+        //play button click sound
+        playButtonClickSound();
     }
 
     
