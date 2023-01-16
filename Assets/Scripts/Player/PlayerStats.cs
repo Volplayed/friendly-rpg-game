@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    private string player_name = "Player";
+    [SerializeField] private string player_name = "Player";
 
     //how to multiply exp needed each level
     public int exp_multiplayer = 10;

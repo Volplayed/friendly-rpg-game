@@ -11,10 +11,16 @@ public class AfterGameStats : MonoBehaviour
     //main menu canvas
     public GameObject mainMenuCanvas;
 
+    //menu script
+    private Menu menuScript;
+
     void Start()
     {
         //set stats text to winners
         statsText.SetText(getWinners());
+
+        //get menu script from main menu canvas
+        menuScript = mainMenuCanvas.GetComponent<Menu>();
     }
 
     //get winners and create stats text
@@ -68,6 +74,9 @@ public class AfterGameStats : MonoBehaviour
 
         //set this canvas to inactive
         gameObject.SetActive(false);
+
+        //play button click sound
+        menuScript.playButtonClickSound();
     }
 
     //make all static values default
