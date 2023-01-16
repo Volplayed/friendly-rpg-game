@@ -30,8 +30,8 @@ This project was greatly inspired by the [Pixel Dungeon](https://github.com/wata
 
 ## Updates
 
-Current version: **v1.1.0**
-
+Current version: **v1.1.1**
+- **v1.1.1** - Added missing button click sounds, renamed player prefabs.
 - **v1.1.0** - Sound options, player recieve exp for escaping.
 - **v1.0.0** - First release.
 
@@ -43,7 +43,9 @@ to discuss what you would like to change.
 
 If you want to make your own versions of the game there are some points that might help.
 
-> If you want to add new enemies or items you need to know how to use Unity Editor.
+Make sure you have [Unity](https://unity3d.com/get-unity/download) installed, as the game is made using Unity.
+
+> If you want to add new enemies or items you need to know how to use Unity Editor, rebalancing for example can be done without Unity Editor only by changing values in the scripts.
 
 ### Creating new enemies
 - Create instance of an `ScriptableObject` `Enemy`.
@@ -194,7 +196,7 @@ If you want to make your own versions of the game there are some points that mig
     ```
 
 ## Project status
-This project is currently in development. Any help is appreciated.
+This project is currently in development. Any suggestions and ideas are welcome.
 
 ## License
 `Friendly RPG` is free and open-source game licensed under the [MIT](https://choosealicense.com/licenses/mit/).
