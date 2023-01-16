@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2960ae11cecbfd74491bed02cdf4328d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_name: Player 4
   exp_multiplayer: 10
   default_strength: 5
   default_agility: 5
