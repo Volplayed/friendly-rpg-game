@@ -6,7 +6,7 @@ using TMPro;
 public class AfterGameStats : MonoBehaviour
 {
     //text with stats
-    public TMP_Text statsText;
+    public TMPText statsText;
 
     //main menu canvas
     public GameObject mainMenuCanvas;

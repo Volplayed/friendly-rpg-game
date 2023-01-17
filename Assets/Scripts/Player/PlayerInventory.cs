@@ -10,32 +10,32 @@ public class PlayerInventory : MonoBehaviour
     private bool opened = false;
     private Transform[] hexes;
 
-    public TMP_Text health_text, damage_text, armor_text, strength_text, agility_text, intelligence_text,
-    level_text, exp_text, moves_text, heal_text, critChance_text;
+    public TMPText healthText, damageText, armorText, strengthText, agilityText, intelligenceText,
+    levelText, expText, movesText, healText, critChanceText;
 
     public GameObject panel;
     private GameObject player;
     private PlayerTurns playerTurns;
     private GameObject levelUpPanel;
     //item data panel
-    public GameObject item_data_panel;
+    public GameObject itemDataPanel;
 
     //item data panel texts
-    public TMP_Text item_name_text, item_description_text, item_stats_text, item_rarity_text;
+    public TMPText itemNameText, itemDescriptionText, itemStatsText, itemRarityText;
 
     //new item recieve panel
-    public GameObject new_item_panel;
+    public GameObject newItemPanel;
 
     //new item recieve panel texts and images
-    public TMP_Text new_item_name_text, new_item_description_text, new_item_stats_text;
-    public Image new_item_image, new_item_background_image;
+    public TMPText newItemNameText, newItemDescriptionText, newItemStatsText;
+    public Image newItemImage, newItemBackgroundImage;
 
     //new item recieve panel old item panel texts and images
-    public TMP_Text old_item_name_text, old_item_description_text, old_item_stats_text;
-    public Image old_item_image, old_item_background_image;
+    public TMPText oldItemNameText, oldItemDescriptionText, oldItemStatsText;
+    public Image oldItemImage, oldItemBackgroundImage;
 
     //current new item
-    private Item current_new_item;
+    private Item currentNewItem;
 
      void Start()
     {
@@ -60,15 +60,15 @@ public class PlayerInventory : MonoBehaviour
             playerTurns.enableMovement(false);
 
             //set inventory stats
-            set_stats();
+            setStats();
 
             //set inventory items
-            set_items();
+            setItems();
         }
         //if inventory is opened
         else {
             //clear all item slots
-            clear_item_slots();
+            clearItemSlots();
 
             //close inventory window
             panel.SetActive(false);
@@ -84,37 +84,37 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
-    private void set_stats() {
+    private void setStats() {
         //get player stats
         PlayerStats stats = player.GetComponent<PlayerStats>();
 
         //set stats
-        health_text.SetText("Health: " + stats.getHealth());
-        damage_text.SetText("Damage: " + stats.getDamage());
-        armor_text.SetText("Armor: " + stats.getArmor() * Coefficient.armor);
-        strength_text.SetText("Strength: " + stats.getStrength());
-        agility_text.SetText("Agility: " + stats.getAgility());
-        intelligence_text.SetText("Intelligence: " + stats.getIntelligence());
-        exp_text.SetText("Experience: " + stats.getExp() + "/" + stats.getNeededExp());
-        critChance_text.SetText("Crit chance: " + stats.getCrit() * 100 + "%");
-        moves_text.SetText("Moves: " + stats.getMoves());
-        heal_text.SetText("Heal: " + stats.getHeal());
-        level_text.SetText("Level: " + stats.getLevel());
+        healthText.SetText("Health: " + stats.getHealth());
+        damageText.SetText("Damage: " + stats.getDamage());
+        armorText.SetText("Armor: " + stats.getArmor() * Coefficient.armor);
+        strengthText.SetText("Strength: " + stats.getStrength());
+        agilityText.SetText("Agility: " + stats.getAgility());
+        intelligenceText.SetText("Intelligence: " + stats.getIntelligence());
+        expText.SetText("Experience: " + stats.getExp() + "/" + stats.getNeededExp());
+        critChanceText.SetText("Crit chance: " + stats.getCrit() * 100 + "%");
+        movesText.SetText("Moves: " + stats.getMoves());
+        healText.SetText("Heal: " + stats.getHeal());
+        levelText.SetText("Level: " + stats.getLevel());
     }
 
     //get current new item
-    public Item get_current_new_item() {
-        return current_new_item;
+    public Item getCurrentNewItem() {
+        return currentNewItem;
     }
 
     //find item image component
-    private Image get_item_image(GameObject slot) {
+    private Image getItemImage(GameObject slot) {
         //get all image components
         Image[] images = slot.GetComponentsInChildren<Image>();
 
         //check if image is item image
         foreach (Image image in images) {
-            if (image.gameObject.tag == "item_image") {
+            if (image.gameObject.tag == "itemImage") {
                 return image;
             }
         }
@@ -122,13 +122,13 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //find item background image component
-    private Image get_item_background_image(GameObject slot) {
+    private Image getItemBackgroundImage(GameObject slot) {
         //get all image components
         Image[] images = slot.GetComponentsInChildren<Image>();
 
         //check if image is item background image
         foreach (Image image in images) {
-            if (image.gameObject.tag == "item_background_image") {
+            if (image.gameObject.tag == "item_backgroundImage") {
                 return image;
             }
         }
@@ -136,9 +136,9 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //set item background image color based on item rarity
-    private void set_item_background_image_color(GameObject slot, int rarity) {
+    private void setItemBackgroundImageColor(GameObject slot, int rarity) {
         //get item background image
-        Image image = get_item_background_image(slot);
+        Image image = getItemBackgroundImage(slot);
 
         //common
         if (rarity == 0) {
@@ -178,7 +178,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //item rarity to string
-    private string item_rarity_to_string(Item item) {
+    private string itemRarityToString(Item item) {
         //get item rarity
         int rarity = item.itemRarity;
 
@@ -210,90 +210,90 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //clear item slots
-    private void clear_item_slots() {
+    private void clearItemSlots() {
         //get slots
-        GameObject head_slot = GameObject.FindGameObjectsWithTag("head_slot")[0];
-        GameObject body_slot = GameObject.FindGameObjectsWithTag("body_slot")[0];
-        GameObject leg_slot = GameObject.FindGameObjectsWithTag("leg_slot")[0];
-        GameObject feet_slot = GameObject.FindGameObjectsWithTag("feet_slot")[0];
-        GameObject hands_slot = GameObject.FindGameObjectsWithTag("hands_slot")[0];
-        GameObject weapon_slot = GameObject.FindGameObjectsWithTag("weapon_slot")[0];
-        GameObject ring_slot = GameObject.FindGameObjectsWithTag("ring_slot")[0];
+        GameObject headSlot = GameObject.FindGameObjectsWithTag("head_slot")[0];
+        GameObject bodySlot = GameObject.FindGameObjectsWithTag("body_slot")[0];
+        GameObject legSlot = GameObject.FindGameObjectsWithTag("leg_slot")[0];
+        GameObject feetSlot = GameObject.FindGameObjectsWithTag("feet_slot")[0];
+        GameObject handsSlot = GameObject.FindGameObjectsWithTag("hands_slot")[0];
+        GameObject weaponSlot = GameObject.FindGameObjectsWithTag("weapon_slot")[0];
+        GameObject ringSlot = GameObject.FindGameObjectsWithTag("ring_slot")[0];
 
         //get item images
-        Image head_image = get_item_image(head_slot);
-        Image body_image = get_item_image(body_slot);
-        Image leg_image = get_item_image(leg_slot);
-        Image feet_image = get_item_image(feet_slot);
-        Image hands_image = get_item_image(hands_slot);
-        Image weapon_image = get_item_image(weapon_slot);
-        Image ring_image = get_item_image(ring_slot);
+        Image headImage = getItemImage(headSlot);
+        Image bodyImage = getItemImage(bodySlot);
+        Image legImage = getItemImage(legSlot);
+        Image feetImage = getItemImage(feetSlot);
+        Image handsImage = getItemImage(handsSlot);
+        Image weaponImage = getItemImage(weaponSlot);
+        Image ringImage = getItemImage(ringSlot);
 
         //clear item images
-        head_image.sprite = null;
-        body_image.sprite = null;
-        leg_image.sprite = null;
-        feet_image.sprite = null;
-        hands_image.sprite = null;
-        weapon_image.sprite = null;
-        ring_image.sprite = null;
+        headImage.sprite = null;
+        bodyImage.sprite = null;
+        legImage.sprite = null;
+        feetImage.sprite = null;
+        handsImage.sprite = null;
+        weaponImage.sprite = null;
+        ringImage.sprite = null;
 
         //clear item background images
-        set_item_background_image_color(head_slot, -1);
-        set_item_background_image_color(body_slot, -1);
-        set_item_background_image_color(leg_slot, -1);
-        set_item_background_image_color(feet_slot, -1);
-        set_item_background_image_color(hands_slot, -1);
-        set_item_background_image_color(weapon_slot, -1);
-        set_item_background_image_color(ring_slot, -1);
+        setItemBackgroundImageColor(headSlot, -1);
+        setItemBackgroundImageColor(bodySlot, -1);
+        setItemBackgroundImageColor(legSlot, -1);
+        setItemBackgroundImageColor(feetSlot, -1);
+        setItemBackgroundImageColor(handsSlot, -1);
+        setItemBackgroundImageColor(weaponSlot, -1);
+        setItemBackgroundImageColor(ringSlot, -1);
 
     }
 
     //set player items
-    private void set_items() {
+    private void setItems() {
         //get player stats
         PlayerStats stats = player.GetComponent<PlayerStats>();
         //get player items
         List<Item> items = stats.getItems();
        
         //get slots
-        GameObject head_slot = GameObject.FindGameObjectsWithTag("head_slot")[0];
-        GameObject body_slot = GameObject.FindGameObjectsWithTag("body_slot")[0];
-        GameObject leg_slot = GameObject.FindGameObjectsWithTag("leg_slot")[0];
-        GameObject feet_slot = GameObject.FindGameObjectsWithTag("feet_slot")[0];
-        GameObject hands_slot = GameObject.FindGameObjectsWithTag("hands_slot")[0];
-        GameObject weapon_slot = GameObject.FindGameObjectsWithTag("weapon_slot")[0];
-        GameObject ring_slot = GameObject.FindGameObjectsWithTag("ring_slot")[0];
+        GameObject headSlot = GameObject.FindGameObjectsWithTag("head_slot")[0];
+        GameObject bodySlot = GameObject.FindGameObjectsWithTag("body_slot")[0];
+        GameObject legSlot = GameObject.FindGameObjectsWithTag("leg_slot")[0];
+        GameObject feetSlot = GameObject.FindGameObjectsWithTag("feet_slot")[0];
+        GameObject handsSlot = GameObject.FindGameObjectsWithTag("hands_slot")[0];
+        GameObject weaponSlot = GameObject.FindGameObjectsWithTag("weapon_slot")[0];
+        GameObject ringSlot = GameObject.FindGameObjectsWithTag("ring_slot")[0];
 
         //set item to each slot
         foreach (Item item in items) {
             if (item.itemType == "head") {
-                get_item_image(head_slot).sprite = item.itemIcon;
-                set_item_background_image_color(head_slot, item.itemRarity);
+                getItemImage(headSlot).sprite = item.itemIcon;
+                setItemBackgroundImageColor(headSlot, item.itemRarity);
             }
             else if (item.itemType == "body") {
-                get_item_image(body_slot).sprite = item.itemIcon;
-                set_item_background_image_color(body_slot, item.itemRarity);
+                getItemImage(bodySlot).sprite = item.itemIcon;
+                setItemBackgroundImageColor(bodySlot, item.itemRarity);
             }
             else if (item.itemType == "leg") {
-                get_item_image(leg_slot).sprite = item.itemIcon;
-                set_item_background_image_color(leg_slot, item.itemRarity);
+                getItemImage(legSlot).sprite = item.itemIcon;
+                setItemBackgroundImageColor(legSlot, item.itemRarity);
             }
             else if (item.itemType == "feet") {
-                get_item_image(feet_slot).sprite = item.itemIcon;
-                set_item_background_image_color(feet_slot, item.itemRarity);
+                getItemImage(feetSlot).sprite = item.itemIcon;
+                setItemBackgroundImageColor(feetSlot, item.itemRarity);
             }
             else if (item.itemType == "hands") {
-                get_item_image(hands_slot).sprite = item.itemIcon;
-                set_item_background_image_color(hands_slot, item.itemRarity);
+                getItemImage(handsSlot).sprite = item.itemIcon;
+                setItemBackgroundImageColor(handsSlot, item.itemRarity);
             }
             else if (item.itemType == "weapon") {
-                get_item_image(weapon_slot).sprite = item.itemIcon;
-                set_item_background_image_color(weapon_slot, item.itemRarity);
+                getItemImage(weaponSlot).sprite = item.itemIcon;
+                setItemBackgroundImageColor(weaponSlot, item.itemRarity);
             }
             else if (item.itemType == "ring") {
-                get_item_image(ring_slot).sprite = item.itemIcon;
-                set_item_background_image_color(ring_slot, item.itemRarity);
+                getItemImage(ringSlot).sprite = item.itemIcon;
+                setItemBackgroundImageColor(ringSlot, item.itemRarity);
             }
         }
 
@@ -308,7 +308,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //create string with item stats
-    private string create_item_stats_text(Item item) {
+    private string createItemStatsText(Item item) {
         string text = "";
 
         //check each stat if it is not 0 and add it to text
@@ -341,32 +341,32 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //open new item recieve window
-    public void openNewItemPanel(Item new_item) {
+    public void openNewItemPanel(Item newItem) {
         //set new item name text
-        new_item_name_text.SetText(new_item.itemName);
+        newItemNameText.SetText(newItem.itemName);
         //set new item image
-        new_item_image.sprite = new_item.itemIcon;
+        newItemImage.sprite = newItem.itemIcon;
         //set new item background image color
-        set_item_background_image_color(new_item_image.gameObject.transform.parent.gameObject, new_item.itemRarity);
+        setItemBackgroundImageColor(newItemImage.gameObject.transform.parent.gameObject, newItem.itemRarity);
         //set new item description text
-        new_item_description_text.SetText(new_item.itemDescription);
+        newItemDescriptionText.SetText(newItem.itemDescription);
         //set new item stats text
-        new_item_stats_text.SetText(create_item_stats_text(new_item));
+        newItemStatsText.SetText(createItemStatsText(newItem));
 
         //set current new item
-        current_new_item = new_item;
+        currentNewItem = newItem;
 
         activateNewItemPanel(true);
     }
 
     //close new item recieve window
-    public void close_new_item_panel() {
+    public void closeNewItemPanel() {
         activateNewItemPanel(false);
     }
 
     //activate/disactivate new item panel
     public void activateNewItemPanel(bool value) {
-        new_item_panel.SetActive(value);
+        newItemPanel.SetActive(value);
 
         //get inventory button
         Button inventoryButton = GameObject.FindGameObjectsWithTag("inventory_button")[0].GetComponent<Button>();
@@ -403,43 +403,43 @@ public class PlayerInventory : MonoBehaviour
         //activate/deactivate old item panel if value is true
         if (value) {
             //get type of new item and current player and find appropriate old item
-            activateOldItemPanel(get_old_item_of_type(get_current_new_item().itemType, playerTurns.getCurrentPlayer()));
+            activateOldItemPanel(getOldItemOfType(getCurrentNewItem().itemType, playerTurns.getCurrentPlayer()));
         }
     }
 
     //activate/disactivate and set old item panel depending on if there is old item equipped
-    public void activateOldItemPanel(Item old_item) {
+    public void activateOldItemPanel(Item oldItem) {
         //get old item panel by getting parent of old item text
-        GameObject old_item_panel = old_item_name_text.gameObject.transform.parent.gameObject;
+        GameObject oldItemPanel = oldItemNameText.gameObject.transform.parent.gameObject;
         //if there is old item activate and set old item panel
-        if (old_item != null) {
+        if (oldItem != null) {
             //activate old item panel
-            old_item_panel.SetActive(true);
+            oldItemPanel.SetActive(true);
             //set old item name text
-            old_item_name_text.SetText(old_item.itemName);
+            oldItemNameText.SetText(oldItem.itemName);
             //set old item image
-            old_item_image.sprite = old_item.itemIcon;
+            oldItemImage.sprite = oldItem.itemIcon;
             //set old item background image color
-            set_item_background_image_color(old_item_image.gameObject.transform.parent.gameObject, old_item.itemRarity);
+            setItemBackgroundImageColor(oldItemImage.gameObject.transform.parent.gameObject, oldItem.itemRarity);
             //set old item description text
-            old_item_description_text.SetText(old_item.itemDescription);
+            oldItemDescriptionText.SetText(oldItem.itemDescription);
             //set old item stats text
-            old_item_stats_text.SetText(create_item_stats_text(old_item));
+            oldItemStatsText.SetText(createItemStatsText(oldItem));
         }
         //if there is no old item deactivate old item panel
         else {
-            old_item_panel.SetActive(false);
+            oldItemPanel.SetActive(false);
         }
     }
 
     //get old item
-    public Item get_old_item_of_type(string new_item_type, GameObject player) {
+    public Item getOldItemOfType(string newItemType, GameObject player) {
         //get player stats
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
 
         //check if there is already item of this type equipped
         foreach (Item item in playerStats.getItems()) {
-            if (item.itemType == new_item_type) {
+            if (item.itemType == newItemType) {
                 return item;
             }
         }
@@ -449,13 +449,13 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //get item by type
-    public Item get_item_of_type(string item_type, GameObject player) {
+    public Item getItemOfType(string itemType, GameObject player) {
         //get player stats
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
 
         //check if there is already item of this type equipped
         foreach (Item item in playerStats.getItems()) {
-            if (item.itemType == item_type) {
+            if (item.itemType == itemType) {
                 return item;
             }
         }
@@ -465,7 +465,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //equip item from new item panel
-    public void equip_new_item() {
+    public void equipNewItem() {
         //get player ui
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
@@ -476,11 +476,11 @@ public class PlayerInventory : MonoBehaviour
         GameObject player = playerTurns.getCurrentPlayer();
 
         //get current new item
-        Item item = get_current_new_item();
+        Item item = getCurrentNewItem();
 
         //unequip old item if it exists
-        if (get_old_item_of_type(item.itemType, player) != null) {
-            get_old_item_of_type(item.itemType, player).unequipItem(player);
+        if (getOldItemOfType(item.itemType, player) != null) {
+            getOldItemOfType(item.itemType, player).unequipItem(player);
         }
 
         //equip item
@@ -488,40 +488,40 @@ public class PlayerInventory : MonoBehaviour
 
 
         //close new item panel
-        close_new_item_panel();
+        closeNewItemPanel();
     }
 
     //activate item data panel
     private void activateItemDataPanel(Item item) {
         //set item name text
-        item_name_text.SetText(item.itemName);
+        itemNameText.SetText(item.itemName);
         //set item description text
-        item_description_text.SetText(item.itemDescription);
+        itemDescriptionText.SetText(item.itemDescription);
         //set item stats text
-        item_stats_text.SetText(create_item_stats_text(item));
+        itemStatsText.SetText(createItemStatsText(item));
         //set item rarity text
-        item_rarity_text.SetText(item_rarity_to_string(item));
+        itemRarityText.SetText(itemRarityToString(item));
 
         //activate item data panel
-        item_data_panel.SetActive(true);
+        itemDataPanel.SetActive(true);
     }
 
     //deactivate item data panel
     private void deactivateItemDataPanel() {
-        item_data_panel.SetActive(false);
+        itemDataPanel.SetActive(false);
     }
 
     //open item data panel on click on item in inventory and set item data panel
-    public void open_item_data(string type) {
+    public void openItemData(string type) {
         //get player ui
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
         //get player turns
         PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
         //search for item in inventory with type
-        if (get_item_of_type(type, playerTurns.getCurrentPlayer()) != null) {
+        if (getItemOfType(type, playerTurns.getCurrentPlayer()) != null) {
             //get item
-            Item item = get_item_of_type(type, playerTurns.getCurrentPlayer());
+            Item item = getItemOfType(type, playerTurns.getCurrentPlayer());
 
             //activate item data panel
             activateItemDataPanel(item);

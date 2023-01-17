@@ -350,7 +350,7 @@ public class Tutorial : MonoBehaviour
     //equip new item and open tutorial panel
     public void equipNewItemAndOpenTutorialPanel() {
         //equip new item
-        playerInventory.equip_new_item();
+        playerInventory.equipNewItem();
 
         //open tutorial panel
         openTutorialPanel();

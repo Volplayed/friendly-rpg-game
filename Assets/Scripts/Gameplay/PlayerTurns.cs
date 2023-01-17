@@ -29,7 +29,7 @@ public class PlayerTurns : MonoBehaviour
     public GameObject player3;
     public GameObject player4;
 
-    private TMP_Text playerTurnTitleText;
+    private TMPText playerTurnTitleText;
     
     //final boss list
     private Enemy[] finalBosses;
@@ -38,7 +38,7 @@ public class PlayerTurns : MonoBehaviour
     private int current_turn = 1;
     private int current_player_turn = 0;
     //current turn text
-    private TMP_Text currentTurnText;
+    private TMPText currentTurnText;
 
     //moves 
     private int current_player_moves;
@@ -47,7 +47,7 @@ public class PlayerTurns : MonoBehaviour
     void Start()
     {
         //get curent turn text
-        currentTurnText = GameObject.FindGameObjectsWithTag("current_turn")[0].GetComponent<TMP_Text>();
+        currentTurnText = GameObject.FindGameObjectsWithTag("current_turn")[0].GetComponent<TMPText>();
 
         //add all players to the list
         players = new GameObject[] { player1, player2, player3, player4 };
@@ -153,7 +153,7 @@ public class PlayerTurns : MonoBehaviour
         fightPanel.SetActive(false);
 
         //get and change turn change panel title depending on a players turn
-        playerTurnTitleText = turnChangePanel.GetComponentsInChildren<TMP_Text>()[0];
+        playerTurnTitleText = turnChangePanel.GetComponentsInChildren<TMPText>()[0];
 
         //if player didn't lose or win yet
         if (!playerStats[current_player_turn].getDidWin() && !playerStats[current_player_turn].getDidLose()) {
@@ -382,7 +382,7 @@ public class PlayerTurns : MonoBehaviour
     //destroy all popup texts
     public void destroy_all_popups() {
         //get all popup texts
-        GameObject[] popups = GameObject.FindGameObjectsWithTag("pop_up_text");
+        GameObject[] popups = GameObject.FindGameObjectsWithTag("pop_upText");
 
         //destroy all popup texts
         foreach (GameObject popup in popups) {
