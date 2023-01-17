@@ -9,16 +9,16 @@ public class PlayerFight : MonoBehaviour
     //player related objects
     public GameObject playerHealthBar;
 
-    public TMPText playerHealthText;
+    public TMP_Text playerHealthText;
 
-    public TMPText playerNameText;
+    public TMP_Text playerNameText;
 
     //enemy related objects
     public GameObject enemyHealthBar;
 
-    public TMPText enemyHealthText;
+    public TMP_Text enemyHealthText;
 
-    public TMPText enemyNameText;
+    public TMP_Text enemyNameText;
 
     //button objects
     public GameObject attackButton;

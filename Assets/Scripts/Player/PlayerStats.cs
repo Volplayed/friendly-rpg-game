@@ -62,7 +62,7 @@ public class PlayerStats : MonoBehaviour
     //level up panel
     private GameObject levelUpPanel;
     //levelup panel text
-    private TMPText levelUpText;
+    private TMP_Text levelUpText;
 
     //final player data
     private bool didWin = false;
@@ -91,10 +91,10 @@ public class PlayerStats : MonoBehaviour
         levelUpPanel = playerTurns.getLevelUpPanel();
 
         //get level up text list
-        TMPText[] levelUpTexts = levelUpPanel.GetComponentsInChildren<TMPText>();
+        TMP_Text[] levelUpTexts = levelUpPanel.GetComponentsInChildren<TMP_Text>();
 
         //search for level up text
-        foreach (TMPText text in levelUpTexts) {
+        foreach (TMP_Text text in levelUpTexts) {
             if (text.gameObject.tag == "levelText") {
                 levelUpText = text;
             }

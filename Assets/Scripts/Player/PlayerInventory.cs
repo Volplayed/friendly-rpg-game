@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
     private bool opened = false;
     private Transform[] hexes;
 
-    public TMPText healthText, damageText, armorText, strengthText, agilityText, intelligenceText,
+    public TMP_Text healthText, damageText, armorText, strengthText, agilityText, intelligenceText,
     levelText, expText, movesText, healText, critChanceText;
 
     public GameObject panel;
@@ -21,17 +21,17 @@ public class PlayerInventory : MonoBehaviour
     public GameObject itemDataPanel;
 
     //item data panel texts
-    public TMPText itemNameText, itemDescriptionText, itemStatsText, itemRarityText;
+    public TMP_Text itemNameText, itemDescriptionText, itemStatsText, itemRarityText;
 
     //new item recieve panel
     public GameObject newItemPanel;
 
     //new item recieve panel texts and images
-    public TMPText newItemNameText, newItemDescriptionText, newItemStatsText;
+    public TMP_Text newItemNameText, newItemDescriptionText, newItemStatsText;
     public Image newItemImage, newItemBackgroundImage;
 
     //new item recieve panel old item panel texts and images
-    public TMPText oldItemNameText, oldItemDescriptionText, oldItemStatsText;
+    public TMP_Text oldItemNameText, oldItemDescriptionText, oldItemStatsText;
     public Image oldItemImage, oldItemBackgroundImage;
 
     //current new item

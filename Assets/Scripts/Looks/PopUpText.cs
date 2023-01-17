@@ -6,7 +6,7 @@ using TMPro;
 public class PopUpText : MonoBehaviour
 {
     //text mesh
-    public TMPText textmesh;
+    public TMP_Text textmesh;
 
     //time to disappear and destroy popUp text
     private float disappearTimer = 1f;
