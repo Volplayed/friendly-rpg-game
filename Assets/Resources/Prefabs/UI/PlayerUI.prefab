@@ -123,34 +123,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d637657863bd3b846b2869f3fa631edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_text: {fileID: 6583250975799650718}
-  damage_text: {fileID: 6583250977192381252}
-  armor_text: {fileID: 6583250976738913227}
-  strength_text: {fileID: 6583250976944185153}
-  agility_text: {fileID: 6583250977346731085}
-  intelligence_text: {fileID: 6583250977499411975}
-  level_text: {fileID: 6583250975975555893}
-  exp_text: {fileID: 6583250977620545792}
-  moves_text: {fileID: 6474417928806593940}
-  heal_text: {fileID: 5452954647220780864}
-  crit_chance_text: {fileID: 3751466438148923189}
+  healthText: {fileID: 6583250975799650718}
+  damageText: {fileID: 6583250977192381252}
+  armorText: {fileID: 6583250976738913227}
+  strengthText: {fileID: 6583250976944185153}
+  agilityText: {fileID: 6583250977346731085}
+  intelligenceText: {fileID: 6583250977499411975}
+  levelText: {fileID: 6583250975975555893}
+  expText: {fileID: 6583250977620545792}
+  movesText: {fileID: 6474417928806593940}
+  healText: {fileID: 5452954647220780864}
+  critChanceText: {fileID: 3751466438148923189}
   panel: {fileID: 6583250976120429687}
-  item_data_panel: {fileID: 7123769750271044570}
-  item_name_text: {fileID: 6097218299953527960}
-  item_description_text: {fileID: 6037929919337420974}
-  item_stats_text: {fileID: 7936615898218227765}
-  item_rarity_text: {fileID: 8399941651736136924}
-  new_item_panel: {fileID: 6328114905165689657}
-  new_item_name_text: {fileID: 9178093287471339037}
-  new_item_description_text: {fileID: 6082549157242233908}
-  new_item_stats_text: {fileID: 2277378338532769326}
-  new_item_image: {fileID: 8575013688918677989}
-  new_item_background_image: {fileID: 659224387743812248}
-  old_item_name_text: {fileID: 3841297536277148606}
-  old_item_description_text: {fileID: 1699705601526636475}
-  old_item_stats_text: {fileID: 1828465532327389595}
-  old_item_image: {fileID: 5503797414913727528}
-  old_item_background_image: {fileID: 3354018305076111350}
+  itemDataPanel: {fileID: 7123769750271044570}
+  itemNameText: {fileID: 6097218299953527960}
+  itemDescriptionText: {fileID: 6037929919337420974}
+  itemStatsText: {fileID: 7936615898218227765}
+  itemRarityText: {fileID: 8399941651736136924}
+  newItemPanel: {fileID: 6328114905165689657}
+  newItemNameText: {fileID: 9178093287471339037}
+  newItemDescriptionText: {fileID: 6082549157242233908}
+  newItemStatsText: {fileID: 2277378338532769326}
+  newItemImage: {fileID: 8575013688918677989}
+  newItemBackgroundImage: {fileID: 659224387743812248}
+  oldItemNameText: {fileID: 3841297536277148606}
+  oldItemDescriptionText: {fileID: 1699705601526636475}
+  oldItemStatsText: {fileID: 1828465532327389595}
+  oldItemImage: {fileID: 5503797414913727528}
+  oldItemBackgroundImage: {fileID: 3354018305076111350}
 --- !u!114 &8509279806863457872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8509279806863457872}
         m_TargetAssemblyTypeName: PlayerTurns, Assembly-CSharp
-        m_MethodName: next_turn
+        m_MethodName: nextTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1179,10 +1179,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecieveNewItemPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 1572882366191010400, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1635256992398212680, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1268,61 +1264,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5598770267857430024, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5598770267857430024, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5598770267857430024, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6583250975860026109}
-    - target: {fileID: 5598770267857430024, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5598770267857430024, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: equip_new_item
-      objectReference: {fileID: 0}
-    - target: {fileID: 5598770267857430024, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerInventory, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5598770267857430024, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413678762879237601, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413678762879237601, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413678762879237601, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6583250975860026109}
     - target: {fileID: 7413678762879237601, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413678762879237601, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: close_new_item_panel
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413678762879237601, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerInventory, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7413678762879237601, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6583250975860026109}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e5b98a5674b3af40a1fb426c04f5dbb, type: 3}
 --- !u!114 &659224387743812248 stripped

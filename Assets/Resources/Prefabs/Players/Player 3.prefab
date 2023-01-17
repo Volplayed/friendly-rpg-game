@@ -386,14 +386,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2960ae11cecbfd74491bed02cdf4328d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_name: Player 3
-  exp_multiplayer: 10
-  default_strength: 5
-  default_agility: 5
-  default_intelligence: 5
-  starting_item: {fileID: 11400000, guid: 59c9ee2fa0017a34d9164d81cdb8b361, type: 2}
-  can_be_attacked_marker: {fileID: 8565476534433711725}
-  fight_marker: {fileID: 1239426016725647133}
+  playerName: Player 3
+  expMultiplayer: 10
+  defaultStrength: 5
+  defaultAgility: 5
+  defaultIntelligence: 5
+  startingItem: {fileID: 11400000, guid: 59c9ee2fa0017a34d9164d81cdb8b361, type: 2}
+  canBeAttackedMarker: {fileID: 8565476534433711725}
+  fightMarker: {fileID: 1239426016725647133}
 --- !u!95 &8997027413807642947
 Animator:
   serializedVersion: 4

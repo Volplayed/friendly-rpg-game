@@ -382,7 +382,7 @@ public class PlayerTurns : MonoBehaviour
     //destroy all popup texts
     public void destroy_all_popups() {
         //get all popup texts
-        GameObject[] popups = GameObject.FindGameObjectsWithTag("pop_upText");
+        GameObject[] popups = GameObject.FindGameObjectsWithTag("pop_up_text");
 
         //destroy all popup texts
         foreach (GameObject popup in popups) {
