@@ -148,16 +148,16 @@ public class EnemyList : MonoBehaviour
         Enemy enemy = ScriptableObject.CreateInstance<Enemy>();
 
         //set values of instance based on example values
-        enemy.set_name(ex.getEnemy_name());
-        enemy.set_maxHealth(ex.getMaxHealth());
-        enemy.set_damage(ex.getDamage());
-        enemy.set_armor(ex.getArmor());
-        enemy.set_critChance(ex.getCritChance());
-        enemy.set_level(ex.getLevel());
-        enemy.set_heal(ex.getHeal());
-        enemy.set_drop_chance(ex.get_drop_chance());
-        enemy.set_drop_items(ex.get_drop_items());
-        enemy.set_is_boss(ex.getIsBoss());
+        enemy.setName(ex.getEnemyName());
+        enemy.setMaxHealth(ex.getMaxHealth());
+        enemy.setDamage(ex.getDamage());
+        enemy.setArmor(ex.getArmor());
+        enemy.setCritChance(ex.getCritChance());
+        enemy.setLevel(ex.getLevel());
+        enemy.setHeal(ex.getHeal());
+        enemy.setDropChance(ex.getDropChance());
+        enemy.setDropItems(ex.getDropItems());
+        enemy.setIsBoss(ex.getIsBoss());
 
         return enemy;
 
@@ -180,16 +180,16 @@ public class EnemyList : MonoBehaviour
             Enemy boss = ScriptableObject.CreateInstance<Enemy>();
 
             //set values of instance based on example values
-            boss.set_name(ex.getEnemy_name());
-            boss.set_maxHealth(ex.getMaxHealth());
-            boss.set_damage(ex.getDamage());
-            boss.set_armor(ex.getArmor());
-            boss.set_critChance(ex.getCritChance());
-            boss.set_level(ex.getLevel());
-            boss.set_heal(ex.getHeal());
-            boss.set_drop_chance(ex.get_drop_chance());
-            boss.set_drop_items(ex.get_drop_items());
-            boss.set_is_boss(ex.getIsBoss());
+            boss.setName(ex.getEnemyName());
+            boss.setMaxHealth(ex.getMaxHealth());
+            boss.setDamage(ex.getDamage());
+            boss.setArmor(ex.getArmor());
+            boss.setCritChance(ex.getCritChance());
+            boss.setLevel(ex.getLevel());
+            boss.setHeal(ex.getHeal());
+            boss.setDropChance(ex.getDropChance());
+            boss.setDropItems(ex.getDropItems());
+            boss.setIsBoss(ex.getIsBoss());
 
             //add boss to list
             bossList[i] = boss;

@@ -71,14 +71,14 @@ public class PlayerFight : MonoBehaviour
             Enemy enemy = playerStats.getEnemy();
 
             //set enemy health to max
-            enemy.set_starting_health();
+            enemy.setStartingHealth();
 
             //set enemy values
             enemySlider.maxValue = enemy.getMaxHealth();
             enemySlider.value = enemy.getHealth();
 
             enemyHealthText.SetText(enemy.getHealth() + "/" + enemy.getMaxHealth());
-            enemyNameText.SetText(enemy.getEnemy_name());
+            enemyNameText.SetText(enemy.getEnemyName());
         }
         //if fighting with player
         else if (playerStats.getEnemyPlayer() != null) {
@@ -121,7 +121,7 @@ public class PlayerFight : MonoBehaviour
             enemySlider.value = enemy.getHealth();
 
             enemyHealthText.SetText(enemy.getHealth() + "/" + enemy.getMaxHealth());
-            enemyNameText.SetText(enemy.getEnemy_name());
+            enemyNameText.SetText(enemy.getEnemyName());
         }
         //if fighting with player
         else if (playerStats.getEnemyPlayer() != null) {
@@ -318,7 +318,7 @@ public class PlayerFight : MonoBehaviour
                 setValues();
 
                 //set healed to false
-                enemy.set_healed(false);
+                enemy.setHealed(false);
             }
             else if (enemy.getHealth() < enemy.getMaxHealth() * 0.5 && !enemy.getHealed()) {
                 //create heal popup text with value of heal amount
@@ -329,7 +329,7 @@ public class PlayerFight : MonoBehaviour
                 setValues();
 
                 //set healed to true
-                enemy.set_healed(true);
+                enemy.setHealed(true);
             }
         }
     }

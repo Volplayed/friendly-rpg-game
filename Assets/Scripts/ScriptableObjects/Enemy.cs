@@ -13,20 +13,20 @@ public class Enemy : ScriptableObject {
     private int health;
     public int damage;
     public double armor;
-    public int heal_value;
+    public int healValue;
 
     [Range(0, 1)]
     public double critChance;
     
     //chance to drop item
     [Range(0, 1)]
-    public double drop_chance;
+    public double dropChance;
 
     //drop items list
-    public Item[] drop_items;
+    public Item[] dropItems;
 
     //is a boss?
-    public bool is_boss = false;
+    public bool isBoss = false;
 
     //temp stats
     private bool healed = false; //had the enemy healed last turn?
@@ -53,20 +53,20 @@ public class Enemy : ScriptableObject {
     }
 
     public int heal() {
-        int value = heal_value;
+        int value = healValue;
         health += value;
         
         return value;
     }
     //damage recieved
     public int damageSelf(int value) {
-        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * Coefficient.armor)/100);
-        if (reduced_damage <= 0) {
-            reduced_damage = 1;
+        int reducedDamage = System.Convert.ToInt32(value * (100 - armor * Coefficient.armor)/100);
+        if (reducedDamage <= 0) {
+            reducedDamage = 1;
         }
-        health -= reduced_damage;
+        health -= reducedDamage;
 
-        return reduced_damage;
+        return reducedDamage;
     }
 
     //enemy death
@@ -84,17 +84,17 @@ public class Enemy : ScriptableObject {
         stats.finishFight();
 
         //if enemy is not a boss
-        if (!is_boss) {
+        if (!isBoss) {
             //drop item if drop chance is met
-            if (UnityEngine.Random.Range(0f, 1) <= drop_chance) {
+            if (UnityEngine.Random.Range(0f, 1) <= dropChance) {
                 //drop item and open new item window
-                stats.openNewItemPanel(drop_item());
+                stats.openNewItemPanel(dropItem());
             }
             //give exp to player based on level and some additional random value
             stats.giveExp(level * Coefficient.expPerEnemyLevel + UnityEngine.Random.Range(0, 3));
         }
         //if enemy is a boss
-        else if (is_boss) {
+        else if (isBoss) {
             //make player win
             stats.win();
         }
@@ -119,69 +119,69 @@ public class Enemy : ScriptableObject {
     public int getLevel() {
         return level;
     }
-    public string getEnemy_name() {
+    public string getEnemyName() {
         return enemyName;
     }
     public bool getHealed() {
         return healed;
     }
     public int getHeal() {
-        return heal_value;
+        return healValue;
     }
-    public double get_drop_chance() {
-        return drop_chance;
+    public double getDropChance() {
+        return dropChance;
     }
-    public Item[] get_drop_items() {
-        return drop_items;
+    public Item[] getDropItems() {
+        return dropItems;
     }
     public bool getIsBoss() {
-        return is_boss;
+        return isBoss;
     }
 
     //set functions
-    public void set_starting_health() {
+    public void setStartingHealth() {
         health = maxHealth;
     }
-    public void set_maxHealth(int value) {
+    public void setMaxHealth(int value) {
         maxHealth = value;
     }
-    public void set_damage(int value) {
+    public void setDamage(int value) {
         damage = value;
     }
-    public void set_armor(double value) {
+    public void setArmor(double value) {
         armor = value;
     }
-    public void set_critChance(double value) {
+    public void setCritChance(double value) {
         critChance = value;
     }
-    public void set_level(int value) {
+    public void setLevel(int value) {
         level = value;
     }
-    public void set_name(string value) {
+    public void setName(string value) {
         enemyName = value;
     }
-    public void set_healed(bool value) {
+    public void setHealed(bool value) {
         healed = value;
     }
-    public void set_heal(int value) {
-        heal_value = value;
+    public void setHeal(int value) {
+        healValue = value;
     }
-    public void set_drop_chance(double value) {
-        drop_chance = value;
+    public void setDropChance(double value) {
+        dropChance = value;
     }
-    public void set_drop_items(Item[] value) {
-        drop_items = value;
+    public void setDropItems(Item[] value) {
+        dropItems = value;
     }
-    public void set_is_boss(bool value) {
-        is_boss = value;
+    public void setIsBoss(bool value) {
+        isBoss = value;
     }
 
     //drop random item
-    public Item drop_item() {
+    public Item dropItem() {
         //get length of list
-        int n = drop_items.Length;
+        int n = dropItems.Length;
         //get random item
-        Item item = drop_items[UnityEngine.Random.Range(0, n)];
+        Item item = dropItems[UnityEngine.Random.Range(0, n)];
 
         return item;
     }

@@ -411,18 +411,18 @@ public class PlayerStats : MonoBehaviour
     //fight functions
     public int damageSelf(int value) {
         //overall damage
-        int reduced_damage = System.Convert.ToInt32(value * (100 - armor * Coefficient.armor)/100);
+        int reducedDamage = System.Convert.ToInt32(value * (100 - armor * Coefficient.armor)/100);
 
         //minimal damage
-        if (reduced_damage <= 0) {
-            reduced_damage = 1;
+        if (reducedDamage <= 0) {
+            reducedDamage = 1;
         }
-        health -= reduced_damage;
+        health -= reducedDamage;
         
         //check if player is dead
         checkDeath();
 
-        return reduced_damage;
+        return reducedDamage;
     }
 
     public int heal() {
