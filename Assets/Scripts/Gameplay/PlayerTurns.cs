@@ -96,7 +96,7 @@ public class PlayerTurns : MonoBehaviour
 
     //set current player's starting moves
     private void set_starting_moves() {
-        current_player_moves = playerStats[current_player_turn].get_moves();
+        current_player_moves = playerStats[current_player_turn].getMoves();
     }
 
     //change cuurent player moves value
@@ -156,17 +156,17 @@ public class PlayerTurns : MonoBehaviour
         playerTurnTitleText = turnChangePanel.GetComponentsInChildren<TMP_Text>()[0];
 
         //if player didn't lose or win yet
-        if (!playerStats[current_player_turn].get_did_win() && !playerStats[current_player_turn].get_did_lose()) {
+        if (!playerStats[current_player_turn].getDidWin() && !playerStats[current_player_turn].getDidLose()) {
             //set player turn title
             playerTurnTitleText.text = "Player " + (current_player_turn + 1) + "'s turn";
         }
         //if player lost
-        else if (playerStats[current_player_turn].get_did_lose()) {
+        else if (playerStats[current_player_turn].getDidLose()) {
             //set player turn title
             playerTurnTitleText.text = "Player " + (current_player_turn + 1) + " lost";
         }
         //if player won
-        else if (playerStats[current_player_turn].get_did_win()) {
+        else if (playerStats[current_player_turn].getDidWin()) {
             //set player turn title
             playerTurnTitleText.text = "Player " + (current_player_turn + 1) + " won!";
         }
@@ -191,10 +191,10 @@ public class PlayerTurns : MonoBehaviour
         playerStats[current_player_turn].setHasTurn(true);
 
         //make in-fight buttons interactable
-        playerFight.set_button_interactable(true);
+        playerFight.setButtonIteractable(true);
 
        //if player is in fight
-        if (playerStats[current_player_turn].get_in_fight()) {
+        if (playerStats[current_player_turn].getInFight()) {
             fightPanel.SetActive(true);
 
             //disable movement for player
@@ -207,7 +207,7 @@ public class PlayerTurns : MonoBehaviour
             set_starting_moves();
         }
         //if player is not in fight and didn't lose or win yet
-        else if (!playerStats[current_player_turn].get_did_win() && !playerStats[current_player_turn].get_did_lose()) {
+        else if (!playerStats[current_player_turn].getDidWin() && !playerStats[current_player_turn].getDidLose()) {
             //close fight panel
             fightPanel.SetActive(false);
 
@@ -218,11 +218,11 @@ public class PlayerTurns : MonoBehaviour
             enableMovementAfterDelay();
         }
         //if player lost or won
-        else if (playerStats[current_player_turn].get_did_lose() || playerStats[current_player_turn].get_did_win()) {
+        else if (playerStats[current_player_turn].getDidLose() || playerStats[current_player_turn].getDidWin()) {
             //close fight panel
             fightPanel.SetActive(false);
 
-            next_turn();
+            nextTurn();
         }
    
     }
@@ -294,7 +294,7 @@ public class PlayerTurns : MonoBehaviour
     }
 
     //go to next turn
-    public void next_turn() {
+    public void nextTurn() {
         //destroy all popup texts
         destroy_all_popups();
 
@@ -337,15 +337,15 @@ public class PlayerTurns : MonoBehaviour
     public void gain_attributes(string attribute) {
         //if strength player gain strength
         if (attribute == "strength") {
-            playerStats[current_player_turn].gain_strength();
+            playerStats[current_player_turn].gainStrength();
         }
         //if agility player gain agility
         else if (attribute == "agility") {
-            playerStats[current_player_turn].gain_agility();
+            playerStats[current_player_turn].gainAgility();
         }
         //if intelligence player gain intelligence
         else if (attribute == "intelligence") {
-            playerStats[current_player_turn].gain_intelligence();
+            playerStats[current_player_turn].gainIntelligence();
         }
 
         //close level up panel
@@ -359,7 +359,7 @@ public class PlayerTurns : MonoBehaviour
         if (current_turn == StaticValuesController.finalBossTurn) {
             //start final boss fight for current player
             
-            playerStats[current_player_turn].start_fight(finalBosses[current_player_turn]);
+            playerStats[current_player_turn].startFight(finalBosses[current_player_turn]);
  
         }
     }
@@ -369,7 +369,7 @@ public class PlayerTurns : MonoBehaviour
         //check every player
         for (int i = 0; i < players_count; i++) {
             //if player didn't lose or win yet
-            if (!playerStats[i].get_did_lose() && !playerStats[i].get_did_win()) {
+            if (!playerStats[i].getDidLose() && !playerStats[i].getDidWin()) {
                 //return
                 return;
             }

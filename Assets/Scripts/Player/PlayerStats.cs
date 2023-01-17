@@ -6,58 +6,58 @@ using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private string player_name = "Player";
+    [SerializeField] private string playerName = "Player";
 
     //how to multiply exp needed each level
-    public int exp_multiplayer = 10;
+    public int expMultiplayer = 10;
 
 
     //default attributes
-    public int default_strength = 5, default_agility = 5, default_intelligence = 5;
+    public int defaultStrength = 5, defaultAgility = 5, defaultIntelligence = 5;
 
     //main values
     private int health, damage, level = 1;
     private double armor;
 
-    private int exp, needed_exp;
+    private int exp, neededExp;
     private int strength, agility, intelligence;
 
     //additional values
-    private double crit_chance;
+    private double critChance;
     private int moves = 1;
 
     //bonus stats
     //main values
-    private int bonus_health = 0, bonus_damage = 0;
-    private double bonus_armor = 0;
-    private int bonus_strength = 0, bonus_agility = 0, bonus_intelligence = 0;
+    private int bonusHealth = 0, bonusDamage = 0;
+    private double bonusArmor = 0;
+    private int bonusStrength = 0, bonusAgility = 0, bonusIntelligence = 0;
 
     //additional values
-    private double bonus_crit_chance = 0;
-    private int bonus_moves = 0;
+    private double bonusCritChance = 0;
+    private int bonusMoves = 0;
 
     //items
     private List<Item> items = new List<Item>();
     //starting item
-    public Item starting_item;
+    public Item startingItem;
 
     //for turn management
-    private bool has_turn = false;
+    private bool hasTurn = false;
     private List<HexClickHandler> hexHandlers = new List<HexClickHandler>();
 
     //fight related values
-    private bool in_fight = false;
+    private bool inFight = false;
     private Enemy enemy = null;
     private GameObject enemyPlayer = null;
 
     //can player be attacked
-    private bool can_be_attacked = false;
+    private bool canBeAttacked = false;
 
     //can be attacked marker
-    public GameObject can_be_attacked_marker;
+    public GameObject canBeAttackedMarker;
 
     //fight marker
-    public GameObject fight_marker;
+    public GameObject fightMarker;
 
     //level up panel
     private GameObject levelUpPanel;
@@ -65,21 +65,21 @@ public class PlayerStats : MonoBehaviour
     private TMP_Text levelUpText;
 
     //final player data
-    private bool did_win = false;
-    private bool did_lose = false;
+    private bool didWin = false;
+    private bool didLose = false;
 
     void Start()
     {       
         //starting values
-        strength = default_strength;
-        agility = default_agility;
-        intelligence = default_intelligence;
+        strength = defaultStrength;
+        agility = defaultAgility;
+        intelligence = defaultIntelligence;
         level = 1;
         calculateStats();
         calculateExp();
 
         //add starting item
-        starting_item.equipItem(gameObject);
+        startingItem.equipItem(gameObject);
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
@@ -109,193 +109,193 @@ public class PlayerStats : MonoBehaviour
     }
 
     void calculateExp() {
-        needed_exp = level * exp_multiplayer;
+        neededExp = level * expMultiplayer;
     }
 
     //set health
-    public void set_health(int health_) {
+    public void setHealth(int health_) {
         health = health_;
     }
 
     //set exp
-    public void set_exp(int exp_) {
+    public void setExp(int exp_) {
         exp = exp_;
     }
 
     //get functions
-    public string get_player_name() {
-        return player_name;
+    public string getPlayerName() {
+        return playerName;
     }
-    public int get_health() {
+    public int getHealth() {
         return health;
     }
-    public int get_damage() {
+    public int getDamage() {
         return damage;
     }
-    public double get_armor() {
+    public double getArmor() {
         return armor;
     }
-    public int get_strength() {
+    public int getStrength() {
         return strength;
     }
-    public int get_agility() {
+    public int getAgility() {
         return agility;
     }
-    public int get_intelligence() {
+    public int getIntelligence() {
         return intelligence;
     }
-    public int get_exp() {
+    public int getExp() {
         return exp;
     }
-    public int get_needed_exp() {
-        return needed_exp;
+    public int getNeededExp() {
+        return neededExp;
     }
-    public int get_level() {
+    public int getLevel() {
         return level;
     }
-    public double get_crit() {
-        return crit_chance;
+    public double getCrit() {
+        return critChance;
     }
-    public int get_heal() {
+    public int getHeal() {
         return System.Convert.ToInt32(intelligence / Coefficient.intelligencePerHeal) * Coefficient.healApplication + level;
     }
-    public int get_moves() {
+    public int getMoves() {
         return moves;
     }
-    public bool get_in_fight() {
-        return in_fight;
+    public bool getInFight() {
+        return inFight;
     }
-    public bool get_can_be_attacked() {
-        return can_be_attacked;
+    public bool getCanBeAttacked() {
+        return canBeAttacked;
     }
-    public List<Item> get_items() {
+    public List<Item> getItems() {
         return items;
     }
-    public bool get_did_win() {
-        return did_win;
+    public bool getDidWin() {
+        return didWin;
     }
-    public bool get_did_lose() {
-        return did_lose;
+    public bool getDidLose() {
+        return didLose;
     }
 
     //calculates max health with formula
-    public int get_max_health() {
-        return strength * Coefficient.healthPerStrength + bonus_health;
+    public int getMaxHealth() {
+        return strength * Coefficient.healthPerStrength + bonusHealth;
     }
 
-    public Enemy get_enemy() {
+    public Enemy getEnemy() {
         return enemy;
     }
 
-    public GameObject get_enemy_player() {
+    public GameObject getEnemyPlayer() {
         return enemyPlayer;
     }
 
 
     //add|remove bonus values
-    public void add_bonus_strength(int bonus) {
+    public void addBonusStrength(int bonus) {
 
-        bonus_strength += bonus;
-
-    } 
-    public void remove_bonus_strength(int bonus) {
-
-        bonus_strength -= bonus;
+        bonusStrength += bonus;
 
     } 
-    public void add_bonus_agility(int bonus) {
+    public void removeBonusStrength(int bonus) {
 
-        bonus_agility += bonus;
-
-    } 
-    public void remove_bonus_agility(int bonus) {
-
-        bonus_agility -= bonus;
+        bonusStrength -= bonus;
 
     } 
-    public void add_bonus_intelligence(int bonus) {
+    public void addBonusAgility(int bonus) {
 
-        bonus_intelligence += bonus;
-
-    } 
-    public void remove_bonus_intelligence(int bonus) {
-
-        bonus_intelligence -= bonus;
+        bonusAgility += bonus;
 
     } 
-    public void add_bonus_health(int bonus) {
+    public void removeBonusAgility(int bonus) {
 
-        bonus_health += bonus;
-
-    } 
-    public void remove_bonus_health(int bonus) {
-
-        bonus_health -= bonus;
+        bonusAgility -= bonus;
 
     } 
-    public void add_bonus_damage(int bonus) {
+    public void addBonusIntelligence(int bonus) {
 
-        bonus_damage += bonus;
-
-    } 
-    public void remove_bonus_damage(int bonus) {
-
-        bonus_damage -= bonus;
+        bonusIntelligence += bonus;
 
     } 
-    public void add_bonus_armor(double bonus) {
+    public void removeBonusIntelligence(int bonus) {
 
-        bonus_armor += bonus;
-
-    } 
-    public void remove_bonus_armor(double bonus) {
-
-        bonus_armor -= bonus;
+        bonusIntelligence -= bonus;
 
     } 
-    public void add_bonus_crit_chance(double bonus) {
+    public void addBonusHealth(int bonus) {
 
-        bonus_crit_chance += bonus;
-
-    } 
-    public void remove_bonus_crit_chance(double bonus) {
-
-        bonus_crit_chance -= bonus;
+        bonusHealth += bonus;
 
     } 
-    public void add_bonus_moves(int bonus) {
+    public void removeBonusHealth(int bonus) {
 
-        bonus_moves += bonus;
+        bonusHealth -= bonus;
 
     } 
-    public void remove_bonus_moves(int bonus) {
+    public void addBonusDamage(int bonus) {
 
-        bonus_moves -= bonus;
+        bonusDamage += bonus;
+
+    } 
+    public void removeBonusDamage(int bonus) {
+
+        bonusDamage -= bonus;
+
+    } 
+    public void addBonusArmor(double bonus) {
+
+        bonusArmor += bonus;
+
+    } 
+    public void removeBonusArmor(double bonus) {
+
+        bonusArmor -= bonus;
+
+    } 
+    public void addBonusCritChance(double bonus) {
+
+        bonusCritChance += bonus;
+
+    } 
+    public void removeBonusCritChance(double bonus) {
+
+        bonusCritChance -= bonus;
+
+    } 
+    public void addBonusMoves(int bonus) {
+
+        bonusMoves += bonus;
+
+    } 
+    public void removeBonusMoves(int bonus) {
+
+        bonusMoves -= bonus;
 
     }
 
     //add to attributes with level up
-    public void gain_strength() {
-        default_strength += 1;
+    public void gainStrength() {
+        defaultStrength += 1;
 
         //calculate new stats
         calculateStats();
     }
-    public void gain_agility() {
-        default_agility += 1;
+    public void gainAgility() {
+        defaultAgility += 1;
 
         //calculate new stats
         calculateStats();
     }
-    public void gain_intelligence() {
-        default_intelligence += 1;
+    public void gainIntelligence() {
+        defaultIntelligence += 1;
 
         //calculate new stats
         calculateStats();
     }
 
     //give exp
-    public void give_exp(int value) {
+    public void giveExp(int value) {
         exp += value;
 
         //get player UI
@@ -318,30 +318,30 @@ public class PlayerStats : MonoBehaviour
             hexHandlers[i].setHasTurn(what);
             
         }
-        has_turn = what;
+        hasTurn = what;
     }
 
     private void calculateStats() {
         //callculate attributes
-        strength = default_strength + bonus_strength;
-        agility = default_agility + bonus_agility;
-        intelligence = default_intelligence + bonus_intelligence;
+        strength = defaultStrength + bonusStrength;
+        agility = defaultAgility + bonusAgility;
+        intelligence = defaultIntelligence + bonusIntelligence;
 
         //calculate other
-        health = get_max_health();
-        armor = agility * Coefficient.armorPerAgility + bonus_armor;
-        crit_chance = intelligence * Coefficient.critChancePerIntelligence + bonus_crit_chance;
-        moves = agility / Coefficient.agilityPerMove + bonus_moves;
+        health = getMaxHealth();
+        armor = agility * Coefficient.armorPerAgility + bonusArmor;
+        critChance = intelligence * Coefficient.critChancePerIntelligence + bonusCritChance;
+        moves = agility / Coefficient.agilityPerMove + bonusMoves;
         //min moves value is 1, set 1 if less than 1
         if (moves < 1) {
             moves = 1;
         }
         //if moves is 1 and there are bonus moves, set moves to 1 plus bonus moves
-        if (moves == 1 && bonus_moves > 0) {
-            moves = 1 + bonus_moves;
+        if (moves == 1 && bonusMoves > 0) {
+            moves = 1 + bonusMoves;
         }
 
-        damage = level * Coefficient.damagePerLevel + bonus_damage;
+        damage = level * Coefficient.damagePerLevel + bonusDamage;
 
         //calculate exp
         calculateExp();
@@ -350,7 +350,7 @@ public class PlayerStats : MonoBehaviour
 
     //levelUp
     private void checkExp() {
-        if (exp >= needed_exp) {
+        if (exp >= neededExp) {
             levelUp();
         }
     }
@@ -361,11 +361,11 @@ public class PlayerStats : MonoBehaviour
         level++;
         calculateExp();
         exp = 0;
-        //set can_be_attacked to true
-        can_be_attacked = true;
+        //set canBeAttacked to true
+        canBeAttacked = true;
 
         //hide can be attacked maeker
-        show_can_be_attacked_marker(false);
+        showCanBeAttackedMarker(false);
 
         //activate levelUp menu
         activateLevelUpPanel(true);
@@ -420,43 +420,43 @@ public class PlayerStats : MonoBehaviour
         health -= reduced_damage;
         
         //check if player is dead
-        check_death();
+        checkDeath();
 
         return reduced_damage;
     }
 
     public int heal() {
         //health before healing
-        int health_before = health;
+        int healthBefore = health;
         //max health
-        int max_health = get_max_health();
+        int maxHealth = getMaxHealth();
 
         //heal amount
-        int heal = get_heal();
+        int heal = getHeal();
 
         //set min health to 1
         if (heal < 1) {
             heal = 1;
         }
         Debug.Log("healed " + heal);
-        if (max_health - health >= heal) {
+        if (maxHealth - health >= heal) {
             health += heal;
         }
         else {
-            health = max_health;
+            health = maxHealth;
         }
         //difference of new health after heal and health before heal
-        return health - health_before;
+        return health - healthBefore;
     }
 
-    public void finish_fight() {
+    public void finishFight() {
         //set fight values
         enemy = null;
         enemyPlayer = null;
-        in_fight = false;
+        inFight = false;
 
         //fully heal player
-        health = get_max_health();
+        health = getMaxHealth();
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
@@ -474,41 +474,41 @@ public class PlayerStats : MonoBehaviour
         fightPanel.SetActive(false);
 
         //set in-fight buttons iteractable to make them work when the other player turn starts
-        playerFight.set_button_interactable(true);
+        playerFight.setButtonIteractable(true);
 
         //enable player movement after delay if there are moves still left
         playerTurns.enableMovementAfterDelay();
 
         //hide fight marker
-        show_fight_marker(false);
+        showFightMarker(false);
     }
 
     /////////////////////////////////////////////////////
     //show/hide fight marker
-    public void show_fight_marker(bool value) {
+    public void showFightMarker(bool value) {
         //get fight marker sprite renderer
-        SpriteRenderer fight_marker_sprite = fight_marker.GetComponent<SpriteRenderer>();
+        SpriteRenderer fightMarkerSprite = fightMarker.GetComponent<SpriteRenderer>();
 
         //hide or show fight marker
-        fight_marker_sprite.enabled = value;
+        fightMarkerSprite.enabled = value;
 
     }
 
     //show/hide can be attacked marker
-    public void show_can_be_attacked_marker(bool value) {
+    public void showCanBeAttackedMarker(bool value) {
         //get can be attacked marker sprite renderer
-        SpriteRenderer can_be_attacked_marker_sprite = can_be_attacked_marker.GetComponent<SpriteRenderer>();
+        SpriteRenderer canBeAttackedMarker_sprite = canBeAttackedMarker.GetComponent<SpriteRenderer>();
 
         //hide or show can be attacked marker
-        can_be_attacked_marker_sprite.enabled = value;
+        canBeAttackedMarker_sprite.enabled = value;
 
     }
 
     //vs enemy
 
-    public void start_fight(Enemy enemy_) {
+    public void startFight(Enemy enemy_) {
         //set fight values
-        in_fight = true;
+        inFight = true;
         enemy = enemy_;
 
          //get player UI
@@ -528,13 +528,13 @@ public class PlayerStats : MonoBehaviour
         playerFight.setValuesStart();
 
         //make fight buttons interactable after delay
-        playerFight.set_button_interactable_after_delay();
+        playerFight.setButtonInteractableAfterDelay();
 
         //disable player movement
         playerTurns.enableMovement(false);
 
         //show fight marker
-        show_fight_marker(true);
+        showFightMarker(true);
     }
 
     public int attack(Enemy enemy) {
@@ -545,7 +545,7 @@ public class PlayerStats : MonoBehaviour
         StaticValuesController.lastAttackCrit = false;
 
         //crit
-        if (Random.Range(0f, 1) <= crit_chance) {
+        if (Random.Range(0f, 1) <= critChance) {
             value = System.Convert.ToInt32(value * 1.6);
 
             //set did last attack crit to true
@@ -555,9 +555,9 @@ public class PlayerStats : MonoBehaviour
     }
     
     //get escape chance vs enemy
-    public double get_escape_chance_vs_enemy() {
+    public double getEscapeChanceVsEnemy() {
         //chance depends only on player intelligence or agility
-        double escape_chance;
+        double escapeChance;
         int k; //or intelligence or agility
         if (intelligence > agility) {
             k = intelligence;
@@ -566,33 +566,33 @@ public class PlayerStats : MonoBehaviour
             k = agility;
         }
         //k agility or intelligence * coefficient - enemy level and player level divercity * coefficient
-        escape_chance = k*Coefficient.enemyStatsEscapeChance - (level - enemy.get_level()) * Coefficient.enemyLevelEscapeChance;
+        escapeChance = k*Coefficient.enemyStatsEscapeChance - (level - enemy.getLevel()) * Coefficient.enemyLevelEscapeChance;
         //if to high chance
-        if (escape_chance > 0.9) {
-            escape_chance = 0.9;
+        if (escapeChance > 0.9) {
+            escapeChance = 0.9;
         }
         //if to low chance
-        else if (escape_chance < 0.01) {
-            escape_chance = 0.01;
+        else if (escapeChance < 0.01) {
+            escapeChance = 0.01;
         }
-        return escape_chance;
+        return escapeChance;
     }
 
     public bool escape() {
         //chance depends only on player intelligence or agility
-        double escape_chance = get_escape_chance_vs_enemy();
+        double escapeChance = getEscapeChanceVsEnemy();
 
         //result
         bool result;
         //success
-        if (Random.Range(0f, 1) <= escape_chance) {
+        if (Random.Range(0f, 1) <= escapeChance) {
             result = true;
             
             //give player exp for escaping depending on enemy level plus random value
-            give_exp(enemy.get_level() * Coefficient.escapeExpPerEnemyLevel + Random.Range(0, 3));
+            giveExp(enemy.getLevel() * Coefficient.escapeExpPerEnemyLevel + Random.Range(0, 3));
 
             //finish fight
-            finish_fight();
+            finishFight();
         }
         //fail
         else {
@@ -611,25 +611,25 @@ public class PlayerStats : MonoBehaviour
     }
     ///////////////////////////////////////////////////////////////////
     //vs player
-    public void set_figth_vs_player(GameObject other_player) {
+    public void setFightVsPlayer(GameObject otherPlayer) {
         //set fight values
-        enemyPlayer = other_player;
-        in_fight = true;
+        enemyPlayer = otherPlayer;
+        inFight = true;
     }
 
-    public void start_fight(GameObject other_player) {
+    public void startFight(GameObject otherPlayer) {
         //set fight values
-        in_fight = true;
-        enemyPlayer = other_player;
+        inFight = true;
+        enemyPlayer = otherPlayer;
 
         //get other player stats
-        PlayerStats other_player_stats = other_player.GetComponent<PlayerStats>();
+        PlayerStats otherPlayerStats = otherPlayer.GetComponent<PlayerStats>();
 
         //set fight values for other player
-        other_player_stats.set_figth_vs_player(gameObject);
+        otherPlayerStats.setFightVsPlayer(gameObject);
 
         //show other player fight marker
-        other_player_stats.show_fight_marker(true);
+        otherPlayerStats.showFightMarker(true);
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
@@ -648,13 +648,13 @@ public class PlayerStats : MonoBehaviour
         playerFight.setValuesStart();
 
         //make fight buttons interactable after delay
-        playerFight.set_button_interactable_after_delay();
+        playerFight.setButtonInteractableAfterDelay();
 
         //disable player movement
         playerTurns.enableMovement(false);
 
         //show fight marker
-        show_fight_marker(true);
+        showFightMarker(true);
     }
 
     public int attack(GameObject player) {
@@ -665,7 +665,7 @@ public class PlayerStats : MonoBehaviour
         StaticValuesController.lastAttackCrit = false;
 
         int value = damage;
-        if (Random.Range(0f, 1) <= crit_chance) {
+        if (Random.Range(0f, 1) <= critChance) {
             value = System.Convert.ToInt32(value * 1.7);
 
             //set did last attack crit to true
@@ -675,53 +675,53 @@ public class PlayerStats : MonoBehaviour
     }
     
     //get escape chance vs player
-    public double get_escape_chance_vs_player(GameObject other_player) {
+    public double getEscapeChanceVsPlayer(GameObject otherPlayer) {
         //chance depends on player intelligence or agility and other player agility
-        PlayerStats stats = other_player.GetComponent<PlayerStats>();
+        PlayerStats stats = otherPlayer.GetComponent<PlayerStats>();
 
-        double escape_chance;
+        double escapeChance;
         int k; //or intelligence or agility
-        int other_agility = stats.get_agility(); //other player agility
+        int otherAgility = stats.getAgility(); //other player agility
         if (intelligence > agility) {
             k = intelligence;
         }
         else {
             k = agility;
         }
-        escape_chance = k*Coefficient.playerStatsEscapeChance - other_agility* Coefficient.playerEnemyStatsEscapeChance;
+        escapeChance = k*Coefficient.playerStatsEscapeChance - otherAgility* Coefficient.playerEnemyStatsEscapeChance;
         //if to high chance
-        if (escape_chance > 0.85) {
-            escape_chance = 0.85;
+        if (escapeChance > 0.85) {
+            escapeChance = 0.85;
         }
         //if to low chance
-        else if (escape_chance < 0.01) {
-            escape_chance = 0.01;
+        else if (escapeChance < 0.01) {
+            escapeChance = 0.01;
         }
-        return escape_chance;
+        return escapeChance;
     }
 
-    public bool escape(GameObject other_player) {
+    public bool escape(GameObject otherPlayer) {
         //chance depends on player intelligence or agility and other player agility
-        double escape_chance = get_escape_chance_vs_player(other_player);
+        double escapeChance = getEscapeChanceVsPlayer(otherPlayer);
         
         //result
         bool result;
 
         //success
-        if (Random.Range(0f, 1) <= escape_chance) {
+        if (Random.Range(0f, 1) <= escapeChance) {
             result = true;
 
             //get enemy player stats
-            PlayerStats other_player_stats = other_player.GetComponent<PlayerStats>();
+            PlayerStats otherPlayerStats = otherPlayer.GetComponent<PlayerStats>();
 
             //finish fight for enemy player
-            other_player_stats.finish_fight();
+            otherPlayerStats.finishFight();
 
             //give player exp for escaping depending on other player level plus random value
-            give_exp(other_player_stats.get_level() + Random.Range(0, 3));  
+            giveExp(otherPlayerStats.getLevel() + Random.Range(0, 3));  
 
             //finish fight for player
-            finish_fight();  
+            finishFight();  
         }
         //fail
         else {
@@ -731,7 +731,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     //player lost fight
-    public void check_death() {
+    public void checkDeath() {
         //if health less then zero
         if (health <= 0) {
             die();
@@ -747,28 +747,28 @@ public class PlayerStats : MonoBehaviour
 
         //decrease max stat
         //strength
-        if (default_strength > default_agility && default_strength > default_intelligence) {
-            default_strength -= 1;
+        if (defaultStrength > defaultAgility && defaultStrength > defaultIntelligence) {
+            defaultStrength -= 1;
         }
         //agility
-        else if (default_agility > default_strength && default_agility > default_intelligence) {
-            default_agility -= 1;
+        else if (defaultAgility > defaultStrength && defaultAgility > defaultIntelligence) {
+            defaultAgility -= 1;
         }
         //intelligence
-        else if (default_intelligence > default_strength && default_intelligence > default_agility) {
-            default_intelligence -= 1;
+        else if (defaultIntelligence > defaultStrength && defaultIntelligence > defaultAgility) {
+            defaultIntelligence -= 1;
         }
         //if all are equal decrease random stat
         else {
-            int random_stat = Random.Range(0, 3);
-            if (random_stat == 0) {
-                default_strength -= 1;
+            int randomStat = Random.Range(0, 3);
+            if (randomStat == 0) {
+                defaultStrength -= 1;
             }
-            else if (random_stat == 1) {
-                default_agility -= 1;
+            else if (randomStat == 1) {
+                defaultAgility -= 1;
             }
             else {
-                default_intelligence -= 1;
+                defaultIntelligence -= 1;
             }
         }
 
@@ -776,35 +776,35 @@ public class PlayerStats : MonoBehaviour
         if (level < 1) {
             level = 1;
         }
-        if (default_strength < 1) {
-            default_strength = 1;
+        if (defaultStrength < 1) {
+            defaultStrength = 1;
         }
-        if (default_agility < 1) {
-            default_agility = 1;
+        if (defaultAgility < 1) {
+            defaultAgility = 1;
         }
-        if (default_intelligence < 1) {
-            default_intelligence = 1;
+        if (defaultIntelligence < 1) {
+            defaultIntelligence = 1;
         }
         //calculate new stats
         calculateStats();
 
         //finish fight if vs enemy that is not boss
-        if (enemy != null && !enemy.get_is_boss()) {
-            finish_fight();
+        if (enemy != null && !enemy.getIsBoss()) {
+            finishFight();
 
             //set dead player can be attacked to false
-            can_be_attacked = false;
+            canBeAttacked = false;
 
             //show can be attacked marker
-            show_can_be_attacked_marker(true);
+            showCanBeAttackedMarker(true);
         } 
         //if fighting vs enemy that is boss
-        else if (enemy != null && enemy.get_is_boss()) {
+        else if (enemy != null && enemy.getIsBoss()) {
             //set did player win to false and did lose to true and finish turn
             lose();
 
             //finish fight
-            finish_fight();
+            finishFight();
         }
         //if fighting vs player give other player exp
         else if (enemyPlayer != null) {
@@ -812,25 +812,25 @@ public class PlayerStats : MonoBehaviour
             //get enemy player stats
             PlayerStats enemyPlayerStats = enemyPlayer.GetComponent<PlayerStats>();
             
-            finish_fight();
+            finishFight();
 
             //enemy player finish fight
-            enemyPlayerStats.finish_fight();
+            enemyPlayerStats.finishFight();
 
             //give exp to other player
-            enemyPlayerStats.give_exp((level + 1) * Coefficient.expPerPlayerLevel);
+            enemyPlayerStats.giveExp((level + 1) * Coefficient.expPerPlayerLevel);
 
             //set dead player can be attacked to false
-            can_be_attacked = false;
+            canBeAttacked = false;
 
             //show can be attacked marker
-            show_can_be_attacked_marker(true);
+            showCanBeAttackedMarker(true);
         }
     }
 
     //items management
     //add item to inventory
-    public void add_item(Item item) {
+    public void aaddItem(Item item) {
         //create item instance
         Item item_ = ScriptableObject.CreateInstance<Item>();
 
@@ -845,7 +845,7 @@ public class PlayerStats : MonoBehaviour
         item_.intelligence = item.intelligence;
         item_.health = item.health;
         item_.damage = item.damage;
-        item_.crit_chance = item.crit_chance;
+        item_.critChance = item.critChance;
         item_.armor = item.armor;
         item_.moves = item.moves;
 
@@ -856,7 +856,7 @@ public class PlayerStats : MonoBehaviour
         calculateStats();
     }
     //remove item from inventory
-    public void remove_item(Item item) {
+    public void removeItem(Item item) {
         //remove item from list
         items.Remove(item);
 
@@ -865,7 +865,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     //open new item panel
-    public void open_new_item_panel(Item item) {
+    public void openNewItemPanel(Item item) {
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
@@ -873,20 +873,20 @@ public class PlayerStats : MonoBehaviour
         PlayerInventory playerInventory = playerUI.GetComponent<PlayerInventory>();
 
         //open new item panel
-        playerInventory.open_new_item_panel(item);
+        playerInventory.openNewItemPanel(item);
     }
 
     //after boss fight
     //set did win and did lose
-    public void set_did_win(bool value) {
-        did_win = value;
-        did_lose = !value;
+    public void setDidWin(bool value) {
+        didWin = value;
+        didLose = !value;
     }
 
     //player win
     public void win() {
         //set did win to true
-        set_did_win(true);
+        setDidWin(true);
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
@@ -895,16 +895,16 @@ public class PlayerStats : MonoBehaviour
         PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
         //add player name to list of players that won
-        StaticValuesController.winners.Add(player_name);
+        StaticValuesController.winners.Add(playerName);
 
         //go to next turn
-        playerTurns.next_turn();
+        playerTurns.nextTurn();
     }
 
     //player lose
     public void lose() {
         //set did lose to true
-        set_did_win(false);
+        setDidWin(false);
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
@@ -913,7 +913,7 @@ public class PlayerStats : MonoBehaviour
         PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
         //go to next turn
-        playerTurns.next_turn();
+        playerTurns.nextTurn();
     }
     
 }   

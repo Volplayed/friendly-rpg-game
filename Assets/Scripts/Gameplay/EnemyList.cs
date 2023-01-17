@@ -45,8 +45,8 @@ public class EnemyList : MonoBehaviour
 
         //get max level
         for (int i = 0; i < n; i++) {
-            if (enemies[i].get_level() > max) {
-                max = enemies[i].get_level();
+            if (enemies[i].getLevel() > max) {
+                max = enemies[i].getLevel();
             }
         }
 
@@ -61,7 +61,7 @@ public class EnemyList : MonoBehaviour
         //send each enemy to its level list
         foreach (Enemy enemy in enemies) {
             //get level
-            int level = enemy.get_level();
+            int level = enemy.getLevel();
 
             //add enemy to list
             switch (level) {
@@ -148,16 +148,16 @@ public class EnemyList : MonoBehaviour
         Enemy enemy = ScriptableObject.CreateInstance<Enemy>();
 
         //set values of instance based on example values
-        enemy.set_name(ex.get_enemy_name());
-        enemy.set_max_health(ex.get_max_health());
-        enemy.set_damage(ex.get_damage());
-        enemy.set_armor(ex.get_armor());
-        enemy.set_crit_chance(ex.get_crit_chance());
-        enemy.set_level(ex.get_level());
-        enemy.set_heal(ex.get_heal());
+        enemy.set_name(ex.getEnemy_name());
+        enemy.set_maxHealth(ex.getMaxHealth());
+        enemy.set_damage(ex.getDamage());
+        enemy.set_armor(ex.getArmor());
+        enemy.set_critChance(ex.getCritChance());
+        enemy.set_level(ex.getLevel());
+        enemy.set_heal(ex.getHeal());
         enemy.set_drop_chance(ex.get_drop_chance());
         enemy.set_drop_items(ex.get_drop_items());
-        enemy.set_is_boss(ex.get_is_boss());
+        enemy.set_is_boss(ex.getIsBoss());
 
         return enemy;
 
@@ -180,16 +180,16 @@ public class EnemyList : MonoBehaviour
             Enemy boss = ScriptableObject.CreateInstance<Enemy>();
 
             //set values of instance based on example values
-            boss.set_name(ex.get_enemy_name());
-            boss.set_max_health(ex.get_max_health());
-            boss.set_damage(ex.get_damage());
-            boss.set_armor(ex.get_armor());
-            boss.set_crit_chance(ex.get_crit_chance());
-            boss.set_level(ex.get_level());
-            boss.set_heal(ex.get_heal());
+            boss.set_name(ex.getEnemy_name());
+            boss.set_maxHealth(ex.getMaxHealth());
+            boss.set_damage(ex.getDamage());
+            boss.set_armor(ex.getArmor());
+            boss.set_critChance(ex.getCritChance());
+            boss.set_level(ex.getLevel());
+            boss.set_heal(ex.getHeal());
             boss.set_drop_chance(ex.get_drop_chance());
             boss.set_drop_items(ex.get_drop_items());
-            boss.set_is_boss(ex.get_is_boss());
+            boss.set_is_boss(ex.getIsBoss());
 
             //add boss to list
             bossList[i] = boss;

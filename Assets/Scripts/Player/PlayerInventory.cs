@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
     private Transform[] hexes;
 
     public TMP_Text health_text, damage_text, armor_text, strength_text, agility_text, intelligence_text,
-    level_text, exp_text, moves_text, heal_text, crit_chance_text;
+    level_text, exp_text, moves_text, heal_text, critChance_text;
 
     public GameObject panel;
     private GameObject player;
@@ -89,17 +89,17 @@ public class PlayerInventory : MonoBehaviour
         PlayerStats stats = player.GetComponent<PlayerStats>();
 
         //set stats
-        health_text.SetText("Health: " + stats.get_health());
-        damage_text.SetText("Damage: " + stats.get_damage());
-        armor_text.SetText("Armor: " + stats.get_armor() * Coefficient.armor);
-        strength_text.SetText("Strength: " + stats.get_strength());
-        agility_text.SetText("Agility: " + stats.get_agility());
-        intelligence_text.SetText("Intelligence: " + stats.get_intelligence());
-        exp_text.SetText("Experience: " + stats.get_exp() + "/" + stats.get_needed_exp());
-        crit_chance_text.SetText("Crit chance: " + stats.get_crit() * 100 + "%");
-        moves_text.SetText("Moves: " + stats.get_moves());
-        heal_text.SetText("Heal: " + stats.get_heal());
-        level_text.SetText("Level: " + stats.get_level());
+        health_text.SetText("Health: " + stats.getHealth());
+        damage_text.SetText("Damage: " + stats.getDamage());
+        armor_text.SetText("Armor: " + stats.getArmor() * Coefficient.armor);
+        strength_text.SetText("Strength: " + stats.getStrength());
+        agility_text.SetText("Agility: " + stats.getAgility());
+        intelligence_text.SetText("Intelligence: " + stats.getIntelligence());
+        exp_text.SetText("Experience: " + stats.getExp() + "/" + stats.getNeededExp());
+        critChance_text.SetText("Crit chance: " + stats.getCrit() * 100 + "%");
+        moves_text.SetText("Moves: " + stats.getMoves());
+        heal_text.SetText("Heal: " + stats.getHeal());
+        level_text.SetText("Level: " + stats.getLevel());
     }
 
     //get current new item
@@ -254,7 +254,7 @@ public class PlayerInventory : MonoBehaviour
         //get player stats
         PlayerStats stats = player.GetComponent<PlayerStats>();
         //get player items
-        List<Item> items = stats.get_items();
+        List<Item> items = stats.getItems();
        
         //get slots
         GameObject head_slot = GameObject.FindGameObjectsWithTag("head_slot")[0];
@@ -330,8 +330,8 @@ public class PlayerInventory : MonoBehaviour
         if (item.intelligence != 0) {
             text += "Intelligence: " + item.intelligence + "\n";
         }
-        if (item.crit_chance != 0) {
-            text += "Crit chance: " + item.crit_chance * 100 + "%\n";
+        if (item.critChance != 0) {
+            text += "Crit chance: " + item.critChance * 100 + "%\n";
         }
         if (item.moves != 0) {
             text += "Moves: " + item.moves + "\n";
@@ -341,7 +341,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //open new item recieve window
-    public void open_new_item_panel(Item new_item) {
+    public void openNewItemPanel(Item new_item) {
         //set new item name text
         new_item_name_text.SetText(new_item.itemName);
         //set new item image
@@ -438,7 +438,7 @@ public class PlayerInventory : MonoBehaviour
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
 
         //check if there is already item of this type equipped
-        foreach (Item item in playerStats.get_items()) {
+        foreach (Item item in playerStats.getItems()) {
             if (item.itemType == new_item_type) {
                 return item;
             }
@@ -454,7 +454,7 @@ public class PlayerInventory : MonoBehaviour
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
 
         //check if there is already item of this type equipped
-        foreach (Item item in playerStats.get_items()) {
+        foreach (Item item in playerStats.getItems()) {
             if (item.itemType == item_type) {
                 return item;
             }

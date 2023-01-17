@@ -26,7 +26,7 @@ public class Item : ScriptableObject {
     public int health;
     public int damage;
     public double armor;
-    public double crit_chance;
+    public double critChance;
     public int moves;
 
     //equip item
@@ -34,17 +34,17 @@ public class Item : ScriptableObject {
         //get player stats
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
         //add item stats to player bonus stats
-        playerStats.add_bonus_strength(strength);
-        playerStats.add_bonus_agility(agility);
-        playerStats.add_bonus_intelligence(intelligence);
-        playerStats.add_bonus_health(health);
-        playerStats.add_bonus_damage(damage);
-        playerStats.add_bonus_armor(armor);
-        playerStats.add_bonus_crit_chance(crit_chance);
-        playerStats.add_bonus_moves(moves);
+        playerStats.addBonusStrength(strength);
+        playerStats.addBonusAgility(agility);
+        playerStats.addBonusIntelligence(intelligence);
+        playerStats.addBonusHealth(health);
+        playerStats.addBonusDamage(damage);
+        playerStats.addBonusArmor(armor);
+        playerStats.addBonusCritChance(critChance);
+        playerStats.addBonusMoves(moves);
 
         //add item to player inventory
-        playerStats.add_item(this);
+        playerStats.aaddItem(this);
     }
 
     //unequip item
@@ -52,17 +52,17 @@ public class Item : ScriptableObject {
         //get player stats
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
         //remove item stats from player bonus stats
-        playerStats.remove_bonus_strength(strength);
-        playerStats.remove_bonus_agility(agility);
-        playerStats.remove_bonus_intelligence(intelligence);
-        playerStats.remove_bonus_health(health);
-        playerStats.remove_bonus_damage(damage);
-        playerStats.remove_bonus_armor(armor);
-        playerStats.remove_bonus_crit_chance(crit_chance);
-        playerStats.remove_bonus_moves(moves);
+        playerStats.removeBonusStrength(strength);
+        playerStats.removeBonusAgility(agility);
+        playerStats.removeBonusIntelligence(intelligence);
+        playerStats.removeBonusHealth(health);
+        playerStats.removeBonusDamage(damage);
+        playerStats.removeBonusArmor(armor);
+        playerStats.removeBonusCritChance(critChance);
+        playerStats.removeBonusMoves(moves);
 
         //remove item from player inventory
-        playerStats.remove_item(this);
+        playerStats.removeItem(this);
 
         //destroy item
         Destroy(this);

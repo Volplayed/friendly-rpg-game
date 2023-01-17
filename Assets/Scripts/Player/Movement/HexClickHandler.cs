@@ -23,12 +23,12 @@ public class HexClickHandler : MonoBehaviour
     //is moving avaliable?
     private bool avaliable = true;
     private bool in_inventory = false;
-    private bool has_turn = false;
+    private bool hasTurn = false;
 
     //for starting fight
-    private bool other_player = false;
-    private GameObject other_player_object;
-    private PlayerStats other_player_stats;
+    private bool otherPlayer = false;
+    private GameObject otherPlayer_object;
+    private PlayerStats otherPlayerStats;
 
     void Start()
     {
@@ -84,16 +84,16 @@ public class HexClickHandler : MonoBehaviour
             GameObject other = col.gameObject.transform.parent.gameObject;
 
             //if other player is not in fight
-            if (!other.GetComponent<PlayerStats>().get_in_fight())
+            if (!other.GetComponent<PlayerStats>().getInFight())
             {
                 //set other player to true
-                other_player = true;
+                otherPlayer = true;
 
                 //get collided object parent
-                other_player_object = other;
+                otherPlayer_object = other;
 
                 //get other player stats
-                other_player_stats = other.GetComponent<PlayerStats>();
+                otherPlayerStats = other.GetComponent<PlayerStats>();
             }
         }
     }
@@ -119,13 +119,13 @@ public class HexClickHandler : MonoBehaviour
         else if (col.gameObject.tag == "player_collider")
         {
             //set other player to false
-            other_player = false;
+            otherPlayer = false;
 
             //set other player object to null
-            other_player_object = null;
+            otherPlayer_object = null;
 
             //set other player stats to null
-            other_player_stats = null;
+            otherPlayerStats = null;
         }
     }
 
@@ -179,7 +179,7 @@ public class HexClickHandler : MonoBehaviour
     public void setHasTurn(bool what) {
         //find hex renderer
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        has_turn = what;
+        hasTurn = what;
         Collider2D collider = gameObject.GetComponent<Collider2D>();
         //show if not a wall and own turn
         if (what){
@@ -214,29 +214,29 @@ public class HexClickHandler : MonoBehaviour
     //click handler
     void OnMouseDown()
     {
-        Debug.Log(other_player);
+        Debug.Log(otherPlayer);
         Debug.Log(!in_inventory);
         Debug.Log(avaliable);
         
         //if is avaliable and inventory is not open move player
-        if (avaliable && !in_inventory && has_turn && !other_player)
+        if (avaliable && !in_inventory && hasTurn && !otherPlayer)
         {
             go_to_hex();
         }
         //if other player is in hex and enemy is not in fight or can be attacked and inventory is not open start fight
-        else if (other_player && other_player_stats.get_can_be_attacked() && !in_inventory && has_turn)
+        else if (otherPlayer && otherPlayerStats.getCanBeAttacked() && !in_inventory && hasTurn)
         {
             //decrease player current moves by 1
             playerTurns.change_current_moves(-1);
             //start fight with other player
-            playerStats.start_fight(other_player_object);
+            playerStats.startFight(otherPlayer_object);
         }
             
     }
     //start fight with some chance
     private void random_fight_check(double chance) {
         if (chance >= Random.Range(0f, 1)) {
-            playerStats.start_fight(enemyList.get_random_enemy());
+            playerStats.startFight(enemyList.get_random_enemy());
         }
     }
 

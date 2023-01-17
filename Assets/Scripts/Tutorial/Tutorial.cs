@@ -70,7 +70,7 @@ public class Tutorial : MonoBehaviour
         }
 
         //give player 9 exp
-        playerStats.set_exp(9);
+        playerStats.setExp(9);
     }
 
     //enable hex click handlers
@@ -278,7 +278,7 @@ public class Tutorial : MonoBehaviour
             }
         }
         //if first fight and in fight
-        else if (firstFight && playerStats.get_in_fight()) {
+        else if (firstFight && playerStats.getInFight()) {
             //set first fight to false
             firstFight = false;
 
@@ -286,7 +286,7 @@ public class Tutorial : MonoBehaviour
             openTutorialPanel();
         }
         //if first fight finish and exp changed
-        else if (firstFightFinish && playerStats.get_exp() != 9) {
+        else if (firstFightFinish && playerStats.getExp() != 9) {
             //set first fight finish to false
             firstFightFinish = false;
 
@@ -298,10 +298,10 @@ public class Tutorial : MonoBehaviour
     //end turn and open tutorial panel if first end turn
     public void endTurnAndSkipOtherPlayerTurn() {
         //end turn
-        playerTurns.next_turn();
+        playerTurns.nextTurn();
 
         //end turn for second player
-        playerTurns.next_turn(); 
+        playerTurns.nextTurn(); 
     }
 
     //close tutorial panel and enable all hexes and set fight chance to 100

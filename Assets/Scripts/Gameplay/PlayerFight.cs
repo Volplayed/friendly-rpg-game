@@ -56,42 +56,42 @@ public class PlayerFight : MonoBehaviour
         Slider enemySlider = enemyHealthBar.GetComponent<Slider>();
 
         //set player health to max
-        playerStats.set_health(playerStats.get_max_health());
+        playerStats.setHealth(playerStats.getMaxHealth());
 
         //set values of current player
-        slider.maxValue = playerStats.get_max_health();
-        slider.value = playerStats.get_health();
+        slider.maxValue = playerStats.getMaxHealth();
+        slider.value = playerStats.getHealth();
 
-        playerHealthText.SetText(playerStats.get_health() + "/" + playerStats.get_max_health());
-        playerNameText.SetText(playerStats.get_player_name());
+        playerHealthText.SetText(playerStats.getHealth() + "/" + playerStats.getMaxHealth());
+        playerNameText.SetText(playerStats.getPlayerName());
 
         //if fighting with enemy not player
-        if (playerStats.get_enemy() != null) {
+        if (playerStats.getEnemy() != null) {
             //get enemy
-            Enemy enemy = playerStats.get_enemy();
+            Enemy enemy = playerStats.getEnemy();
 
             //set enemy health to max
             enemy.set_starting_health();
 
             //set enemy values
-            enemySlider.maxValue = enemy.get_max_health();
-            enemySlider.value = enemy.get_health();
+            enemySlider.maxValue = enemy.getMaxHealth();
+            enemySlider.value = enemy.getHealth();
 
-            enemyHealthText.SetText(enemy.get_health() + "/" + enemy.get_max_health());
-            enemyNameText.SetText(enemy.get_enemy_name());
+            enemyHealthText.SetText(enemy.getHealth() + "/" + enemy.getMaxHealth());
+            enemyNameText.SetText(enemy.getEnemy_name());
         }
         //if fighting with player
-        else if (playerStats.get_enemy_player() != null) {
+        else if (playerStats.getEnemyPlayer() != null) {
             //get enemy player
-            GameObject other_player = playerStats.get_enemy_player();
-            PlayerStats other_playerStats = other_player.GetComponent<PlayerStats>();
+            GameObject otherPlayer = playerStats.getEnemyPlayer();
+            PlayerStats otherPlayerStats = otherPlayer.GetComponent<PlayerStats>();
 
             //set enemy player values
-            enemySlider.maxValue = other_playerStats.get_max_health();
-            enemySlider.value = other_playerStats.get_health();
+            enemySlider.maxValue = otherPlayerStats.getMaxHealth();
+            enemySlider.value = otherPlayerStats.getHealth();
 
-            enemyHealthText.SetText(other_playerStats.get_health() + "/" + other_playerStats.get_max_health());
-            enemyNameText.SetText(other_playerStats.get_player_name());
+            enemyHealthText.SetText(otherPlayerStats.getHealth() + "/" + otherPlayerStats.getMaxHealth());
+            enemyNameText.SetText(otherPlayerStats.getPlayerName());
         }
 
     }
@@ -105,42 +105,42 @@ public class PlayerFight : MonoBehaviour
         Slider enemySlider = enemyHealthBar.GetComponent<Slider>();
 
         //set values of current player
-        slider.maxValue = playerStats.get_max_health();
-        slider.value = playerStats.get_health();
+        slider.maxValue = playerStats.getMaxHealth();
+        slider.value = playerStats.getHealth();
 
-        playerHealthText.SetText(playerStats.get_health() + "/" + playerStats.get_max_health());
-        playerNameText.SetText(playerStats.get_player_name());
+        playerHealthText.SetText(playerStats.getHealth() + "/" + playerStats.getMaxHealth());
+        playerNameText.SetText(playerStats.getPlayerName());
 
         //if fighting with enemy not player
-        if (playerStats.get_enemy() != null) {
+        if (playerStats.getEnemy() != null) {
             //get enemy
-            Enemy enemy = playerStats.get_enemy();;
+            Enemy enemy = playerStats.getEnemy();;
 
             //set enemy values
-            enemySlider.maxValue = enemy.get_max_health();
-            enemySlider.value = enemy.get_health();
+            enemySlider.maxValue = enemy.getMaxHealth();
+            enemySlider.value = enemy.getHealth();
 
-            enemyHealthText.SetText(enemy.get_health() + "/" + enemy.get_max_health());
-            enemyNameText.SetText(enemy.get_enemy_name());
+            enemyHealthText.SetText(enemy.getHealth() + "/" + enemy.getMaxHealth());
+            enemyNameText.SetText(enemy.getEnemy_name());
         }
         //if fighting with player
-        else if (playerStats.get_enemy_player() != null) {
+        else if (playerStats.getEnemyPlayer() != null) {
             //get enemy player
-            GameObject other_player = playerStats.get_enemy_player();
-            PlayerStats other_playerStats = other_player.GetComponent<PlayerStats>();
+            GameObject otherPlayer = playerStats.getEnemyPlayer();
+            PlayerStats otherPlayerStats = otherPlayer.GetComponent<PlayerStats>();
 
             //set enemy player values
-            enemySlider.maxValue = other_playerStats.get_max_health();
-            enemySlider.value = other_playerStats.get_health();
+            enemySlider.maxValue = otherPlayerStats.getMaxHealth();
+            enemySlider.value = otherPlayerStats.getHealth();
 
-            enemyHealthText.SetText(other_playerStats.get_health() + "/" + other_playerStats.get_max_health());
-            enemyNameText.SetText(other_playerStats.get_player_name());
+            enemyHealthText.SetText(otherPlayerStats.getHealth() + "/" + otherPlayerStats.getMaxHealth());
+            enemyNameText.SetText(otherPlayerStats.getPlayerName());
         }
 
     }
 
     //make buttons interactable or not
-    public void set_button_interactable(bool interactable) {
+    public void setButtonIteractable(bool interactable) {
         //make buttons interactable or not
         attackButton.GetComponent<Button>().interactable = interactable;
         healButton.GetComponent<Button>().interactable = interactable;
@@ -152,17 +152,17 @@ public class PlayerFight : MonoBehaviour
     }
 
     //make buttons interactable after delay
-    public void set_button_interactable_after_delay(float delay = 0.3f) {
+    public void setButtonInteractableAfterDelay(float delay = 0.3f) {
         //start coroutine
-        StartCoroutine(set_button_interactable_after_delay_coroutine(delay));
+        StartCoroutine(setButtonInteractableAfterDelay_coroutine(delay));
     }
     //make buttons interactable after delay coroutine
-    private IEnumerator set_button_interactable_after_delay_coroutine(float delay) {
+    private IEnumerator setButtonInteractableAfterDelay_coroutine(float delay) {
         //wait for delay
         yield return new WaitForSeconds(delay);
 
         //make buttons interactable
-        set_button_interactable(true);
+        setButtonIteractable(true);
     }
 
     //buttons functions
@@ -172,9 +172,9 @@ public class PlayerFight : MonoBehaviour
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
 
         //attack enemy
-        if (playerStats.get_enemy() != null) {
+        if (playerStats.getEnemy() != null) {
             //get enemy
-            Enemy enemy = playerStats.get_enemy();
+            Enemy enemy = playerStats.getEnemy();
             //attack enemy and get damage dealt and create popup text with value of damage dealt
             //position of popup text is position of enemy health bar
             createDamagePopUpText(enemyHealthBar.transform.position, playerStats.attack(enemy));
@@ -185,26 +185,26 @@ public class PlayerFight : MonoBehaviour
             
             
             //make buttons not interactable
-            set_button_interactable(false);
+            setButtonIteractable(false);
 
             //check if enemy did not died
-            if (!enemy.check_death(player)) {
+            if (!enemy.checkDeath(player)) {
                 //if it is an enemy ai act
                 act();
             }
         }
         //attack player
-        else if (playerStats.get_enemy_player() != null) {
+        else if (playerStats.getEnemyPlayer() != null) {
             //get enemy player
-            GameObject other_player = playerStats.get_enemy_player();
-            PlayerStats other_playerStats = other_player.GetComponent<PlayerStats>();
+            GameObject otherPlayer = playerStats.getEnemyPlayer();
+            PlayerStats otherPlayerStats = otherPlayer.GetComponent<PlayerStats>();
 
             //attack enemy and get damage dealt and create popup text with value of damage dealt
             //position of popup text is position of enemy health bar
-            createDamagePopUpText(enemyHealthBar.transform.position, playerStats.attack(other_player));
+            createDamagePopUpText(enemyHealthBar.transform.position, playerStats.attack(otherPlayer));
 
             //make buttons not interactable
-            set_button_interactable(false);
+            setButtonIteractable(false);
 
             //set changed values
             setValues();
@@ -225,7 +225,7 @@ public class PlayerFight : MonoBehaviour
         setValues();
 
         //make buttons not interactable
-        set_button_interactable(false);
+        setButtonIteractable(false);
 
         //if it is an enemy ai act
         act();
@@ -237,43 +237,43 @@ public class PlayerFight : MonoBehaviour
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
         
         //make buttons not interactable
-        set_button_interactable(false);
+        setButtonIteractable(false);
         //try to escape
         //if vs enemy player
-        if (playerStats.get_enemy_player() != null) {
+        if (playerStats.getEnemyPlayer() != null) {
             //get escape chance vs player
-            double escape_chance = playerStats.get_escape_chance_vs_player(playerStats.get_enemy_player());
+            double escapeChance = playerStats.getEscapeChanceVsPlayer(playerStats.getEnemyPlayer());
 
             //escape from enemy player and create popup text with value of escape
             //position of popup text is position of escape button
             createEscapePopUpText(
                 retreatButton.transform.position,
-                playerStats.escape(playerStats.get_enemy_player()),
-                escape_chance //escape chance vs player
+                playerStats.escape(playerStats.getEnemyPlayer()),
+                escapeChance //escape chance vs player
                 );
             
         }
         //if vs enemy ai and is not boss
-        else if (playerStats.get_enemy() != null && !playerStats.get_enemy().get_is_boss()) {
+        else if (playerStats.getEnemy() != null && !playerStats.getEnemy().getIsBoss()) {
             //get escape chance vs enemy
-            double escape_chance = playerStats.get_escape_chance_vs_enemy();
+            double escapeChance = playerStats.getEscapeChanceVsEnemy();
 
             //escape from enemy ai and create popup text with value of escape
             //position of popup text is position of escape button
             createEscapePopUpText(
                 retreatButton.transform.position,
                 playerStats.escape(),
-                escape_chance //escape chance vs enemy
+                escapeChance //escape chance vs enemy
                 );
         }
         //if vs enemy ai and is boss
-        else if (playerStats.get_enemy() != null && playerStats.get_enemy().get_is_boss()) {
+        else if (playerStats.getEnemy() != null && playerStats.getEnemy().getIsBoss()) {
             //create unavaliable to escape popup text
             //position of popup text is position of escape button
             createEscapeUnavailablePopUpText(retreatButton.transform.position);
 
             //make buttons interactable without delay
-            set_button_interactable(true);
+            setButtonIteractable(true);
         }
         
     }
@@ -281,7 +281,7 @@ public class PlayerFight : MonoBehaviour
     //skip turn
     public void player_skip_turn() {
         //make buttons not interactable
-        set_button_interactable(false);
+        setButtonIteractable(false);
 
         //if it is an enemy ai act
         act();
@@ -304,12 +304,12 @@ public class PlayerFight : MonoBehaviour
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
 
         //if enemy is ai not other player
-        if (playerStats.get_enemy() != null) {
+        if (playerStats.getEnemy() != null) {
             //get enemy
-            Enemy enemy = playerStats.get_enemy();
+            Enemy enemy = playerStats.getEnemy();
 
             //attack if enought hp or already healed
-            if (enemy.get_health() >= enemy.get_max_health() * 0.5 || enemy.get_healed()) {               
+            if (enemy.getHealth() >= enemy.getMaxHealth() * 0.5 || enemy.getHealed()) {               
                 //attack player and get damage dealt and create popup text with value of damage dealt
                 //position of popup text is position of player health bar
                 createDamagePopUpText(playerHealthBar.transform.position, enemy.attack(player));
@@ -320,7 +320,7 @@ public class PlayerFight : MonoBehaviour
                 //set healed to false
                 enemy.set_healed(false);
             }
-            else if (enemy.get_health() < enemy.get_max_health() * 0.5 && !enemy.get_healed()) {
+            else if (enemy.getHealth() < enemy.getMaxHealth() * 0.5 && !enemy.getHealed()) {
                 //create heal popup text with value of heal amount
                 //position of popup text is position of enemy health bar
                 createHealPopUpText(enemyHealthBar.transform.position, enemy.heal());
@@ -401,7 +401,7 @@ public class PlayerFight : MonoBehaviour
     }
 
     //escape success popUp text create function
-    public PopUpText createEscapePopUpText(Vector3 position, bool escaped, double escape_chance)
+    public PopUpText createEscapePopUpText(Vector3 position, bool escaped, double escapeChance)
     {
         //get playerUi
         GameObject playerUi = GameObject.FindGameObjectsWithTag("player_ui")[0];
@@ -423,7 +423,7 @@ public class PlayerFight : MonoBehaviour
         //if failed to escape setup fail popup
         else {
             //escape string
-            string escapeString = "FAILED " + (escape_chance * 100).ToString() + "%"; //escape chance in %
+            string escapeString = "FAILED " + (escapeChance * 100).ToString() + "%"; //escape chance in %
 
             //setup popUp to disappear
             popUp.Setup(escapeString, escapeFailColor);

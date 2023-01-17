@@ -9,14 +9,14 @@ public class Enemy : ScriptableObject {
 
     public int level;
     //stats
-    public int max_health;
+    public int maxHealth;
     private int health;
     public int damage;
     public double armor;
     public int heal_value;
 
     [Range(0, 1)]
-    public double crit_chance;
+    public double critChance;
     
     //chance to drop item
     [Range(0, 1)]
@@ -42,7 +42,7 @@ public class Enemy : ScriptableObject {
         int value = damage;
 
         //crit
-        if (UnityEngine.Random.Range(0f, 1) <= crit_chance) {
+        if (UnityEngine.Random.Range(0f, 1) <= critChance) {
             value = Convert.ToInt32(value * 1.6);
 
             //set did last attack crit to true
@@ -70,7 +70,7 @@ public class Enemy : ScriptableObject {
     }
 
     //enemy death
-    public bool check_death(GameObject player) {
+    public bool checkDeath(GameObject player) {
         if (health <= 0) {
             die(player);
             return true;
@@ -81,17 +81,17 @@ public class Enemy : ScriptableObject {
     private void die(GameObject player) {
         PlayerStats stats = player.GetComponent<PlayerStats>();
         //finish fight
-        stats.finish_fight();
+        stats.finishFight();
 
         //if enemy is not a boss
         if (!is_boss) {
             //drop item if drop chance is met
             if (UnityEngine.Random.Range(0f, 1) <= drop_chance) {
                 //drop item and open new item window
-                stats.open_new_item_panel(drop_item());
+                stats.openNewItemPanel(drop_item());
             }
             //give exp to player based on level and some additional random value
-            stats.give_exp(level * Coefficient.expPerEnemyLevel + UnityEngine.Random.Range(0, 3));
+            stats.giveExp(level * Coefficient.expPerEnemyLevel + UnityEngine.Random.Range(0, 3));
         }
         //if enemy is a boss
         else if (is_boss) {
@@ -101,31 +101,31 @@ public class Enemy : ScriptableObject {
     }
 
     //get functions
-    public int get_health() {
+    public int getHealth() {
         return health;
     }
-    public int get_damage() {
+    public int getDamage() {
         return damage;
     }
-    public double get_armor() {
+    public double getArmor() {
         return armor;
     }
-    public double get_crit_chance() {
-        return crit_chance;
+    public double getCritChance() {
+        return critChance;
     }
-    public int get_max_health() {
-        return max_health;
+    public int getMaxHealth() {
+        return maxHealth;
     }
-    public int get_level() {
+    public int getLevel() {
         return level;
     }
-    public string get_enemy_name() {
+    public string getEnemy_name() {
         return enemyName;
     }
-    public bool get_healed() {
+    public bool getHealed() {
         return healed;
     }
-    public int get_heal() {
+    public int getHeal() {
         return heal_value;
     }
     public double get_drop_chance() {
@@ -134,16 +134,16 @@ public class Enemy : ScriptableObject {
     public Item[] get_drop_items() {
         return drop_items;
     }
-    public bool get_is_boss() {
+    public bool getIsBoss() {
         return is_boss;
     }
 
     //set functions
     public void set_starting_health() {
-        health = max_health;
+        health = maxHealth;
     }
-    public void set_max_health(int value) {
-        max_health = value;
+    public void set_maxHealth(int value) {
+        maxHealth = value;
     }
     public void set_damage(int value) {
         damage = value;
@@ -151,8 +151,8 @@ public class Enemy : ScriptableObject {
     public void set_armor(double value) {
         armor = value;
     }
-    public void set_crit_chance(double value) {
-        crit_chance = value;
+    public void set_critChance(double value) {
+        critChance = value;
     }
     public void set_level(int value) {
         level = value;
