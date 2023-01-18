@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Armored Giant
   level: 9
-  max_health: 50
+  maxHealth: 50
   damage: 19
   armor: 5
-  heal_value: 21
-  crit_chance: 0.10000000149011612
-  drop_chance: 0.8999999761581421
-  drop_items:
+  healValue: 21
+  critChance: 0.10000000149011612
+  dropChance: 0.8999999761581421
+  dropItems:
   - {fileID: 11400000, guid: 30ee6f3403a394c49bc5b9671b7f57e0, type: 2}
   - {fileID: 11400000, guid: 534e751a71a014c4c917adfc324fe4ad, type: 2}
   - {fileID: 11400000, guid: e3001efba6b5da247986dc22f60bbf1e, type: 2}
-  is_boss: 0
+  isBoss: 0

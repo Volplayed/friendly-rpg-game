@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Magma Golem
   level: 8
-  max_health: 57
+  maxHealth: 57
   damage: 18
   armor: 0.6
-  heal_value: 18
-  crit_chance: 0.10000000149011612
-  drop_chance: 0.8500000238418579
-  drop_items:
+  healValue: 18
+  critChance: 0.10000000149011612
+  dropChance: 0.8500000238418579
+  dropItems:
   - {fileID: 11400000, guid: 91ab78c20c061014f9f4ffa4c053f691, type: 2}
   - {fileID: 11400000, guid: ca9c5c58b8c3ee94b9e0c2cc2b4a53ce, type: 2}
   - {fileID: 11400000, guid: 2d7ba46926e1be24a9232e0814d2b5a8, type: 2}
-  is_boss: 0
+  isBoss: 0

@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Skeleton
   level: 3
-  max_health: 16
+  maxHealth: 16
   damage: 5
   armor: 0.1
-  heal_value: 3
-  crit_chance: 0.30000001192092896
-  drop_chance: 0.800000011920929
-  drop_items:
+  healValue: 3
+  critChance: 0.30000001192092896
+  dropChance: 0.800000011920929
+  dropItems:
   - {fileID: 11400000, guid: 6799140bd1bfaf343bbd0a1c6c52ccce, type: 2}
   - {fileID: 11400000, guid: bf2e7762911350f49b51a08e6a4e56cf, type: 2}
   - {fileID: 11400000, guid: 98d10582f4d8c034cb4968595275184b, type: 2}
   - {fileID: 11400000, guid: f6102869db0f9b34aa19633e852ea058, type: 2}
-  is_boss: 0
+  isBoss: 0

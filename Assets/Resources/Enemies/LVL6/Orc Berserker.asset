@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Orc Berserker
   level: 6
-  max_health: 46
+  maxHealth: 46
   damage: 14
   armor: 2
-  heal_value: 9
-  crit_chance: 0.10000000149011612
-  drop_chance: 0.8999999761581421
-  drop_items:
+  healValue: 9
+  critChance: 0.10000000149011612
+  dropChance: 0.8999999761581421
+  dropItems:
   - {fileID: 11400000, guid: 849b356739c54c44d911618a133ae942, type: 2}
   - {fileID: 11400000, guid: 2af56c36e67c93540898f38e7c653ba9, type: 2}
   - {fileID: 11400000, guid: 5e558acaefa3edf4f9c3c797d718239f, type: 2}
   - {fileID: 11400000, guid: da3f7caa41b957f46b0bc4fe8dd84597, type: 2}
-  is_boss: 0
+  isBoss: 0

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Hydra
   level: 10
-  max_health: 71
+  maxHealth: 71
   damage: 25
   armor: 2
-  heal_value: 30
-  crit_chance: 0.20000000298023224
-  drop_chance: 0.800000011920929
-  drop_items:
+  healValue: 30
+  critChance: 0.20000000298023224
+  dropChance: 0.800000011920929
+  dropItems:
   - {fileID: 11400000, guid: 534e751a71a014c4c917adfc324fe4ad, type: 2}
   - {fileID: 11400000, guid: 25e3b0d52cd54b44e89adecccc6cac5a, type: 2}
   - {fileID: 11400000, guid: e3001efba6b5da247986dc22f60bbf1e, type: 2}
-  is_boss: 0
+  isBoss: 0

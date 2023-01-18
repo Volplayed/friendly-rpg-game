@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Fire Sorcerer
   level: 7
-  max_health: 40
+  maxHealth: 40
   damage: 19
   armor: 0.4
-  heal_value: 16
-  crit_chance: 0.20000000298023224
-  drop_chance: 0.8999999761581421
-  drop_items:
+  healValue: 16
+  critChance: 0.20000000298023224
+  dropChance: 0.8999999761581421
+  dropItems:
   - {fileID: 11400000, guid: 5e558acaefa3edf4f9c3c797d718239f, type: 2}
   - {fileID: 11400000, guid: be9bf11ddc8135648892bfae5b5f3f47, type: 2}
   - {fileID: 11400000, guid: 2af56c36e67c93540898f38e7c653ba9, type: 2}
-  is_boss: 0
+  isBoss: 0

@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Wolf
   level: 2
-  max_health: 14
+  maxHealth: 14
   damage: 7
   armor: 0.2
-  heal_value: 4
-  crit_chance: 0.75
-  drop_chance: 0.8500000238418579
-  drop_items:
+  healValue: 4
+  critChance: 0.75
+  dropChance: 0.8500000238418579
+  dropItems:
   - {fileID: 11400000, guid: c982b9f70db2ce7468bc7df793b4b8da, type: 2}
   - {fileID: 11400000, guid: 402075703fe87c24388b53c1fe1d9292, type: 2}
   - {fileID: 11400000, guid: 2160e8885e90ee64190d6cf15cbae2d3, type: 2}
   - {fileID: 11400000, guid: ca58defffc487ff4fb4f71fcee64d206, type: 2}
-  is_boss: 0
+  isBoss: 0

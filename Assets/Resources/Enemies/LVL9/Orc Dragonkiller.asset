@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Orc Dragonkiller
   level: 9
-  max_health: 62
+  maxHealth: 62
   damage: 22
   armor: 1.6
-  heal_value: 24
-  crit_chance: 0.30000001192092896
-  drop_chance: 0.8999999761581421
-  drop_items:
+  healValue: 24
+  critChance: 0.30000001192092896
+  dropChance: 0.8999999761581421
+  dropItems:
   - {fileID: 11400000, guid: 2d7ba46926e1be24a9232e0814d2b5a8, type: 2}
   - {fileID: 11400000, guid: 534e751a71a014c4c917adfc324fe4ad, type: 2}
   - {fileID: 11400000, guid: e3001efba6b5da247986dc22f60bbf1e, type: 2}
-  is_boss: 0
+  isBoss: 0

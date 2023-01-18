@@ -23,5 +23,5 @@ MonoBehaviour:
   health: 0
   damage: 3
   armor: 0
-  crit_chance: 0.1
+  critChance: 0.1
   moves: 0

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: King of the Dead
   level: 0
-  max_health: 250
+  maxHealth: 250
   damage: 10
   armor: 2
-  heal_value: 18
-  crit_chance: 0.20000000298023224
-  drop_chance: 0
-  drop_items: []
-  is_boss: 1
+  healValue: 18
+  critChance: 0
+  dropChance: 0
+  dropItems: []
+  isBoss: 1

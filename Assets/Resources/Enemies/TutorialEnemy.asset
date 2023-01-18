@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Very angry Rat
   level: 1
-  max_health: 12
+  maxHealth: 12
   damage: 3
   armor: 0
-  heal_value: 2
-  crit_chance: 0
-  drop_chance: 1
-  drop_items:
+  healValue: 2
+  critChance: 0
+  dropChance: 1
+  dropItems:
   - {fileID: 11400000, guid: 8184532da946b86449e166dbb25812dc, type: 2}
-  is_boss: 0
+  isBoss: 0

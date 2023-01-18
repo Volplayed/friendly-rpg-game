@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Boar
   level: 1
-  max_health: 10
+  maxHealth: 10
   damage: 5
   armor: 0
-  heal_value: 2
-  crit_chance: 0.4000000059604645
-  drop_chance: 0.75
-  drop_items:
+  healValue: 2
+  critChance: 0.4000000059604645
+  dropChance: 0.75
+  dropItems:
   - {fileID: 11400000, guid: 8c6c65cb5c813bc4ab87a1f70ae7f074, type: 2}
   - {fileID: 11400000, guid: 83a40556fea9b4f459698c5c70bfa110, type: 2}
   - {fileID: 11400000, guid: 2c52a0db5f3243f4e8f18f590bbc3052, type: 2}
   - {fileID: 11400000, guid: 946408f2901cd734fb5400fc7225162d, type: 2}
-  is_boss: 0
+  isBoss: 0
