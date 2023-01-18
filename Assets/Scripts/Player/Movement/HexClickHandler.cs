@@ -57,7 +57,7 @@ public class HexClickHandler : MonoBehaviour
         player.transform.position = vector;
 
         //decrease player current moves by 1
-        playerTurns.change_current_moves(-1);
+        playerTurns.changeCurrentMoves(-1);
 
         //reset all hex colliders
         playerStats.resetHexColliders();
@@ -107,7 +107,7 @@ public class HexClickHandler : MonoBehaviour
         if (col.gameObject.tag == "walls")
         {   
             //if there are still moves left
-            if (playerTurns.moves_left() >= 1) {
+            if (playerTurns.movesLeft() >= 1) {
                 //show hex
                 spriteRenderer.enabled = true;
             }
@@ -227,7 +227,7 @@ public class HexClickHandler : MonoBehaviour
         else if (otherPlayer && otherPlayerStats.getCanBeAttacked() && !inInventory && hasTurn)
         {
             //decrease player current moves by 1
-            playerTurns.change_current_moves(-1);
+            playerTurns.changeCurrentMoves(-1);
             //start fight with other player
             playerStats.startFight(otherPlayerObject);
         }
@@ -258,11 +258,6 @@ public class HexClickHandler : MonoBehaviour
     //reset hex collider
     public void resetCollider() {
         StartCoroutine(resetColliderCotoutine());
-    }
-
-    //set fight chance
-    public void setFightChance(double chance) {
-        fightChance = chance;
     }
 }
 

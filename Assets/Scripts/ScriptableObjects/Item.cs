@@ -44,7 +44,7 @@ public class Item : ScriptableObject {
         playerStats.addBonusMoves(moves);
 
         //add item to player inventory
-        playerStats.aaddItem(this);
+        playerStats.addItem(this);
     }
 
     //unequip item

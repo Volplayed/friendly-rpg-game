@@ -830,7 +830,7 @@ public class PlayerStats : MonoBehaviour
 
     //items management
     //add item to inventory
-    public void aaddItem(Item item) {
+    public void addItem(Item item) {
         //create item instance
         Item item_ = ScriptableObject.CreateInstance<Item>();
 

@@ -164,7 +164,7 @@ public class EnemyList : MonoBehaviour
     }
 
     //get bosses
-    public Enemy[] get_random_boss_list(int player_amount) {
+    public Enemy[] getRandomBossList(int player_amount) {
         //list of copies of bosses
         Enemy[] bossList = new Enemy[player_amount];
 
@@ -199,9 +199,9 @@ public class EnemyList : MonoBehaviour
     }
 
     //next stage
-    public void next_stage(int current_turn) {
+    public void nextStage(int currentTurn) {
         //check if current turn % next enemy list iteration = 0
-        if (current_turn % turns_until_next_enemy_list_iteration == 0) {
+        if (currentTurn % turns_until_next_enemy_list_iteration == 0) {
             //increment current stage
             current_stage_bottom++;
             current_stage_top++;

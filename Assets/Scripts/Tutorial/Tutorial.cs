@@ -362,7 +362,7 @@ public class Tutorial : MonoBehaviour
         openTutorialPanel();
 
         //gain attribute
-        playerTurns.gain_attributes(attribute);
+        playerTurns.gainAttributes(attribute);
 
         //disable all hexes
         enableHexClickHandlers(false);
