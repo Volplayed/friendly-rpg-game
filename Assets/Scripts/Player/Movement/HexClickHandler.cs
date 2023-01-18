@@ -22,12 +22,12 @@ public class HexClickHandler : MonoBehaviour
 
     //is moving avaliable?
     private bool avaliable = true;
-    private bool in_inventory = false;
+    private bool inInventory = false;
     private bool hasTurn = false;
 
     //for starting fight
     private bool otherPlayer = false;
-    private GameObject otherPlayer_object;
+    private GameObject otherPlayerObject;
     private PlayerStats otherPlayerStats;
 
     void Start()
@@ -52,7 +52,7 @@ public class HexClickHandler : MonoBehaviour
         
     }
 
-    public void move_player(Vector3 vector)
+    public void movePlayer(Vector3 vector)
     {
         player.transform.position = vector;
 
@@ -90,7 +90,7 @@ public class HexClickHandler : MonoBehaviour
                 otherPlayer = true;
 
                 //get collided object parent
-                otherPlayer_object = other;
+                otherPlayerObject = other;
 
                 //get other player stats
                 otherPlayerStats = other.GetComponent<PlayerStats>();
@@ -122,7 +122,7 @@ public class HexClickHandler : MonoBehaviour
             otherPlayer = false;
 
             //set other player object to null
-            otherPlayer_object = null;
+            otherPlayerObject = null;
 
             //set other player stats to null
             otherPlayerStats = null;
@@ -151,7 +151,7 @@ public class HexClickHandler : MonoBehaviour
 
     public void setInInventory(bool what) {
 
-        in_inventory = what;
+        inInventory = what;
 
         //if what is false - show
         if (!what) {
@@ -166,13 +166,13 @@ public class HexClickHandler : MonoBehaviour
     }
 
     //set avaliable 
-    public void set_avaliable(bool what) {
+    public void setAvaliable(bool what) {
         //enable hex
         avaliable = what;
     }
 
     //set fight chance
-    public void set_fight_chance(double chance) {
+    public void setFightChance(double chance) {
         fightChance = chance;
     }
 
@@ -196,7 +196,7 @@ public class HexClickHandler : MonoBehaviour
     }
 
 
-    public void go_to_hex()
+    public void goToHex()
     {
         //hex grid
         Grid grid = player.transform.parent.GetComponent<Grid>();
@@ -204,10 +204,10 @@ public class HexClickHandler : MonoBehaviour
         //clicked hex coords
         Vector3Int destination = grid.WorldToCell(transform.position);
 
-        move_player(grid.CellToWorld(destination));
+        movePlayer(grid.CellToWorld(destination));
 
 
-        random_fight_check(fightChance);
+        randomFightCheck(fightChance);
 
     }
 
@@ -215,26 +215,26 @@ public class HexClickHandler : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log(otherPlayer);
-        Debug.Log(!in_inventory);
+        Debug.Log(!inInventory);
         Debug.Log(avaliable);
         
         //if is avaliable and inventory is not open move player
-        if (avaliable && !in_inventory && hasTurn && !otherPlayer)
+        if (avaliable && !inInventory && hasTurn && !otherPlayer)
         {
-            go_to_hex();
+            goToHex();
         }
         //if other player is in hex and enemy is not in fight or can be attacked and inventory is not open start fight
-        else if (otherPlayer && otherPlayerStats.getCanBeAttacked() && !in_inventory && hasTurn)
+        else if (otherPlayer && otherPlayerStats.getCanBeAttacked() && !inInventory && hasTurn)
         {
             //decrease player current moves by 1
             playerTurns.change_current_moves(-1);
             //start fight with other player
-            playerStats.startFight(otherPlayer_object);
+            playerStats.startFight(otherPlayerObject);
         }
             
     }
     //start fight with some chance
-    private void random_fight_check(double chance) {
+    private void randomFightCheck(double chance) {
         if (chance >= Random.Range(0f, 1)) {
             playerStats.startFight(enemyList.get_random_enemy());
         }

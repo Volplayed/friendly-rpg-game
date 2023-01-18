@@ -66,7 +66,7 @@ public class Tutorial : MonoBehaviour
 
         //set avaliable to false for all hexClickHandlers
         foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
-            hexClickHandler.set_avaliable(false);
+            hexClickHandler.setAvaliable(false);
         }
 
         //give player 9 exp
@@ -77,7 +77,7 @@ public class Tutorial : MonoBehaviour
     public void enableHexClickHandlers(bool value) {
         //set avaliable to true for all hexClickHandlers
         foreach (HexClickHandler hexClickHandler in hexClickHandlers) {
-            hexClickHandler.set_avaliable(value);
+            hexClickHandler.setAvaliable(value);
         }
     }
 
@@ -86,7 +86,7 @@ public class Tutorial : MonoBehaviour
         //set avaliable to true for all hexClickHandlers
         foreach (HexClickHandler hexClickHandler_ in hexClickHandlers) {
             if (hexClickHandler_ != hexClickHandler) {
-                hexClickHandler_.set_avaliable(value);
+                hexClickHandler_.setAvaliable(value);
             }
         }
     }
