@@ -413,7 +413,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerFight, Assembly-CSharp
-        m_MethodName: player_attack
+        m_MethodName: playerAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -682,7 +682,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerFight, Assembly-CSharp
-        m_MethodName: player_skip_turn
+        m_MethodName: playerSkipTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -727,7 +727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 3.1145935, y: -4.4658}
+  m_AnchoredPosition: {x: 3.114624, y: -4.4658}
   m_SizeDelta: {x: -7.0192, y: 58.9316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4781488189148296628
@@ -844,7 +844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1532522235768125477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1305,7 +1305,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.3709106, y: -0.45679855}
   m_SizeDelta: {x: -19.9903, y: -13.2515}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1471,7 +1471,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerTurns, Assembly-CSharp
-        m_MethodName: next_turn
+        m_MethodName: nextTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1591,7 +1591,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.3709106, y: -0.45679855}
   m_SizeDelta: {x: -19.9903, y: -13.2515}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2240,7 +2240,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerFight, Assembly-CSharp
-        m_MethodName: player_escape
+        m_MethodName: playerEscape
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2600,7 +2600,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerFight, Assembly-CSharp
-        m_MethodName: player_heal
+        m_MethodName: playerHeal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

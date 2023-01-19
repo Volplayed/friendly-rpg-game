@@ -335,7 +335,7 @@ public class Tutorial : MonoBehaviour
     //attack enemy and show tutorial panel if first attack
     public void attackEnemyAndShowTutorialPanel() {
         //attack enemy
-        playerFight.player_attack();
+        playerFight.playerAttack();
 
         //if first attack
         if (firstAttack) {

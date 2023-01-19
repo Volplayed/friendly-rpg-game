@@ -95,7 +95,7 @@ public class PlayerStats : MonoBehaviour
 
         //search for level up text
         foreach (TMP_Text text in levelUpTexts) {
-            if (text.gameObject.tag == "levelText") {
+            if (text.gameObject.tag == "level_text") {
                 levelUpText = text;
             }
         }

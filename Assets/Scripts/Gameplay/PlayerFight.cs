@@ -154,10 +154,10 @@ public class PlayerFight : MonoBehaviour
     //make buttons interactable after delay
     public void setButtonInteractableAfterDelay(float delay = 0.3f) {
         //start coroutine
-        StartCoroutine(setButtonInteractableAfterDelay_coroutine(delay));
+        StartCoroutine(setButtonInteractableAfterDelayCoroutine(delay));
     }
     //make buttons interactable after delay coroutine
-    private IEnumerator setButtonInteractableAfterDelay_coroutine(float delay) {
+    private IEnumerator setButtonInteractableAfterDelayCoroutine(float delay) {
         //wait for delay
         yield return new WaitForSeconds(delay);
 
@@ -166,7 +166,7 @@ public class PlayerFight : MonoBehaviour
     }
 
     //buttons functions
-    public void player_attack() {
+    public void playerAttack() {
         //get player
         GameObject player = playerTurns.getCurrentPlayer();
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
@@ -212,7 +212,7 @@ public class PlayerFight : MonoBehaviour
         
     }
 
-    public void player_heal() {
+    public void playerHeal() {
         //get player
         GameObject player = playerTurns.getCurrentPlayer();
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
@@ -231,7 +231,7 @@ public class PlayerFight : MonoBehaviour
         act();
     }
 
-    public void player_escape() {
+    public void playerEscape() {
         //get player
         GameObject player = playerTurns.getCurrentPlayer();
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
@@ -279,7 +279,7 @@ public class PlayerFight : MonoBehaviour
     }
 
     //skip turn
-    public void player_skip_turn() {
+    public void playerSkipTurn() {
         //make buttons not interactable
         setButtonIteractable(false);
 

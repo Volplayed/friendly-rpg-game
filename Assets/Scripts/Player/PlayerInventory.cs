@@ -114,7 +114,7 @@ public class PlayerInventory : MonoBehaviour
 
         //check if image is item image
         foreach (Image image in images) {
-            if (image.gameObject.tag == "itemImage") {
+            if (image.gameObject.tag == "item_image") {
                 return image;
             }
         }
@@ -128,7 +128,7 @@ public class PlayerInventory : MonoBehaviour
 
         //check if image is item background image
         foreach (Image image in images) {
-            if (image.gameObject.tag == "item_backgroundImage") {
+            if (image.gameObject.tag == "item_background_image") {
                 return image;
             }
         }

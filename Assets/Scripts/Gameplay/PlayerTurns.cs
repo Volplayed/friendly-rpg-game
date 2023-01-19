@@ -47,7 +47,7 @@ public class PlayerTurns : MonoBehaviour
     void Start()
     {
         //get curent turn text
-        currentTurnText = GameObject.FindGameObjectsWithTag("currentTurn")[0].GetComponent<TMP_Text>();
+        currentTurnText = GameObject.FindGameObjectsWithTag("current_turn")[0].GetComponent<TMP_Text>();
 
         //add all players to the list
         players = new GameObject[] { player1, player2, player3, player4 };
