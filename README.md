@@ -31,6 +31,7 @@ This project was greatly inspired by the [Pixel Dungeon](https://github.com/wata
 ## Updates
 
 Current version: **v1.1.1**
+- **v1.1.1d** - Changed code readability.
 - **v1.1.1** - Added missing button click sounds, renamed player prefabs.
 - **v1.1.0** - Sound options, player recieve exp for escaping.
 - **v1.0.0** - First release.
@@ -196,7 +197,7 @@ Make sure you have [Unity](https://unity3d.com/get-unity/download) installed, as
     ```
 
 ## Project status
-This project is currently in development. Any suggestions and ideas are welcome.
+This project is currently in passive state. Ocasionaly new features and bug fixes will be added.
 
 ## License
 `Friendly RPG` is free and open-source game licensed under the [MIT](https://choosealicense.com/licenses/mit/).
