@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28a3801aaa1b5a54b8b97c1103839487, type: 3}
-  m_Name: King of the Dead
+  m_Name: Hell Ruler
   m_EditorClassIdentifier: 
-  enemyName: King of the Dead
+  enemyName: Hell Ruler
   level: 0
-  maxHealth: 250
-  damage: 10
-  armor: 2
-  healValue: 18
-  critChance: 0.30000001192092896
+  maxHealth: 185
+  damage: 14
+  armor: 1.2
+  healValue: 9
+  critChance: 0.25
   dropChance: 0
   dropItems: []
   isBoss: 1
