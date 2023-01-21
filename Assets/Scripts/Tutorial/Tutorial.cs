@@ -347,6 +347,15 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    //close tutorial panel and disable retreat button
+    public void closeTutorialPanelDisableRetreatButton() {
+        //close tutorial panel
+        closeTutorialPanel();
+
+        //disable retreat button
+        retreatButton.interactable = false;
+    }
+
     //equip new item and open tutorial panel
     public void equipNewItemAndOpenTutorialPanel() {
         //equip new item
