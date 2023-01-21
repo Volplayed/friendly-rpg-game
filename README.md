@@ -31,7 +31,7 @@ This project was greatly inspired by the [Pixel Dungeon](https://github.com/wata
 ## Updates
 
 Current version: **v1.1.2**
-- **v1.1.2** - Added two new bosses, fixed tutoria problems.
+- **v1.1.2** - Added two new bosses, fixed tutorial problems.
 - **v1.1.1d** - Changed code readability.
 - **v1.1.1** - Added missing button click sounds, renamed player prefabs.
 - **v1.1.0** - Sound options, player recieve exp for escaping.
