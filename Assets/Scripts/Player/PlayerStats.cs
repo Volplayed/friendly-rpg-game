@@ -157,7 +157,7 @@ public class PlayerStats : MonoBehaviour
         return critChance;
     }
     public int getHeal() {
-        return System.Convert.ToInt32(intelligence / Coefficient.intelligencePerHeal) * Coefficient.healApplication + level;
+        return Formulas.calculateHealAmount(intelligence, level);
     }
     public int getMoves() {
         return moves;
@@ -180,7 +180,7 @@ public class PlayerStats : MonoBehaviour
 
     //calculates max health with formula
     public int getMaxHealth() {
-        return strength * Coefficient.healthPerStrength + bonusHealth;
+        return Formulas.calculateHealthPerStrength(strength) + bonusHealth;
     }
 
     public Enemy getEnemy() {
@@ -329,9 +329,9 @@ public class PlayerStats : MonoBehaviour
 
         //calculate other
         health = getMaxHealth();
-        armor = agility * Coefficient.armorPerAgility + bonusArmor;
-        critChance = intelligence * Coefficient.critChancePerIntelligence + bonusCritChance;
-        moves = agility / Coefficient.agilityPerMove + bonusMoves;
+        armor = Formulas.calculateArmorPerAgility(agility) + bonusArmor;
+        critChance = Formulas.calculateCritChancePerIntelligence(intelligence) + bonusCritChance;
+        moves = Formulas.calculateMoves(agility) + bonusMoves;
         //min moves value is 1, set 1 if less than 1
         if (moves < 1) {
             moves = 1;
@@ -341,7 +341,7 @@ public class PlayerStats : MonoBehaviour
             moves = 1 + bonusMoves;
         }
 
-        damage = level * Coefficient.damagePerLevel + bonusDamage;
+        damage = Formulas.calculateDamagePerLevel(level) + bonusDamage;
 
         //calculate exp
         calculateExp();
@@ -411,7 +411,7 @@ public class PlayerStats : MonoBehaviour
     //fight functions
     public int damageSelf(int value) {
         //overall damage
-        int reducedDamage = System.Convert.ToInt32(value * (100 - armor * Coefficient.armor)/100);
+        int reducedDamage = Formulas.calculateReducedDamage(value, armor);
 
         //minimal damage
         if (reducedDamage <= 0) {
@@ -566,7 +566,7 @@ public class PlayerStats : MonoBehaviour
             k = agility;
         }
         //k agility or intelligence * coefficient - enemy level and player level divercity * coefficient
-        escapeChance = k*Coefficient.enemyStatsEscapeChance - (level - enemy.getLevel()) * Coefficient.enemyLevelEscapeChance;
+        escapeChance = Formulas.calculateEscapeChanceVsEnemy(k, level, enemy.getLevel());
         //if to high chance
         if (escapeChance > 0.9) {
             escapeChance = 0.9;
@@ -688,7 +688,7 @@ public class PlayerStats : MonoBehaviour
         else {
             k = agility;
         }
-        escapeChance = k*Coefficient.playerStatsEscapeChance - otherAgility* Coefficient.playerEnemyStatsEscapeChance;
+        escapeChance = Formulas.calculateEscapeChanceVsPlayer(k, otherAgility);
         //if to high chance
         if (escapeChance > 0.85) {
             escapeChance = 0.85;

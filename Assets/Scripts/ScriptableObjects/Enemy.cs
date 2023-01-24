@@ -60,7 +60,7 @@ public class Enemy : ScriptableObject {
     }
     //damage recieved
     public int damageSelf(int value) {
-        int reducedDamage = System.Convert.ToInt32(value * (100 - armor * Coefficient.armor)/100);
+        int reducedDamage = Formulas.calculateReducedDamage(value, armor);
         if (reducedDamage <= 0) {
             reducedDamage = 1;
         }
