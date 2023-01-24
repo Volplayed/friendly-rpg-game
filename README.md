@@ -156,46 +156,7 @@ Make sure you have [Unity](https://unity3d.com/get-unity/download) installed, as
 
 > For example, if you want to increase the amount of health per strength, you need to change the value of `healthPerStrength` variable.
 
-#### Formulas
-- Damage reduction
-    ```
-    //value - amount of damage incoming
-    value * (100 - armor * Coefficient.armor)/100
-    ```
-- Health per strength
-    ```
-    strength * Coefficient.healthPerStrength
-    ```
-- Heal amount
-    ```
-    (intelligence / Coefficient.intelligencePerHeal) * Coefficient.healApplication + level
-    ```
-- Armor per agility
-    ```
-    agility * Coefficient.armorPerAgility
-    ```
-- Crit Chance per intelligence
-    ```
-    intelligence * Coefficient.critChancePerIntelligence
-    ```
-- Moves
-    ```
-    agility / Coefficient.agilityPerMove
-    ```
-- Damage
-    ```
-    level * Coefficient.damagePerLevel
-    ```
-- Escape chance vs enemy
-    ```
-    //k - player agility or intelligence
-    k*Coefficient.enemyStatsEscapeChance - (level - enemy.get_level()) * Coefficient.enemyLevelEscapeChance;
-    ```
-- Escape chance vs player
-    ```
-    //k - player agility or intelligence
-    k*Coefficient.playerStatsEscapeChance - other_agility* Coefficient.playerEnemyStatsEscapeChance
-    ```
+You can **find all formulas** that are used for calculating values in [Formulas.cs](/Assets/Scripts/Data/Formulas.cs).
 
 ## Project status
 This project is currently in passive state. Ocasionaly new features and bug fixes will be added.
