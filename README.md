@@ -30,7 +30,8 @@ This project was greatly inspired by the [Pixel Dungeon](https://github.com/wata
 
 ## Updates
 
-Current version: **v1.1.2**
+Current version: **v1.1.3**
+- **v1.1.3** - Made tutorial look a bit better on some devices, moved all formulas to the seperate file.
 - **v1.1.2** - Added two new bosses, fixed tutorial problems.
 - **v1.1.1d** - Changed code readability.
 - **v1.1.1** - Added missing button click sounds, renamed player prefabs.
