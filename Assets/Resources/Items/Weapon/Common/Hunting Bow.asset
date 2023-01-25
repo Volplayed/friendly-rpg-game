@@ -18,10 +18,10 @@ MonoBehaviour:
   itemType: weapon
   itemRarity: 0
   strength: 0
-  agility: 1
+  agility: 2
   intelligence: 0
   health: 0
   damage: 3
   armor: 0
-  critChance: 0.05
+  critChance: 0.08
   moves: 0
