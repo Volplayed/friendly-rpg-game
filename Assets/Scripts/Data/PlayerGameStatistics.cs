@@ -356,4 +356,156 @@ public class PlayerGameStatistics : MonoBehaviour
         }
     }
 
+    //load stats values from PlayerPrefs
+    public static void loadGameStatistics() {
+        //get games played set to 0 if not found
+        gamesPlayed = PlayerPrefs.GetInt("gamesPlayed", 0);
+        //get games won set to 0 if not found
+        gamesWonPlayer1 = PlayerPrefs.GetInt("gamesWonPlayer1", 0);
+        gamesWonPlayer2 = PlayerPrefs.GetInt("gamesWonPlayer2", 0);
+        gamesWonPlayer3 = PlayerPrefs.GetInt("gamesWonPlayer3", 0);
+        gamesWonPlayer4 = PlayerPrefs.GetInt("gamesWonPlayer4", 0);
+        //get games lost set to 0 if not found
+        gamesLostPlayer1 = PlayerPrefs.GetInt("gamesLostPlayer1", 0);
+        gamesLostPlayer2 = PlayerPrefs.GetInt("gamesLostPlayer2", 0);
+        gamesLostPlayer3 = PlayerPrefs.GetInt("gamesLostPlayer3", 0);
+        gamesLostPlayer4 = PlayerPrefs.GetInt("gamesLostPlayer4", 0);
+        //get mobs killed set to 0 if not found
+        mobsKilledPlayer1 = PlayerPrefs.GetInt("mobsKilledPlayer1", 0);
+        mobsKilledPlayer2 = PlayerPrefs.GetInt("mobsKilledPlayer2", 0);
+        mobsKilledPlayer3 = PlayerPrefs.GetInt("mobsKilledPlayer3", 0);
+        mobsKilledPlayer4 = PlayerPrefs.GetInt("mobsKilledPlayer4", 0);
+        //get players killed set to 0 if not found
+        playersKilledPlayer1 = PlayerPrefs.GetInt("playersKilledPlayer1", 0);
+        playersKilledPlayer2 = PlayerPrefs.GetInt("playersKilledPlayer2", 0);
+        playersKilledPlayer3 = PlayerPrefs.GetInt("playersKilledPlayer3", 0);
+        playersKilledPlayer4 = PlayerPrefs.GetInt("playersKilledPlayer4", 0);
+        //get deaths set to 0 if not found
+        deathsPlayer1 = PlayerPrefs.GetInt("deathsPlayer1", 0);
+        deathsPlayer2 = PlayerPrefs.GetInt("deathsPlayer2", 0);
+        deathsPlayer3 = PlayerPrefs.GetInt("deathsPlayer3", 0);
+        deathsPlayer4 = PlayerPrefs.GetInt("deathsPlayer4", 0);
+        //get damage dealt set to 0 if not found
+        damageDealtPlayer1 = PlayerPrefs.GetInt("damageDealtPlayer1", 0);
+        damageDealtPlayer2 = PlayerPrefs.GetInt("damageDealtPlayer2", 0);
+        damageDealtPlayer3 = PlayerPrefs.GetInt("damageDealtPlayer3", 0);
+        damageDealtPlayer4 = PlayerPrefs.GetInt("damageDealtPlayer4", 0);
+        //get damage received set to 0 if not found
+        damageReceivedPlayer1 = PlayerPrefs.GetInt("damageReceivedPlayer1", 0);
+        damageReceivedPlayer2 = PlayerPrefs.GetInt("damageReceivedPlayer2", 0);
+        damageReceivedPlayer3 = PlayerPrefs.GetInt("damageReceivedPlayer3", 0);
+        damageReceivedPlayer4 = PlayerPrefs.GetInt("damageReceivedPlayer4", 0);
+        //get healing done set to 0 if not found
+        healingDonePlayer1 = PlayerPrefs.GetInt("healingDonePlayer1", 0);
+        healingDonePlayer2 = PlayerPrefs.GetInt("healingDonePlayer2", 0);
+        healingDonePlayer3 = PlayerPrefs.GetInt("healingDonePlayer3", 0);
+        healingDonePlayer4 = PlayerPrefs.GetInt("healingDonePlayer4", 0);
+        //get fights escaped set to 0 if not found
+        fightsEscapedPlayer1 = PlayerPrefs.GetInt("fightsEscapedPlayer1", 0);
+        fightsEscapedPlayer2 = PlayerPrefs.GetInt("fightsEscapedPlayer2", 0);
+        fightsEscapedPlayer3 = PlayerPrefs.GetInt("fightsEscapedPlayer3", 0);
+        fightsEscapedPlayer4 = PlayerPrefs.GetInt("fightsEscapedPlayer4", 0);
+        //get levels gained set to 0 if not found
+        levelsGainedPlayer1 = PlayerPrefs.GetInt("levelsGainedPlayer1", 0);
+        levelsGainedPlayer2 = PlayerPrefs.GetInt("levelsGainedPlayer2", 0);
+        levelsGainedPlayer3 = PlayerPrefs.GetInt("levelsGainedPlayer3", 0);
+        levelsGainedPlayer4 = PlayerPrefs.GetInt("levelsGainedPlayer4", 0);
+        //get max level reached set to 1 if not found
+        maxLevelReachedPlayer1 = PlayerPrefs.GetInt("maxLevelReachedPlayer1", 1);
+        maxLevelReachedPlayer2 = PlayerPrefs.GetInt("maxLevelReachedPlayer2", 1);
+        maxLevelReachedPlayer3 = PlayerPrefs.GetInt("maxLevelReachedPlayer3", 1);
+        maxLevelReachedPlayer4 = PlayerPrefs.GetInt("maxLevelReachedPlayer4", 1);
+        //get items equipped set to 0 if not found
+        itemsEquippedPlayer1 = PlayerPrefs.GetInt("itemsEquippedPlayer1", 0);
+        itemsEquippedPlayer2 = PlayerPrefs.GetInt("itemsEquippedPlayer2", 0);
+        itemsEquippedPlayer3 = PlayerPrefs.GetInt("itemsEquippedPlayer3", 0);
+        itemsEquippedPlayer4 = PlayerPrefs.GetInt("itemsEquippedPlayer4", 0);
+        //get items declined set to 0 if not found
+        itemsDeclinedPlayer1 = PlayerPrefs.GetInt("itemsDeclinedPlayer1", 0);
+        itemsDeclinedPlayer2 = PlayerPrefs.GetInt("itemsDeclinedPlayer2", 0);
+        itemsDeclinedPlayer3 = PlayerPrefs.GetInt("itemsDeclinedPlayer3", 0);
+        itemsDeclinedPlayer4 = PlayerPrefs.GetInt("itemsDeclinedPlayer4", 0);
+        //get moves made set to 0 if not found
+        movesMadePlayer1 = PlayerPrefs.GetInt("movesMadePlayer1", 0);
+        movesMadePlayer2 = PlayerPrefs.GetInt("movesMadePlayer2", 0);
+        movesMadePlayer3 = PlayerPrefs.GetInt("movesMadePlayer3", 0);
+        movesMadePlayer4 = PlayerPrefs.GetInt("movesMadePlayer4", 0);
+    }
+
+    //save stats values to PlayerPrefs
+    public static void saveGameStatistics() {
+        //games played
+        PlayerPrefs.SetInt("gamesPlayed", gamesPlayed);
+        //games won
+        PlayerPrefs.SetInt("gamesWonPlayer1", gamesWonPlayer1);
+        PlayerPrefs.SetInt("gamesWonPlayer2", gamesWonPlayer2);
+        PlayerPrefs.SetInt("gamesWonPlayer3", gamesWonPlayer3);
+        PlayerPrefs.SetInt("gamesWonPlayer4", gamesWonPlayer4);
+        //games lost
+        PlayerPrefs.SetInt("gamesLostPlayer1", gamesLostPlayer1);
+        PlayerPrefs.SetInt("gamesLostPlayer2", gamesLostPlayer2);
+        PlayerPrefs.SetInt("gamesLostPlayer3", gamesLostPlayer3);
+        PlayerPrefs.SetInt("gamesLostPlayer4", gamesLostPlayer4);
+        //mobs killed
+        PlayerPrefs.SetInt("mobsKilledPlayer1", mobsKilledPlayer1);
+        PlayerPrefs.SetInt("mobsKilledPlayer2", mobsKilledPlayer2);
+        PlayerPrefs.SetInt("mobsKilledPlayer3", mobsKilledPlayer3);
+        PlayerPrefs.SetInt("mobsKilledPlayer4", mobsKilledPlayer4);
+        //players killed
+        PlayerPrefs.SetInt("playersKilledPlayer1", playersKilledPlayer1);
+        PlayerPrefs.SetInt("playersKilledPlayer2", playersKilledPlayer2);
+        PlayerPrefs.SetInt("playersKilledPlayer3", playersKilledPlayer3);
+        PlayerPrefs.SetInt("playersKilledPlayer4", playersKilledPlayer4);
+        //deaths
+        PlayerPrefs.SetInt("deathsPlayer1", deathsPlayer1);
+        PlayerPrefs.SetInt("deathsPlayer2", deathsPlayer2);
+        PlayerPrefs.SetInt("deathsPlayer3", deathsPlayer3);
+        PlayerPrefs.SetInt("deathsPlayer4", deathsPlayer4);
+        //damage dealt
+        PlayerPrefs.SetInt("damageDealtPlayer1", damageDealtPlayer1);
+        PlayerPrefs.SetInt("damageDealtPlayer2", damageDealtPlayer2);
+        PlayerPrefs.SetInt("damageDealtPlayer3", damageDealtPlayer3);
+        PlayerPrefs.SetInt("damageDealtPlayer4", damageDealtPlayer4);
+        //damage received
+        PlayerPrefs.SetInt("damageReceivedPlayer1", damageReceivedPlayer1);
+        PlayerPrefs.SetInt("damageReceivedPlayer2", damageReceivedPlayer2);
+        PlayerPrefs.SetInt("damageReceivedPlayer3", damageReceivedPlayer3);
+        PlayerPrefs.SetInt("damageReceivedPlayer4", damageReceivedPlayer4);
+        //healing done
+        PlayerPrefs.SetInt("healingDonePlayer1", healingDonePlayer1);
+        PlayerPrefs.SetInt("healingDonePlayer2", healingDonePlayer2);
+        PlayerPrefs.SetInt("healingDonePlayer3", healingDonePlayer3);
+        PlayerPrefs.SetInt("healingDonePlayer4", healingDonePlayer4);
+        //fights escaped
+        PlayerPrefs.SetInt("fightsEscapedPlayer1", fightsEscapedPlayer1);
+        PlayerPrefs.SetInt("fightsEscapedPlayer2", fightsEscapedPlayer2);
+        PlayerPrefs.SetInt("fightsEscapedPlayer3", fightsEscapedPlayer3);
+        PlayerPrefs.SetInt("fightsEscapedPlayer4", fightsEscapedPlayer4);
+        //levels gained
+        PlayerPrefs.SetInt("levelsGainedPlayer1", levelsGainedPlayer1);
+        PlayerPrefs.SetInt("levelsGainedPlayer2", levelsGainedPlayer2);
+        PlayerPrefs.SetInt("levelsGainedPlayer3", levelsGainedPlayer3);
+        PlayerPrefs.SetInt("levelsGainedPlayer4", levelsGainedPlayer4);
+        //max level reached
+        PlayerPrefs.SetInt("maxLevelReachedPlayer1", maxLevelReachedPlayer1);
+        PlayerPrefs.SetInt("maxLevelReachedPlayer2", maxLevelReachedPlayer2);
+        PlayerPrefs.SetInt("maxLevelReachedPlayer3", maxLevelReachedPlayer3);
+        PlayerPrefs.SetInt("maxLevelReachedPlayer4", maxLevelReachedPlayer4);
+        //items equipped
+        PlayerPrefs.SetInt("itemsEquippedPlayer1", itemsEquippedPlayer1);
+        PlayerPrefs.SetInt("itemsEquippedPlayer2", itemsEquippedPlayer2);
+        PlayerPrefs.SetInt("itemsEquippedPlayer3", itemsEquippedPlayer3);
+        PlayerPrefs.SetInt("itemsEquippedPlayer4", itemsEquippedPlayer4);
+        //items declined
+        PlayerPrefs.SetInt("itemsDeclinedPlayer1", itemsDeclinedPlayer1);
+        PlayerPrefs.SetInt("itemsDeclinedPlayer2", itemsDeclinedPlayer2);
+        PlayerPrefs.SetInt("itemsDeclinedPlayer3", itemsDeclinedPlayer3);
+        PlayerPrefs.SetInt("itemsDeclinedPlayer4", itemsDeclinedPlayer4);
+        //moves made
+        PlayerPrefs.SetInt("movesMadePlayer1", movesMadePlayer1);
+        PlayerPrefs.SetInt("movesMadePlayer2", movesMadePlayer2);
+        PlayerPrefs.SetInt("movesMadePlayer3", movesMadePlayer3);
+        PlayerPrefs.SetInt("movesMadePlayer4", movesMadePlayer4);
+    }
+
 }
