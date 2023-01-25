@@ -31,7 +31,7 @@ This project was greatly inspired by the [Pixel Dungeon](https://github.com/wata
 ## Updates
 
 Current version: **v1.1.3**
-- **v1.1.3** - Made tutorial look a bit better on some devices, moved all formulas to the seperate file.
+- **v1.1.3** - Buff hunting bow, made tutorial look a bit better on some devices, moved all formulas to the seperate file.
 - **v1.1.2** - Added two new bosses, fixed tutorial problems.
 - **v1.1.1d** - Changed code readability.
 - **v1.1.1** - Added missing button click sounds, renamed player prefabs.
@@ -100,67 +100,15 @@ Make sure you have [Unity](https://unity3d.com/get-unity/download) installed, as
 > Then you need to add this item to the `List of items` in the enemy you want to drop this item.
 
 ### Rebalancing
-- Go to [Coefficient.cs](./Assets/Scripts/Data/Coefficient.cs) script.
-- Change the value you need
-    ```
-    //armor coefficient
-    public static int armor;
-    ```
-    ```
-    //health per strength
-    public static int healthPerStrength;
-    ```
-    ```
-    //armor per agility
-    public static double armorPerAgility;
-    ```
-    ```
-    //crit chance per intelligence
-    public static double critChancePerIntelligence;
-    ```
-    ```
-    //amount of agility per one move
-    public static int agilityPerMove;
-    ```
-    ```
-    //damage per level
-    public static int damagePerLevel;
-    ```
-    ```
-    //vs enemy escape chance
-    public static double enemyLevelEscapeChance;
-    public static double enemyStatsEscapeChance;
-    ```
-    ```
-    //vs player escape chance
-    public static double playerEnemyStatsEscapeChance;
-    public static double playerStatsEscapeChance;
-    ```
-    ```
-    //heal
-    public static int intelligencePerHeal;
-    public static int healApplication;
-    ```
-    ```
-    //exp per level
-    public static int expPerPlayerLevel;
-    public static int expPerEnemyLevel;
-    ```
-    ```
-    //exp per enemy level for escape
-    public static int escapeExp
-    ```
-    ```
-    //default chance of fight while moving
-    public static double defaultFightChance;
-    ```
-
-> For example, if you want to increase the amount of health per strength, you need to change the value of `healthPerStrength` variable.
+- You can change all values in the scripts.
+- You can change all values in the `ScriptableObject` `Enemy` and `Item` instances.
+- You can change calculation formulas. 
 
 You can **find all formulas** that are used for calculating values in [Formulas.cs](/Assets/Scripts/Data/Formulas.cs).
+You can find **all variables** that are used for calculating values in [Coefficient.cs](/Assets/Scripts/Data/Coefficient.cs).
 
 ## Project status
-This project is currently in passive state. Ocasionaly new features and bug fixes will be added.
+This project is currently in passive state. Ocasionaly new features and bug fixes will be added. Any ideas and suggestions are welcome.
 
 ## License
 `Friendly RPG` is free and open-source game licensed under the [MIT](https://choosealicense.com/licenses/mit/).
