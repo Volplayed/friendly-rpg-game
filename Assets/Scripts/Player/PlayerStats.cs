@@ -722,10 +722,19 @@ public class PlayerStats : MonoBehaviour
 
             //finish fight for player
             finishFight();  
+
+            //get player UI
+            GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+            //get player turns component
+            PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+            //add escape to game statistics
+            PlayerGameStatistics.addFightsEscaped(playerTurns.getCurrentPlayerTurn() + 1);
         }
         //fail
         else {
-            result = false;       
+            result = false;
         }
         return result;
     }
@@ -785,6 +794,15 @@ public class PlayerStats : MonoBehaviour
         if (defaultIntelligence < 1) {
             defaultIntelligence = 1;
         }
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns component
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //add death to game statistics
+        PlayerGameStatistics.addDeaths(playerTurns.getPlayerTurn(gameObject) + 1);
+
         //calculate new stats
         calculateStats();
 
@@ -825,6 +843,9 @@ public class PlayerStats : MonoBehaviour
 
             //show can be attacked marker
             showCanBeAttackedMarker(true);
+        
+            //give other player player kills to game statistics
+            PlayerGameStatistics.addPlayersKilled(playerTurns.getCurrentPlayerTurn() + 1);
         }
     }
 
@@ -897,6 +918,9 @@ public class PlayerStats : MonoBehaviour
         //add player name to list of players that won
         StaticValuesController.winners.Add(playerName);
 
+        //add win to game statistics
+        PlayerGameStatistics.addGamesWon(playerTurns.getCurrentPlayerTurn() + 1);
+
         //go to next turn
         playerTurns.nextTurn();
     }
@@ -911,6 +935,9 @@ public class PlayerStats : MonoBehaviour
 
         //get player turns component
         PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+        
+        //add lose to game statistics
+        PlayerGameStatistics.addGamesLost(playerTurns.getCurrentPlayerTurn() + 1);
 
         //go to next turn
         playerTurns.nextTurn();

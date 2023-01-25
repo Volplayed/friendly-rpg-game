@@ -120,6 +120,24 @@ public class PlayerTurns : MonoBehaviour
         return players[currentPlayerTurn];
     }
 
+    //return a player turn index
+    public int getCurrentPlayerTurn() {
+        return currentPlayerTurn;
+    }
+
+    //return a palayer turn index by player
+    public int getPlayerTurn(GameObject player) {
+        for (int i = 0; i < players.Count(); i++)
+        {
+            //Check if GameObject is in the List
+            if (players[i] == player)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     //return level up panel
     public GameObject getLevelUpPanel() {
         return levelUpPanel;
@@ -374,6 +392,9 @@ public class PlayerTurns : MonoBehaviour
                 return;
             }
         }
+        //save game statistics
+        PlayerGameStatistics.saveGameStatistics();
+
         //if every player lost or won open main menu scene and show stats
         SceneManager.LoadScene("MainMenu");
         

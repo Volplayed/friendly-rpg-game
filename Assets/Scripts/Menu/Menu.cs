@@ -115,6 +115,9 @@ public class Menu : MonoBehaviour
         //get load scene script
         LoadingGame loadSceneScript = sceneLoader.GetComponent<LoadingGame>();
 
+        //load game statistics
+        PlayerGameStatistics.loadGameStatistics();
+
         //load game scene
         loadSceneScript.LoadScene(1);
     }
