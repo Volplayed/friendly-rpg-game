@@ -19,6 +19,9 @@ public class Menu : MonoBehaviour
     //menu panel
     public GameObject menuPanel;
 
+    //player game statistics panel
+    public GameObject playerGameStatisticsPanel;
+
     //after game stats canvas
     public GameObject afterGameStatsCanvas;
 
@@ -154,6 +157,9 @@ public class Menu : MonoBehaviour
         //set game length panel inactive
         gameLengthPanel.SetActive(false);
 
+        //set player game statistics panel inactive
+        playerGameStatisticsPanel.SetActive(false);
+
         //set menu panel active
         menuPanel.SetActive(true);
     }
@@ -196,6 +202,24 @@ public class Menu : MonoBehaviour
 
         //play button click sound
         playButtonClickSound();
+    }
+
+    //open player game statistics
+    public void openPlayerGameStatistics() {
+        //play button click sound
+        playButtonClickSound();
+
+        //get game statistics loader script
+        GameStatisticsLoader gameStatisticsLoaderScript = playerGameStatisticsPanel.GetComponent<GameStatisticsLoader>();
+
+        //load and set game statistics
+        gameStatisticsLoaderScript.loadAndSetGameStatistics();
+
+        //set player game statistics panel active
+        playerGameStatisticsPanel.SetActive(true);
+
+        //set menu panel inactive
+        menuPanel.SetActive(false);
     }
 
     
