@@ -19,6 +19,7 @@ The game has a lot of different mechanics, such as:
 - **Escape** - you can escape from the fight.
 - **Bosses** - you can fight with bosses.
 - **Win/Lose** - you can win or lose the game.
+- **Game Stats** - you can see your game stats.
 
 This project was greatly inspired by the [Pixel Dungeon](https://github.com/watabou/pixel-dungeon) game.
 
@@ -30,7 +31,9 @@ This project was greatly inspired by the [Pixel Dungeon](https://github.com/wata
 
 ## Updates
 
-Current version: **v1.1.3**
+Current version: **v1.2.0**
+
+- **v1.2.0** - Added game statistics that hold information about all players.
 - **v1.1.3** - Buff hunting bow, made tutorial look a bit better on some devices, moved all formulas to the seperate file.
 - **v1.1.2** - Added two new bosses, fixed tutorial problems.
 - **v1.1.1d** - Changed code readability.
