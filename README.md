@@ -34,11 +34,11 @@ This project was greatly inspired by the [Pixel Dungeon](https://github.com/wata
 Current version: **v1.2.0**
 
 - **v1.2.0** - Added game statistics that hold information about all players.
-- **v1.1.3** - Buff hunting bow, made tutorial look a bit better on some devices, moved all formulas to the seperate file.
+- **v1.1.3** - Buff hunting bow, made tutorial look a bit better on some devices, moved all formulas to a separate file.
 - **v1.1.2** - Added two new bosses, fixed tutorial problems.
 - **v1.1.1d** - Changed code readability.
 - **v1.1.1** - Added missing button click sounds, renamed player prefabs.
-- **v1.1.0** - Sound options, player recieve exp for escaping.
+- **v1.1.0** - Sound options, player receives exp for escaping.
 - **v1.0.0** - First release.
 
 The game is using [Semantic Versioning](https://semver.org/).
@@ -47,20 +47,20 @@ The game is using [Semantic Versioning](https://semver.org/).
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
 
-If you want to make your own versions of the game there are some points that might help.
+If you want to make your versions of the game some points might help.
 
 Make sure you have [Unity](https://unity3d.com/get-unity/download) installed, as the game is made using Unity.
 
 > If you want to add new enemies or items you need to know how to use Unity Editor, rebalancing for example can be done without Unity Editor only by changing values in the scripts.
 
 ### Creating new enemies
-- Create instance of an `ScriptableObject` `Enemy`.
+- Create an instance of a `ScriptableObject` `Enemy`.
     > You can create it in any folder you want, but 
-    > it is recommended to save each enemy in the apropriate level folder.
+    > it is recommended to save each enemy in the appropriate level folder.
 - Set all enemy variables
     - `Name`
         > Try to make it not too long.
-    - `Level` (recomended max level is 10)
+    - `Level` (recommended max level is 10)
     - `Health`
     - `Damage`
     - `Armor` (then multiplied by a coefficient)
@@ -70,22 +70,22 @@ Make sure you have [Unity](https://unity3d.com/get-unity/download) installed, as
     - `List of items`
         > You can add items to this list to make this enemy drop them.
         > Please note that each enemy except bosses must have at least one item in this list.
-- If enemy is a boss check `is boss` value.
-    > Bosses appear only in the end of the game.
-- Add enemy object to `Enemies` list in `EnemyList` prefab.
-    > If enemy is a boss add it to `Bosses` list in `EnemyList` prefab.
+- If an enemy is a boss check the `is boss` value.
+    > Bosses appear only at the end of the game.
+- Add an enemy object to the `Enemies` list in the `EnemyList` prefab.
+    > If the enemy is a boss add it to the `Bosses` list in the `EnemyList` prefab.
 
-> For example, if you want to add a new level 5 enemy to the game, you need to create a new `ScriptableObject` `Enemy`, set it's `name`, `level` to 5, `health`, `damage`, `armor`, `crit chance`, `drop chance`, and add it to the `Enemies` list in the `EnemyList` prefab.
+> For example, if you want to add a new level 5 enemy to the game, you need to create a new `ScriptableObject` `Enemy`, set its `name`, `level` to 5, `health`, `damage`, `armor`, `crit chance`, `drop chance`, and add it to the `Enemies` list in the `EnemyList` prefab.
 
 ### Creating new items
-- Create instance of an `ScriptableObject` `Item`.
+- Create an instance of a `ScriptableObject` `Item`.
     > You can create it in any folder you want, but
-    > it is recommended to save each item in it's type folder and sort in rarity folders.
+    > it is recommended to save each item in its type folder and sort in rarity folders.
 - Set all variables
     - `Name`
     - `Description`
         > Long description may not fit in the item description window.
-    - Create and add item `Icon`
+    - Create and add the item `Icon`
         > Icon should be 24x24 pixels.
         > You can use [this](https://www.piskelapp.com/p/create/sprite) website to create icons.
     - `Type` (Body, Head, Leg, Feet, Hands, Ring, Weapon)
@@ -97,9 +97,9 @@ Make sure you have [Unity](https://unity3d.com/get-unity/download) installed, as
        - 4 - *Legendary*
        - 5 - *Mythical*
     - Bonus variables.
-        > For example, if item is a weapon, you should set `Damage` and `Crit Chance` variables.
+        > For example, if the item is a weapon, you should set the `Damage` and `Crit Chance` variables.
 
-> For example, if you want to add a new rare helmet to the game, you need to create a new `ScriptableObject` `Item`, set it's `name`, `description`, set `type` value to head, `rarity` to 2 (rare), add `icon`, and set all bonuses this item gives player.
+> For example, if you want to add a new rare helmet to the game, you need to create a new `ScriptableObject` `Item`, set its `name`, `description`, set `type` value to head, `rarity` to 2 (rare), add `icon`, and set all bonuses this item gives the player.
 > Then you need to add this item to the `List of items` in the enemy you want to drop this item.
 
 ### Rebalancing
@@ -111,9 +111,8 @@ You can **find all formulas** that are used for calculating values in [Formulas.
 You can find **all variables** that are used for calculating values in [Coefficient.cs](/Assets/Scripts/Data/Coefficient.cs).
 
 ## Project status
-This project is currently in passive state. Ocasionaly new features and bug fixes will be added. Any ideas and suggestions are welcome.
+This project is currently in a passive state. Occasionally new features and bug fixes will be added. Any ideas and suggestions are welcome.
 
 ## License
-`Friendly RPG` is free and open-source game licensed under the [MIT](https://choosealicense.com/licenses/mit/).
-All images and visuals were created by [Volodymyr Fedyniak](https://www.linkedin.com/in/volodymyr-fedyniak/) and distributed under Creative Commons license ([CC BY-SA 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)).
-
+`Friendly RPG` is a free and open-source game licensed under [MIT](https://choosealicense.com/licenses/mit/).
+All images and visuals were created by [Volodymyr Fedyniak](https://www.linkedin.com/in/volodymyr-fedyniak/) and distributed under a Creative Commons license ([CC BY-SA 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)).
