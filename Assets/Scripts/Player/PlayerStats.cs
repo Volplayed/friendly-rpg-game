@@ -68,6 +68,9 @@ public class PlayerStats : MonoBehaviour
     private bool didWin = false;
     private bool didLose = false;
 
+    //player turns component
+    private PlayerTurns playerTurns;
+
     void Start()
     {       
         //starting values
@@ -85,7 +88,7 @@ public class PlayerStats : MonoBehaviour
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
         //get player turns component
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+        playerTurns = playerUI.GetComponent<PlayerTurns>();
 
         //get level up panel
         levelUpPanel = playerTurns.getLevelUpPanel();
@@ -392,9 +395,6 @@ public class PlayerStats : MonoBehaviour
         //get player ui
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
-        //get player turns
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
-
         //set enable movement to false if value is true
         if (value) {
             playerTurns.enableMovement(false);
@@ -445,6 +445,9 @@ public class PlayerStats : MonoBehaviour
         else {
             health = maxHealth;
         }
+
+        
+
         //difference of new health after heal and health before heal
         return health - healthBefore;
     }
@@ -463,9 +466,6 @@ public class PlayerStats : MonoBehaviour
 
         //get playerFight
         PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
-
-        //get player turns component
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
         //get fight panel
         GameObject fightPanel = playerTurns.fightPanel;
@@ -513,9 +513,6 @@ public class PlayerStats : MonoBehaviour
 
          //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
-
-        //get player turns component
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
         //get playerFigth component
         PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
@@ -582,6 +579,9 @@ public class PlayerStats : MonoBehaviour
         //chance depends only on player intelligence or agility
         double escapeChance = getEscapeChanceVsEnemy();
 
+        //get player UI
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+            
         //result
         bool result;
         //success
@@ -591,6 +591,9 @@ public class PlayerStats : MonoBehaviour
             //give player exp for escaping depending on enemy level plus random value
             giveExp(enemy.getLevel() * Coefficient.escapeExpPerEnemyLevel + Random.Range(0, 3));
 
+            //add escape to game statistics
+            PlayerGameStatistics.addFightsEscaped(playerTurns.getCurrentPlayerTurn() + 1);
+
             //finish fight
             finishFight();
         }
@@ -598,8 +601,6 @@ public class PlayerStats : MonoBehaviour
         else {
             result = false;
 
-            //get player UI
-            GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
             
             //get playerFight component
             PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
@@ -633,9 +634,6 @@ public class PlayerStats : MonoBehaviour
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
-
-        //get player turns component
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
         //get playerFigth component
         PlayerFight playerFight = playerUI.GetComponent<PlayerFight>();
@@ -726,8 +724,6 @@ public class PlayerStats : MonoBehaviour
             //get player UI
             GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
-            //get player turns component
-            PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
             //add escape to game statistics
             PlayerGameStatistics.addFightsEscaped(playerTurns.getCurrentPlayerTurn() + 1);
@@ -796,9 +792,6 @@ public class PlayerStats : MonoBehaviour
         }
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
-
-        //get player turns component
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
 
         //add death to game statistics
         PlayerGameStatistics.addDeaths(playerTurns.getPlayerTurn(gameObject) + 1);
@@ -912,9 +905,6 @@ public class PlayerStats : MonoBehaviour
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
 
-        //get player turns component
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
-
         //add player name to list of players that won
         StaticValuesController.winners.Add(playerName);
 
@@ -932,9 +922,6 @@ public class PlayerStats : MonoBehaviour
 
         //get player UI
         GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
-
-        //get player turns component
-        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
         
         //add lose to game statistics
         PlayerGameStatistics.addGamesLost(playerTurns.getCurrentPlayerTurn() + 1);
