@@ -79,11 +79,11 @@ public class PlayerGameStatistics : MonoBehaviour
     public static int itemsEquippedPlayer3 = 0;
     public static int itemsEquippedPlayer4 = 0;
 
-    //items declined
-    public static int itemsDeclinedPlayer1 = 0;
-    public static int itemsDeclinedPlayer2 = 0;
-    public static int itemsDeclinedPlayer3 = 0;
-    public static int itemsDeclinedPlayer4 = 0;
+    //items discarded
+    public static int itemsDiscardedPlayer1 = 0;
+    public static int itemsDiscardedPlayer2 = 0;
+    public static int itemsDiscardedPlayer3 = 0;
+    public static int itemsDiscardedPlayer4 = 0;
 
     //moves made
     public static int movesMadePlayer1 = 0;
@@ -204,8 +204,8 @@ public class PlayerGameStatistics : MonoBehaviour
         }
     }
 
-    //add damage received
-    public static void addDamageReceived(int playerNumber, int damage) {
+    //add damage recieved
+    public static void addDamageRecieved(int playerNumber, int damage) {
         switch (playerNumber) {
             case 1:
                 damageReceivedPlayer1 += damage;
@@ -320,20 +320,20 @@ public class PlayerGameStatistics : MonoBehaviour
         }
     }
 
-    //add items declined
-    public static void addItemsDeclined(int playerNumber) {
+    //add items discarded
+    public static void addItemsDiscarded(int playerNumber) {
         switch (playerNumber) {
             case 1:
-                itemsDeclinedPlayer1++;
+                itemsDiscardedPlayer1++;
                 break;
             case 2:
-                itemsDeclinedPlayer2++;
+                itemsDiscardedPlayer2++;
                 break;
             case 3:
-                itemsDeclinedPlayer3++;
+                itemsDiscardedPlayer3++;
                 break;
             case 4:
-                itemsDeclinedPlayer4++;
+                itemsDiscardedPlayer4++;
                 break;
         }
     }
@@ -420,11 +420,11 @@ public class PlayerGameStatistics : MonoBehaviour
         itemsEquippedPlayer2 = PlayerPrefs.GetInt("itemsEquippedPlayer2", 0);
         itemsEquippedPlayer3 = PlayerPrefs.GetInt("itemsEquippedPlayer3", 0);
         itemsEquippedPlayer4 = PlayerPrefs.GetInt("itemsEquippedPlayer4", 0);
-        //get items declined set to 0 if not found
-        itemsDeclinedPlayer1 = PlayerPrefs.GetInt("itemsDeclinedPlayer1", 0);
-        itemsDeclinedPlayer2 = PlayerPrefs.GetInt("itemsDeclinedPlayer2", 0);
-        itemsDeclinedPlayer3 = PlayerPrefs.GetInt("itemsDeclinedPlayer3", 0);
-        itemsDeclinedPlayer4 = PlayerPrefs.GetInt("itemsDeclinedPlayer4", 0);
+        //get items discarded set to 0 if not found
+        itemsDiscardedPlayer1 = PlayerPrefs.GetInt("itemsDiscardedPlayer1", 0);
+        itemsDiscardedPlayer2 = PlayerPrefs.GetInt("itemsDiscardedPlayer2", 0);
+        itemsDiscardedPlayer3 = PlayerPrefs.GetInt("itemsDiscardedPlayer3", 0);
+        itemsDiscardedPlayer4 = PlayerPrefs.GetInt("itemsDiscardedPlayer4", 0);
         //get moves made set to 0 if not found
         movesMadePlayer1 = PlayerPrefs.GetInt("movesMadePlayer1", 0);
         movesMadePlayer2 = PlayerPrefs.GetInt("movesMadePlayer2", 0);
@@ -496,11 +496,11 @@ public class PlayerGameStatistics : MonoBehaviour
         PlayerPrefs.SetInt("itemsEquippedPlayer2", itemsEquippedPlayer2);
         PlayerPrefs.SetInt("itemsEquippedPlayer3", itemsEquippedPlayer3);
         PlayerPrefs.SetInt("itemsEquippedPlayer4", itemsEquippedPlayer4);
-        //items declined
-        PlayerPrefs.SetInt("itemsDeclinedPlayer1", itemsDeclinedPlayer1);
-        PlayerPrefs.SetInt("itemsDeclinedPlayer2", itemsDeclinedPlayer2);
-        PlayerPrefs.SetInt("itemsDeclinedPlayer3", itemsDeclinedPlayer3);
-        PlayerPrefs.SetInt("itemsDeclinedPlayer4", itemsDeclinedPlayer4);
+        //items discarded
+        PlayerPrefs.SetInt("itemsDiscardedPlayer1", itemsDiscardedPlayer1);
+        PlayerPrefs.SetInt("itemsDiscardedPlayer2", itemsDiscardedPlayer2);
+        PlayerPrefs.SetInt("itemsDiscardedPlayer3", itemsDiscardedPlayer3);
+        PlayerPrefs.SetInt("itemsDiscardedPlayer4", itemsDiscardedPlayer4);
         //moves made
         PlayerPrefs.SetInt("movesMadePlayer1", movesMadePlayer1);
         PlayerPrefs.SetInt("movesMadePlayer2", movesMadePlayer2);

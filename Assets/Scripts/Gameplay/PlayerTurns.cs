@@ -392,6 +392,9 @@ public class PlayerTurns : MonoBehaviour
                 return;
             }
         }
+        //add games played to game statistics
+        PlayerGameStatistics.addGamesPlayed();
+
         //save game statistics
         PlayerGameStatistics.saveGameStatistics();
 

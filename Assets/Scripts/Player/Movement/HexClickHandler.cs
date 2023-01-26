@@ -61,6 +61,9 @@ public class HexClickHandler : MonoBehaviour
 
         //reset all hex colliders
         playerStats.resetHexColliders();
+
+        //add move to game statistics
+        PlayerGameStatistics.addMovesMade(playerTurns.getCurrentPlayerTurn() + 1);
     }
 
     void OnTriggerEnter2D(Collider2D col)

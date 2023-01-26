@@ -376,6 +376,12 @@ public class PlayerStats : MonoBehaviour
         //set level up text
         levelUpText.SetText("You achived level " + level);
 
+        //add level up to game statistics
+        PlayerGameStatistics.addLevelsGained(playerTurns.getPlayerTurn(gameObject) + 1);
+
+        //check if level is max and set it in game statistics
+        PlayerGameStatistics.checkMaxLevelReached(playerTurns.getPlayerTurn(gameObject) + 1, level);
+
     }
 
     //activate/disactivate levelUp panel
@@ -417,8 +423,17 @@ public class PlayerStats : MonoBehaviour
         if (reducedDamage <= 0) {
             reducedDamage = 1;
         }
+        //set health
         health -= reducedDamage;
         
+        //add reduce damage to damage recieved in game statistics 
+        PlayerGameStatistics.addDamageRecieved(playerTurns.getPlayerTurn(gameObject) + 1, reducedDamage);
+
+        //if player fights with player add damage dealt for other player to game statistics
+        if (enemyPlayer != null) {
+            PlayerGameStatistics.addDamageDealt(playerTurns.getPlayerTurn(enemyPlayer) + 1, reducedDamage);
+        }
+
         //check if player is dead
         checkDeath();
 
@@ -446,7 +461,8 @@ public class PlayerStats : MonoBehaviour
             health = maxHealth;
         }
 
-        
+        //add health before and new health difference to game statistics
+        PlayerGameStatistics.addHealingDone(playerTurns.getCurrentPlayerTurn() + 1, health - healthBefore);
 
         //difference of new health after heal and health before heal
         return health - healthBefore;

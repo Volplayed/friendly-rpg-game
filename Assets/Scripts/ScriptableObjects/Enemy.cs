@@ -66,6 +66,15 @@ public class Enemy : ScriptableObject {
         }
         health -= reducedDamage;
 
+        //get player ui
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+        //add reduced damage to game statistics
+        PlayerGameStatistics.addDamageDealt(playerTurns.getCurrentPlayerTurn() + 1, reducedDamage);
+
         return reducedDamage;
     }
 
@@ -92,6 +101,15 @@ public class Enemy : ScriptableObject {
             }
             //give exp to player based on level and some additional random value
             stats.giveExp(level * Coefficient.expPerEnemyLevel + UnityEngine.Random.Range(0, 3));
+
+            //get player ui
+            GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+            //get player turns
+            PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+            //add mobs killed to game statistics
+            PlayerGameStatistics.addMobsKilled(playerTurns.getCurrentPlayerTurn() + 1);
         }
         //if enemy is a boss
         else if (isBoss) {

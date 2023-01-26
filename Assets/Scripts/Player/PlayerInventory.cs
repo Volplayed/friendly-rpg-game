@@ -364,6 +364,22 @@ public class PlayerInventory : MonoBehaviour
         activateNewItemPanel(false);
     }
 
+    //discard new item
+    public void discardNewItem() {
+        //close new item panel
+        closeNewItemPanel();
+
+        //get player ui
+        GameObject playerUI = GameObject.FindGameObjectsWithTag("player_ui")[0];
+
+        //get player turns
+        PlayerTurns playerTurns = playerUI.GetComponent<PlayerTurns>();
+
+
+        //add items discarded to game statistics
+        PlayerGameStatistics.addItemsDiscarded(playerTurns.getCurrentPlayerTurn() + 1);
+    }
+
     //activate/disactivate new item panel
     public void activateNewItemPanel(bool value) {
         newItemPanel.SetActive(value);
@@ -482,6 +498,10 @@ public class PlayerInventory : MonoBehaviour
         if (getOldItemOfType(item.itemType, player) != null) {
             getOldItemOfType(item.itemType, player).unequipItem(player);
         }
+
+        //add item equipped to game statistics
+        PlayerGameStatistics.addItemsEquipped(playerTurns.getCurrentPlayerTurn() + 1);
+
 
         //equip item
         item.equipItem(player);
