@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHealth: 210
   damage: 9
   armor: 4.5
-  healValue: 10
+  healValue: 7
   critChance: 0.4000000059604645
   dropChance: 0
   dropItems: []

@@ -316,6 +316,9 @@ public class Tutorial : MonoBehaviour
 
         //enable all hexes
         enableHexClickHandlers(true);
+
+        //disable end turn button
+        endTurnButton.interactable = false;
     }
 
     //close tutorial panel disable all fught buttons except attack button

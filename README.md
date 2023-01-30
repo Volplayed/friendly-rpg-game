@@ -31,8 +31,9 @@ This project was greatly inspired by the [Pixel Dungeon](https://github.com/wata
 
 ## Updates
 
-Current version: **v1.2.0**
+Current version: **v1.2.1**
 
+- **v1.2.1** - Fixed game statistics adaptivity, fixed tutorial bug, nerfed Orc Mutant boss.
 - **v1.2.0** - Added game statistics that hold information about all players.
 - **v1.1.3** - Buff hunting bow, made tutorial look a bit better on some devices, moved all formulas to a separate file.
 - **v1.1.2** - Added two new bosses, fixed tutorial problems.
