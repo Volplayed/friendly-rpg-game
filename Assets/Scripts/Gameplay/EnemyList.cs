@@ -22,22 +22,22 @@ public class EnemyList : MonoBehaviour
     public Enemy[] bosses;
 
     //turns until next enemy list iteration
-    public int turns_until_next_enemy_list_iteration = 15;
+    public int turnsUntilNextEnemyListIteration = 15;
 
     //enemy matrix
-    private Enemy[][] enemy_matrix = new Enemy[10][];
+    private Enemy[][] enemyMatrix = new Enemy[10][];
 
     //current enemy list iteration
-    private int current_stage_bottom = 0; //level 1
-    private int current_stage_top = 1; //level 2
+    private int currentStageBottom = 0; //level 1
+    private int currentStageTop = 1; //level 2
 
     void Awake() {
         //generate enemy matrix
-        generate_enemy_matrix();
+        generateEnemyMatrix();
     }
 
     //get max enemy level
-    private int get_max_enemy_level() {
+    private int getMaxEnemyLevel() {
         int max = 0;
 
         //get length of list
@@ -54,7 +54,7 @@ public class EnemyList : MonoBehaviour
     }
 
     //generate enemy matrix
-    public void generate_enemy_matrix() {
+    public void generateEnemyMatrix() {
         //get length of list
         int n = enemies.Length;
 
@@ -66,53 +66,53 @@ public class EnemyList : MonoBehaviour
             //add enemy to list
             switch (level) {
                 case 1:
-                    enemyLevel1 = add_enemy_to_list(enemyLevel1, enemy);
+                    enemyLevel1 = addEnemyToList(enemyLevel1, enemy);
                     break;
                 case 2:
-                    enemyLevel2 = add_enemy_to_list(enemyLevel2, enemy);
+                    enemyLevel2 = addEnemyToList(enemyLevel2, enemy);
                     break;
                 case 3:
-                    enemyLevel3 = add_enemy_to_list(enemyLevel3, enemy);
+                    enemyLevel3 = addEnemyToList(enemyLevel3, enemy);
                     break;
                 case 4:
-                    enemyLevel4 = add_enemy_to_list(enemyLevel4, enemy);
+                    enemyLevel4 = addEnemyToList(enemyLevel4, enemy);
                     break;
                 case 5:
-                    enemyLevel5 = add_enemy_to_list(enemyLevel5, enemy);
+                    enemyLevel5 = addEnemyToList(enemyLevel5, enemy);
                     break;
                 case 6:
-                    enemyLevel6 = add_enemy_to_list(enemyLevel6, enemy);
+                    enemyLevel6 = addEnemyToList(enemyLevel6, enemy);
                     break;
                 case 7:
-                    enemyLevel7 = add_enemy_to_list(enemyLevel7, enemy);
+                    enemyLevel7 = addEnemyToList(enemyLevel7, enemy);
                     break;
                 case 8:
-                    enemyLevel8 = add_enemy_to_list(enemyLevel8, enemy);
+                    enemyLevel8 = addEnemyToList(enemyLevel8, enemy);
                     break;
                 case 9:
-                    enemyLevel9 = add_enemy_to_list(enemyLevel9, enemy);
+                    enemyLevel9 = addEnemyToList(enemyLevel9, enemy);
                     break;
                 case 10:
-                    enemyLevel10 = add_enemy_to_list(enemyLevel10, enemy);
+                    enemyLevel10 = addEnemyToList(enemyLevel10, enemy);
                     break;
             }
         }
 
         //add lists to matrix
-        enemy_matrix[0] = enemyLevel1;
-        enemy_matrix[1] = enemyLevel2;
-        enemy_matrix[2] = enemyLevel3;
-        enemy_matrix[3] = enemyLevel4;
-        enemy_matrix[4] = enemyLevel5;
-        enemy_matrix[5] = enemyLevel6;
-        enemy_matrix[6] = enemyLevel7;
-        enemy_matrix[7] = enemyLevel8;
-        enemy_matrix[8] = enemyLevel9;
-        enemy_matrix[9] = enemyLevel10;
+        enemyMatrix[0] = enemyLevel1;
+        enemyMatrix[1] = enemyLevel2;
+        enemyMatrix[2] = enemyLevel3;
+        enemyMatrix[3] = enemyLevel4;
+        enemyMatrix[4] = enemyLevel5;
+        enemyMatrix[5] = enemyLevel6;
+        enemyMatrix[6] = enemyLevel7;
+        enemyMatrix[7] = enemyLevel8;
+        enemyMatrix[8] = enemyLevel9;
+        enemyMatrix[9] = enemyLevel10;
     }
 
     //add enemy to list
-    private Enemy[] add_enemy_to_list(Enemy[] list, Enemy enemy) {
+    private Enemy[] addEnemyToList(Enemy[] list, Enemy enemy) {
         //get length of list
         int n = list.Length;
 
@@ -131,12 +131,12 @@ public class EnemyList : MonoBehaviour
     }
 
     //get enemies
-    public Enemy get_random_enemy() {
+    public Enemy getRandomEnemy() {
         //random value which determines which stage the enemy is in
-        int stage = Random.Range(current_stage_bottom, current_stage_top + 1);
+        int stage = Random.Range(currentStageBottom, currentStageTop + 1);
 
         //get list of enemies in stage
-        Enemy[] enemyList = enemy_matrix[stage];
+        Enemy[] enemyList = enemyMatrix[stage];
 
         //get length of list
         int n = enemyList.Length;
@@ -201,16 +201,16 @@ public class EnemyList : MonoBehaviour
     //next stage
     public void nextStage(int currentTurn) {
         //check if current turn % next enemy list iteration = 0
-        if (currentTurn % turns_until_next_enemy_list_iteration == 0) {
+        if (currentTurn % turnsUntilNextEnemyListIteration == 0) {
             //increment current stage
-            current_stage_bottom++;
-            current_stage_top++;
+            currentStageBottom++;
+            currentStageTop++;
 
             //check if current stage is greater than max enemy level
-            if (current_stage_top > get_max_enemy_level()) {
+            if (currentStageTop > getMaxEnemyLevel()) {
                 //set current stage to max enemy level
-                current_stage_bottom = get_max_enemy_level();
-                current_stage_top = get_max_enemy_level();
+                currentStageBottom = getMaxEnemyLevel();
+                currentStageTop = getMaxEnemyLevel();
             }
         }
     }

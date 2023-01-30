@@ -239,7 +239,7 @@ public class HexClickHandler : MonoBehaviour
     //start fight with some chance
     private void randomFightCheck(double chance) {
         if (chance >= Random.Range(0f, 1)) {
-            playerStats.startFight(enemyList.get_random_enemy());
+            playerStats.startFight(enemyList.getRandomEnemy());
         }
     }
 
